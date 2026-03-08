@@ -316,7 +316,7 @@ const Checkout = () => {
             </div>
 
             {/* Order summary sidebar */}
-            {step !== "done" && (
+            {(step as string) !== "done" && (
               <div className="lg:col-span-1">
                 <div className="sticky top-24 p-5 rounded-lg bg-card border border-border/50 space-y-4">
                   <h3 className="font-display text-lg text-foreground">Resumo do pedido</h3>
