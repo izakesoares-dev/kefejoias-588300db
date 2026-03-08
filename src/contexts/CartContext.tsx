@@ -23,7 +23,7 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 
 const CART_KEY = "kefe-cart";
 
-const getCartKey = (productId: string, size?: number) => `${productId}-${size ?? "unique"}`;
+
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [items, setItems] = useState<CartItem[]>(() => {
