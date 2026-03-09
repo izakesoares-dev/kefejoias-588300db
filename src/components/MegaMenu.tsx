@@ -38,7 +38,7 @@ const menuData = {
       { label: "Pirâmides Quânticas", href: "/piramides-quanticas" },
       { label: "Santinhas de Pedra", href: "/santinhas-pedra" },
       { label: "Mandalas de Resina", href: "/mandalas-resina" },
-      { label: "Incensários com Pedras", href: "/incensarios-pedras" },
+      { label: "Incensários de Resina", href: "/incensarios-resina" },
       { label: "Kits Presente", href: "/kits-presente" },
     ],
   },
