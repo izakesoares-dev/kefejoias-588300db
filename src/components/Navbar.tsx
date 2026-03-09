@@ -6,11 +6,20 @@ import kefeLogo from "@/assets/kefe-logo.png";
 import { useCart } from "@/contexts/CartContext";
 
 const categoryMenuData = {
+  acoInox: {
+    label: "Aço Inox",
+    href: "/aco-inox",
+    items: [
+      { label: "Anéis de Aço Inox", href: "/aneis-aco" },
+      { label: "Colares de Aço Inox", href: "/colares-aco" },
+      { label: "Pulseiras de Aço Inox", href: "/pulseiras-aco" },
+      { label: "Pingentes de Aço Inox", href: "/pingentes-aco" },
+    ],
+  },
   aneis: {
     label: "Anéis",
     href: "/aneis",
     items: [
-      { label: "Anéis de Aço Inox", href: "/aneis-aco" },
       { label: "Anéis com Pedras", href: "/aneis-pedras-naturais" },
       { label: "Anéis com Flores", href: "/aneis-flores" },
     ],
@@ -19,7 +28,6 @@ const categoryMenuData = {
     label: "Pingentes",
     href: "/pingentes",
     items: [
-      { label: "Pingentes de Aço Inox", href: "/pingentes-aco" },
       { label: "Pingentes de Pedras", href: "/pingentes-pedras-naturais" },
       { label: "Pingentes de Resina", href: "/pingentes-resina-natural" },
     ],
@@ -28,7 +36,6 @@ const categoryMenuData = {
     label: "Colares",
     href: "/colares",
     items: [
-      { label: "Colares de Aço Inox", href: "/colares-aco" },
       { label: "Colares de Pedras", href: "/colares-pedras" },
       { label: "Colares de Resina", href: "/colares-resina" },
     ],
@@ -37,7 +44,6 @@ const categoryMenuData = {
     label: "Pulseiras",
     href: "/pulseiras",
     items: [
-      { label: "Pulseiras de Aço Inox", href: "/pulseiras-aco" },
       { label: "Pulseiras de Pedras", href: "/pulseiras-pedras" },
       { label: "Pulseiras de Resina com Macramê", href: "/pulseiras-macrame" },
       { label: "Pulseiras Minimalistas", href: "/pulseiras-minimalistas" },

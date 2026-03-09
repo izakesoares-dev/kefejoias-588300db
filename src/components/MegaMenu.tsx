@@ -77,7 +77,7 @@ const MegaMenu = ({ isOpen, onClose }: MegaMenuProps) => {
           onMouseLeave={onClose}
         >
           <div className="max-w-7xl mx-auto px-6 py-8">
-            <div className="grid grid-cols-5 gap-8">
+            <div className="grid grid-cols-6 gap-8">
               {Object.entries(menuData).map(([key, category]) => (
                 <div key={key}>
                   <h3 className="font-display text-sm uppercase tracking-wider text-primary mb-4">
