@@ -14,8 +14,8 @@ const menuData = {
   pingentes: {
     title: "Pingentes",
     items: [
-      { label: "Pingentes de Pedras", href: "/pingentes-pedras" },
-      { label: "Pingentes de Resina", href: "/pingentes-resina-flores" },
+      { label: "Pingentes de Pedras", href: "/pingentes-pedras-naturais" },
+      { label: "Pingentes de Resina", href: "/pingentes-resina-natural" },
     ],
   },
   colares: {

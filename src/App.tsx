@@ -10,6 +10,8 @@ import Products from "./pages/Products";
 import ProductDetail from "./pages/ProductDetail";
 import Checkout from "./pages/Checkout";
 import AneisPedrasNaturais from "./pages/AneisPedrasNaturais";
+import PingentesPedrasNaturais from "./pages/PingentesPedrasNaturais";
+import PingentesResinaNatural from "./pages/PingentesResinaNatural";
 import Pedras from "./pages/Pedras";
 import Flores from "./pages/Flores";
 import Sobre from "./pages/Sobre";
@@ -37,12 +39,12 @@ const App = () => (
             <Route path="/contato" element={<Contato />} />
             <Route path="/produto/:slug" element={<ProductDetail />} />
             <Route path="/checkout" element={<Checkout />} />
+            {/* Pendant Routes */}
+            <Route path="/pingentes-pedras-naturais" element={<PingentesPedrasNaturais />} />
+            <Route path="/pingentes-resina-natural" element={<PingentesResinaNatural />} />
             {/* Placeholder routes for future categories */}
             <Route path="/aneis-flores" element={<Products />} />
-            <Route path="/pingentes-pedras" element={<Products />} />
-            <Route path="/pingentes-resina-flores" element={<Products />} />
             <Route path="/colares-resina-flores" element={<Products />} />
-            <Route path="/colares-resina-sementes" element={<Products />} />
             <Route path="/pulseiras-pedras" element={<Products />} />
             <Route path="/pulseiras-macrame" element={<Products />} />
             <Route path="/pulseiras-aco" element={<Products />} />
