@@ -41,8 +41,6 @@ const App = () => (
             <Route path="/aneis-flores" element={<Products />} />
             <Route path="/pingentes-pedras" element={<Products />} />
             <Route path="/pingentes-resina-flores" element={<Products />} />
-            <Route path="/pingentes-resina-pimentas" element={<Products />} />
-            <Route path="/pingentes-resina-sementes" element={<Products />} />
             <Route path="/colares-pedras" element={<Products />} />
             <Route path="/colares-resina-flores" element={<Products />} />
             <Route path="/colares-resina-pimentas" element={<Products />} />

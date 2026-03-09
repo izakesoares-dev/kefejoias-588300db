@@ -15,9 +15,7 @@ const menuData = {
     title: "Pingentes",
     items: [
       { label: "Pingentes de Pedras", href: "/pingentes-pedras" },
-      { label: "Pingentes de Resina (Flores)", href: "/pingentes-resina-flores" },
-      { label: "Pingentes de Resina (Pimentas)", href: "/pingentes-resina-pimentas" },
-      { label: "Pingentes de Resina (Sementes)", href: "/pingentes-resina-sementes" },
+      { label: "Pingentes de Resina", href: "/pingentes-resina-flores" },
     ],
   },
   colares: {
