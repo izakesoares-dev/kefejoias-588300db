@@ -8,6 +8,7 @@ import { stoneRings } from "./ring-products";
 import { stonePendants, resinPendants } from "./pendant-products";
 import { stoneNecklaces, resinNecklaces } from "./necklace-products";
 import { macrameBracelets, stoneBracelets, steelBracelets, minimalistBracelets } from "./bracelet-products";
+import { pyramidProducts } from "./pyramid-products";
 
 export type ProductCategory = "anel" | "colar" | "pingente" | "pulseira";
 export type ProductSubcategory = "pedras-naturais" | "flores" | "pimentas" | "geral";
