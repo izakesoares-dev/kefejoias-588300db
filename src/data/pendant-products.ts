@@ -349,6 +349,18 @@ export const stonePendants: Product[] = [
 ];
 
 // Resin Pendants - flowers, peppers, and seeds
+import pendantPimentaVermelha from "@/assets/pendant-pimenta-vermelha.jpg";
+import pendantPimentaRosa from "@/assets/pendant-pimenta-rosa.jpg";
+import pendantSementeGirassol from "@/assets/pendant-semente-girassol.jpg";
+import pendantSementeMostarda from "@/assets/pendant-semente-mostarda.jpg";
+import pendantRosaEterna from "@/assets/pendant-rosa-eterna.jpg";
+import pendantLavanda from "@/assets/pendant-lavanda.jpg";
+import pendantMargarida from "@/assets/pendant-margarida.jpg";
+import pendantFlorLaranjeira from "@/assets/pendant-flor-laranjeira.jpg";
+import pendantJasmin from "@/assets/pendant-jasmin.jpg";
+import pendantDenteLeao from "@/assets/pendant-dente-leao.jpg";
+import pendantSempreViva from "@/assets/pendant-sempre-viva.jpg";
+
 export const resinPendants: Product[] = [
   {
     id: "pingente-pimenta-vermelha",
@@ -359,7 +371,7 @@ export const resinPendants: Product[] = [
     price: 59.90,
     description: "A pimenta vermelha é símbolo milenar de proteção contra más energias. Eternizada em resina cristalina, este pingente mantém a força vital e afasta o mau-olhado. Use perto do coração para proteção constante.",
     shortDescription: "Proteção contra más energias e força vital",
-    images: ["/placeholder.svg"],
+    images: [pendantPimentaVermelha],
     elements: [
       { name: "Pimenta Vermelha", meaning: "Proteção energética, afasta mau-olhado e força vital", icon: "🌶️" }
     ],
@@ -377,7 +389,7 @@ export const resinPendants: Product[] = [
     price: 59.90,
     description: "A pimenta rosa traz a delicadeza da proteção feminina. Eternizada em resina, combina a força protetora com a energia do amor. Perfeita para mulheres que buscam proteção suave.",
     shortDescription: "Proteção delicada e energia feminina",
-    images: ["/placeholder.svg"],
+    images: [pendantPimentaRosa],
     elements: [
       { name: "Pimenta Rosa", meaning: "Proteção feminina, delicadeza e amor", icon: "💗" }
     ],
@@ -394,7 +406,7 @@ export const resinPendants: Product[] = [
     price: 54.90,
     description: "A semente de girassol simboliza a busca pela luz e prosperidade. Eternizada em resina, este pingente atrai energia solar, alegria e abundância para sua vida.",
     shortDescription: "Energia solar, alegria e prosperidade",
-    images: ["/placeholder.svg"],
+    images: [pendantSementeGirassol],
     elements: [
       { name: "Semente de Girassol", meaning: "Luz, prosperidade e energia solar", icon: "🌻" }
     ],
@@ -411,7 +423,7 @@ export const resinPendants: Product[] = [
     price: 54.90,
     description: "A semente de mostarda representa a fé inabalável - 'se tiveres fé do tamanho de um grão de mostarda, moverás montanhas'. Um pingente poderoso de força espiritual.",
     shortDescription: "Fé inabalável e força espiritual",
-    images: ["/placeholder.svg"],
+    images: [pendantSementeMostarda],
     elements: [
       { name: "Semente de Mostarda", meaning: "Fé, força espiritual e perseverança", icon: "✨" }
     ],
@@ -429,7 +441,7 @@ export const resinPendants: Product[] = [
     price: 69.90,
     description: "Uma rosa vermelha eternizada em resina cristalina, símbolo de amor eterno e paixão. Este pingente carrega a beleza imortalizada de uma flor real, perfeito para presentear quem você ama.",
     shortDescription: "Amor eterno e paixão imortalizada",
-    images: ["/placeholder.svg"],
+    images: [pendantRosaEterna],
     elements: [
       { name: "Rosa Vermelha", meaning: "Amor eterno, paixão e romantismo", icon: "🌹" }
     ],
@@ -447,7 +459,7 @@ export const resinPendants: Product[] = [
     price: 64.90,
     description: "A lavanda é conhecida por suas propriedades calmantes. Eternizada em resina, este pingente traz paz interior, purificação e tranquilidade. Ideal para quem busca serenidade.",
     shortDescription: "Calma, purificação e paz interior",
-    images: ["/placeholder.svg"],
+    images: [pendantLavanda],
     elements: [
       { name: "Lavanda", meaning: "Calma, purificação e serenidade", icon: "💜" }
     ],
@@ -464,7 +476,7 @@ export const resinPendants: Product[] = [
     price: 59.90,
     description: "A margarida simboliza pureza, inocência e novos começos. Eternizada em resina, este pingente carrega a energia da simplicidade e da alegria verdadeira.",
     shortDescription: "Pureza, inocência e novos começos",
-    images: ["/placeholder.svg"],
+    images: [pendantMargarida],
     elements: [
       { name: "Margarida", meaning: "Pureza, simplicidade e alegria", icon: "🌼" }
     ],
@@ -481,7 +493,7 @@ export const resinPendants: Product[] = [
     price: 69.90,
     description: "A flor de laranjeira é símbolo de casamento, fertilidade e pureza. Eternizada em resina, este pingente é perfeito para noivas, gestantes ou quem busca novos começos.",
     shortDescription: "Casamento, fertilidade e novos começos",
-    images: ["/placeholder.svg"],
+    images: [pendantFlorLaranjeira],
     elements: [
       { name: "Flor de Laranjeira", meaning: "União, fertilidade e pureza", icon: "🌸" }
     ],
@@ -499,7 +511,7 @@ export const resinPendants: Product[] = [
     price: 64.90,
     description: "O jasmim é a flor da sensualidade e do amor divino. Eternizada em resina, este pingente traz romance, espiritualidade e atração magnética.",
     shortDescription: "Sensualidade, amor divino e romance",
-    images: ["/placeholder.svg"],
+    images: [pendantJasmin],
     elements: [
       { name: "Jasmim", meaning: "Sensualidade, espiritualidade e romance", icon: "🤍" }
     ],
@@ -516,7 +528,7 @@ export const resinPendants: Product[] = [
     price: 59.90,
     description: "O dente-de-leão representa sonhos, desejos e liberdade. Este pingente eterniza o momento mágico de fazer um pedido e soltar ao vento - agora sempre com você.",
     shortDescription: "Sonhos, desejos e liberdade",
-    images: ["/placeholder.svg"],
+    images: [pendantDenteLeao],
     elements: [
       { name: "Dente-de-Leão", meaning: "Sonhos, desejos e liberdade", icon: "🌬️" }
     ],
@@ -524,6 +536,24 @@ export const resinPendants: Product[] = [
     relatedIds: ["pingente-margarida", "pingente-semente-mostarda"],
     inStock: true,
     badge: "Delicado",
+  },
+  {
+    id: "pingente-sempre-viva",
+    name: "Pingente Sempre-Viva",
+    slug: "pingente-sempre-viva",
+    category: "pingente",
+    subcategory: "geral",
+    price: 64.90,
+    description: "A Sempre-Viva é símbolo de eternidade, memória e amor que transcende o tempo. Esta flor que nunca murcha representa laços eternos, saudade amorosa e a certeza de que algumas conexões são para sempre. Perfeita para homenagear quem você ama.",
+    shortDescription: "Eternidade, memória e amor que transcende o tempo",
+    images: [pendantSempreViva],
+    elements: [
+      { name: "Sempre-Viva", meaning: "Eternidade, memória eterna e amor imortal", icon: "🌺" }
+    ],
+    significance: "Eternidade",
+    relatedIds: ["pingente-rosa-eterna", "pingente-lavanda"],
+    inStock: true,
+    badge: "Eterno",
   },
 ];
 
