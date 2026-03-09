@@ -130,7 +130,7 @@ const otherProducts: Product[] = [
   },
 ];
 
-export const products: Product[] = [...stoneRings, ...stonePendants, ...resinPendants, ...stoneNecklaces, ...resinNecklaces, ...macrameBracelets, ...stoneBracelets, ...steelBracelets, ...minimalistBracelets, ...otherProducts];
+export const products: Product[] = [...stoneRings, ...stonePendants, ...resinPendants, ...stoneNecklaces, ...resinNecklaces, ...macrameBracelets, ...stoneBracelets, ...steelBracelets, ...minimalistBracelets, ...pyramidProducts, ...otherProducts];
 
 export const getProductBySlug = (slug: string) => products.find((p) => p.slug === slug);
 export const getProductById = (id: string) => products.find((p) => p.id === id);
