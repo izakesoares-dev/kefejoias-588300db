@@ -22,6 +22,15 @@ import necklaceUnakita from "@/assets/necklace-unakita.jpg";
 import necklaceAmazonita from "@/assets/necklace-amazonita.jpg";
 import necklaceCristalQuartzo from "@/assets/necklace-cristal-quartzo.jpg";
 
+// Steel Chain & Cord Necklace Images
+import necklaceAcoAmetista from "@/assets/necklace-aco-ametista.jpg";
+import necklaceAcoQuartzoRosa from "@/assets/necklace-aco-quartzo-rosa.jpg";
+import necklaceAcoOlhoTigre from "@/assets/necklace-aco-olho-tigre.jpg";
+import necklaceCordaoTurmalina from "@/assets/necklace-cordao-turmalina.jpg";
+import necklaceCordaoCitrino from "@/assets/necklace-cordao-citrino.jpg";
+import necklaceCordaoJade from "@/assets/necklace-cordao-jade.jpg";
+
+// Resin Necklace Images
 import necklaceResinGirassol from "@/assets/necklace-resin-girassol.jpg";
 import necklaceResinPimenta from "@/assets/necklace-resin-pimenta.jpg";
 import necklaceResinRosa from "@/assets/necklace-resin-rosa.jpg";
