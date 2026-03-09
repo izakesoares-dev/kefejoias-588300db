@@ -58,7 +58,7 @@ const App = () => (
             <Route path="/pulseiras-macrame" element={<PulseirasMacrame />} />
             <Route path="/pulseiras-aco" element={<PulseirasAco />} />
             <Route path="/pulseiras-minimalistas" element={<PulseirasMinimalistas />} />
-            <Route path="/piramides-quanticas" element={<Products />} />
+            <Route path="/piramides-quanticas" element={<PiramidesQuanticas />} />
             <Route path="/santinhas-pedra" element={<Products />} />
             <Route path="/mandalas-resina" element={<Products />} />
             <Route path="/incensarios-pedras" element={<Products />} />
