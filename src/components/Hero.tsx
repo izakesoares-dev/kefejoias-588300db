@@ -7,6 +7,9 @@ import heroColar from "@/assets/hero-slide-colar.jpg";
 import heroPulseiras from "@/assets/hero-slide-pulseiras.jpg";
 import heroPingentes from "@/assets/hero-slide-pingentes.jpg";
 import heroEspeciais from "@/assets/hero-slide-especiais.jpg";
+import heroAcoInox from "@/assets/hero-slide-aco-inox.jpg";
+import heroMandalas from "@/assets/hero-slide-mandalas.jpg";
+import heroIncensarios from "@/assets/hero-slide-incensarios.jpg";
 
 const slides = [
   {
@@ -29,6 +32,27 @@ const slides = [
     title: "Sua História, Seu Estilo",
     buttonText: "Explorar Coleção",
     href: "/pulseiras",
+  },
+  {
+    image: heroAcoInox,
+    subtitle: "Coleção Aço Inox",
+    title: "Brilho que Não se Apaga",
+    buttonText: "Ver Aço Inox",
+    href: "/aco-inox",
+  },
+  {
+    image: heroMandalas,
+    subtitle: "Mandalas de Resina",
+    title: "Geometria Sagrada em Suas Mãos",
+    buttonText: "Ver Mandalas",
+    href: "/mandalas-resina",
+  },
+  {
+    image: heroIncensarios,
+    subtitle: "Incensários de Resina",
+    title: "Rituais de Paz e Harmonia",
+    buttonText: "Ver Incensários",
+    href: "/incensarios-resina",
   },
   {
     image: heroPingentes,
