@@ -46,6 +46,7 @@ import necklaceResinCordaoPimenta from "@/assets/necklace-resin-cordao-pimenta.j
 import necklaceResinCordaoMargarida from "@/assets/necklace-resin-cordao-margarida.jpg";
 import necklaceResinCordaoPimentaRosa from "@/assets/necklace-resin-cordao-pimenta-rosa.jpg";
 
+export const stoneNecklaces: Product[] = [
   {
     id: "colar-ametista",
     name: "Colar Ametista",
