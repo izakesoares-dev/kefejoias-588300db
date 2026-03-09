@@ -19,6 +19,9 @@ const stoneFilters = [
   { id: "protecao", label: "Proteção", icon: Shield },
   { id: "amor", label: "Amor", icon: Heart },
   { id: "prosperidade", label: "Prosperidade", icon: Sparkles },
+  { id: "espiritualidade", label: "Espiritualidade", icon: Sparkles },
+  { id: "vitalidade", label: "Vitalidade", icon: Heart },
+  { id: "foco", label: "Foco & Clareza", icon: Gem },
 ];
 
 const AneisPedrasNaturais = () => {
