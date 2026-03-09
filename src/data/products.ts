@@ -3,6 +3,11 @@ import productColarAmor from "@/assets/product-colar-amor.jpg";
 import productPingenteProsp from "@/assets/product-pingente-prosperidade.jpg";
 import productPulseiraCalma from "@/assets/product-pulseira-calma.jpg";
 import productAnelNoivado from "@/assets/product-anel-noivado.jpg";
+import ringOlhoTigre from "@/assets/ring-olho-tigre.jpg";
+import ringQuartzoRosa from "@/assets/ring-quartzo-rosa.jpg";
+import ringAmetista from "@/assets/ring-ametista.jpg";
+import ringTurmalinaNegraImg from "@/assets/ring-turmalina-negra.jpg";
+import ringJade from "@/assets/ring-jade.jpg";
 
 export type ProductCategory = "anel" | "colar" | "pingente" | "pulseira";
 
@@ -17,6 +22,7 @@ export interface Product {
   name: string;
   slug: string;
   category: ProductCategory;
+  subcategory?: ProductSubcategory;
   price: number;
   description: string;
   shortDescription: string;
@@ -29,7 +35,104 @@ export interface Product {
   badge?: string;
 }
 
+export type ProductSubcategory = "pedras-naturais" | "flores" | "pimentas" | "geral";
+
 export const products: Product[] = [
+  // === ANÉIS COM PEDRAS NATURAIS ===
+  {
+    id: "anel-olho-tigre",
+    name: "Anel Olho de Tigre",
+    slug: "anel-olho-tigre",
+    category: "anel",
+    subcategory: "pedras-naturais",
+    price: 89.90,
+    description: "Leve no dedo a energia de coragem e blindagem contra inveja. O Olho de Tigre é conhecido por afastar más vibrações e atrair oportunidades. Cada peça é artesanalmente produzida em resina cristalina com base em aço inoxidável hipoalergênico.",
+    shortDescription: "Proteção e prosperidade no seu dia a dia",
+    images: [ringOlhoTigre, ringOlhoTigre, ringOlhoTigre],
+    elements: [
+      { name: "Olho de Tigre", meaning: "Coragem, autoconfiança e proteção contra inveja", icon: "🐯" },
+    ],
+    sizes: [14, 15, 16, 17, 18, 19, 20, 21],
+    significance: "Proteção e prosperidade",
+    relatedIds: ["anel-turmalina-negra", "anel-jade"],
+    inStock: true,
+    badge: "Mais vendido",
+  },
+  {
+    id: "anel-quartzo-rosa",
+    name: "Anel Quartzo Rosa",
+    slug: "anel-quartzo-rosa",
+    category: "anel",
+    subcategory: "pedras-naturais",
+    price: 79.90,
+    description: "O Quartzo Rosa é a pedra do amor incondicional. Use este anel para cultivar o amor-próprio e atrair relacionamentos harmoniosos. Acabamento polido com brilho suave em resina cristalina.",
+    shortDescription: "Amor-próprio e harmonia emocional",
+    images: [ringQuartzoRosa, ringQuartzoRosa, ringQuartzoRosa],
+    elements: [
+      { name: "Quartzo Rosa", meaning: "Cura emocional, amor-próprio e compaixão", icon: "💎" },
+    ],
+    sizes: [14, 15, 16, 17, 18, 19, 20, 21],
+    significance: "Amor-próprio",
+    relatedIds: ["colar-amor-proprio", "anel-jade"],
+    inStock: true,
+  },
+  {
+    id: "anel-ametista",
+    name: "Anel Ametista",
+    slug: "anel-ametista",
+    category: "anel",
+    subcategory: "pedras-naturais",
+    price: 99.90,
+    description: "A Ametista eleva sua conexão espiritual e intuição. Pedra de sabedoria e paz interior, ideal para quem busca equilíbrio e proteção energética. Base em aço inoxidável com acabamento premium.",
+    shortDescription: "Espiritualidade e intuição elevada",
+    images: [ringAmetista, ringAmetista, ringAmetista],
+    elements: [
+      { name: "Ametista", meaning: "Eleva intuição, purifica ambientes e promove calma", icon: "🔮" },
+    ],
+    sizes: [14, 15, 16, 17, 18, 19, 20, 21],
+    significance: "Espiritualidade",
+    relatedIds: ["pulseira-calma", "anel-quartzo-rosa"],
+    inStock: true,
+    badge: "Personalizável",
+  },
+  {
+    id: "anel-turmalina-negra",
+    name: "Anel Turmalina Negra",
+    slug: "anel-turmalina-negra",
+    category: "anel",
+    subcategory: "pedras-naturais",
+    price: 109.90,
+    description: "A Turmalina Negra é o escudo definitivo contra energias densas e vampirismo energético. Proteção pesada para quem precisa de força extra no dia a dia. Resina cristalina com base hipoalergênica.",
+    shortDescription: "Proteção máxima contra energias negativas",
+    images: [ringTurmalinaNegraImg, ringTurmalinaNegraImg, ringTurmalinaNegraImg],
+    elements: [
+      { name: "Turmalina Negra", meaning: "Proteção contra vampirismo energético e energias densas", icon: "🖤" },
+    ],
+    sizes: [14, 15, 16, 17, 18, 19, 20, 21],
+    significance: "Proteção pesada",
+    relatedIds: ["anel-olho-tigre", "anel-protecao-total"],
+    inStock: true,
+    badge: "Edição limitada",
+  },
+  {
+    id: "anel-jade",
+    name: "Anel Jade",
+    slug: "anel-jade",
+    category: "anel",
+    subcategory: "pedras-naturais",
+    price: 94.90,
+    description: "O Jade é o talismã milenar da sorte e prosperidade. Esta pedra sagrada atrai abundância e protege quem a usa. Ideal para negócios e novos começos. Acabamento polido premium.",
+    shortDescription: "Sorte e prosperidade milenar",
+    images: [ringJade, ringJade, ringJade],
+    elements: [
+      { name: "Jade", meaning: "Prosperidade, sorte e proteção ancestral", icon: "💚" },
+    ],
+    sizes: [14, 15, 16, 17, 18, 19, 20, 21],
+    significance: "Sorte e prosperidade",
+    relatedIds: ["pingente-prosperidade", "anel-olho-tigre"],
+    inStock: true,
+  },
+  // === PRODUTOS ORIGINAIS ===
   {
     id: "anel-protecao-total",
     name: "Anel Proteção Total",

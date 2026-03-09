@@ -8,6 +8,7 @@ import { useCart } from "@/contexts/CartContext";
 const navLinks = [
   { label: "Início", href: "/" },
   { label: "Produtos", href: "/produtos" },
+  { label: "Anéis Pedras", href: "/aneis-pedras-naturais" },
   { label: "Pedras", href: "/#pedras" },
   { label: "Flores", href: "/#flores" },
   { label: "Sobre", href: "/#sobre" },
