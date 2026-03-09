@@ -6,6 +6,9 @@ import braceletMacramePimenta from "@/assets/bracelet-macrame-pimenta.jpg";
 import braceletMacrameGirassol from "@/assets/bracelet-macrame-girassol.jpg";
 import braceletMacrameRosa from "@/assets/bracelet-macrame-rosa.jpg";
 import braceletMacrameMargarida from "@/assets/bracelet-macrame-margarida.jpg";
+import braceletMacramePimentaRosa from "@/assets/bracelet-macrame-pimenta-rosa.jpg";
+import braceletMacrameJasmin from "@/assets/bracelet-macrame-jasmin.jpg";
+import braceletMacrameDenteLeao from "@/assets/bracelet-macrame-dente-leao.jpg";
 
 // Stone Bracelet Images
 import braceletPedrasOlhoTigreQuartzo from "@/assets/bracelet-pedras-olho-tigre-quartzo.jpg";
@@ -13,6 +16,11 @@ import braceletPedrasAmetista from "@/assets/bracelet-pedras-ametista.jpg";
 import braceletPedrasTurmalina from "@/assets/bracelet-pedras-turmalina.jpg";
 import braceletPedrasJadeCitrino from "@/assets/bracelet-pedras-jade-citrino.jpg";
 import braceletPedrasLapis from "@/assets/bracelet-pedras-lapis.jpg";
+import braceletPedrasQuartzoRosa from "@/assets/bracelet-pedras-quartzo-rosa.jpg";
+import braceletPedrasOlhoTigre from "@/assets/bracelet-pedras-olho-tigre.jpg";
+import braceletPedrasJade from "@/assets/bracelet-pedras-jade.jpg";
+import braceletPedrasCitrino from "@/assets/bracelet-pedras-citrino.jpg";
+import braceletPedrasHematita from "@/assets/bracelet-pedras-hematita.jpg";
 
 // Steel Bracelet Images
 import braceletAcoOlhoTigre from "@/assets/bracelet-aco-olho-tigre.jpg";
@@ -20,6 +28,8 @@ import braceletAcoAmetista from "@/assets/bracelet-aco-ametista.jpg";
 import braceletAcoQuartzoRosa from "@/assets/bracelet-aco-quartzo-rosa.jpg";
 import braceletAcoJade from "@/assets/bracelet-aco-jade.jpg";
 import braceletAcoCitrino from "@/assets/bracelet-aco-citrino.jpg";
+import braceletAcoTurmalina from "@/assets/bracelet-aco-turmalina.jpg";
+import braceletAcoLapis from "@/assets/bracelet-aco-lapis.jpg";
 
 // Minimalist Bracelet Images
 import braceletMiniQuartzoRosa from "@/assets/bracelet-mini-quartzo-rosa.jpg";
@@ -27,6 +37,11 @@ import braceletMiniAmetista from "@/assets/bracelet-mini-ametista.jpg";
 import braceletMiniOlhoTigre from "@/assets/bracelet-mini-olho-tigre.jpg";
 import braceletMiniTurquesa from "@/assets/bracelet-mini-turquesa.jpg";
 import braceletMiniJade from "@/assets/bracelet-mini-jade.jpg";
+import braceletMiniCitrino from "@/assets/bracelet-mini-citrino.jpg";
+import braceletMiniLapis from "@/assets/bracelet-mini-lapis.jpg";
+import braceletMiniTurmalina from "@/assets/bracelet-mini-turmalina.jpg";
+import braceletMiniCornalina from "@/assets/bracelet-mini-cornalina.jpg";
+import braceletMiniPedraLua from "@/assets/bracelet-mini-pedra-lua.jpg";
 
 // ========== MACRAMÊ ==========
 export const macrameBracelets: Product[] = [
