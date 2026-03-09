@@ -22,6 +22,7 @@ import PulseirasMacrame from "./pages/PulseirasMacrame";
 import PulseirasPedras from "./pages/PulseirasPedras";
 import PulseirasAco from "./pages/PulseirasAco";
 import PulseirasMinimalistas from "./pages/PulseirasMinimalistas";
+import PiramidesQuanticas from "./pages/PiramidesQuanticas";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
