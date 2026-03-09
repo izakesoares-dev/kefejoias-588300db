@@ -1,86 +1,125 @@
-import { motion } from "framer-motion";
-import heroImage from "@/assets/hero-kefe.jpg";
+import { useState, useEffect, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import heroAnel from "@/assets/hero-slide-anel.jpg";
+import heroColar from "@/assets/hero-slide-colar.jpg";
+import heroPulseiras from "@/assets/hero-slide-pulseiras.jpg";
+
+const slides = [
+  {
+    image: heroAnel,
+    subtitle: "Anéis Artesanais",
+    title: "Elegância em Cada Detalhe",
+    buttonText: "Ver Anéis",
+    href: "/aneis",
+  },
+  {
+    image: heroColar,
+    subtitle: "Colares com Alma",
+    title: "O Presente Perfeito",
+    buttonText: "Comprar Agora",
+    href: "/colares",
+  },
+  {
+    image: heroPulseiras,
+    subtitle: "Pulseiras Exclusivas",
+    title: "Sua História, Seu Estilo",
+    buttonText: "Explorar Coleção",
+    href: "/pulseiras",
+  },
+];
 
 const Hero = () => {
+  const [current, setCurrent] = useState(0);
+
+  const next = useCallback(() => setCurrent((c) => (c + 1) % slides.length), []);
+  const prev = useCallback(() => setCurrent((c) => (c - 1 + slides.length) % slides.length), []);
+
+  useEffect(() => {
+    const timer = setInterval(next, 6000);
+    return () => clearInterval(timer);
+  }, [next]);
+
+  const slide = slides[current];
+
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0">
-        <img
-          src={heroImage}
-          alt="Biojoias Kefe"
-          className="w-full h-full object-cover opacity-40"
-        />
-        <div className="absolute inset-0 bg-gradient-dark opacity-70" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
-      </div>
+      {/* Background images */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={current}
+          initial={{ opacity: 0, scale: 1.1 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1 }}
+          className="absolute inset-0"
+        >
+          <img
+            src={slide.image}
+            alt={slide.title}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-background/60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+        </motion.div>
+      </AnimatePresence>
 
       {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto text-center px-6 pt-24">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          <p className="text-sm tracking-[0.3em] uppercase text-primary mb-6 font-body">
-            Biojoias · Pedras Naturais · Flores Eternizadas
-          </p>
-        </motion.div>
-
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-4xl md:text-6xl lg:text-7xl font-display font-medium leading-tight mb-8"
-        >
-          A natureza encontra a emoção para{" "}
-          <span className="text-gradient-gold italic">eternizar histórias</span>
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 font-body leading-relaxed"
-        >
-          Pedras naturais, flores desidratadas, sementes e pimentas encapsuladas em resina. 
-          Cada peça carrega um significado, uma memória, um amuleto pessoal.
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center"
-        >
-          <a
-            href="#colecoes"
-            className="px-8 py-4 bg-gradient-gold text-primary-foreground font-body font-semibold text-sm tracking-wide rounded-sm hover:opacity-90 transition-opacity shadow-gold"
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={current}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.6 }}
           >
-            Conheça Nossas Coleções
-          </a>
-          <a
-            href="#contato"
-            className="px-8 py-4 border border-primary/30 text-primary font-body font-medium text-sm tracking-wide rounded-sm hover:bg-primary/5 transition-colors"
-          >
-            Monte Sua Joia Afetiva
-          </a>
-        </motion.div>
+            <p className="text-sm tracking-[0.3em] uppercase text-primary mb-6 font-body">
+              {slide.subtitle}
+            </p>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-medium leading-tight mb-8">
+              <span className="text-gradient-gold italic">{slide.title}</span>
+            </h1>
+            <Link
+              to={slide.href}
+              className="inline-block px-10 py-4 bg-gradient-gold text-primary-foreground font-body font-semibold text-sm tracking-wide rounded-sm hover:opacity-90 transition-opacity shadow-gold"
+            >
+              {slide.buttonText}
+            </Link>
+          </motion.div>
+        </AnimatePresence>
       </div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+      {/* Navigation arrows */}
+      <button
+        onClick={prev}
+        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center rounded-full border border-primary/20 bg-background/30 backdrop-blur-sm text-foreground hover:bg-primary/10 transition-colors"
+        aria-label="Slide anterior"
       >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 2 }}
-          className="w-px h-12 bg-gradient-to-b from-primary/50 to-transparent"
-        />
-      </motion.div>
+        <ChevronLeft className="w-5 h-5" />
+      </button>
+      <button
+        onClick={next}
+        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center rounded-full border border-primary/20 bg-background/30 backdrop-blur-sm text-foreground hover:bg-primary/10 transition-colors"
+        aria-label="Próximo slide"
+      >
+        <ChevronRight className="w-5 h-5" />
+      </button>
+
+      {/* Dots */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-3">
+        {slides.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrent(i)}
+            className={`h-1.5 rounded-full transition-all duration-500 ${
+              i === current ? "w-8 bg-primary" : "w-4 bg-primary/30"
+            }`}
+            aria-label={`Ir para slide ${i + 1}`}
+          />
+        ))}
+      </div>
     </section>
   );
 };
