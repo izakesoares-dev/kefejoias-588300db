@@ -1,7 +1,5 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown } from "lucide-react";
 
 const menuData = {
   aneis: {
@@ -14,8 +12,8 @@ const menuData = {
   pingentes: {
     title: "Pingentes",
     items: [
-      { label: "Pingentes de Pedras", href: "/pingentes-pedras" },
-      { label: "Pingentes de Resina", href: "/pingentes-resina-flores" },
+      { label: "Pingentes de Pedras", href: "/pingentes-pedras-naturais" },
+      { label: "Pingentes de Resina", href: "/pingentes-resina-natural" },
     ],
   },
   colares: {
