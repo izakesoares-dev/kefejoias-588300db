@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Instagram, ShoppingBag, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
-import kefeLogo from "@/assets/kefe-logo-gold.png";
+import kefeLogo from "@/assets/kefe-logo-dark.png";
 import { useCart } from "@/contexts/CartContext";
 
 const categoryMenuData = {
