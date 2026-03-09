@@ -32,7 +32,7 @@ const FlowersSection = () => {
               sua beleza e o momento que representam.
             </p>
             <p className="text-muted-foreground font-body leading-relaxed mb-8">
-              <span className="text-primary font-medium">Envie sua própria flor</span> — 
+              <span className="text-primary font-medium">Joias afetivas</span> — 
               eternizamos a flor que carrega sua história em uma joia única.
             </p>
             <a
