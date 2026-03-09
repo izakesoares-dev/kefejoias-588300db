@@ -525,6 +525,24 @@ export const resinPendants: Product[] = [
     inStock: true,
     badge: "Delicado",
   },
+  {
+    id: "pingente-sempre-viva",
+    name: "Pingente Sempre-Viva",
+    slug: "pingente-sempre-viva",
+    category: "pingente",
+    subcategory: "geral",
+    price: 64.90,
+    description: "A Sempre-Viva é símbolo de eternidade, memória e amor que transcende o tempo. Esta flor que nunca murcha representa laços eternos, saudade amorosa e a certeza de que algumas conexões são para sempre. Perfeita para homenagear quem você ama.",
+    shortDescription: "Eternidade, memória e amor que transcende o tempo",
+    images: ["/placeholder.svg"],
+    elements: [
+      { name: "Sempre-Viva", meaning: "Eternidade, memória eterna e amor imortal", icon: "🌺" }
+    ],
+    significance: "Eternidade",
+    relatedIds: ["pingente-rosa-eterna", "pingente-lavanda"],
+    inStock: true,
+    badge: "Eterno",
+  },
 ];
 
 export const allPendants: Product[] = [...stonePendants, ...resinPendants];
