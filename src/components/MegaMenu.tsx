@@ -20,7 +20,7 @@ const menuData = {
     title: "Colares",
     items: [
       { label: "Colares de Pedras", href: "/colares-pedras" },
-      { label: "Colares de Resina", href: "/colares-resina-flores" },
+      { label: "Colares de Resina", href: "/colares-resina" },
     ],
   },
   pulseiras: {

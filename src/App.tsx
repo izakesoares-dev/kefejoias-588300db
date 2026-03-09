@@ -16,6 +16,8 @@ import Pedras from "./pages/Pedras";
 import Flores from "./pages/Flores";
 import Sobre from "./pages/Sobre";
 import Contato from "./pages/Contato";
+import ColaresPedras from "./pages/ColaresPedras";
+import ColaresResina from "./pages/ColaresResina";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -44,7 +46,9 @@ const App = () => (
             <Route path="/pingentes-resina-natural" element={<PingentesResinaNatural />} />
             {/* Placeholder routes for future categories */}
             <Route path="/aneis-flores" element={<Products />} />
-            <Route path="/colares-resina-flores" element={<Products />} />
+            <Route path="/colares-pedras" element={<ColaresPedras />} />
+            <Route path="/colares-resina" element={<ColaresResina />} />
+            <Route path="/colares-resina-flores" element={<ColaresResina />} />
             <Route path="/pulseiras-pedras" element={<Products />} />
             <Route path="/pulseiras-macrame" element={<Products />} />
             <Route path="/pulseiras-aco" element={<Products />} />
