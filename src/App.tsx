@@ -9,6 +9,7 @@ import Index from "./pages/Index";
 import Products from "./pages/Products";
 import ProductDetail from "./pages/ProductDetail";
 import Checkout from "./pages/Checkout";
+import AcoInox from "./pages/AcoInox";
 import Aneis from "./pages/Aneis";
 import AneisPedrasNaturais from "./pages/AneisPedrasNaturais";
 import Pingentes from "./pages/Pingentes";
@@ -49,6 +50,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/produtos" element={<Products />} />
             {/* Category landing pages */}
+            <Route path="/aco-inox" element={<AcoInox />} />
             <Route path="/aneis" element={<Aneis />} />
             <Route path="/pingentes" element={<Pingentes />} />
             <Route path="/colares" element={<Colares />} />
