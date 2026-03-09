@@ -5,6 +5,8 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import heroAnel from "@/assets/hero-slide-anel.jpg";
 import heroColar from "@/assets/hero-slide-colar.jpg";
 import heroPulseiras from "@/assets/hero-slide-pulseiras.jpg";
+import heroPingentes from "@/assets/hero-slide-pingentes.jpg";
+import heroEspeciais from "@/assets/hero-slide-especiais.jpg";
 
 const slides = [
   {
@@ -27,6 +29,20 @@ const slides = [
     title: "Sua História, Seu Estilo",
     buttonText: "Explorar Coleção",
     href: "/pulseiras",
+  },
+  {
+    image: heroPingentes,
+    subtitle: "Pingentes Naturais",
+    title: "Energia Perto do Coração",
+    buttonText: "Ver Pingentes",
+    href: "/pingentes",
+  },
+  {
+    image: heroEspeciais,
+    subtitle: "Peças Especiais",
+    title: "Arte, Energia e Propósito",
+    buttonText: "Descobrir Especiais",
+    href: "/especiais",
   },
 ];
 
