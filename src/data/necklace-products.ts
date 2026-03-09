@@ -38,6 +38,14 @@ import necklaceResinLavanda from "@/assets/necklace-resin-lavanda.jpg";
 import necklaceResinMargarida from "@/assets/necklace-resin-margarida.jpg";
 import necklaceResinPimentaRosa from "@/assets/necklace-resin-pimenta-rosa.jpg";
 
+// Resin Steel Chain & Cord Necklace Images
+import necklaceResinAcoRosa from "@/assets/necklace-resin-aco-rosa.jpg";
+import necklaceResinAcoGirassol from "@/assets/necklace-resin-aco-girassol.jpg";
+import necklaceResinAcoLavanda from "@/assets/necklace-resin-aco-lavanda.jpg";
+import necklaceResinCordaoPimenta from "@/assets/necklace-resin-cordao-pimenta.jpg";
+import necklaceResinCordaoMargarida from "@/assets/necklace-resin-cordao-margarida.jpg";
+import necklaceResinCordaoPimentaRosa from "@/assets/necklace-resin-cordao-pimenta-rosa.jpg";
+
 export const stoneNecklaces: Product[] = [
   {
     id: "colar-ametista",
@@ -599,5 +607,115 @@ export const resinNecklaces: Product[] = [
     significance: "Amor e proteção",
     relatedIds: ["colar-resin-pimenta", "colar-resin-rosa"],
     inStock: true,
+  },
+  // === Colares de Resina com Corrente de Aço Inoxidável ===
+  {
+    id: "colar-resin-aco-rosa",
+    name: "Colar Rosa Eterna – Corrente de Aço",
+    slug: "colar-resin-aco-rosa",
+    category: "colar",
+    subcategory: "geral",
+    price: 109.90,
+    description: "Pingente de resina com rosa vermelha real eternizada, em corrente de aço inoxidável prateada. Design elegante e durável. Símbolo de amor eterno. Comprimento: 45cm + 5cm de extensão.",
+    shortDescription: "Rosa eternizada em resina com corrente de aço",
+    images: [necklaceResinAcoRosa],
+    elements: [
+      { name: "Rosa Vermelha", meaning: "Amor eterno, paixão e gratidão", icon: "🌹" }
+    ],
+    significance: "Amor eterno",
+    relatedIds: ["colar-resin-aco-lavanda", "colar-resin-aco-girassol"],
+    inStock: true,
+    badge: "Corrente de Aço",
+  },
+  {
+    id: "colar-resin-aco-girassol",
+    name: "Colar Girassol – Corrente de Aço Dourado",
+    slug: "colar-resin-aco-girassol",
+    category: "colar",
+    subcategory: "geral",
+    price: 119.90,
+    description: "Pingente de resina com girassol real eternizado, em corrente de aço inoxidável banhada a ouro. Símbolo de vitalidade e alegria. Comprimento: 45cm + 5cm de extensão.",
+    shortDescription: "Girassol eternizado em resina com corrente dourada",
+    images: [necklaceResinAcoGirassol],
+    elements: [
+      { name: "Girassol", meaning: "Felicidade, vitalidade e energia solar", icon: "🌻" }
+    ],
+    significance: "Vitalidade e prosperidade",
+    relatedIds: ["colar-resin-aco-rosa", "colar-resin-aco-lavanda"],
+    inStock: true,
+    badge: "Corrente de Aço",
+  },
+  {
+    id: "colar-resin-aco-lavanda",
+    name: "Colar Lavanda – Corrente de Aço",
+    slug: "colar-resin-aco-lavanda",
+    category: "colar",
+    subcategory: "geral",
+    price: 109.90,
+    description: "Pingente de resina com flores de lavanda reais eternizadas, em corrente de aço inoxidável prateada. Símbolo de calma e paz interior. Comprimento: 45cm + 5cm de extensão.",
+    shortDescription: "Lavanda eternizada em resina com corrente de aço",
+    images: [necklaceResinAcoLavanda],
+    elements: [
+      { name: "Lavanda", meaning: "Calma, purificação e paz interior", icon: "💜" }
+    ],
+    significance: "Paz interior",
+    relatedIds: ["colar-resin-aco-rosa", "colar-resin-aco-girassol"],
+    inStock: true,
+    badge: "Corrente de Aço",
+  },
+  // === Colares de Resina com Cordão Ajustável ===
+  {
+    id: "colar-resin-cordao-pimenta",
+    name: "Colar Pimenta Vermelha – Cordão Ajustável",
+    slug: "colar-resin-cordao-pimenta",
+    category: "colar",
+    subcategory: "geral",
+    price: 79.90,
+    description: "Pingente de resina com pimenta vermelha real eternizada, em cordão de poliéster 1mm preto com nó corrediço ajustável. Proteção contra mau-olhado. Ajustável de 40cm a 70cm.",
+    shortDescription: "Pimenta vermelha em resina com cordão ajustável",
+    images: [necklaceResinCordaoPimenta],
+    elements: [
+      { name: "Pimenta Vermelha", meaning: "Proteção energética, afasta mau-olhado", icon: "🌶️" }
+    ],
+    significance: "Proteção energética",
+    relatedIds: ["colar-resin-cordao-pimenta-rosa", "colar-resin-cordao-margarida"],
+    inStock: true,
+    badge: "Cordão Ajustável",
+  },
+  {
+    id: "colar-resin-cordao-margarida",
+    name: "Colar Margarida – Cordão Ajustável",
+    slug: "colar-resin-cordao-margarida",
+    category: "colar",
+    subcategory: "geral",
+    price: 79.90,
+    description: "Pingente de resina com margarida real eternizada, em cordão de poliéster 1mm marrom com nó corrediço ajustável. Símbolo de pureza e novos começos. Ajustável de 40cm a 70cm.",
+    shortDescription: "Margarida em resina com cordão ajustável",
+    images: [necklaceResinCordaoMargarida],
+    elements: [
+      { name: "Margarida", meaning: "Inocência, pureza e novos começos", icon: "🌼" }
+    ],
+    significance: "Pureza e inocência",
+    relatedIds: ["colar-resin-cordao-pimenta", "colar-resin-cordao-pimenta-rosa"],
+    inStock: true,
+    badge: "Cordão Ajustável",
+  },
+  {
+    id: "colar-resin-cordao-pimenta-rosa",
+    name: "Colar Pimenta Rosa – Cordão Ajustável",
+    slug: "colar-resin-cordao-pimenta-rosa",
+    category: "colar",
+    subcategory: "geral",
+    price: 79.90,
+    description: "Pingente de resina com pimentas rosa reais eternizadas, em cordão de poliéster 1mm preto com nó corrediço ajustável. Amor delicado e proteção suave. Ajustável de 40cm a 70cm.",
+    shortDescription: "Pimenta rosa em resina com cordão ajustável",
+    images: [necklaceResinCordaoPimentaRosa],
+    elements: [
+      { name: "Pimenta Rosa", meaning: "Amor delicado, proteção suave e feminilidade", icon: "🩷" }
+    ],
+    significance: "Amor e proteção",
+    relatedIds: ["colar-resin-cordao-pimenta", "colar-resin-cordao-margarida"],
+    inStock: true,
+    badge: "Cordão Ajustável",
   },
 ];
