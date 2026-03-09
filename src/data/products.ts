@@ -9,6 +9,7 @@ import { stonePendants, resinPendants } from "./pendant-products";
 import { stoneNecklaces, resinNecklaces } from "./necklace-products";
 import { macrameBracelets, stoneBracelets, steelBracelets, minimalistBracelets } from "./bracelet-products";
 import { pyramidProducts } from "./pyramid-products";
+import { santinhaProducts } from "./santinha-products";
 
 export type ProductCategory = "anel" | "colar" | "pingente" | "pulseira";
 export type ProductSubcategory = "pedras-naturais" | "flores" | "pimentas" | "geral";
@@ -130,7 +131,7 @@ const otherProducts: Product[] = [
   },
 ];
 
-export const products: Product[] = [...stoneRings, ...stonePendants, ...resinPendants, ...stoneNecklaces, ...resinNecklaces, ...macrameBracelets, ...stoneBracelets, ...steelBracelets, ...minimalistBracelets, ...pyramidProducts, ...otherProducts];
+export const products: Product[] = [...stoneRings, ...stonePendants, ...resinPendants, ...stoneNecklaces, ...resinNecklaces, ...macrameBracelets, ...stoneBracelets, ...steelBracelets, ...minimalistBracelets, ...pyramidProducts, ...santinhaProducts, ...otherProducts];
 
 export const getProductBySlug = (slug: string) => products.find((p) => p.slug === slug);
 export const getProductById = (id: string) => products.find((p) => p.id === id);
