@@ -7,6 +7,7 @@ const menuData = {
     items: [
       { label: "Anéis com Pedras", href: "/aneis-pedras-naturais" },
       { label: "Anéis com Flores", href: "/aneis-flores" },
+      { label: "Anéis de Aço Inox", href: "/aneis-aco" },
     ],
   },
   pingentes: {
@@ -14,6 +15,7 @@ const menuData = {
     items: [
       { label: "Pingentes de Pedras", href: "/pingentes-pedras-naturais" },
       { label: "Pingentes de Resina", href: "/pingentes-resina-natural" },
+      { label: "Pingentes de Aço Inox", href: "/pingentes-aco" },
     ],
   },
   colares: {
@@ -21,6 +23,7 @@ const menuData = {
     items: [
       { label: "Colares de Pedras", href: "/colares-pedras" },
       { label: "Colares de Resina", href: "/colares-resina" },
+      { label: "Colares de Aço Inox", href: "/colares-aco" },
     ],
   },
   pulseiras: {
