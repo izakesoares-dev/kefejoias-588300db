@@ -24,6 +24,7 @@ import PulseirasAco from "./pages/PulseirasAco";
 import PulseirasMinimalistas from "./pages/PulseirasMinimalistas";
 import PiramidesQuanticas from "./pages/PiramidesQuanticas";
 import SantinhasPedra from "./pages/SantinhasPedra";
+import MandalasResina from "./pages/MandalasResina";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -61,7 +62,7 @@ const App = () => (
             <Route path="/pulseiras-minimalistas" element={<PulseirasMinimalistas />} />
             <Route path="/piramides-quanticas" element={<PiramidesQuanticas />} />
             <Route path="/santinhas-pedra" element={<SantinhasPedra />} />
-            <Route path="/mandalas-resina" element={<Products />} />
+            <Route path="/mandalas-resina" element={<MandalasResina />} />
             <Route path="/incensarios-pedras" element={<Products />} />
             <Route path="/kits-presente" element={<Products />} />
             <Route path="/lancamentos" element={<Products />} />
