@@ -10,36 +10,36 @@ const categoryMenuData = {
     label: "Anéis",
     href: "/aneis",
     items: [
+      { label: "Anéis de Aço Inox", href: "/aneis-aco" },
       { label: "Anéis com Pedras", href: "/aneis-pedras-naturais" },
       { label: "Anéis com Flores", href: "/aneis-flores" },
-      { label: "Anéis de Aço Inox", href: "/aneis-aco" },
     ],
   },
   pingentes: {
     label: "Pingentes",
     href: "/pingentes",
     items: [
+      { label: "Pingentes de Aço Inox", href: "/pingentes-aco" },
       { label: "Pingentes de Pedras", href: "/pingentes-pedras-naturais" },
       { label: "Pingentes de Resina", href: "/pingentes-resina-natural" },
-      { label: "Pingentes de Aço Inox", href: "/pingentes-aco" },
     ],
   },
   colares: {
     label: "Colares",
     href: "/colares",
     items: [
+      { label: "Colares de Aço Inox", href: "/colares-aco" },
       { label: "Colares de Pedras", href: "/colares-pedras" },
       { label: "Colares de Resina", href: "/colares-resina" },
-      { label: "Colares de Aço Inox", href: "/colares-aco" },
     ],
   },
   pulseiras: {
     label: "Pulseiras",
     href: "/pulseiras",
     items: [
+      { label: "Pulseiras de Aço Inox", href: "/pulseiras-aco" },
       { label: "Pulseiras de Pedras", href: "/pulseiras-pedras" },
       { label: "Pulseiras de Resina com Macramê", href: "/pulseiras-macrame" },
-      { label: "Pulseiras de Aço", href: "/pulseiras-aco" },
       { label: "Pulseiras Minimalistas", href: "/pulseiras-minimalistas" },
     ],
   },
