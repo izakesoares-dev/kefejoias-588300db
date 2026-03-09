@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Instagram, ShoppingBag, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
-import kefeLogo from "@/assets/kefe-logo.png";
+import kefeLogo from "@/assets/kefe-logo-new.jpg";
 import { useCart } from "@/contexts/CartContext";
 
 const categoryMenuData = {
@@ -84,7 +84,7 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border/50">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
         <Link to="/" className="flex items-center gap-2">
-          <img src={kefeLogo} alt="Kefe Joias" className="h-8 invert" />
+          <img src={kefeLogo} alt="Kefe Joias" className="h-12 md:h-14 rounded-sm" />
         </Link>
 
         {/* Desktop */}
