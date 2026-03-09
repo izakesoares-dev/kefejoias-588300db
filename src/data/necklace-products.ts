@@ -11,8 +11,17 @@ import necklaceLapisLazuli from "@/assets/necklace-lapis-lazuli.jpg";
 import necklaceCornalina from "@/assets/necklace-cornalina.jpg";
 import necklacePedraLua from "@/assets/necklace-pedra-lua.jpg";
 import necklaceAventurina from "@/assets/necklace-aventurina.jpg";
+import necklaceObsidiana from "@/assets/necklace-obsidiana.jpg";
+import necklaceHematita from "@/assets/necklace-hematita.jpg";
+import necklaceSodalita from "@/assets/necklace-sodalita.jpg";
+import necklaceGranada from "@/assets/necklace-granada.jpg";
+import necklaceFluorita from "@/assets/necklace-fluorita.jpg";
+import necklaceTurquesa from "@/assets/necklace-turquesa.jpg";
+import necklaceJaspeVermelho from "@/assets/necklace-jaspe-vermelho.jpg";
+import necklaceUnakita from "@/assets/necklace-unakita.jpg";
+import necklaceAmazonita from "@/assets/necklace-amazonita.jpg";
+import necklaceCristalQuartzo from "@/assets/necklace-cristal-quartzo.jpg";
 
-// Resin Necklace Images
 import necklaceResinGirassol from "@/assets/necklace-resin-girassol.jpg";
 import necklaceResinPimenta from "@/assets/necklace-resin-pimenta.jpg";
 import necklaceResinRosa from "@/assets/necklace-resin-rosa.jpg";
