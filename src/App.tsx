@@ -17,6 +17,7 @@ import PingentesResinaNatural from "./pages/PingentesResinaNatural";
 import Colares from "./pages/Colares";
 import ColaresPedras from "./pages/ColaresPedras";
 import ColaresResina from "./pages/ColaresResina";
+import ColaresAco from "./pages/ColaresAco";
 import Pulseiras from "./pages/Pulseiras";
 import PulseirasMacrame from "./pages/PulseirasMacrame";
 import PulseirasPedras from "./pages/PulseirasPedras";
