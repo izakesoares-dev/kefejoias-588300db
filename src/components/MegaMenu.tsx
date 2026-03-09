@@ -2,15 +2,6 @@ import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
 const menuData = {
-  acoInox: {
-    title: "Aço Inox",
-    items: [
-      { label: "Anéis de Aço Inox", href: "/aneis-aco" },
-      { label: "Colares de Aço Inox", href: "/colares-aco" },
-      { label: "Pulseiras de Aço Inox", href: "/pulseiras-aco" },
-      { label: "Pingentes de Aço Inox", href: "/pingentes-aco" },
-    ],
-  },
   aneis: {
     title: "Anéis",
     items: [
@@ -38,6 +29,15 @@ const menuData = {
       { label: "Pulseiras de Pedras", href: "/pulseiras-pedras" },
       { label: "Pulseiras de Resina com Macramê", href: "/pulseiras-macrame" },
       { label: "Pulseiras Minimalistas", href: "/pulseiras-minimalistas" },
+    ],
+  },
+  acoInox: {
+    title: "Aço Inox",
+    items: [
+      { label: "Anéis de Aço Inox", href: "/aneis-aco" },
+      { label: "Colares de Aço Inox", href: "/colares-aco" },
+      { label: "Pulseiras de Aço Inox", href: "/pulseiras-aco" },
+      { label: "Pingentes de Aço Inox", href: "/pingentes-aco" },
     ],
   },
   especiais: {
