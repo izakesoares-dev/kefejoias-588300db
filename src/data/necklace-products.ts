@@ -11,8 +11,17 @@ import necklaceLapisLazuli from "@/assets/necklace-lapis-lazuli.jpg";
 import necklaceCornalina from "@/assets/necklace-cornalina.jpg";
 import necklacePedraLua from "@/assets/necklace-pedra-lua.jpg";
 import necklaceAventurina from "@/assets/necklace-aventurina.jpg";
+import necklaceObsidiana from "@/assets/necklace-obsidiana.jpg";
+import necklaceHematita from "@/assets/necklace-hematita.jpg";
+import necklaceSodalita from "@/assets/necklace-sodalita.jpg";
+import necklaceGranada from "@/assets/necklace-granada.jpg";
+import necklaceFluorita from "@/assets/necklace-fluorita.jpg";
+import necklaceTurquesa from "@/assets/necklace-turquesa.jpg";
+import necklaceJaspeVermelho from "@/assets/necklace-jaspe-vermelho.jpg";
+import necklaceUnakita from "@/assets/necklace-unakita.jpg";
+import necklaceAmazonita from "@/assets/necklace-amazonita.jpg";
+import necklaceCristalQuartzo from "@/assets/necklace-cristal-quartzo.jpg";
 
-// Resin Necklace Images
 import necklaceResinGirassol from "@/assets/necklace-resin-girassol.jpg";
 import necklaceResinPimenta from "@/assets/necklace-resin-pimenta.jpg";
 import necklaceResinRosa from "@/assets/necklace-resin-rosa.jpg";
@@ -193,6 +202,176 @@ export const stoneNecklaces: Product[] = [
     ],
     significance: "Oportunidades",
     relatedIds: ["colar-jade-verde", "colar-citrino"],
+    inStock: true,
+  },
+  {
+    id: "colar-obsidiana",
+    name: "Colar Obsidiana",
+    slug: "colar-obsidiana",
+    category: "colar",
+    subcategory: "pedras-naturais",
+    price: 129.90,
+    description: "Colar com pedras de obsidiana alternadas com contas prateadas. A Obsidiana é o espelho da verdade, revelando verdades ocultas e promovendo limpeza energética profunda. Comprimento: 45cm + 5cm de extensão.",
+    shortDescription: "Verdade e limpeza energética com obsidiana",
+    images: [necklaceObsidiana],
+    elements: [
+      { name: "Obsidiana", meaning: "Verdade, transformação e limpeza profunda", icon: "⚫" }
+    ],
+    significance: "Transformação",
+    relatedIds: ["colar-turmalina-negra", "colar-hematita"],
+    inStock: true,
+  },
+  {
+    id: "colar-hematita",
+    name: "Colar Hematita",
+    slug: "colar-hematita",
+    category: "colar",
+    subcategory: "pedras-naturais",
+    price: 119.90,
+    description: "Colar com pedras de hematita alternadas com contas de aço. A Hematita é a âncora que conecta à terra, oferecendo aterramento e estabilidade emocional. Comprimento: 45cm + 5cm de extensão.",
+    shortDescription: "Aterramento e estabilidade com hematita",
+    images: [necklaceHematita],
+    elements: [
+      { name: "Hematita", meaning: "Aterramento, foco e estabilidade emocional", icon: "⛓️" }
+    ],
+    significance: "Aterramento",
+    relatedIds: ["colar-obsidiana", "colar-turmalina-negra"],
+    inStock: true,
+  },
+  {
+    id: "colar-sodalita",
+    name: "Colar Sodalita",
+    slug: "colar-sodalita",
+    category: "colar",
+    subcategory: "pedras-naturais",
+    price: 129.90,
+    description: "Colar com pedras de sodalita alternadas com contas prateadas. A Sodalita promove comunicação autêntica, racionalidade e expressão honesta. Comprimento: 45cm + 5cm de extensão.",
+    shortDescription: "Comunicação autêntica com sodalita",
+    images: [necklaceSodalita],
+    elements: [
+      { name: "Sodalita", meaning: "Comunicação autêntica e verdade interior", icon: "🧿" }
+    ],
+    significance: "Comunicação",
+    relatedIds: ["colar-lapis-lazuli", "colar-amazonita"],
+    inStock: true,
+  },
+  {
+    id: "colar-granada",
+    name: "Colar Granada",
+    slug: "colar-granada",
+    category: "colar",
+    subcategory: "pedras-naturais",
+    price: 149.90,
+    description: "Colar com pedras de granada alternadas com contas douradas. A Granada é a chama da paixão eterna, revitalizando relacionamentos e despertando energia. Comprimento: 45cm + 5cm de extensão.",
+    shortDescription: "Paixão e energia com pedras de granada",
+    images: [necklaceGranada],
+    elements: [
+      { name: "Granada", meaning: "Paixão, vigor e amor intenso", icon: "❤️‍🔥" }
+    ],
+    significance: "Paixão",
+    relatedIds: ["colar-cornalina", "colar-quartzo-rosa"],
+    inStock: true,
+  },
+  {
+    id: "colar-fluorita",
+    name: "Colar Fluorita",
+    slug: "colar-fluorita",
+    category: "colar",
+    subcategory: "pedras-naturais",
+    price: 139.90,
+    description: "Colar com pedras de fluorita alternadas com contas prateadas. A Fluorita promove concentração, organização e aprendizado. Ideal para estudantes e profissionais. Comprimento: 45cm + 5cm de extensão.",
+    shortDescription: "Concentração e foco mental com fluorita",
+    images: [necklaceFluorita],
+    elements: [
+      { name: "Fluorita", meaning: "Foco mental, organização e clareza", icon: "🧠" }
+    ],
+    significance: "Foco mental",
+    relatedIds: ["colar-sodalita", "colar-ametista"],
+    inStock: true,
+  },
+  {
+    id: "colar-turquesa",
+    name: "Colar Turquesa",
+    slug: "colar-turquesa",
+    category: "colar",
+    subcategory: "pedras-naturais",
+    price: 159.90,
+    description: "Colar com pedras de turquesa alternadas com contas prateadas. A Turquesa é o amuleto dos viajantes, oferecendo proteção, sabedoria e cura holística. Comprimento: 45cm + 5cm de extensão.",
+    shortDescription: "Proteção viajante e sabedoria com turquesa",
+    images: [necklaceTurquesa],
+    elements: [
+      { name: "Turquesa", meaning: "Proteção viajante, sabedoria ancestral", icon: "🩵" }
+    ],
+    significance: "Proteção viajante",
+    relatedIds: ["colar-lapis-lazuli", "colar-amazonita"],
+    inStock: true,
+  },
+  {
+    id: "colar-jaspe-vermelho",
+    name: "Colar Jaspe Vermelho",
+    slug: "colar-jaspe-vermelho",
+    category: "colar",
+    subcategory: "pedras-naturais",
+    price: 129.90,
+    description: "Colar com pedras de jaspe vermelho alternadas com contas douradas. O Jaspe Vermelho traz resistência física, coragem e proteção ativa. Comprimento: 45cm + 5cm de extensão.",
+    shortDescription: "Resistência e coragem com jaspe vermelho",
+    images: [necklaceJaspeVermelho],
+    elements: [
+      { name: "Jaspe Vermelho", meaning: "Força, resistência e coragem guerreira", icon: "🌋" }
+    ],
+    significance: "Coragem",
+    relatedIds: ["colar-cornalina", "colar-granada"],
+    inStock: true,
+  },
+  {
+    id: "colar-unakita",
+    name: "Colar Unakita",
+    slug: "colar-unakita",
+    category: "colar",
+    subcategory: "pedras-naturais",
+    price: 129.90,
+    description: "Colar com pedras de unakita alternadas com contas douradas. A Unakita equilibra o coração e a mente, promovendo cura emocional gradual. Comprimento: 45cm + 5cm de extensão.",
+    shortDescription: "Equilíbrio coração-mente com unakita",
+    images: [necklaceUnakita],
+    elements: [
+      { name: "Unakita", meaning: "Equilíbrio, paciência e cura gradual", icon: "🌿" }
+    ],
+    significance: "Equilíbrio",
+    relatedIds: ["colar-amazonita", "colar-quartzo-rosa"],
+    inStock: true,
+  },
+  {
+    id: "colar-amazonita",
+    name: "Colar Amazonita",
+    slug: "colar-amazonita",
+    category: "colar",
+    subcategory: "pedras-naturais",
+    price: 129.90,
+    description: "Colar com pedras de amazonita alternadas com contas douradas. A Amazonita promove esperança, harmonia e comunicação do coração. Comprimento: 45cm + 5cm de extensão.",
+    shortDescription: "Esperança e harmonia com amazonita",
+    images: [necklaceAmazonita],
+    elements: [
+      { name: "Amazonita", meaning: "Esperança, equilíbrio e harmonia", icon: "🌊" }
+    ],
+    significance: "Harmonia",
+    relatedIds: ["colar-quartzo-rosa", "colar-unakita"],
+    inStock: true,
+  },
+  {
+    id: "colar-cristal-quartzo",
+    name: "Colar Cristal de Quartzo",
+    slug: "colar-cristal-quartzo",
+    category: "colar",
+    subcategory: "pedras-naturais",
+    price: 129.90,
+    description: "Colar com pedras de cristal de quartzo alternadas com contas prateadas. O Cristal de Quartzo é o mestre amplificador, potencializando intenções e clareza mental. Comprimento: 45cm + 5cm de extensão.",
+    shortDescription: "Amplificação e clareza com cristal de quartzo",
+    images: [necklaceCristalQuartzo],
+    elements: [
+      { name: "Cristal de Quartzo", meaning: "Amplificação, clareza e energia universal", icon: "✨" }
+    ],
+    significance: "Amplificação",
+    relatedIds: ["colar-ametista", "colar-citrino"],
     inStock: true,
   },
 ];
