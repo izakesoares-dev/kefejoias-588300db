@@ -6,6 +6,9 @@ import braceletMacramePimenta from "@/assets/bracelet-macrame-pimenta.jpg";
 import braceletMacrameGirassol from "@/assets/bracelet-macrame-girassol.jpg";
 import braceletMacrameRosa from "@/assets/bracelet-macrame-rosa.jpg";
 import braceletMacrameMargarida from "@/assets/bracelet-macrame-margarida.jpg";
+import braceletMacramePimentaRosa from "@/assets/bracelet-macrame-pimenta-rosa.jpg";
+import braceletMacrameJasmin from "@/assets/bracelet-macrame-jasmin.jpg";
+import braceletMacrameDenteLeao from "@/assets/bracelet-macrame-dente-leao.jpg";
 
 // Stone Bracelet Images
 import braceletPedrasOlhoTigreQuartzo from "@/assets/bracelet-pedras-olho-tigre-quartzo.jpg";
@@ -13,6 +16,11 @@ import braceletPedrasAmetista from "@/assets/bracelet-pedras-ametista.jpg";
 import braceletPedrasTurmalina from "@/assets/bracelet-pedras-turmalina.jpg";
 import braceletPedrasJadeCitrino from "@/assets/bracelet-pedras-jade-citrino.jpg";
 import braceletPedrasLapis from "@/assets/bracelet-pedras-lapis.jpg";
+import braceletPedrasQuartzoRosa from "@/assets/bracelet-pedras-quartzo-rosa.jpg";
+import braceletPedrasOlhoTigre from "@/assets/bracelet-pedras-olho-tigre.jpg";
+import braceletPedrasJade from "@/assets/bracelet-pedras-jade.jpg";
+import braceletPedrasCitrino from "@/assets/bracelet-pedras-citrino.jpg";
+import braceletPedrasHematita from "@/assets/bracelet-pedras-hematita.jpg";
 
 // Steel Bracelet Images
 import braceletAcoOlhoTigre from "@/assets/bracelet-aco-olho-tigre.jpg";
@@ -20,6 +28,8 @@ import braceletAcoAmetista from "@/assets/bracelet-aco-ametista.jpg";
 import braceletAcoQuartzoRosa from "@/assets/bracelet-aco-quartzo-rosa.jpg";
 import braceletAcoJade from "@/assets/bracelet-aco-jade.jpg";
 import braceletAcoCitrino from "@/assets/bracelet-aco-citrino.jpg";
+import braceletAcoTurmalina from "@/assets/bracelet-aco-turmalina.jpg";
+import braceletAcoLapis from "@/assets/bracelet-aco-lapis.jpg";
 
 // Minimalist Bracelet Images
 import braceletMiniQuartzoRosa from "@/assets/bracelet-mini-quartzo-rosa.jpg";
@@ -27,6 +37,11 @@ import braceletMiniAmetista from "@/assets/bracelet-mini-ametista.jpg";
 import braceletMiniOlhoTigre from "@/assets/bracelet-mini-olho-tigre.jpg";
 import braceletMiniTurquesa from "@/assets/bracelet-mini-turquesa.jpg";
 import braceletMiniJade from "@/assets/bracelet-mini-jade.jpg";
+import braceletMiniCitrino from "@/assets/bracelet-mini-citrino.jpg";
+import braceletMiniLapis from "@/assets/bracelet-mini-lapis.jpg";
+import braceletMiniTurmalina from "@/assets/bracelet-mini-turmalina.jpg";
+import braceletMiniCornalina from "@/assets/bracelet-mini-cornalina.jpg";
+import braceletMiniPedraLua from "@/assets/bracelet-mini-pedra-lua.jpg";
 
 // ========== MACRAMÊ ==========
 export const macrameBracelets: Product[] = [
@@ -116,6 +131,59 @@ export const macrameBracelets: Product[] = [
     significance: "Pureza e inocência",
     relatedIds: ["pulseira-macrame-rosa", "pulseira-macrame-girassol"],
     inStock: true,
+  },
+  {
+    id: "pulseira-macrame-pimenta-rosa",
+    name: "Pulseira Macramê com Pimenta Rosa",
+    slug: "pulseira-macrame-pimenta-rosa",
+    category: "pulseira",
+    subcategory: "pimentas",
+    price: 79.90,
+    description: "Pimenta rosa eternizada em resina cristalina sobre base de macramê artesanal. Proteção suave e energia feminina. Tamanho único ajustável.",
+    shortDescription: "Pulseira macramê com pimenta rosa – proteção e feminilidade",
+    images: [braceletMacramePimentaRosa, braceletMacramePimentaRosa, braceletMacramePimentaRosa],
+    elements: [
+      { name: "Pimenta Rosa", meaning: "Proteção suave e energia feminina", icon: "🌸" },
+    ],
+    significance: "Proteção e feminilidade",
+    relatedIds: ["pulseira-macrame-pimenta", "pulseira-macrame-rosa"],
+    inStock: true,
+  },
+  {
+    id: "pulseira-macrame-jasmin",
+    name: "Pulseira Macramê com Jasmim",
+    slug: "pulseira-macrame-jasmin",
+    category: "pulseira",
+    subcategory: "flores",
+    price: 84.90,
+    description: "Flores de jasmim eternizadas em resina cristalina sobre macramê artesanal. Sensualidade e pureza espiritual no pulso. Tamanho único ajustável.",
+    shortDescription: "Pulseira macramê com jasmim – sensualidade e pureza",
+    images: [braceletMacrameJasmin, braceletMacrameJasmin, braceletMacrameJasmin],
+    elements: [
+      { name: "Jasmim", meaning: "Sensualidade, pureza espiritual e amor", icon: "🤍" },
+    ],
+    significance: "Sensualidade e pureza",
+    relatedIds: ["pulseira-macrame-rosa", "pulseira-macrame-lavanda"],
+    inStock: true,
+    badge: "Novo",
+  },
+  {
+    id: "pulseira-macrame-dente-leao",
+    name: "Pulseira Macramê Dente-de-Leão",
+    slug: "pulseira-macrame-dente-leao",
+    category: "pulseira",
+    subcategory: "flores",
+    price: 89.90,
+    description: "Sementes de dente-de-leão eternizadas em resina cristalina sobre macramê artesanal. Símbolo de desejos e esperança. Peça delicada e única. Tamanho ajustável.",
+    shortDescription: "Pulseira macramê com dente-de-leão – desejos e esperança",
+    images: [braceletMacrameDenteLeao, braceletMacrameDenteLeao, braceletMacrameDenteLeao],
+    elements: [
+      { name: "Dente-de-Leão", meaning: "Desejos, esperança e novos começos", icon: "🌬️" },
+    ],
+    significance: "Desejos e esperança",
+    relatedIds: ["pulseira-macrame-girassol", "pulseira-macrame-margarida"],
+    inStock: true,
+    badge: "Edição limitada",
   },
 ];
 
@@ -210,9 +278,94 @@ export const stoneBracelets: Product[] = [
     relatedIds: ["pulseira-pedras-ametista", "pulseira-jade-citrino"],
     inStock: true,
   },
+  {
+    id: "pulseira-pedras-quartzo-rosa",
+    name: "Pulseira de Quartzo Rosa",
+    slug: "pulseira-pedras-quartzo-rosa",
+    category: "pulseira",
+    subcategory: "pedras-naturais",
+    price: 59.90,
+    description: "Contas de quartzo rosa natural de 8mm em pulseira elástica. A pedra do amor incondicional, promove cura emocional e autoestima.",
+    shortDescription: "Pulseira de quartzo rosa – amor e cura",
+    images: [braceletPedrasQuartzoRosa, braceletPedrasQuartzoRosa, braceletPedrasQuartzoRosa],
+    elements: [
+      { name: "Quartzo Rosa", meaning: "Amor-próprio, cura emocional e compaixão", icon: "💎" },
+    ],
+    significance: "Amor e cura emocional",
+    relatedIds: ["pulseira-pedras-ametista", "pulseira-olho-tigre-quartzo-rosa"],
+    inStock: true,
+  },
+  {
+    id: "pulseira-pedras-olho-tigre",
+    name: "Pulseira de Olho de Tigre",
+    slug: "pulseira-pedras-olho-tigre",
+    category: "pulseira",
+    subcategory: "pedras-naturais",
+    price: 64.90,
+    description: "Contas de olho de tigre natural em pulseira elástica. Coragem, proteção e autoconfiança para enfrentar o dia a dia.",
+    shortDescription: "Pulseira de olho de tigre – coragem e proteção",
+    images: [braceletPedrasOlhoTigre, braceletPedrasOlhoTigre, braceletPedrasOlhoTigre],
+    elements: [
+      { name: "Olho de Tigre", meaning: "Coragem, proteção e autoconfiança", icon: "🐯" },
+    ],
+    significance: "Coragem e proteção",
+    relatedIds: ["pulseira-pedras-turmalina", "pulseira-olho-tigre-quartzo-rosa"],
+    inStock: true,
+    badge: "Mais vendido",
+  },
+  {
+    id: "pulseira-pedras-jade",
+    name: "Pulseira de Jade",
+    slug: "pulseira-pedras-jade",
+    category: "pulseira",
+    subcategory: "pedras-naturais",
+    price: 64.90,
+    description: "Contas de jade verde natural em pulseira elástica. Prosperidade, harmonia e equilíbrio emocional.",
+    shortDescription: "Pulseira de jade – prosperidade e harmonia",
+    images: [braceletPedrasJade, braceletPedrasJade, braceletPedrasJade],
+    elements: [
+      { name: "Jade", meaning: "Sorte, prosperidade e harmonia", icon: "💚" },
+    ],
+    significance: "Prosperidade e harmonia",
+    relatedIds: ["pulseira-jade-citrino", "pulseira-pedras-citrino"],
+    inStock: true,
+  },
+  {
+    id: "pulseira-pedras-citrino",
+    name: "Pulseira de Citrino",
+    slug: "pulseira-pedras-citrino",
+    category: "pulseira",
+    subcategory: "pedras-naturais",
+    price: 64.90,
+    description: "Contas de citrino natural em pulseira elástica. A pedra da abundância e alegria, atrai prosperidade e energia positiva.",
+    shortDescription: "Pulseira de citrino – abundância e alegria",
+    images: [braceletPedrasCitrino, braceletPedrasCitrino, braceletPedrasCitrino],
+    elements: [
+      { name: "Citrino", meaning: "Abundância, autoestima e energia positiva", icon: "💛" },
+    ],
+    significance: "Abundância e alegria",
+    relatedIds: ["pulseira-jade-citrino", "pulseira-pedras-jade"],
+    inStock: true,
+    badge: "Novo",
+  },
+  {
+    id: "pulseira-pedras-hematita",
+    name: "Pulseira de Hematita",
+    slug: "pulseira-pedras-hematita",
+    category: "pulseira",
+    subcategory: "pedras-naturais",
+    price: 59.90,
+    description: "Contas de hematita facetada em pulseira elástica. Aterramento, foco e equilíbrio energético. Visual sofisticado e moderno.",
+    shortDescription: "Pulseira de hematita – foco e aterramento",
+    images: [braceletPedrasHematita, braceletPedrasHematita, braceletPedrasHematita],
+    elements: [
+      { name: "Hematita", meaning: "Aterramento, foco e equilíbrio energético", icon: "⚫" },
+    ],
+    significance: "Foco e aterramento",
+    relatedIds: ["pulseira-pedras-turmalina", "pulseira-pedras-olho-tigre"],
+    inStock: true,
+  },
 ];
-
-// ========== AÇO INOXIDÁVEL ==========
 export const steelBracelets: Product[] = [
   {
     id: "pulseira-aco-olho-tigre",
@@ -301,6 +454,41 @@ export const steelBracelets: Product[] = [
     relatedIds: ["pulseira-aco-jade", "pulseira-aco-quartzo-rosa"],
     inStock: true,
     badge: "Edição limitada",
+  },
+  {
+    id: "pulseira-aco-turmalina",
+    name: "Pulseira de Aço com Turmalina Negra",
+    slug: "pulseira-aco-turmalina",
+    category: "pulseira",
+    subcategory: "pedras-naturais",
+    price: 89.90,
+    description: "Corrente de aço inoxidável prateada com pingente de turmalina negra. Escudo energético em um design sofisticado. Fecho lagosta ajustável.",
+    shortDescription: "Pulseira de aço com turmalina – proteção e estilo",
+    images: [braceletAcoTurmalina, braceletAcoTurmalina, braceletAcoTurmalina],
+    elements: [
+      { name: "Turmalina Negra", meaning: "Escudo energético e aterramento", icon: "🖤" },
+    ],
+    significance: "Proteção e estilo",
+    relatedIds: ["pulseira-aco-olho-tigre", "pulseira-aco-lapis"],
+    inStock: true,
+  },
+  {
+    id: "pulseira-aco-lapis",
+    name: "Pulseira de Aço com Lápis-Lazúli",
+    slug: "pulseira-aco-lapis-lazuli",
+    category: "pulseira",
+    subcategory: "pedras-naturais",
+    price: 94.90,
+    description: "Corrente de aço inoxidável com pingente de lápis-lazúli natural. Sabedoria e verdade em uma peça premium. Fecho lagosta com extensão.",
+    shortDescription: "Pulseira de aço com lápis-lazúli – sabedoria e verdade",
+    images: [braceletAcoLapis, braceletAcoLapis, braceletAcoLapis],
+    elements: [
+      { name: "Lápis-Lazúli", meaning: "Sabedoria, verdade e intuição", icon: "💙" },
+    ],
+    significance: "Sabedoria e verdade",
+    relatedIds: ["pulseira-aco-ametista", "pulseira-aco-turmalina"],
+    inStock: true,
+    badge: "Novo",
   },
 ];
 
@@ -392,5 +580,93 @@ export const minimalistBracelets: Product[] = [
     significance: "Prosperidade discreta",
     relatedIds: ["pulseira-mini-olho-tigre", "pulseira-mini-quartzo-rosa"],
     inStock: true,
+  },
+  {
+    id: "pulseira-mini-citrino",
+    name: "Pulseira Mini Citrino",
+    slug: "pulseira-mini-citrino",
+    category: "pulseira",
+    subcategory: "pedras-naturais",
+    price: 59.90,
+    description: "Pedrinhas de citrino intercaladas com esferas de aço inoxidável. Abundância e luz solar em um design delicado. Fecho ajustável.",
+    shortDescription: "Pulseira minimalista de citrino – abundância discreta",
+    images: [braceletMiniCitrino, braceletMiniCitrino, braceletMiniCitrino],
+    elements: [
+      { name: "Citrino", meaning: "Abundância, autoestima e energia positiva", icon: "💛" },
+    ],
+    significance: "Abundância discreta",
+    relatedIds: ["pulseira-mini-jade", "pulseira-mini-cornalina"],
+    inStock: true,
+  },
+  {
+    id: "pulseira-mini-lapis",
+    name: "Pulseira Mini Lápis-Lazúli",
+    slug: "pulseira-mini-lapis-lazuli",
+    category: "pulseira",
+    subcategory: "pedras-naturais",
+    price: 64.90,
+    description: "Pedrinhas de lápis-lazúli intercaladas com esferas de aço dourado. Sabedoria e elegância em um design minimalista. Fecho ajustável.",
+    shortDescription: "Pulseira minimalista de lápis-lazúli – sabedoria elegante",
+    images: [braceletMiniLapis, braceletMiniLapis, braceletMiniLapis],
+    elements: [
+      { name: "Lápis-Lazúli", meaning: "Sabedoria, verdade e intuição", icon: "💙" },
+    ],
+    significance: "Sabedoria elegante",
+    relatedIds: ["pulseira-mini-ametista", "pulseira-mini-turmalina"],
+    inStock: true,
+    badge: "Edição limitada",
+  },
+  {
+    id: "pulseira-mini-turmalina",
+    name: "Pulseira Mini Turmalina Negra",
+    slug: "pulseira-mini-turmalina",
+    category: "pulseira",
+    subcategory: "pedras-naturais",
+    price: 59.90,
+    description: "Pedrinhas de turmalina negra intercaladas com esferas de aço inoxidável. Proteção discreta e sofisticada. Fecho ajustável.",
+    shortDescription: "Pulseira minimalista de turmalina – proteção discreta",
+    images: [braceletMiniTurmalina, braceletMiniTurmalina, braceletMiniTurmalina],
+    elements: [
+      { name: "Turmalina Negra", meaning: "Escudo energético e aterramento", icon: "🖤" },
+    ],
+    significance: "Proteção discreta",
+    relatedIds: ["pulseira-mini-olho-tigre", "pulseira-mini-lapis"],
+    inStock: true,
+  },
+  {
+    id: "pulseira-mini-cornalina",
+    name: "Pulseira Mini Cornalina",
+    slug: "pulseira-mini-cornalina",
+    category: "pulseira",
+    subcategory: "pedras-naturais",
+    price: 59.90,
+    description: "Pedrinhas de cornalina intercaladas com esferas de aço dourado. Vitalidade e criatividade em um design discreto. Fecho ajustável.",
+    shortDescription: "Pulseira minimalista de cornalina – vitalidade e criatividade",
+    images: [braceletMiniCornalina, braceletMiniCornalina, braceletMiniCornalina],
+    elements: [
+      { name: "Cornalina", meaning: "Vitalidade, criatividade e paixão", icon: "🧡" },
+    ],
+    significance: "Vitalidade e criatividade",
+    relatedIds: ["pulseira-mini-citrino", "pulseira-mini-olho-tigre"],
+    inStock: true,
+    badge: "Novo",
+  },
+  {
+    id: "pulseira-mini-pedra-lua",
+    name: "Pulseira Mini Pedra da Lua",
+    slug: "pulseira-mini-pedra-lua",
+    category: "pulseira",
+    subcategory: "pedras-naturais",
+    price: 69.90,
+    description: "Pedrinhas de pedra da lua intercaladas com esferas de aço dourado. Intuição feminina e ciclos naturais em um design ethereal. Fecho ajustável.",
+    shortDescription: "Pulseira minimalista de pedra da lua – intuição e feminilidade",
+    images: [braceletMiniPedraLua, braceletMiniPedraLua, braceletMiniPedraLua],
+    elements: [
+      { name: "Pedra da Lua", meaning: "Intuição feminina, ciclos e equilíbrio emocional", icon: "🌙" },
+    ],
+    significance: "Intuição e feminilidade",
+    relatedIds: ["pulseira-mini-quartzo-rosa", "pulseira-mini-ametista"],
+    inStock: true,
+    badge: "Especial",
   },
 ];
