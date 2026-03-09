@@ -1,5 +1,27 @@
 import { Product } from "./products";
 
+// Stone Pendant Images
+import stonePendantOlhoTigre from "@/assets/stone-pendant-olho-tigre.jpg";
+import stonePendantAmetista from "@/assets/stone-pendant-ametista.jpg";
+import stonePendantTurmalinaNegra from "@/assets/stone-pendant-turmalina-negra.jpg";
+import stonePendantQuartzoRosa from "@/assets/stone-pendant-quartzo-rosa.jpg";
+import stonePendantCitrino from "@/assets/stone-pendant-citrino.jpg";
+import stonePendantLapisLazuli from "@/assets/stone-pendant-lapis-lazuli.jpg";
+import stonePendantCornalina from "@/assets/stone-pendant-cornalina.jpg";
+import stonePendantPedraLua from "@/assets/stone-pendant-pedra-lua.jpg";
+import stonePendantAventurina from "@/assets/stone-pendant-aventurina.jpg";
+import stonePendantObsidiana from "@/assets/stone-pendant-obsidiana.jpg";
+import stonePendantJade from "@/assets/stone-pendant-jade.jpg";
+import stonePendantCristalQuartzo from "@/assets/stone-pendant-cristal-quartzo.jpg";
+import stonePendantHematita from "@/assets/stone-pendant-hematita.jpg";
+import stonePendantAmazonita from "@/assets/stone-pendant-amazonita.jpg";
+import stonePendantSodalita from "@/assets/stone-pendant-sodalita.jpg";
+import stonePendantGranada from "@/assets/stone-pendant-granada.jpg";
+import stonePendantFluorita from "@/assets/stone-pendant-fluorita.jpg";
+import stonePendantTurquesa from "@/assets/stone-pendant-turquesa.jpg";
+import stonePendantJaspeVermelho from "@/assets/stone-pendant-jaspe-vermelho.jpg";
+import stonePendantUnakita from "@/assets/stone-pendant-unakita.jpg";
+
 // Stone Pendants - using the same stones as rings
 export const stonePendants: Product[] = [
   {
@@ -11,7 +33,7 @@ export const stonePendants: Product[] = [
     price: 69.90,
     description: "A Turmalina Negra é conhecida como o escudo absoluto contra energias densas. Este pingente mantém sua aura protegida, afastando negatividade e vampirismo energético. Disponível com corrente de aço inoxidável inclusa ou apenas o pingente.",
     shortDescription: "Escudo energético contra negatividade e proteção da aura",
-    images: ["/placeholder.svg"],
+    images: [stonePendantTurmalinaNegra],
     elements: [
       { name: "Turmalina Negra", meaning: "Proteção contra vampirismo energético e negatividade extrema", icon: "🖤" }
     ],
@@ -29,7 +51,7 @@ export const stonePendants: Product[] = [
     price: 69.90,
     description: "O Olho de Tigre é o guardião da coragem e da prosperidade. Perfeito para usar no peito e manter sua aura protegida, este pingente detecta energias tóxicas e atrai oportunidades. Disponível com corrente de aço inoxidável.",
     shortDescription: "Detector de energias tóxicas e atrator de oportunidades",
-    images: ["/placeholder.svg"],
+    images: [stonePendantOlhoTigre],
     elements: [
       { name: "Olho de Tigre", meaning: "Proteção contra inveja e atração de oportunidades", icon: "🐯" }
     ],
@@ -46,7 +68,7 @@ export const stonePendants: Product[] = [
     price: 69.90,
     description: "O Quartzo Rosa é a pedra do amor incondicional. Este pingente abraça o coração de quem usa, promovendo cura emocional, amor-próprio e relacionamentos harmoniosos. Mantenha-o perto do coração para sentir seus benefícios.",
     shortDescription: "Cura emocional, amor-próprio e relacionamentos harmoniosos",
-    images: ["/placeholder.svg"],
+    images: [stonePendantQuartzoRosa],
     elements: [
       { name: "Quartzo Rosa", meaning: "Amor incondicional, cura emocional e compaixão", icon: "💎" }
     ],
@@ -64,7 +86,7 @@ export const stonePendants: Product[] = [
     price: 69.90,
     description: "A Ametista é a pedra da transmutação espiritual e conexão com o divino. Este pingente eleva a intuição, purifica ambientes e promove calma interior. Ideal para meditação e momentos de introspecção.",
     shortDescription: "Intuição elevada, purificação e calma espiritual",
-    images: ["/placeholder.svg"],
+    images: [stonePendantAmetista],
     elements: [
       { name: "Ametista", meaning: "Transmutação, intuição e conexão espiritual", icon: "🔮" }
     ],
@@ -81,7 +103,7 @@ export const stonePendants: Product[] = [
     price: 69.90,
     description: "O Citrino é o sol da abundância. Este pingente atrai riqueza, autoestima e energia positiva para sua vida. Conhecido como a pedra dos comerciantes, é perfeito para quem busca prosperidade.",
     shortDescription: "Atrai riqueza, autoestima e energia positiva",
-    images: ["/placeholder.svg"],
+    images: [stonePendantCitrino],
     elements: [
       { name: "Citrino", meaning: "Abundância, autoestima e energia solar", icon: "💛" }
     ],
@@ -99,7 +121,7 @@ export const stonePendants: Product[] = [
     price: 79.90,
     description: "O Jade Verde é o talismã milenar da sorte. Este pingente traz prosperidade, sorte nos negócios e longevidade. Uma pedra reverenciada há milênios por sua energia de abundância.",
     shortDescription: "Prosperidade, sorte nos negócios e longevidade",
-    images: ["/placeholder.svg"],
+    images: [stonePendantJade],
     elements: [
       { name: "Jade Verde", meaning: "Sorte, longevidade e prosperidade milenar", icon: "💚" }
     ],
@@ -116,7 +138,7 @@ export const stonePendants: Product[] = [
     price: 69.90,
     description: "A Obsidiana é o espelho da verdade e da transformação. Este pingente revela verdades ocultas e promove limpeza energética profunda. Perfeito para quem busca autoconhecimento.",
     shortDescription: "Revela verdades e promove limpeza energética profunda",
-    images: ["/placeholder.svg"],
+    images: [stonePendantObsidiana],
     elements: [
       { name: "Obsidiana", meaning: "Verdade, transformação e limpeza profunda", icon: "⚫" }
     ],
@@ -133,7 +155,7 @@ export const stonePendants: Product[] = [
     price: 59.90,
     description: "A Hematita é a âncora que te conecta à terra. Este pingente oferece aterramento, estabilidade emocional e força de vontade. Ideal para momentos que exigem foco e determinação.",
     shortDescription: "Aterramento, estabilidade e força de vontade",
-    images: ["/placeholder.svg"],
+    images: [stonePendantHematita],
     elements: [
       { name: "Hematita", meaning: "Aterramento, foco e estabilidade emocional", icon: "⛓️" }
     ],
@@ -150,7 +172,7 @@ export const stonePendants: Product[] = [
     price: 89.90,
     description: "O Lápis-Lazúli carrega a sabedoria dos antigos. Este pingente promove verdade, sabedoria e expressão clara. Era a pedra favorita dos faraós egípcios.",
     shortDescription: "Verdade, sabedoria e expressão clara",
-    images: ["/placeholder.svg"],
+    images: [stonePendantLapisLazuli],
     elements: [
       { name: "Lápis-Lazúli", meaning: "Sabedoria ancestral, verdade e clareza", icon: "💙" }
     ],
@@ -167,7 +189,7 @@ export const stonePendants: Product[] = [
     price: 69.90,
     description: "A Sodalita é a voz da verdade interior. Este pingente promove comunicação autêntica, racionalidade e expressão honesta. Perfeito para quem trabalha com comunicação.",
     shortDescription: "Comunicação autêntica e racionalidade",
-    images: ["/placeholder.svg"],
+    images: [stonePendantSodalita],
     elements: [
       { name: "Sodalita", meaning: "Comunicação autêntica e verdade interior", icon: "🧿" }
     ],
@@ -184,7 +206,7 @@ export const stonePendants: Product[] = [
     price: 69.90,
     description: "A Aventurina Verde é a porta das oportunidades. Este pingente traz sorte, novos começos e crescimento financeiro. Ideal para quem está iniciando novos projetos.",
     shortDescription: "Sorte, novos começos e crescimento financeiro",
-    images: ["/placeholder.svg"],
+    images: [stonePendantAventurina],
     elements: [
       { name: "Aventurina Verde", meaning: "Oportunidades, sorte e crescimento", icon: "🍀" }
     ],
@@ -201,7 +223,7 @@ export const stonePendants: Product[] = [
     price: 69.90,
     description: "A Fluorita é o organizador da mente brilhante. Este pingente promove concentração, organização e aprendizado. Perfeito para estudantes e profissionais.",
     shortDescription: "Concentração, organização e aprendizado",
-    images: ["/placeholder.svg"],
+    images: [stonePendantFluorita],
     elements: [
       { name: "Fluorita", meaning: "Foco mental, organização e clareza", icon: "🧠" }
     ],
@@ -218,7 +240,7 @@ export const stonePendants: Product[] = [
     price: 69.90,
     description: "A Amazonita é a pedra da esperança e harmonia. Este pingente promove equilíbrio energético e comunicação do coração. Perfeito para quem busca paz interior.",
     shortDescription: "Esperança, harmonia e comunicação do coração",
-    images: ["/placeholder.svg"],
+    images: [stonePendantAmazonita],
     elements: [
       { name: "Amazonita", meaning: "Esperança, equilíbrio e harmonia", icon: "🌊" }
     ],
@@ -235,7 +257,7 @@ export const stonePendants: Product[] = [
     price: 69.90,
     description: "A Cornalina é o fogo da paixão e criatividade. Este pingente traz energia vital, coragem e motivação. Perfeito para quem busca mais vigor na vida.",
     shortDescription: "Paixão, criatividade e energia vital",
-    images: ["/placeholder.svg"],
+    images: [stonePendantCornalina],
     elements: [
       { name: "Cornalina", meaning: "Vitalidade, paixão e coragem criativa", icon: "🔥" }
     ],
@@ -252,7 +274,7 @@ export const stonePendants: Product[] = [
     price: 69.90,
     description: "O Jaspe Vermelho é o escudo do guerreiro. Este pingente traz resistência física, coragem e proteção ativa. Ideal para momentos que exigem força.",
     shortDescription: "Resistência, coragem e proteção ativa",
-    images: ["/placeholder.svg"],
+    images: [stonePendantJaspeVermelho],
     elements: [
       { name: "Jaspe Vermelho", meaning: "Força, resistência e coragem guerreira", icon: "🌋" }
     ],
@@ -269,7 +291,7 @@ export const stonePendants: Product[] = [
     price: 79.90,
     description: "A Granada é a chama da paixão eterna. Este pingente revitaliza relacionamentos, traz energia e desperta a sensualidade. Uma pedra de amor intenso.",
     shortDescription: "Paixão, energia e revitalização de relacionamentos",
-    images: ["/placeholder.svg"],
+    images: [stonePendantGranada],
     elements: [
       { name: "Granada", meaning: "Paixão, vigor e amor intenso", icon: "❤️‍🔥" }
     ],
@@ -286,7 +308,7 @@ export const stonePendants: Product[] = [
     price: 79.90,
     description: "A Pedra da Lua conecta com os ciclos femininos e a intuição. Este pingente promove sensibilidade, proteção materna e equilíbrio emocional.",
     shortDescription: "Intuição feminina e equilíbrio emocional",
-    images: ["/placeholder.svg"],
+    images: [stonePendantPedraLua],
     elements: [
       { name: "Pedra da Lua", meaning: "Intuição, feminilidade e ciclos naturais", icon: "🌙" }
     ],
@@ -296,20 +318,20 @@ export const stonePendants: Product[] = [
     badge: "Feminino",
   },
   {
-    id: "pingente-agua-marinha",
-    name: "Pingente Água-Marinha",
-    slug: "pingente-agua-marinha",
+    id: "pingente-cristal-quartzo",
+    name: "Pingente Cristal de Quartzo",
+    slug: "pingente-cristal-quartzo",
     category: "pingente",
     subcategory: "pedras-naturais",
-    price: 89.90,
-    description: "A Água-Marinha traz a serenidade do oceano. Este pingente promove clareza mental, coragem e comunicação fluida. Perfeito para acalmar emoções.",
-    shortDescription: "Serenidade, clareza mental e comunicação fluida",
-    images: ["/placeholder.svg"],
+    price: 69.90,
+    description: "O Cristal de Quartzo é o mestre amplificador. Este pingente potencializa suas intenções e clareza mental. A pedra mais versátil para qualquer propósito.",
+    shortDescription: "Amplificação de intenções e clareza mental",
+    images: [stonePendantCristalQuartzo],
     elements: [
-      { name: "Água-Marinha", meaning: "Serenidade oceânica, coragem e clareza", icon: "🌊" }
+      { name: "Cristal de Quartzo", meaning: "Amplificação, clareza e energia universal", icon: "✨" }
     ],
-    significance: "Serenidade",
-    relatedIds: ["pingente-amazonita", "pingente-sodalita"],
+    significance: "Amplificação",
+    relatedIds: ["pingente-ametista", "pingente-citrino"],
     inStock: true,
   },
   {
@@ -321,7 +343,7 @@ export const stonePendants: Product[] = [
     price: 89.90,
     description: "A Turquesa é o amuleto dos viajantes. Este pingente oferece proteção em jornadas, sabedoria e cura holística. Uma pedra reverenciada por diversas culturas.",
     shortDescription: "Proteção em viagens, sabedoria e cura holística",
-    images: ["/placeholder.svg"],
+    images: [stonePendantTurquesa],
     elements: [
       { name: "Turquesa", meaning: "Proteção viajante, sabedoria ancestral", icon: "🩵" }
     ],
@@ -330,20 +352,20 @@ export const stonePendants: Product[] = [
     inStock: true,
   },
   {
-    id: "pingente-rodonita",
-    name: "Pingente Rodonita",
-    slug: "pingente-rodonita",
+    id: "pingente-unakita",
+    name: "Pingente Unakita",
+    slug: "pingente-unakita",
     category: "pingente",
     subcategory: "pedras-naturais",
     price: 69.90,
-    description: "A Rodonita equilibra o dar e receber amor. Este pingente promove cura de feridas emocionais e perdão. Ideal para quem busca reconciliação.",
-    shortDescription: "Equilíbrio emocional, perdão e cura do coração",
-    images: ["/placeholder.svg"],
+    description: "A Unakita equilibra o coração e a mente. Este pingente promove cura emocional gradual e paciência. Perfeito para processos de transformação pessoal.",
+    shortDescription: "Equilíbrio coração-mente e cura gradual",
+    images: [stonePendantUnakita],
     elements: [
-      { name: "Rodonita", meaning: "Equilíbrio amoroso, perdão e cura", icon: "🌸" }
+      { name: "Unakita", meaning: "Equilíbrio, paciência e cura gradual", icon: "🌿" }
     ],
-    significance: "Perdão",
-    relatedIds: ["pingente-quartzo-rosa", "pingente-amazonita"],
+    significance: "Equilíbrio",
+    relatedIds: ["pingente-amazonita", "pingente-quartzo-rosa"],
     inStock: true,
   },
 ];
@@ -421,50 +443,49 @@ export const resinPendants: Product[] = [
     category: "pingente",
     subcategory: "geral",
     price: 54.90,
-    description: "A semente de mostarda representa a fé inabalável - 'se tiveres fé do tamanho de um grão de mostarda, moverás montanhas'. Um pingente poderoso de força espiritual.",
-    shortDescription: "Fé inabalável e força espiritual",
+    description: "A semente de mostarda representa a fé que move montanhas. Eternizada em resina cristalina, este pingente é um lembrete diário do poder da crença e da esperança.",
+    shortDescription: "Fé, esperança e pequenos começos grandiosos",
     images: [pendantSementeMostarda],
     elements: [
-      { name: "Semente de Mostarda", meaning: "Fé, força espiritual e perseverança", icon: "✨" }
+      { name: "Semente de Mostarda", meaning: "Fé inabalável, esperança e novos começos", icon: "🌱" }
     ],
-    significance: "Fé e força",
-    relatedIds: ["pingente-semente-girassol", "pingente-rosa-eterna"],
+    significance: "Fé e esperança",
+    relatedIds: ["pingente-semente-girassol", "pingente-margarida"],
     inStock: true,
-    badge: "Especial",
   },
   {
     id: "pingente-rosa-eterna",
     name: "Pingente Rosa Eterna",
     slug: "pingente-rosa-eterna",
     category: "pingente",
-    subcategory: "geral",
+    subcategory: "flores",
     price: 69.90,
-    description: "Uma rosa vermelha eternizada em resina cristalina, símbolo de amor eterno e paixão. Este pingente carrega a beleza imortalizada de uma flor real, perfeito para presentear quem você ama.",
-    shortDescription: "Amor eterno e paixão imortalizada",
+    description: "A rosa é o símbolo universal do amor eterno. Eternizada em resina cristalina, este pingente captura a essência da paixão e da gratidão. Um presente perfeito para quem você ama.",
+    shortDescription: "Amor eterno, paixão e gratidão",
     images: [pendantRosaEterna],
     elements: [
-      { name: "Rosa Vermelha", meaning: "Amor eterno, paixão e romantismo", icon: "🌹" }
+      { name: "Rosa", meaning: "Amor eterno, paixão e gratidão profunda", icon: "🌹" }
     ],
     significance: "Amor eterno",
     relatedIds: ["pingente-lavanda", "pingente-margarida"],
     inStock: true,
-    badge: "Amor",
+    badge: "Romântico",
   },
   {
     id: "pingente-lavanda",
     name: "Pingente Lavanda",
     slug: "pingente-lavanda",
     category: "pingente",
-    subcategory: "geral",
+    subcategory: "flores",
     price: 64.90,
-    description: "A lavanda é conhecida por suas propriedades calmantes. Eternizada em resina, este pingente traz paz interior, purificação e tranquilidade. Ideal para quem busca serenidade.",
+    description: "A lavanda é conhecida por suas propriedades calmantes e purificadoras. Eternizada em resina, este pingente traz paz interior, purificação e serenidade para o dia a dia.",
     shortDescription: "Calma, purificação e paz interior",
     images: [pendantLavanda],
     elements: [
-      { name: "Lavanda", meaning: "Calma, purificação e serenidade", icon: "💜" }
+      { name: "Lavanda", meaning: "Calma, purificação e paz interior", icon: "💜" }
     ],
     significance: "Paz interior",
-    relatedIds: ["pingente-rosa-eterna", "pingente-margarida"],
+    relatedIds: ["pingente-rosa-eterna", "pingente-jasmin"],
     inStock: true,
   },
   {
@@ -472,16 +493,16 @@ export const resinPendants: Product[] = [
     name: "Pingente Margarida",
     slug: "pingente-margarida",
     category: "pingente",
-    subcategory: "geral",
+    subcategory: "flores",
     price: 59.90,
-    description: "A margarida simboliza pureza, inocência e novos começos. Eternizada em resina, este pingente carrega a energia da simplicidade e da alegria verdadeira.",
-    shortDescription: "Pureza, inocência e novos começos",
+    description: "A margarida simboliza a pureza e a inocência. Eternizada em resina, este pingente traz a energia da renovação, leveza e alegria simples da vida.",
+    shortDescription: "Pureza, inocência e alegria simples",
     images: [pendantMargarida],
     elements: [
-      { name: "Margarida", meaning: "Pureza, simplicidade e alegria", icon: "🌼" }
+      { name: "Margarida", meaning: "Pureza, renovação e alegria", icon: "🌼" }
     ],
     significance: "Pureza",
-    relatedIds: ["pingente-rosa-eterna", "pingente-lavanda"],
+    relatedIds: ["pingente-rosa-eterna", "pingente-flor-laranjeira"],
     inStock: true,
   },
   {
@@ -489,15 +510,15 @@ export const resinPendants: Product[] = [
     name: "Pingente Flor de Laranjeira",
     slug: "pingente-flor-laranjeira",
     category: "pingente",
-    subcategory: "geral",
+    subcategory: "flores",
     price: 69.90,
-    description: "A flor de laranjeira é símbolo de casamento, fertilidade e pureza. Eternizada em resina, este pingente é perfeito para noivas, gestantes ou quem busca novos começos.",
-    shortDescription: "Casamento, fertilidade e novos começos",
+    description: "A flor de laranjeira é símbolo de casamento, fertilidade e pureza. Eternizada em resina, este pingente é perfeito para noivas ou como presente de união.",
+    shortDescription: "Casamento, fertilidade e pureza",
     images: [pendantFlorLaranjeira],
     elements: [
-      { name: "Flor de Laranjeira", meaning: "União, fertilidade e pureza", icon: "🌸" }
+      { name: "Flor de Laranjeira", meaning: "União, fertilidade e novos começos", icon: "🌸" }
     ],
-    significance: "União e fertilidade",
+    significance: "União",
     relatedIds: ["pingente-rosa-eterna", "pingente-jasmin"],
     inStock: true,
     badge: "Noivas",
@@ -507,16 +528,16 @@ export const resinPendants: Product[] = [
     name: "Pingente Jasmim",
     slug: "pingente-jasmin",
     category: "pingente",
-    subcategory: "geral",
+    subcategory: "flores",
     price: 64.90,
-    description: "O jasmim é a flor da sensualidade e do amor divino. Eternizada em resina, este pingente traz romance, espiritualidade e atração magnética.",
-    shortDescription: "Sensualidade, amor divino e romance",
+    description: "O jasmim é a flor da sensualidade e do amor divino. Eternizada em resina, este pingente atrai amor, aumenta a autoestima e desperta a sensualidade natural.",
+    shortDescription: "Sensualidade, amor divino e autoestima",
     images: [pendantJasmin],
     elements: [
-      { name: "Jasmim", meaning: "Sensualidade, espiritualidade e romance", icon: "🤍" }
+      { name: "Jasmim", meaning: "Sensualidade, amor divino e autoestima", icon: "🤍" }
     ],
-    significance: "Romance",
-    relatedIds: ["pingente-rosa-eterna", "pingente-flor-laranjeira"],
+    significance: "Sensualidade",
+    relatedIds: ["pingente-lavanda", "pingente-rosa-eterna"],
     inStock: true,
   },
   {
@@ -524,36 +545,35 @@ export const resinPendants: Product[] = [
     name: "Pingente Dente-de-Leão",
     slug: "pingente-dente-leao",
     category: "pingente",
-    subcategory: "geral",
-    price: 59.90,
-    description: "O dente-de-leão representa sonhos, desejos e liberdade. Este pingente eterniza o momento mágico de fazer um pedido e soltar ao vento - agora sempre com você.",
-    shortDescription: "Sonhos, desejos e liberdade",
+    subcategory: "flores",
+    price: 64.90,
+    description: "O dente-de-leão representa os sonhos e desejos que voam para o universo. Eternizado em resina, este pingente é um lembrete de que seus sonhos podem se realizar.",
+    shortDescription: "Sonhos, desejos e leveza",
     images: [pendantDenteLeao],
     elements: [
       { name: "Dente-de-Leão", meaning: "Sonhos, desejos e liberdade", icon: "🌬️" }
     ],
     significance: "Sonhos",
-    relatedIds: ["pingente-margarida", "pingente-semente-mostarda"],
+    relatedIds: ["pingente-margarida", "pingente-semente-girassol"],
     inStock: true,
-    badge: "Delicado",
   },
   {
     id: "pingente-sempre-viva",
     name: "Pingente Sempre-Viva",
     slug: "pingente-sempre-viva",
     category: "pingente",
-    subcategory: "geral",
+    subcategory: "flores",
     price: 64.90,
-    description: "A Sempre-Viva é símbolo de eternidade, memória e amor que transcende o tempo. Esta flor que nunca murcha representa laços eternos, saudade amorosa e a certeza de que algumas conexões são para sempre. Perfeita para homenagear quem você ama.",
-    shortDescription: "Eternidade, memória e amor que transcende o tempo",
+    description: "A sempre-viva simboliza a eternidade e o amor imortal. Esta flor que nunca murcha, eternizada em resina, representa a permanência dos sentimentos verdadeiros e a imortalidade da alma.",
+    shortDescription: "Eternidade, amor imortal e permanência",
     images: [pendantSempreViva],
     elements: [
-      { name: "Sempre-Viva", meaning: "Eternidade, memória eterna e amor imortal", icon: "🌺" }
+      { name: "Sempre-Viva", meaning: "Eternidade, amor imortal e permanência", icon: "🌺" }
     ],
     significance: "Eternidade",
     relatedIds: ["pingente-rosa-eterna", "pingente-lavanda"],
     inStock: true,
-    badge: "Eterno",
+    badge: "Especial",
   },
 ];
 
