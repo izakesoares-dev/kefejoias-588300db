@@ -19,6 +19,9 @@ const stoneFilters = [
   { id: "protecao", label: "Proteção", icon: Shield },
   { id: "amor", label: "Amor", icon: Heart },
   { id: "prosperidade", label: "Prosperidade", icon: Sparkles },
+  { id: "espiritualidade", label: "Espiritualidade", icon: Sparkles },
+  { id: "vitalidade", label: "Vitalidade", icon: Heart },
+  { id: "foco", label: "Foco & Clareza", icon: Gem },
 ];
 
 const AneisPedrasNaturais = () => {
@@ -32,19 +35,15 @@ const AneisPedrasNaturais = () => {
   const filtered = activeFilter === "todos"
     ? stoneRings
     : stoneRings.filter((p) => {
-        if (activeFilter === "protecao") {
-          return p.significance.toLowerCase().includes("proteção") || 
-                 p.elements.some(e => e.meaning.toLowerCase().includes("proteção"));
-        }
-        if (activeFilter === "amor") {
-          return p.significance.toLowerCase().includes("amor") ||
-                 p.elements.some(e => e.meaning.toLowerCase().includes("amor"));
-        }
-        if (activeFilter === "prosperidade") {
-          return p.significance.toLowerCase().includes("prosperidade") ||
-                 p.significance.toLowerCase().includes("sorte") ||
-                 p.elements.some(e => e.meaning.toLowerCase().includes("prosperidade"));
-        }
+        const sig = p.significance.toLowerCase();
+        const meanings = p.elements.map(e => e.meaning.toLowerCase()).join(" ");
+        const all = sig + " " + meanings;
+        if (activeFilter === "protecao") return all.includes("proteção") || all.includes("aterramento");
+        if (activeFilter === "amor") return all.includes("amor") || all.includes("cura emocional") || all.includes("feminino");
+        if (activeFilter === "prosperidade") return all.includes("prosperidade") || all.includes("sorte") || all.includes("abundância") || all.includes("oportunidade");
+        if (activeFilter === "espiritualidade") return all.includes("espiritual") || all.includes("intuição") || all.includes("sabedoria");
+        if (activeFilter === "vitalidade") return all.includes("vitalidade") || all.includes("paixão") || all.includes("vigor") || all.includes("criatividade");
+        if (activeFilter === "foco") return all.includes("foco") || all.includes("concentração") || all.includes("clareza") || all.includes("comunicação");
         return true;
       });
 
