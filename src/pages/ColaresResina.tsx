@@ -74,7 +74,29 @@ const ColaresResina = () => {
         </div>
       </section>
 
-      {/* Main Content */}
+      {/* Chain Options */}
+      <section className="section-padding py-6 bg-primary/5">
+        <div className="max-w-7xl mx-auto">
+          <h3 className="font-display text-center text-lg text-foreground mb-4">Escolha seu tipo de corrente</h3>
+          <div className="flex flex-wrap justify-center gap-6">
+            <div className="flex items-center gap-3 bg-card rounded-xl px-6 py-4 border border-border/50">
+              <span className="text-2xl">⛓️</span>
+              <div>
+                <p className="font-body font-semibold text-foreground text-sm">Corrente de Aço Inoxidável</p>
+                <p className="font-body text-xs text-muted-foreground">Durável, antialérgica e resistente à água</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3 bg-card rounded-xl px-6 py-4 border border-border/50">
+              <span className="text-2xl">🧵</span>
+              <div>
+                <p className="font-body font-semibold text-foreground text-sm">Cordão de Poliéster 1mm</p>
+                <p className="font-body text-xs text-muted-foreground">Leve, flexível e ajustável com nó corrediço</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="section-padding py-12">
         <div className="max-w-7xl mx-auto">
           {/* Filters */}
