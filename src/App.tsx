@@ -26,6 +26,7 @@ import PiramidesQuanticas from "./pages/PiramidesQuanticas";
 import SantinhasPedra from "./pages/SantinhasPedra";
 import MandalasResina from "./pages/MandalasResina";
 import IncensariosResina from "./pages/IncensariosResina";
+import KitsPresente from "./pages/KitsPresente";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -65,7 +66,7 @@ const App = () => (
             <Route path="/santinhas-pedra" element={<SantinhasPedra />} />
             <Route path="/mandalas-resina" element={<MandalasResina />} />
             <Route path="/incensarios-resina" element={<IncensariosResina />} />
-            <Route path="/kits-presente" element={<Products />} />
+            <Route path="/kits-presente" element={<KitsPresente />} />
             <Route path="/lancamentos" element={<Products />} />
             <Route path="/mais-vendidos" element={<Products />} />
             <Route path="/personalizar" element={<Contato />} />
