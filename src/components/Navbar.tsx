@@ -6,16 +6,6 @@ import kefeLogo from "@/assets/kefe-logo.png";
 import { useCart } from "@/contexts/CartContext";
 
 const categoryMenuData = {
-  acoInox: {
-    label: "Aço Inox",
-    href: "/aco-inox",
-    items: [
-      { label: "Anéis de Aço Inox", href: "/aneis-aco" },
-      { label: "Colares de Aço Inox", href: "/colares-aco" },
-      { label: "Pulseiras de Aço Inox", href: "/pulseiras-aco" },
-      { label: "Pingentes de Aço Inox", href: "/pingentes-aco" },
-    ],
-  },
   aneis: {
     label: "Anéis",
     href: "/aneis",
@@ -47,6 +37,16 @@ const categoryMenuData = {
       { label: "Pulseiras de Pedras", href: "/pulseiras-pedras" },
       { label: "Pulseiras de Resina com Macramê", href: "/pulseiras-macrame" },
       { label: "Pulseiras Minimalistas", href: "/pulseiras-minimalistas" },
+    ],
+  },
+  acoInox: {
+    label: "Aço Inox",
+    href: "/aco-inox",
+    items: [
+      { label: "Anéis de Aço Inox", href: "/aneis-aco" },
+      { label: "Colares de Aço Inox", href: "/colares-aco" },
+      { label: "Pulseiras de Aço Inox", href: "/pulseiras-aco" },
+      { label: "Pingentes de Aço Inox", href: "/pingentes-aco" },
     ],
   },
   especiais: {
