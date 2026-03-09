@@ -23,6 +23,7 @@ const menuData = {
     items: [
       { label: "Colares de Pedras", href: "/colares-pedras" },
       { label: "Colares de Resina", href: "/colares-resina" },
+      { label: "Colares de Aço Inox", href: "/colares-aco" },
     ],
   },
   pulseiras: {
