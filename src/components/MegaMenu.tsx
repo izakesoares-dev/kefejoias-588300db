@@ -29,9 +29,9 @@ const menuData = {
   pulseiras: {
     title: "Pulseiras",
     items: [
+      { label: "Pulseiras de Aço Inox", href: "/pulseiras-aco" },
       { label: "Pulseiras de Pedras", href: "/pulseiras-pedras" },
       { label: "Pulseiras de Resina com Macramê", href: "/pulseiras-macrame" },
-      { label: "Pulseiras de Aço", href: "/pulseiras-aco" },
       { label: "Pulseiras Minimalistas", href: "/pulseiras-minimalistas" },
     ],
   },
