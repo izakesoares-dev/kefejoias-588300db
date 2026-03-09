@@ -10,6 +10,10 @@ import Products from "./pages/Products";
 import ProductDetail from "./pages/ProductDetail";
 import Checkout from "./pages/Checkout";
 import AneisPedrasNaturais from "./pages/AneisPedrasNaturais";
+import Pedras from "./pages/Pedras";
+import Flores from "./pages/Flores";
+import Sobre from "./pages/Sobre";
+import Contato from "./pages/Contato";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,8 +30,35 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/produtos" element={<Products />} />
             <Route path="/aneis-pedras-naturais" element={<AneisPedrasNaturais />} />
+            <Route path="/aneis-pedras" element={<AneisPedrasNaturais />} />
+            <Route path="/pedras" element={<Pedras />} />
+            <Route path="/flores" element={<Flores />} />
+            <Route path="/sobre" element={<Sobre />} />
+            <Route path="/contato" element={<Contato />} />
             <Route path="/produto/:slug" element={<ProductDetail />} />
             <Route path="/checkout" element={<Checkout />} />
+            {/* Placeholder routes for future categories */}
+            <Route path="/aneis-flores" element={<Products />} />
+            <Route path="/pingentes-pedras" element={<Products />} />
+            <Route path="/pingentes-resina-flores" element={<Products />} />
+            <Route path="/pingentes-resina-pimentas" element={<Products />} />
+            <Route path="/pingentes-resina-sementes" element={<Products />} />
+            <Route path="/colares-pedras" element={<Products />} />
+            <Route path="/colares-resina-flores" element={<Products />} />
+            <Route path="/colares-resina-pimentas" element={<Products />} />
+            <Route path="/colares-resina-sementes" element={<Products />} />
+            <Route path="/pulseiras-pedras" element={<Products />} />
+            <Route path="/pulseiras-macrame" element={<Products />} />
+            <Route path="/pulseiras-aco" element={<Products />} />
+            <Route path="/pulseiras-minimalistas" element={<Products />} />
+            <Route path="/piramides-quanticas" element={<Products />} />
+            <Route path="/santinhas-pedra" element={<Products />} />
+            <Route path="/mandalas-resina" element={<Products />} />
+            <Route path="/incensarios-pedras" element={<Products />} />
+            <Route path="/kits-presente" element={<Products />} />
+            <Route path="/lancamentos" element={<Products />} />
+            <Route path="/mais-vendidos" element={<Products />} />
+            <Route path="/personalizar" element={<Contato />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

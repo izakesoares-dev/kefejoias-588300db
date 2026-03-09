@@ -1,22 +1,63 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Instagram, ShoppingBag } from "lucide-react";
+import { Menu, X, Instagram, ShoppingBag, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import kefeLogo from "@/assets/kefe-logo.png";
 import { useCart } from "@/contexts/CartContext";
+import MegaMenu from "./MegaMenu";
 
 const navLinks = [
   { label: "Início", href: "/" },
-  { label: "Produtos", href: "/produtos" },
-  { label: "Anéis Pedras", href: "/aneis-pedras-naturais" },
-  { label: "Pedras", href: "/#pedras" },
-  { label: "Flores", href: "/#flores" },
-  { label: "Sobre", href: "/#sobre" },
-  { label: "Contato", href: "/#contato" },
+  { label: "Produtos", href: "/produtos", hasMegaMenu: true },
+  { label: "Pedras", href: "/pedras" },
+  { label: "Flores", href: "/flores" },
+  { label: "Sobre", href: "/sobre" },
+  { label: "Contato", href: "/contato" },
 ];
+
+const mobileMenuData = {
+  aneis: {
+    title: "Anéis",
+    items: [
+      { label: "Anéis com Pedras", href: "/aneis-pedras-naturais" },
+      { label: "Anéis com Flores", href: "/aneis-flores" },
+    ],
+  },
+  pingentes: {
+    title: "Pingentes",
+    items: [
+      { label: "Pingentes de Pedras", href: "/pingentes-pedras" },
+      { label: "Pingentes de Resina (Flores)", href: "/pingentes-resina-flores" },
+      { label: "Pingentes de Resina (Pimentas)", href: "/pingentes-resina-pimentas" },
+    ],
+  },
+  colares: {
+    title: "Colares",
+    items: [
+      { label: "Colares de Pedras", href: "/colares-pedras" },
+      { label: "Colares de Resina (Flores)", href: "/colares-resina-flores" },
+    ],
+  },
+  pulseiras: {
+    title: "Pulseiras",
+    items: [
+      { label: "Pulseiras de Pedras", href: "/pulseiras-pedras" },
+      { label: "Pulseiras de Aço", href: "/pulseiras-aco" },
+    ],
+  },
+  especiais: {
+    title: "Especiais",
+    items: [
+      { label: "Pirâmides Quânticas", href: "/piramides-quanticas" },
+      { label: "Kits Presente", href: "/kits-presente" },
+    ],
+  },
+};
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [megaMenuOpen, setMegaMenuOpen] = useState(false);
+  const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
   const { totalItems, setIsCartOpen } = useCart();
 
   return (
@@ -29,13 +70,28 @@ const Navbar = () => {
         {/* Desktop */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              to={link.href}
-              className="text-sm font-body tracking-wide text-muted-foreground hover:text-primary transition-colors duration-300"
-            >
-              {link.label}
-            </Link>
+            link.hasMegaMenu ? (
+              <div
+                key={link.href}
+                className="relative"
+                onMouseEnter={() => setMegaMenuOpen(true)}
+              >
+                <button
+                  className="flex items-center gap-1 text-sm font-body tracking-wide text-muted-foreground hover:text-primary transition-colors duration-300"
+                >
+                  {link.label}
+                  <ChevronDown className="w-3 h-3" />
+                </button>
+              </div>
+            ) : (
+              <Link
+                key={link.href}
+                to={link.href}
+                className="text-sm font-body tracking-wide text-muted-foreground hover:text-primary transition-colors duration-300"
+              >
+                {link.label}
+              </Link>
+            )
           ))}
           <a
             href="https://instagram.com/kefe.joias"
@@ -77,6 +133,9 @@ const Navbar = () => {
         </div>
       </div>
 
+      {/* Desktop Mega Menu */}
+      <MegaMenu isOpen={megaMenuOpen} onClose={() => setMegaMenuOpen(false)} />
+
       {/* Mobile menu */}
       <AnimatePresence>
         {open && (
@@ -84,10 +143,59 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background/95 backdrop-blur-lg border-b border-border"
+            className="md:hidden bg-background/95 backdrop-blur-lg border-b border-border max-h-[80vh] overflow-y-auto"
           >
             <div className="flex flex-col px-6 py-6 gap-4">
-              {navLinks.map((link) => (
+              {/* Main Links */}
+              <Link
+                to="/"
+                onClick={() => setOpen(false)}
+                className="text-base font-body text-muted-foreground hover:text-primary transition-colors"
+              >
+                Início
+              </Link>
+
+              {/* Products Accordion */}
+              <div>
+                <button
+                  onClick={() => setExpandedCategory(expandedCategory === "produtos" ? null : "produtos")}
+                  className="flex items-center justify-between w-full text-base font-body text-muted-foreground hover:text-primary transition-colors"
+                >
+                  Produtos
+                  <ChevronDown className={`w-4 h-4 transition-transform ${expandedCategory === "produtos" ? "rotate-180" : ""}`} />
+                </button>
+                <AnimatePresence>
+                  {expandedCategory === "produtos" && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      className="pl-4 mt-2 space-y-3"
+                    >
+                      {Object.entries(mobileMenuData).map(([key, category]) => (
+                        <div key={key}>
+                          <span className="text-xs uppercase tracking-wider text-primary font-body">{category.title}</span>
+                          <div className="mt-1 space-y-1">
+                            {category.items.map((item) => (
+                              <Link
+                                key={item.href}
+                                to={item.href}
+                                onClick={() => setOpen(false)}
+                                className="block text-sm text-muted-foreground hover:text-foreground transition-colors py-1"
+                              >
+                                {item.label}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* Other Links */}
+              {navLinks.filter(l => !l.hasMegaMenu && l.href !== "/").map((link) => (
                 <Link
                   key={link.href}
                   to={link.href}
@@ -97,6 +205,18 @@ const Navbar = () => {
                   {link.label}
                 </Link>
               ))}
+
+              {/* Instagram */}
+              <a
+                href="https://instagram.com/kefe.joias"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setOpen(false)}
+                className="flex items-center gap-2 text-base font-body text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Instagram size={16} />
+                @kefe.joias
+              </a>
             </div>
           </motion.div>
         )}
