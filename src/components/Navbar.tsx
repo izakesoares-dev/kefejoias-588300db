@@ -12,6 +12,7 @@ const categoryMenuData = {
     items: [
       { label: "Anéis com Pedras", href: "/aneis-pedras-naturais" },
       { label: "Anéis com Flores", href: "/aneis-flores" },
+      { label: "Anéis de Aço Inox", href: "/aneis-aco" },
     ],
   },
   pingentes: {
