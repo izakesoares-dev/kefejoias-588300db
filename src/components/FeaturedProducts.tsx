@@ -3,9 +3,21 @@ import { Link } from "react-router-dom";
 import { products } from "@/data/products";
 import ProductCard from "@/components/ProductCard";
 
-const FeaturedProducts = () => {
-  const featured = products.slice(0, 4);
+const featuredIds = [
+  "anel-protecao-total",
+  "colar-amor-proprio",
+  "pingente-prosperidade",
+  "pulseira-calma",
+  "piramide-ametista",
+  "mandala-quartzo-rosa",
+  "kit-protecao-total",
+  "incensario-quartzo-rosa",
+];
 
+const FeaturedProducts = () => {
+  const featured = featuredIds
+    .map((id) => products.find((p) => p.id === id))
+    .filter(Boolean);
   return (
     <section className="section-padding bg-background">
       <div className="max-w-7xl mx-auto">
