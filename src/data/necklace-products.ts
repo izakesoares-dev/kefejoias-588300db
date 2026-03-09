@@ -22,6 +22,15 @@ import necklaceUnakita from "@/assets/necklace-unakita.jpg";
 import necklaceAmazonita from "@/assets/necklace-amazonita.jpg";
 import necklaceCristalQuartzo from "@/assets/necklace-cristal-quartzo.jpg";
 
+// Steel Chain & Cord Necklace Images
+import necklaceAcoAmetista from "@/assets/necklace-aco-ametista.jpg";
+import necklaceAcoQuartzoRosa from "@/assets/necklace-aco-quartzo-rosa.jpg";
+import necklaceAcoOlhoTigre from "@/assets/necklace-aco-olho-tigre.jpg";
+import necklaceCordaoTurmalina from "@/assets/necklace-cordao-turmalina.jpg";
+import necklaceCordaoCitrino from "@/assets/necklace-cordao-citrino.jpg";
+import necklaceCordaoJade from "@/assets/necklace-cordao-jade.jpg";
+
+// Resin Necklace Images
 import necklaceResinGirassol from "@/assets/necklace-resin-girassol.jpg";
 import necklaceResinPimenta from "@/assets/necklace-resin-pimenta.jpg";
 import necklaceResinRosa from "@/assets/necklace-resin-rosa.jpg";
@@ -373,6 +382,116 @@ export const stoneNecklaces: Product[] = [
     significance: "Amplificação",
     relatedIds: ["colar-ametista", "colar-citrino"],
     inStock: true,
+  },
+  // === Colares com Corrente de Aço Inoxidável ===
+  {
+    id: "colar-aco-ametista",
+    name: "Colar Ametista – Corrente de Aço",
+    slug: "colar-aco-ametista",
+    category: "colar",
+    subcategory: "pedras-naturais",
+    price: 99.90,
+    description: "Pingente de ametista natural em corrente de aço inoxidável antialérgica. Design minimalista e elegante, perfeito para uso diário. A Ametista promove conexão espiritual e calma interior. Comprimento: 45cm + 5cm de extensão. Fecho lagosta em aço inox.",
+    shortDescription: "Pingente de ametista em corrente de aço inoxidável",
+    images: [necklaceAcoAmetista],
+    elements: [
+      { name: "Ametista", meaning: "Transmutação, intuição e conexão espiritual", icon: "🔮" }
+    ],
+    significance: "Espiritualidade",
+    relatedIds: ["colar-aco-quartzo-rosa", "colar-aco-olho-tigre"],
+    inStock: true,
+    badge: "Corrente de Aço",
+  },
+  {
+    id: "colar-aco-quartzo-rosa",
+    name: "Colar Quartzo Rosa – Corrente de Aço",
+    slug: "colar-aco-quartzo-rosa",
+    category: "colar",
+    subcategory: "pedras-naturais",
+    price: 99.90,
+    description: "Pingente de quartzo rosa natural em corrente de aço inoxidável. O Quartzo Rosa é a pedra do amor incondicional, perfeito para manter perto do coração. Comprimento: 45cm + 5cm de extensão. Corrente resistente à água.",
+    shortDescription: "Pingente de quartzo rosa em corrente de aço inoxidável",
+    images: [necklaceAcoQuartzoRosa],
+    elements: [
+      { name: "Quartzo Rosa", meaning: "Amor incondicional, cura emocional e compaixão", icon: "💎" }
+    ],
+    significance: "Amor e cura",
+    relatedIds: ["colar-aco-ametista", "colar-aco-olho-tigre"],
+    inStock: true,
+    badge: "Corrente de Aço",
+  },
+  {
+    id: "colar-aco-olho-tigre",
+    name: "Colar Olho de Tigre – Corrente de Aço Dourado",
+    slug: "colar-aco-olho-tigre",
+    category: "colar",
+    subcategory: "pedras-naturais",
+    price: 109.90,
+    description: "Pingente de olho de tigre natural em corrente de aço inoxidável banhada a ouro. O Olho de Tigre atrai coragem e proteção. Design sofisticado para uso diário. Comprimento: 45cm + 5cm de extensão.",
+    shortDescription: "Pingente de olho de tigre em corrente de aço banhada a ouro",
+    images: [necklaceAcoOlhoTigre],
+    elements: [
+      { name: "Olho de Tigre", meaning: "Proteção contra inveja e atração de oportunidades", icon: "🐯" }
+    ],
+    significance: "Proteção e prosperidade",
+    relatedIds: ["colar-aco-ametista", "colar-aco-quartzo-rosa"],
+    inStock: true,
+    badge: "Corrente de Aço",
+  },
+  // === Colares com Cordão de Poliéster Ajustável ===
+  {
+    id: "colar-cordao-turmalina",
+    name: "Colar Turmalina Negra – Cordão Ajustável",
+    slug: "colar-cordao-turmalina",
+    category: "colar",
+    subcategory: "pedras-naturais",
+    price: 69.90,
+    description: "Pingente de turmalina negra natural em cordão de poliéster 1mm com nó corrediço ajustável. Leve, confortável e perfeito para uso diário. A Turmalina Negra é o escudo absoluto contra energias negativas. Ajustável de 40cm a 70cm.",
+    shortDescription: "Turmalina negra em cordão de poliéster ajustável",
+    images: [necklaceCordaoTurmalina],
+    elements: [
+      { name: "Turmalina Negra", meaning: "Proteção contra negatividade e vampirismo energético", icon: "🖤" }
+    ],
+    significance: "Proteção absoluta",
+    relatedIds: ["colar-cordao-citrino", "colar-cordao-jade"],
+    inStock: true,
+    badge: "Cordão Ajustável",
+  },
+  {
+    id: "colar-cordao-citrino",
+    name: "Colar Citrino – Cordão Ajustável",
+    slug: "colar-cordao-citrino",
+    category: "colar",
+    subcategory: "pedras-naturais",
+    price: 69.90,
+    description: "Pingente de citrino natural em cordão de poliéster 1mm marrom com nó corrediço ajustável. O Citrino atrai prosperidade e energia positiva. Estilo rústico e natural. Ajustável de 40cm a 70cm.",
+    shortDescription: "Citrino em cordão de poliéster ajustável",
+    images: [necklaceCordaoCitrino],
+    elements: [
+      { name: "Citrino", meaning: "Abundância, autoestima e energia solar", icon: "💛" }
+    ],
+    significance: "Prosperidade",
+    relatedIds: ["colar-cordao-turmalina", "colar-cordao-jade"],
+    inStock: true,
+    badge: "Cordão Ajustável",
+  },
+  {
+    id: "colar-cordao-jade",
+    name: "Colar Jade Verde – Cordão Ajustável",
+    slug: "colar-cordao-jade",
+    category: "colar",
+    subcategory: "pedras-naturais",
+    price: 79.90,
+    description: "Pingente de jade verde natural em cordão de poliéster 1mm preto com nó corrediço ajustável. O Jade Verde é o talismã milenar da sorte e prosperidade. Estilo minimalista e elegante. Ajustável de 40cm a 70cm.",
+    shortDescription: "Jade verde em cordão de poliéster ajustável",
+    images: [necklaceCordaoJade],
+    elements: [
+      { name: "Jade Verde", meaning: "Sorte, longevidade e prosperidade milenar", icon: "💚" }
+    ],
+    significance: "Sorte e longevidade",
+    relatedIds: ["colar-cordao-turmalina", "colar-cordao-citrino"],
+    inStock: true,
+    badge: "Cordão Ajustável",
   },
 ];
 
