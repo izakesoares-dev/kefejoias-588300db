@@ -1,7 +1,5 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown } from "lucide-react";
 
 const menuData = {
   aneis: {

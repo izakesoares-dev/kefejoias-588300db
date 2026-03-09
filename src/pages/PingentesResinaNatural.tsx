@@ -21,7 +21,6 @@ const PingentesResinaNatural = () => {
     ? resinPendants
     : resinPendants.filter((p) => {
         const name = p.name.toLowerCase();
-        const elements = p.elements.map(e => e.name.toLowerCase()).join(" ");
         if (activeFilter === "flores") return name.includes("rosa") || name.includes("lavanda") || name.includes("margarida") || name.includes("jasmin") || name.includes("laranjeira") || name.includes("dente");
         if (activeFilter === "pimentas") return name.includes("pimenta");
         if (activeFilter === "sementes") return name.includes("semente");
