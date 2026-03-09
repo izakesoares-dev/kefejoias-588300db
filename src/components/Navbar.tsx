@@ -21,6 +21,7 @@ const categoryMenuData = {
     items: [
       { label: "Pingentes de Pedras", href: "/pingentes-pedras-naturais" },
       { label: "Pingentes de Resina", href: "/pingentes-resina-natural" },
+      { label: "Pingentes de Aço Inox", href: "/pingentes-aco" },
     ],
   },
   colares: {
