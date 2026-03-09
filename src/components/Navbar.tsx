@@ -28,9 +28,9 @@ const categoryMenuData = {
     label: "Colares",
     href: "/colares",
     items: [
+      { label: "Colares de Aço Inox", href: "/colares-aco" },
       { label: "Colares de Pedras", href: "/colares-pedras" },
       { label: "Colares de Resina", href: "/colares-resina" },
-      { label: "Colares de Aço Inox", href: "/colares-aco" },
     ],
   },
   pulseiras: {
