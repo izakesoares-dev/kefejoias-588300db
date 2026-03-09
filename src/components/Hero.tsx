@@ -99,9 +99,12 @@ const Hero = () => {
             <p className="text-sm tracking-[0.3em] uppercase text-primary mb-6 font-body">
               {slide.subtitle}
             </p>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-medium leading-tight mb-8">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-medium leading-tight mb-4">
               <span className="text-gradient-gold italic">{slide.title}</span>
             </h1>
+            <p className="text-xs md:text-sm tracking-[0.2em] uppercase text-primary/70 font-body mb-8">
+              {slide.detail}
+            </p>
             <Link
               to={slide.href}
               className="inline-block px-10 py-4 bg-gradient-gold text-primary-foreground font-body font-semibold text-sm tracking-wide rounded-sm hover:opacity-90 transition-opacity shadow-gold"
