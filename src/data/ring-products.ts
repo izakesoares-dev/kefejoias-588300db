@@ -34,6 +34,7 @@ export const stoneRings: Product[] = [
     description: "Leve no dedo a energia de coragem e blindagem contra inveja. O Olho de Tigre é conhecido por afastar más vibrações e atrair oportunidades. Cada peça é artesanalmente produzida em resina cristalina com base em aço inoxidável hipoalergênico.",
     shortDescription: "Proteção e prosperidade no seu dia a dia",
     images: [ringOlhoTigre, ringOlhoTigre, ringOlhoTigre],
+    videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
     elements: [{ name: "Olho de Tigre", meaning: "Coragem, autoconfiança e proteção contra inveja", icon: "🐯" }],
     sizes,
     significance: "Proteção e prosperidade",
