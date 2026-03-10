@@ -74,7 +74,7 @@ const ProductGallery = ({ images, videoUrl, productName }: ProductGalleryProps) 
               {isDirectVideo(current.src) ? (
                 <video
                   src={current.src}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain bg-black/5"
                   autoPlay
                   muted
                   loop
