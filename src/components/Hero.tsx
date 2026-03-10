@@ -100,8 +100,8 @@ const Hero = () => {
             alt={slide.title}
             className="w-full h-full object-cover brightness-105 saturate-110"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/40 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-background/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
         </motion.div>
       </AnimatePresence>
 
