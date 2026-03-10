@@ -11,11 +11,14 @@ const filters = [
   { id: "todos", label: "Todos", icon: Gift },
   { id: "protecao", label: "Proteção", icon: Shield },
   { id: "amor", label: "Amor", icon: Heart },
+  { id: "flores", label: "Flores", icon: Leaf },
+  { id: "sementes", label: "Sementes", icon: Sparkles },
   { id: "prosperidade", label: "Prosperidade", icon: Sparkles },
   { id: "espiritualidade", label: "Espiritualidade", icon: Moon },
   { id: "energia", label: "Energia", icon: Zap },
   { id: "equilibrio", label: "Equilíbrio", icon: Leaf },
   { id: "clareza", label: "Clareza", icon: Brain },
+  { id: "decoracao", label: "Decoração", icon: Gem },
   { id: "chakras", label: "Chakras", icon: Rainbow },
 ];
 
