@@ -89,19 +89,22 @@ const Hero = () => {
       <AnimatePresence mode="wait">
         <motion.div
           key={current}
-          initial={{ opacity: 0, scale: 1.08 }}
+          initial={{ opacity: 0, scale: 1.15 }}
           animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 1.2 }}
+          exit={{ opacity: 0, scale: 1.03 }}
+          transition={{ duration: 1.4, ease: "easeOut" }}
           className="absolute inset-0"
         >
-          <img
+          <motion.img
             src={slide.image}
             alt={slide.title}
-            className="w-full h-full object-cover brightness-105 saturate-110"
+            className="w-full h-full object-cover brightness-110 saturate-[1.15] contrast-[1.05]"
+            animate={{ scale: [1, 1.06] }}
+            transition={{ duration: 6, ease: "linear", repeat: Infinity, repeatType: "reverse" }}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/50 via-background/10 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/60 via-background/15 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/50 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,hsl(var(--background)/0.3)_100%)]" />
         </motion.div>
       </AnimatePresence>
 
