@@ -114,11 +114,12 @@ const Hero = () => {
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.6 }}
           >
-            <p className="text-sm tracking-[0.3em] uppercase text-primary mb-6 font-body">
+            <p className="text-sm tracking-[0.3em] uppercase text-primary mb-6 font-body drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
               {slide.subtitle}
             </p>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-medium leading-tight mb-8">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-medium leading-tight mb-8 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
               <span className="text-gradient-gold italic">{slide.title}</span>
+            </h1>
             </h1>
             <Link
               to={slide.href}
