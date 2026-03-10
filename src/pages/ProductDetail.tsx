@@ -16,7 +16,6 @@ const ProductDetail = () => {
   const product = getProductBySlug(slug || "");
   const { addItem } = useCart();
   const [selectedSize, setSelectedSize] = useState<number | undefined>();
-  const [selectedSize, setSelectedSize] = useState<number | undefined>();
   const [quantity, setQuantity] = useState(1);
   const [showSizeGuide, setShowSizeGuide] = useState(false);
 
