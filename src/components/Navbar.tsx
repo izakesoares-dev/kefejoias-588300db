@@ -83,9 +83,9 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border/50">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-        <Link to="/" className="relative flex items-center justify-center">
+        <Link to="/" className="flex items-center gap-3">
           <img src={kefeLogo} alt="Kefe Joias" className="h-10 md:h-12 rounded-sm" />
-          <span className="absolute -bottom-3 left-1/2 -translate-x-1/2 text-[6px] md:text-[7px] tracking-[0.2em] text-primary/90 font-body uppercase whitespace-nowrap bg-background/80 px-1">Para todos os seus momentos</span>
+          <span className="text-[7px] md:text-[8px] tracking-[0.2em] text-primary/80 font-body uppercase whitespace-nowrap">Para todos os seus momentos</span>
         </Link>
 
         {/* Desktop */}
