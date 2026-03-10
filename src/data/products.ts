@@ -33,6 +33,7 @@ export interface Product {
   description: string;
   shortDescription: string;
   images: string[];
+  videoUrl?: string;
   elements: ProductElement[];
   sizes?: number[];
   significance: string;
