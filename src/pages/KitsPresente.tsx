@@ -30,12 +30,15 @@ const KitsPresente = () => {
     : kitProducts.filter((p) => {
         const all = (p.name + " " + p.significance + " " + p.elements.map(e => e.name + " " + e.meaning).join(" ")).toLowerCase();
         if (activeFilter === "protecao") return all.includes("proteção") || all.includes("escudo") || all.includes("afasta");
-        if (activeFilter === "amor") return all.includes("amor") || all.includes("compaixão") || all.includes("cura");
+        if (activeFilter === "amor") return all.includes("amor") || all.includes("compaixão") || all.includes("cura") || all.includes("paixão") || all.includes("romance");
+        if (activeFilter === "flores") return all.includes("rosa") || all.includes("lavanda") || all.includes("margarida") || all.includes("girassol") || all.includes("jasmim") || all.includes("flor");
+        if (activeFilter === "sementes") return all.includes("pimenta") || all.includes("semente") || all.includes("dente-de-leão") || all.includes("mostarda");
         if (activeFilter === "prosperidade") return all.includes("prosperidade") || all.includes("abundância") || all.includes("riqueza");
         if (activeFilter === "espiritualidade") return all.includes("espiritual") || all.includes("divina") || all.includes("selenita");
-        if (activeFilter === "energia") return all.includes("energia") || all.includes("vitalidade") || all.includes("coragem");
-        if (activeFilter === "equilibrio") return all.includes("equilíbrio") || all.includes("harmonia") || all.includes("paz");
-        if (activeFilter === "clareza") return all.includes("clareza") || all.includes("sabedoria") || all.includes("foco");
+        if (activeFilter === "energia") return all.includes("energia") || all.includes("vitalidade") || all.includes("coragem") || all.includes("força");
+        if (activeFilter === "equilibrio") return all.includes("equilíbrio") || all.includes("harmonia") || all.includes("paz") || all.includes("serenidade");
+        if (activeFilter === "clareza") return all.includes("clareza") || all.includes("sabedoria") || all.includes("foco") || all.includes("intuição");
+        if (activeFilter === "decoracao") return all.includes("mandala") || all.includes("pirâmide") || all.includes("incensário") || all.includes("santinha") || all.includes("decoração");
         if (activeFilter === "chakras") return all.includes("chakra") || all.includes("alinhamento");
         return true;
       });
