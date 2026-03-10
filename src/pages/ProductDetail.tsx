@@ -61,26 +61,11 @@ const ProductDetail = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
             {/* Gallery */}
             <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
-              <div className="aspect-square rounded-lg overflow-hidden bg-card border border-border/50 mb-3">
-                <img
-                  src={product.images[selectedImage]}
-                  alt={product.name}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="flex gap-2">
-                {product.images.map((img, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setSelectedImage(i)}
-                    className={`w-20 h-20 rounded overflow-hidden border-2 transition-colors ${
-                      selectedImage === i ? "border-primary" : "border-border/50"
-                    }`}
-                  >
-                    <img src={img} alt="" className="w-full h-full object-cover" />
-                  </button>
-                ))}
-              </div>
+              <ProductGallery
+                images={product.images}
+                videoUrl={product.videoUrl}
+                productName={product.name}
+              />
             </motion.div>
 
             {/* Product Info */}
