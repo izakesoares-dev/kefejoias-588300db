@@ -106,7 +106,7 @@ const Hero = () => {
       </AnimatePresence>
 
       {/* Content — bottom-left aligned */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 pb-24 md:pb-28 pt-32">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 pb-20 md:pb-24 pt-32 text-left">
         <AnimatePresence mode="wait">
           <motion.div
             key={current}
