@@ -120,7 +120,6 @@ const Hero = () => {
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-medium leading-tight mb-8 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
               <span className="text-gradient-gold italic">{slide.title}</span>
             </h1>
-            </h1>
             <Link
               to={slide.href}
               className="inline-block px-10 py-4 bg-gradient-gold text-primary-foreground font-body font-semibold text-sm tracking-wide rounded-sm hover:opacity-90 transition-opacity shadow-gold"
