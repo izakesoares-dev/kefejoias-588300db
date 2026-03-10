@@ -84,45 +84,49 @@ const Hero = () => {
   const slide = slides[current];
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="hero" className="relative min-h-screen flex items-end overflow-hidden">
       {/* Background images */}
       <AnimatePresence mode="wait">
         <motion.div
           key={current}
-          initial={{ opacity: 0, scale: 1.1 }}
+          initial={{ opacity: 0, scale: 1.08 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 1.2 }}
           className="absolute inset-0"
         >
           <img
             src={slide.image}
             alt={slide.title}
-            className="w-full h-full object-cover brightness-110 contrast-105 saturate-110"
+            className="w-full h-full object-cover brightness-105 saturate-110"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
         </motion.div>
       </AnimatePresence>
 
-      {/* Content */}
-      <div className="relative z-10 max-w-4xl mx-auto text-center px-6 pt-24">
+      {/* Content — bottom-left aligned */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 pb-24 md:pb-28 pt-32">
         <AnimatePresence mode="wait">
           <motion.div
             key={current}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 20 }}
             transition={{ duration: 0.6 }}
+            className="max-w-xl"
           >
-            <p className="text-sm tracking-[0.3em] uppercase text-primary mb-6 font-body drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+            <p className="text-xs md:text-sm tracking-[0.3em] uppercase text-primary mb-4 font-body">
               {slide.subtitle}
             </p>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-medium leading-tight mb-8 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
-              <span className="text-gradient-gold italic">{slide.title}</span>
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-display font-medium leading-tight mb-6">
+              <span className="text-gradient-gold italic drop-shadow-[0_2px_12px_rgba(0,0,0,0.4)]">
+                {slide.title}
+              </span>
             </h1>
             <Link
               to={slide.href}
-              className="inline-block px-10 py-4 bg-gradient-gold text-primary-foreground font-body font-semibold text-sm tracking-wide rounded-sm hover:opacity-90 transition-opacity shadow-gold"
+              className="inline-block px-8 md:px-10 py-3.5 md:py-4 bg-gradient-gold text-primary-foreground font-body font-semibold text-sm tracking-wide rounded-sm hover:opacity-90 transition-all shadow-gold hover:shadow-lg hover:scale-[1.02]"
             >
               {slide.buttonText}
             </Link>
