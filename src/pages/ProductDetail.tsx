@@ -6,6 +6,7 @@ import { getProductBySlug, getRelatedProducts, formatPrice } from "@/data/produc
 import { useCart } from "@/contexts/CartContext";
 import { Button } from "@/components/ui/button";
 import ProductCard from "@/components/ProductCard";
+import ProductGallery from "@/components/ProductGallery";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
