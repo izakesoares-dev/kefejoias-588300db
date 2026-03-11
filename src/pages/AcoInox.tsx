@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ProductCard from "@/components/ProductCard";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { products } from "@/data/products";
 
 const subcategories = [
@@ -20,8 +21,10 @@ const AcoInox = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      <section className="pt-32 pb-12 px-6">
-        <div className="max-w-7xl mx-auto text-center">
+      <section className="pt-28 pb-12 px-6">
+        <div className="max-w-7xl mx-auto">
+          <Breadcrumbs items={[{ label: "Aço Inox" }]} />
+          <div className="text-center">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -37,6 +40,7 @@ const AcoInox = () => {
           >
             Joias em aço inoxidável — resistentes, hipoalergênicas e com brilho duradouro.
           </motion.p>
+          </div>
         </div>
       </section>
 

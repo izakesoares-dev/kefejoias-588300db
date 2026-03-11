@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Shield, Sparkles, Heart, Gem, Zap, Moon } from "lucide-react";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 const filters = [
   { id: "todos", label: "Todas as Pedras", icon: Gem },
@@ -40,6 +41,7 @@ const ColaresPedras = () => {
       {/* Hero Section */}
       <section className="pt-24 pb-12 section-padding bg-gradient-to-b from-secondary/50 to-background">
         <div className="max-w-7xl mx-auto">
+          <Breadcrumbs items={[{ label: "Colares", href: "/colares" }, { label: "Pedras" }]} />
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

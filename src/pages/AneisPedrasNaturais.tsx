@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Ruler, Shield, Sparkles, Heart, Gem } from "lucide-react";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import {
   Dialog,
   DialogContent,
@@ -54,6 +55,7 @@ const AneisPedrasNaturais = () => {
       {/* Hero Section */}
       <section className="pt-24 pb-12 section-padding bg-gradient-to-b from-secondary/50 to-background">
         <div className="max-w-7xl mx-auto">
+          <Breadcrumbs items={[{ label: "Anéis", href: "/aneis" }, { label: "Pedras Naturais" }]} />
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

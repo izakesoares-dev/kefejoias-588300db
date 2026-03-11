@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import SEOHead from "@/components/SEOHead";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 const subcategories = [
   { label: "Pirâmides Quânticas", href: "/piramides-quanticas", description: "Orgonites piramidais com pedras e resina", icon: "🔺" },
@@ -22,8 +23,10 @@ const Especiais = () => {
       />
       <Navbar />
 
-      <section className="pt-32 pb-12 px-6">
-        <div className="max-w-7xl mx-auto text-center">
+      <section className="pt-28 pb-12 px-6">
+        <div className="max-w-7xl mx-auto">
+          <Breadcrumbs items={[{ label: "Especiais" }]} />
+          <div className="text-center">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -39,6 +42,7 @@ const Especiais = () => {
           >
             Peças especiais e exclusivas: pirâmides, santinhas, mandalas, incensários e kits presente.
           </motion.p>
+          </div>
         </div>
       </section>
 

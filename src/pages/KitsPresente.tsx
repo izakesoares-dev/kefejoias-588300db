@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Shield, Sparkles, Heart, Gem, Moon, Zap, Leaf, Brain, Gift, Rainbow } from "lucide-react";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 const filters = [
   { id: "todos", label: "Todos", icon: Gift },
@@ -50,6 +51,7 @@ const KitsPresente = () => {
       {/* Hero */}
       <section className="pt-24 pb-12 section-padding bg-gradient-to-b from-secondary/50 to-background">
         <div className="max-w-7xl mx-auto">
+          <Breadcrumbs items={[{ label: "Especiais", href: "/especiais" }, { label: "Kits Presente" }]} />
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center">
             <div className="gold-line mx-auto mb-4" />
             <h1 className="font-display text-4xl md:text-5xl text-foreground mb-4">

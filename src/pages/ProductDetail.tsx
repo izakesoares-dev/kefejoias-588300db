@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ShoppingBag, Heart, ChevronLeft, Star, Ruler } from "lucide-react";
+import { ShoppingBag, Heart, Star, Ruler } from "lucide-react";
 import { getProductBySlug, getRelatedProducts, formatPrice } from "@/data/products";
 import { useCart } from "@/contexts/CartContext";
 import { Button } from "@/components/ui/button";
 import ProductCard from "@/components/ProductCard";
 import ProductGallery from "@/components/ProductGallery";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -73,10 +74,10 @@ const ProductDetail = () => {
       <section className="section-padding pt-24">
         <div className="max-w-7xl mx-auto">
           {/* Breadcrumb */}
-          <Link to="/produtos" className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition-colors font-body mb-6">
-            <ChevronLeft size={16} />
-            Voltar aos produtos
-          </Link>
+          <Breadcrumbs items={[
+            { label: "Produtos", href: "/produtos" },
+            { label: product.name },
+          ]} />
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
             {/* Gallery */}
