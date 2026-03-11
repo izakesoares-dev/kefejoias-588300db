@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import SEOHead from "@/components/SEOHead";
 
 const subcategories = [
   { label: "Pirâmides Quânticas", href: "/piramides-quanticas", description: "Orgonites piramidais com pedras e resina", icon: "🔺" },
