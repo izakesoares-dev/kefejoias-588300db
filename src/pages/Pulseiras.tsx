@@ -49,6 +49,7 @@ const Pulseiras = () => {
           >
             Pulseiras artesanais com pedras naturais, flores eternizadas e acabamentos premium.
           </motion.p>
+          </div>
         </div>
       </section>
 

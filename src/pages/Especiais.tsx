@@ -42,6 +42,7 @@ const Especiais = () => {
           >
             Peças especiais e exclusivas: pirâmides, santinhas, mandalas, incensários e kits presente.
           </motion.p>
+          </div>
         </div>
       </section>
 

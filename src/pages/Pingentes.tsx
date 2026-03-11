@@ -47,6 +47,7 @@ const Pingentes = () => {
           >
             Pingentes únicos com pedras naturais e flores eternizadas em resina cristalina.
           </motion.p>
+          </div>
         </div>
       </section>
 

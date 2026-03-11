@@ -40,6 +40,7 @@ const AcoInox = () => {
           >
             Joias em aço inoxidável — resistentes, hipoalergênicas e com brilho duradouro.
           </motion.p>
+          </div>
         </div>
       </section>
 
