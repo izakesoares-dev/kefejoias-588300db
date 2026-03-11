@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ShoppingBag, Heart, ChevronLeft, Star, Ruler } from "lucide-react";
+import { ShoppingBag, Heart, Star, Ruler } from "lucide-react";
 import { getProductBySlug, getRelatedProducts, formatPrice } from "@/data/products";
 import { useCart } from "@/contexts/CartContext";
 import { Button } from "@/components/ui/button";
