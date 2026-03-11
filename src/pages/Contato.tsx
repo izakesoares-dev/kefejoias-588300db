@@ -72,6 +72,10 @@ const Contato = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Contato — Kefe Joias"
+        description="Entre em contato com a Kefe Joias. Tire dúvidas, faça encomendas especiais ou peça biojoias personalizadas. WhatsApp (11) 99647-0414."
+      />
       <Navbar />
       
       {/* Hero */}

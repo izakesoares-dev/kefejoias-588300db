@@ -48,6 +48,26 @@ const ProductDetail = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title={`${product.name} — Biojoia Artesanal`}
+        description={product.shortDescription || product.description.slice(0, 155)}
+        ogType="product"
+        jsonLd={[
+          productJsonLd({
+            name: product.name,
+            description: product.shortDescription || product.description,
+            price: product.price,
+            image: typeof product.images[0] === "string" ? product.images[0] : "",
+            slug: product.slug,
+            inStock: product.inStock,
+          }),
+          breadcrumbJsonLd([
+            { name: "Início", url: "https://kefejoias.com.br/" },
+            { name: "Produtos", url: "https://kefejoias.com.br/produtos" },
+            { name: product.name, url: `https://kefejoias.com.br/produto/${product.slug}` },
+          ]),
+        ]}
+      />
       <Navbar />
 
       <section className="section-padding pt-24">

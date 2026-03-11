@@ -17,6 +17,14 @@ const Pingentes = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Pingentes Artesanais com Pedras e Flores em Resina"
+        description="Pingentes únicos com pedras naturais e flores eternizadas em resina cristalina. Biojoias artesanais feitas à mão."
+        jsonLd={breadcrumbJsonLd([
+          { name: "Início", url: "https://kefejoias.com.br/" },
+          { name: "Pingentes", url: "https://kefejoias.com.br/pingentes" },
+        ])}
+      />
       <Navbar />
 
       <section className="pt-32 pb-12 px-6">

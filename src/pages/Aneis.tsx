@@ -17,6 +17,14 @@ const Aneis = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Anéis Artesanais com Pedras Naturais e Flores"
+        description="Anéis artesanais com pedras naturais e flores eternizadas em resina cristalina. Biojoias únicas feitas à mão em São Paulo."
+        jsonLd={breadcrumbJsonLd([
+          { name: "Início", url: "https://kefejoias.com.br/" },
+          { name: "Anéis", url: "https://kefejoias.com.br/aneis" },
+        ])}
+      />
       <Navbar />
 
       <section className="pt-32 pb-12 px-6">

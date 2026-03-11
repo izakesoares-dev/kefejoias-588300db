@@ -67,6 +67,11 @@ const Sobre = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Sobre a Kefe — Biojoias Artesanais com Significado"
+        description="Conheça a história da Kefe Joias. Biojoias artesanais feitas com amor, pedras naturais e flores eternizadas em resina. Ateliê em São Paulo."
+        jsonLd={faqJsonLd(faqs)}
+      />
       <Navbar />
       
       {/* Hero */}
