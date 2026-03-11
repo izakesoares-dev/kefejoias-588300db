@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import SEOHead, { faqJsonLd } from "@/components/SEOHead";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Play, Heart, Sparkles, Shield } from "lucide-react";
 
