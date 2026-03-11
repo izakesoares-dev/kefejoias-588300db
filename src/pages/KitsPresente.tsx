@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Shield, Sparkles, Heart, Gem, Moon, Zap, Leaf, Brain, Gift, Rainbow } from "lucide-react";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 const filters = [
   { id: "todos", label: "Todos", icon: Gift },

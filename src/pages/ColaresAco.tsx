@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Shield, Sparkles, Heart, Gem } from "lucide-react";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 const steelNecklaces = [...stoneNecklaces, ...resinNecklaces].filter(
   (p) => p.id.includes("aco")

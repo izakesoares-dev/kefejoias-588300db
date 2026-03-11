@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Flower2, Heart, Shield, Sparkles, Gem } from "lucide-react";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 const filters = [
   { id: "todos", label: "Todas", icon: Gem },
