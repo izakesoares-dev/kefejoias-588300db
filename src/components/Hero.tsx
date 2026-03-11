@@ -99,6 +99,9 @@ const Hero = () => {
             src={slide.image}
             alt={slide.title}
             className="w-full h-full object-cover brightness-110 saturate-[1.15] contrast-[1.05]"
+            loading={current === 0 ? "eager" : "lazy"}
+            decoding={current === 0 ? "sync" : "async"}
+            fetchPriority={current === 0 ? "high" : "auto"}
             animate={{ scale: [1, 1.06] }}
             transition={{ duration: 6, ease: "linear", repeat: Infinity, repeatType: "reverse" }}
           />
