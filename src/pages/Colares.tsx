@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import SEOHead, { breadcrumbJsonLd } from "@/components/SEOHead";
 import ProductCard from "@/components/ProductCard";
 import { products } from "@/data/products";
 
@@ -16,6 +17,14 @@ const Colares = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Colares Artesanais com Pedras e Flores em Resina"
+        description="Colares artesanais com pedras naturais e flores eternizadas em resina cristalina. Biojoias únicas feitas à mão."
+        jsonLd={breadcrumbJsonLd([
+          { name: "Início", url: "https://kefejoias.com.br/" },
+          { name: "Colares", url: "https://kefejoias.com.br/colares" },
+        ])}
+      />
       <Navbar />
 
       <section className="pt-32 pb-12 px-6">

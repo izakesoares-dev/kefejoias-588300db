@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import SEOHead from "@/components/SEOHead";
 
 const subcategories = [
   { label: "Pirâmides Quânticas", href: "/piramides-quanticas", description: "Orgonites piramidais com pedras e resina", icon: "🔺" },
@@ -15,6 +16,10 @@ const subcategories = [
 const Especiais = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Peças Especiais — Pirâmides, Mandalas, Incensários e Kits"
+        description="Peças especiais e exclusivas: pirâmides quânticas, santinhas de pedra, mandalas e incensários de resina, kits presente. Artesanal e com propósito."
+      />
       <Navbar />
 
       <section className="pt-32 pb-12 px-6">

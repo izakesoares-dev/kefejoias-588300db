@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import SEOHead from "@/components/SEOHead";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -71,6 +72,10 @@ const Contato = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Contato — Kefe Joias"
+        description="Entre em contato com a Kefe Joias. Tire dúvidas, faça encomendas especiais ou peça biojoias personalizadas. WhatsApp (11) 99647-0414."
+      />
       <Navbar />
       
       {/* Hero */}

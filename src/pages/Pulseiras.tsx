@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import SEOHead, { breadcrumbJsonLd } from "@/components/SEOHead";
 import ProductCard from "@/components/ProductCard";
 import { products } from "@/data/products";
 
@@ -18,6 +19,14 @@ const Pulseiras = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Pulseiras Artesanais com Pedras Naturais"
+        description="Pulseiras artesanais com pedras naturais, flores eternizadas e acabamentos premium. Biojoias feitas à mão em São Paulo."
+        jsonLd={breadcrumbJsonLd([
+          { name: "Início", url: "https://kefejoias.com.br/" },
+          { name: "Pulseiras", url: "https://kefejoias.com.br/pulseiras" },
+        ])}
+      />
       <Navbar />
 
       <section className="pt-32 pb-12 px-6">
