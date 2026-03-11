@@ -74,10 +74,10 @@ const ProductDetail = () => {
       <section className="section-padding pt-24">
         <div className="max-w-7xl mx-auto">
           {/* Breadcrumb */}
-          <Link to="/produtos" className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition-colors font-body mb-6">
-            <ChevronLeft size={16} />
-            Voltar aos produtos
-          </Link>
+          <Breadcrumbs items={[
+            { label: "Produtos", href: "/produtos" },
+            { label: product.name },
+          ]} />
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
             {/* Gallery */}
