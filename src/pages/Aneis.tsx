@@ -75,16 +75,9 @@ const Aneis = () => {
           <h2 className="text-2xl font-display text-foreground mb-6">
             Todos os Anéis ({allRings.length})
           </h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
             {allRings.map((product, i) => (
-              <motion.div
-                key={product.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.03 }}
-              >
-                <ProductCard product={product} />
-              </motion.div>
+              <RingProductCard key={product.id} product={product} index={i} />
             ))}
           </div>
         </div>
