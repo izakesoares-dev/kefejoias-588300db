@@ -107,16 +107,14 @@ const RingProductCard = ({ product, index = 0 }: RingProductCardProps) => {
               <img src={img} alt={`Ângulo ${i + 1}`} className="w-full h-full object-cover" />
             </button>
           ))}
-          {product.videoUrl && (
-            <button
-              onClick={() => setActiveThumb(activeThumb === "video1" ? "img" : "video1")}
-              className={`w-12 h-12 rounded-lg border-2 transition-all flex-shrink-0 flex items-center justify-center bg-black/40 ${
-                activeThumb === "video1" ? "border-primary shadow-gold" : "border-white/30 hover:border-primary/60"
-              }`}
-            >
-              <Play size={14} className="text-white" />
-            </button>
-          )}
+          <button
+            onClick={() => setActiveThumb(activeThumb === "video1" ? "img" : "video1")}
+            className={`w-12 h-12 rounded-lg border-2 transition-all flex-shrink-0 flex items-center justify-center bg-black/40 ${
+              activeThumb === "video1" ? "border-primary shadow-gold" : "border-white/30 hover:border-primary/60"
+            }`}
+          >
+            <Play size={14} className="text-white" />
+          </button>
           <button
             onClick={() => setActiveThumb(activeThumb === "video2" ? "img" : "video2")}
             className={`w-12 h-12 rounded-lg border-2 transition-all flex-shrink-0 flex items-center justify-center bg-black/40 ${
