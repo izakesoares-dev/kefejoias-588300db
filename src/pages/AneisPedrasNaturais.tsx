@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { products, formatPrice, Product } from "@/data/products";
-import ProductCard from "@/components/ProductCard";
+import RingProductCard from "@/components/RingProductCard";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
