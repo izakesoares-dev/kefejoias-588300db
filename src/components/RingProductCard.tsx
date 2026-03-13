@@ -5,6 +5,13 @@ import { Product, formatPrice } from "@/data/products";
 import { useCart } from "@/contexts/CartContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 interface RingProductCardProps {
   product: Product;
@@ -15,32 +22,43 @@ const MEASUREMENT_VIDEO = "/videos/como-descobrir-numero-anel.mp4";
 
 const RingProductCard = ({ product, index = 0 }: RingProductCardProps) => {
   const { addItem } = useCart();
-  const [selectedSize, setSelectedSize] = useState<number | undefined>(undefined);
+  const [selectedSize, setSelectedSize] = useState<string>("");
   const [cep, setCep] = useState("");
   const [shippingResult, setShippingResult] = useState<string | null>(null);
   const [shippingLoading, setShippingLoading] = useState(false);
-  const [activeMedia, setActiveMedia] = useState<"img" | number | "video1" | "video2">("img");
+  const [activeThumb, setActiveThumb] = useState<"img" | number | "video1" | "video2">("img");
 
   const sizes = product.sizes || [14, 15, 16, 17, 18, 19, 20, 21, 22];
 
   const handleBuy = () => {
-    if (!selectedSize) {
-      // Highlight size selector
-      document.getElementById(`size-${product.id}`)?.focus();
-      return;
-    }
-    addItem(product, 1, selectedSize);
+    if (!selectedSize) return;
+    addItem(product, 1, Number(selectedSize));
   };
 
   const handleCalcShipping = () => {
     if (!cep || cep.length < 8) return;
     setShippingLoading(true);
-    // Simulated shipping calc
     setTimeout(() => {
-      setShippingResult("Frete: R$ 18,90 — Prazo: 5 a 8 dias úteis");
+      setShippingResult("R$ 18,90 — 5 a 8 dias úteis");
       setShippingLoading(false);
     }, 1000);
   };
+
+  // Determine what to show in the large preview area
+  const renderPreview = () => {
+    if (activeThumb === "video1" && product.videoUrl) {
+      return <video src={product.videoUrl} className="w-full h-full object-contain" controls autoPlay muted loop playsInline />;
+    }
+    if (activeThumb === "video2") {
+      return <video src={MEASUREMENT_VIDEO} className="w-full h-full object-contain" controls autoPlay muted loop playsInline />;
+    }
+    if (typeof activeThumb === "number") {
+      return <img src={product.images[activeThumb]} alt={product.name} className="w-full h-full object-cover rounded-lg" />;
+    }
+    return null;
+  };
+
+  const showPreview = activeThumb !== "img";
 
   return (
     <motion.div
@@ -48,205 +66,119 @@ const RingProductCard = ({ product, index = 0 }: RingProductCardProps) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.08, duration: 0.5 }}
-      className="relative rounded-2xl overflow-hidden border border-border/50 bg-card shadow-lg hover:shadow-gold transition-shadow duration-500"
+      className="relative rounded-2xl overflow-hidden border border-border/50 shadow-lg hover:shadow-gold transition-shadow duration-500"
     >
-      {/* Background image with low opacity */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src={product.images[0]}
-          alt=""
-          className="w-full h-full object-cover opacity-[0.07]"
-          aria-hidden="true"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-card/80 via-card/90 to-card" />
-      </div>
+      {/* Full background image */}
+      <img
+        src={product.images[0]}
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover"
+        aria-hidden="true"
+      />
+      {/* Dark overlay for readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/70 to-black/85" />
 
-      <div className="relative z-10 p-5 space-y-4">
+      {/* ALL content overlaid */}
+      <div className="relative z-10 p-4 flex flex-col gap-3">
         {/* Badge */}
         {product.badge && (
-          <span className="inline-block px-3 py-1 text-xs font-body font-semibold bg-primary text-primary-foreground rounded-full">
+          <span className="self-start px-3 py-0.5 text-xs font-body font-semibold bg-primary text-primary-foreground rounded-full">
             {product.badge}
           </span>
         )}
 
-        {/* Main media area */}
-        <div className="aspect-square rounded-xl overflow-hidden bg-secondary/30">
-          {activeMedia === "img" && (
-            <img
-              src={product.images[0]}
-              alt={product.name}
-              className="w-full h-full object-cover"
-            />
-          )}
-          {typeof activeMedia === "number" && (
-            <img
-              src={product.images[activeMedia]}
-              alt={`${product.name} - ângulo ${activeMedia + 1}`}
-              className="w-full h-full object-cover"
-            />
-          )}
-          {activeMedia === "video1" && product.videoUrl && (
-            <video
-              src={product.videoUrl}
-              className="w-full h-full object-contain bg-black"
-              controls
-              autoPlay
-              muted
-              loop
-              playsInline
-            />
-          )}
-          {activeMedia === "video2" && (
-            <video
-              src={MEASUREMENT_VIDEO}
-              className="w-full h-full object-contain bg-black"
-              controls
-              autoPlay
-              muted
-              loop
-              playsInline
-            />
-          )}
-        </div>
+        {/* Preview area (only when a thumb/video is active) */}
+        {showPreview && (
+          <div className="aspect-video rounded-lg overflow-hidden bg-black/40">
+            {renderPreview()}
+          </div>
+        )}
 
         {/* Thumbnails row: 3 images + 2 videos */}
-        <div className="flex gap-2 overflow-x-auto pb-1">
+        <div className="flex items-center gap-2">
           {product.images.slice(0, 3).map((img, i) => (
             <button
               key={i}
-              onClick={() => setActiveMedia(i)}
-              className={`flex-shrink-0 w-14 h-14 rounded-lg overflow-hidden border-2 transition-all ${
-                activeMedia === i ? "border-primary shadow-gold" : "border-border/50 hover:border-primary/50"
+              onClick={() => setActiveThumb(activeThumb === i ? "img" : i)}
+              className={`w-12 h-12 rounded-lg overflow-hidden border-2 transition-all flex-shrink-0 ${
+                activeThumb === i ? "border-primary shadow-gold" : "border-white/30 hover:border-primary/60"
               }`}
             >
               <img src={img} alt={`Ângulo ${i + 1}`} className="w-full h-full object-cover" />
             </button>
           ))}
-
-          {/* Video 1 - ring in motion */}
           {product.videoUrl && (
             <button
-              onClick={() => setActiveMedia("video1")}
-              className={`flex-shrink-0 w-14 h-14 rounded-lg overflow-hidden border-2 transition-all flex items-center justify-center bg-secondary/50 ${
-                activeMedia === "video1" ? "border-primary shadow-gold" : "border-border/50 hover:border-primary/50"
+              onClick={() => setActiveThumb(activeThumb === "video1" ? "img" : "video1")}
+              className={`w-12 h-12 rounded-lg border-2 transition-all flex-shrink-0 flex items-center justify-center bg-black/40 ${
+                activeThumb === "video1" ? "border-primary shadow-gold" : "border-white/30 hover:border-primary/60"
               }`}
             >
-              <Play size={16} className="text-primary" />
-              <span className="text-[9px] text-muted-foreground ml-0.5">Anel</span>
+              <Play size={14} className="text-white" />
             </button>
           )}
-
-          {/* Video 2 - measurement guide (fixed for all) */}
           <button
-            onClick={() => setActiveMedia("video2")}
-            className={`flex-shrink-0 w-14 h-14 rounded-lg overflow-hidden border-2 transition-all flex items-center justify-center bg-secondary/50 ${
-              activeMedia === "video2" ? "border-primary shadow-gold" : "border-border/50 hover:border-primary/50"
+            onClick={() => setActiveThumb(activeThumb === "video2" ? "img" : "video2")}
+            className={`w-12 h-12 rounded-lg border-2 transition-all flex-shrink-0 flex items-center justify-center bg-black/40 ${
+              activeThumb === "video2" ? "border-primary shadow-gold" : "border-white/30 hover:border-primary/60"
             }`}
           >
-            <span className="text-[9px] text-center text-muted-foreground leading-tight">📏<br />Medida</span>
+            <span className="text-[9px] text-white leading-tight text-center">📏<br/>Medida</span>
           </button>
         </div>
 
         {/* Title & Price */}
         <div>
-          <p className="text-xs text-muted-foreground font-body uppercase tracking-wider">
-            {product.significance}
-          </p>
-          <h3 className="font-display text-lg text-foreground mt-1">{product.name}</h3>
-          <p className="text-sm text-muted-foreground font-body mt-1 line-clamp-2">
-            {product.shortDescription}
-          </p>
-          <p className="mt-2 text-2xl font-display font-bold text-primary">
-            {formatPrice(product.price)}
-          </p>
-          <p className="text-xs text-muted-foreground">
-            ou 3x de {formatPrice(product.price / 3)} sem juros
-          </p>
+          <p className="text-[10px] text-white/60 font-body uppercase tracking-wider">{product.significance}</p>
+          <h3 className="font-display text-lg text-white mt-0.5 leading-tight">{product.name}</h3>
+          <p className="text-sm text-white/70 font-body mt-0.5 line-clamp-1">{product.shortDescription}</p>
+          <div className="flex items-baseline gap-2 mt-1">
+            <span className="text-2xl font-display font-bold text-primary">{formatPrice(product.price)}</span>
+            <span className="text-xs text-white/50">ou 3x {formatPrice(product.price / 3)}</span>
+          </div>
         </div>
 
-        {/* Size selector */}
-        <div>
-          <label htmlFor={`size-${product.id}`} className="text-sm font-body font-medium text-foreground mb-2 block">
-            Tamanho do anel:
-          </label>
-          <div className="flex flex-wrap gap-1.5">
-            {sizes.map((size) => (
-              <button
-                key={size}
-                onClick={() => setSelectedSize(size)}
-                className={`w-9 h-9 rounded-full text-sm font-body font-medium transition-all ${
-                  selectedSize === size
-                    ? "bg-primary text-primary-foreground shadow-gold"
-                    : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
-                }`}
-              >
-                {size}
-              </button>
-            ))}
-          </div>
-          {!selectedSize && (
-            <p className="text-xs text-destructive mt-1 font-body">Selecione o tamanho</p>
-          )}
+        {/* Size + Buy — compact row */}
+        <div className="flex items-center gap-2">
+          <Select value={selectedSize} onValueChange={setSelectedSize}>
+            <SelectTrigger className="w-28 h-10 bg-white/10 border-white/20 text-white text-sm">
+              <SelectValue placeholder="Tamanho" />
+            </SelectTrigger>
+            <SelectContent>
+              {sizes.map((s) => (
+                <SelectItem key={s} value={String(s)}>Tam. {s}</SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+          <Button onClick={handleBuy} disabled={!selectedSize} className="flex-1 h-10 gap-2 font-body font-semibold rounded-xl">
+            <ShoppingBag size={16} />
+            Comprar
+          </Button>
         </div>
 
-        {/* Buy button */}
-        <Button
-          onClick={handleBuy}
-          className="w-full gap-2 h-12 text-base font-body font-semibold rounded-xl"
-          size="lg"
-        >
-          <ShoppingBag size={18} />
-          Comprar
-        </Button>
-
-        {/* Shipping calculator */}
-        <div className="border-t border-border/50 pt-3 space-y-2">
-          <div className="flex items-center gap-2 text-sm text-muted-foreground font-body">
-            <Truck size={16} className="text-primary" />
-            <span>Calcular frete e prazo</span>
-          </div>
-          <div className="flex gap-2">
-            <Input
-              placeholder="Digite seu CEP"
-              value={cep}
-              onChange={(e) => setCep(e.target.value.replace(/\D/g, "").slice(0, 8))}
-              className="flex-1 h-9 text-sm"
-              maxLength={9}
-            />
-            <Button
-              onClick={handleCalcShipping}
-              variant="outline"
-              size="sm"
-              disabled={shippingLoading || cep.length < 8}
-              className="h-9 text-xs"
-            >
-              {shippingLoading ? "..." : "Calcular"}
-            </Button>
-          </div>
-          {shippingResult && (
-            <p className="text-sm text-foreground font-body bg-secondary/50 rounded-lg px-3 py-2">
-              {shippingResult}
-            </p>
-          )}
+        {/* Shipping */}
+        <div className="flex items-center gap-2">
+          <Truck size={14} className="text-primary flex-shrink-0" />
+          <Input
+            placeholder="CEP"
+            value={cep}
+            onChange={(e) => setCep(e.target.value.replace(/\D/g, "").slice(0, 8))}
+            className="flex-1 h-8 text-xs bg-white/10 border-white/20 text-white placeholder:text-white/40"
+            maxLength={9}
+          />
+          <Button onClick={handleCalcShipping} variant="outline" size="sm" disabled={shippingLoading || cep.length < 8} className="h-8 text-xs border-white/20 text-white hover:bg-white/10">
+            {shippingLoading ? "..." : "Calcular"}
+          </Button>
         </div>
+        {shippingResult && (
+          <p className="text-xs text-white/80 font-body bg-white/10 rounded px-2 py-1">{shippingResult}</p>
+        )}
 
-        {/* Payment methods */}
-        <div className="border-t border-border/50 pt-3">
-          <p className="text-xs text-muted-foreground font-body mb-2">Formas de pagamento:</p>
-          <div className="flex items-center gap-3 text-muted-foreground">
-            <div className="flex items-center gap-1 text-xs">
-              <CreditCard size={14} className="text-primary" />
-              <span>Cartão</span>
-            </div>
-            <div className="flex items-center gap-1 text-xs">
-              <QrCode size={14} className="text-primary" />
-              <span>Pix</span>
-            </div>
-            <div className="flex items-center gap-1 text-xs">
-              <Barcode size={14} className="text-primary" />
-              <span>Boleto</span>
-            </div>
-          </div>
+        {/* Payment */}
+        <div className="flex items-center gap-3 text-white/60 text-xs">
+          <span className="flex items-center gap-1"><CreditCard size={12} className="text-primary" />Cartão</span>
+          <span className="flex items-center gap-1"><QrCode size={12} className="text-primary" />Pix</span>
+          <span className="flex items-center gap-1"><Barcode size={12} className="text-primary" />Boleto</span>
         </div>
       </div>
     </motion.div>
