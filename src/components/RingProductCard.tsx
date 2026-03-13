@@ -46,8 +46,9 @@ const RingProductCard = ({ product, index = 0 }: RingProductCardProps) => {
 
   // Determine what to show in the large preview area
   const renderPreview = () => {
-    if (activeThumb === "video1" && product.videoUrl) {
-      return <video src={product.videoUrl} className="w-full h-full object-contain" controls autoPlay muted loop playsInline />;
+    if (activeThumb === "video1") {
+      const src = product.videoUrl || MEASUREMENT_VIDEO;
+      return <video src={src} className="w-full h-full object-contain" controls autoPlay muted loop playsInline />;
     }
     if (activeThumb === "video2") {
       return <video src={MEASUREMENT_VIDEO} className="w-full h-full object-contain" controls autoPlay muted loop playsInline />;
