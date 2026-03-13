@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import SEOHead, { breadcrumbJsonLd } from "@/components/SEOHead";
-import ProductCard from "@/components/ProductCard";
+import RingProductCard from "@/components/RingProductCard";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { products } from "@/data/products";
 
