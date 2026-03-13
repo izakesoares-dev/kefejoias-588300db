@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { products, formatPrice, Product } from "@/data/products";
-import ProductCard from "@/components/ProductCard";
+import RingProductCard from "@/components/RingProductCard";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -151,9 +151,9 @@ const AneisPedrasNaturais = () => {
           </div>
 
           {/* Products Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
             {filtered.map((product, index) => (
-              <ProductCard key={product.id} product={product} index={index} />
+              <RingProductCard key={product.id} product={product} index={index} />
             ))}
           </div>
 
