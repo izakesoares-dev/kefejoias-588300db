@@ -32,43 +32,23 @@ const PulseirasAco = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      <section className="pt-24 pb-12 section-padding bg-gradient-to-b from-secondary/50 to-background">
+      <section className="pt-24 pb-4 section-padding bg-gradient-to-b from-secondary/50 to-background">
         <div className="max-w-7xl mx-auto">
           <Breadcrumbs items={[{ label: "Pulseiras", href: "/pulseiras" }, { label: "Aço Inox" }]} />
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center">
-            <div className="gold-line mx-auto mb-4" />
-            <h1 className="font-display text-4xl md:text-5xl text-foreground mb-4">
+            <h1 className="font-display text-4xl md:text-5xl text-foreground mb-2">
               Pulseiras de <span className="text-gradient-gold">Aço</span>
             </h1>
-            <p className="font-body text-lg text-muted-foreground max-w-2xl mx-auto mb-2">
-              Sofisticação que dura
-            </p>
-            <p className="font-body text-muted-foreground max-w-3xl mx-auto">
-              Design clean e acabamento premium para o dia a dia. Aço inoxidável antialérgico com pingentes de pedras naturais removíveis.
+            <p className="font-body text-sm text-muted-foreground max-w-2xl mx-auto">
+              Design clean e acabamento premium. Aço inoxidável antialérgico com pingentes de pedras naturais.
             </p>
           </motion.div>
         </div>
       </section>
 
-      <section className="section-padding py-6 border-y border-border/50 bg-card/50">
+      <section className="section-padding py-8">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-12 text-sm">
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <span>⛓️ Aço inoxidável antialérgico</span>
-            </div>
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <span>💎 Pingente de pedra natural removível</span>
-            </div>
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <span>🔒 Fecho lagosta ajustável</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section-padding py-12">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-wrap justify-center gap-2 mb-10">
+          <div className="flex flex-wrap justify-center gap-2 mb-6">
             {filters.map((filter) => {
               const Icon = filter.icon;
               return (

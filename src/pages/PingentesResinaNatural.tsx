@@ -32,8 +32,7 @@ const PingentesResinaNatural = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      {/* Hero Section */}
-      <section className="pt-24 pb-12 section-padding bg-gradient-to-b from-secondary/50 to-background">
+      <section className="pt-24 pb-4 section-padding bg-gradient-to-b from-secondary/50 to-background">
         <div className="max-w-7xl mx-auto">
           <Breadcrumbs items={[{ label: "Pingentes", href: "/pingentes" }, { label: "Resina Natural" }]} />
           <motion.div
@@ -41,50 +40,21 @@ const PingentesResinaNatural = () => {
             animate={{ opacity: 1, y: 0 }}
             className="text-center"
           >
-            <div className="gold-line mx-auto mb-4" />
-            <h1 className="font-display text-4xl md:text-5xl text-foreground mb-4">
+            <h1 className="font-display text-4xl md:text-5xl text-foreground mb-2">
               Pingentes com <span className="text-gradient-gold">Alma</span>
             </h1>
-            <p className="font-body text-lg text-muted-foreground max-w-2xl mx-auto mb-2">
-              Flores, pimentas e sementes eternizadas
-            </p>
-            <p className="font-body text-muted-foreground max-w-3xl mx-auto">
-              Leve com você um pedaço da natureza carregado de simbolismo. 
-              Cada pingente é uma obra de arte única, preservando a beleza natural em resina cristalina.
+            <p className="font-body text-sm text-muted-foreground max-w-2xl mx-auto">
+              Flores, pimentas e sementes eternizadas em resina cristalina.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Featured Product */}
-      <section className="section-padding py-8 bg-card/50 border-y border-border/50">
-        <div className="max-w-4xl mx-auto">
-          <div className="flex flex-col md:flex-row items-center gap-8 text-center md:text-left">
-            <div className="w-32 h-32 rounded-full bg-gradient-to-br from-red-500/20 to-orange-500/20 flex items-center justify-center text-6xl">
-              🌶️
-            </div>
-            <div className="flex-1">
-              <span className="text-xs uppercase tracking-wider text-primary font-body">Destaque</span>
-              <h2 className="font-display text-2xl text-foreground mt-1 mb-2">
-                Pingente Pimenta Vermelha – Proteção e energia
-              </h2>
-              <p className="font-body text-muted-foreground mb-4">
-                A pimenta é símbolo de proteção contra más energias. Use como pingente e sinta a força vital.
-              </p>
-              <div className="flex flex-wrap gap-4 justify-center md:justify-start">
-                <span className="text-lg font-display font-semibold text-primary">R$ 59,90</span>
-                <span className="text-sm text-muted-foreground">Variações: Pimenta rosa, semente de girassol, semente de mostarda</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Main Content */}
-      <section className="section-padding py-12">
+      <section className="section-padding py-8">
         <div className="max-w-7xl mx-auto">
           {/* Filters */}
-          <div className="flex flex-wrap justify-center gap-2 mb-10">
+          <div className="flex flex-wrap justify-center gap-2 mb-6">
             {filters.map((filter) => {
               const Icon = filter.icon;
               return (

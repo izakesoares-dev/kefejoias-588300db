@@ -30,8 +30,7 @@ const ColaresResina = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      {/* Hero Section */}
-      <section className="pt-24 pb-12 section-padding bg-gradient-to-b from-secondary/50 to-background">
+      <section className="pt-24 pb-4 section-padding bg-gradient-to-b from-secondary/50 to-background">
         <div className="max-w-7xl mx-auto">
           <Breadcrumbs items={[{ label: "Colares", href: "/colares" }, { label: "Resina" }]} />
           <motion.div
@@ -39,70 +38,20 @@ const ColaresResina = () => {
             animate={{ opacity: 1, y: 0 }}
             className="text-center"
           >
-            <div className="gold-line mx-auto mb-4" />
-            <h1 className="font-display text-4xl md:text-5xl text-foreground mb-4">
+            <h1 className="font-display text-4xl md:text-5xl text-foreground mb-2">
               Colares com <span className="text-gradient-gold">Elementos Naturais</span>
             </h1>
-            <p className="font-body text-lg text-muted-foreground max-w-2xl mx-auto mb-2">
-              Histórias que se usam
-            </p>
-            <p className="font-body text-muted-foreground max-w-3xl mx-auto">
-              Peças únicas com flores, pimentas ou sementes encapsuladas em resina cristalina. 
-              Cada colar conta uma história e carrega um simbolismo especial.
+            <p className="font-body text-sm text-muted-foreground max-w-2xl mx-auto">
+              Flores, pimentas e sementes encapsuladas em resina cristalina.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Featured Product */}
-      <section className="section-padding py-8 bg-card/50 border-y border-border/50">
-        <div className="max-w-4xl mx-auto">
-          <div className="flex flex-col md:flex-row items-center gap-8 text-center md:text-left">
-            <div className="w-32 h-32 rounded-full bg-gradient-to-br from-yellow-500/20 to-orange-500/20 flex items-center justify-center text-6xl">
-              🌻
-            </div>
-            <div className="flex-1">
-              <span className="text-xs uppercase tracking-wider text-primary font-body">Destaque</span>
-              <h2 className="font-display text-2xl text-foreground mt-1 mb-2">
-                Colar Girassol – Vitalidade e prosperidade
-              </h2>
-              <p className="font-body text-muted-foreground mb-4">
-                Uma semente de girassol encapsulada em resina, acompanhada de contas douradas. 
-                Símbolo de vitalidade e energia solar.
-              </p>
-              <span className="text-lg font-display font-semibold text-primary">R$ 119,90</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Chain Options */}
-      <section className="section-padding py-6 bg-primary/5">
-        <div className="max-w-7xl mx-auto">
-          <h3 className="font-display text-center text-lg text-foreground mb-4">Escolha seu tipo de corrente</h3>
-          <div className="flex flex-wrap justify-center gap-6">
-            <div className="flex items-center gap-3 bg-card rounded-xl px-6 py-4 border border-border/50">
-              <span className="text-2xl">⛓️</span>
-              <div>
-                <p className="font-body font-semibold text-foreground text-sm">Corrente de Aço Inoxidável</p>
-                <p className="font-body text-xs text-muted-foreground">Durável, antialérgica e resistente à água</p>
-              </div>
-            </div>
-            <div className="flex items-center gap-3 bg-card rounded-xl px-6 py-4 border border-border/50">
-              <span className="text-2xl">🧵</span>
-              <div>
-                <p className="font-body font-semibold text-foreground text-sm">Cordão de Poliéster 1mm</p>
-                <p className="font-body text-xs text-muted-foreground">Leve, flexível e ajustável com nó corrediço</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section-padding py-12">
+      <section className="section-padding py-8">
         <div className="max-w-7xl mx-auto">
           {/* Filters */}
-          <div className="flex flex-wrap justify-center gap-2 mb-10">
+          <div className="flex flex-wrap justify-center gap-2 mb-6">
             {filters.map((filter) => {
               const Icon = filter.icon;
               return (

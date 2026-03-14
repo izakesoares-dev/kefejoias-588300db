@@ -46,7 +46,7 @@ const AneisPedrasNaturais = () => {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="pt-24 pb-12 section-padding bg-gradient-to-b from-secondary/50 to-background">
+      <section className="pt-24 pb-4 section-padding bg-gradient-to-b from-secondary/50 to-background">
         <div className="max-w-7xl mx-auto">
           <Breadcrumbs items={[{ label: "Anéis", href: "/aneis" }, { label: "Pedras Naturais" }]} />
           <motion.div
@@ -54,16 +54,14 @@ const AneisPedrasNaturais = () => {
             animate={{ opacity: 1, y: 0 }}
             className="text-center"
           >
-            <div className="gold-line mx-auto mb-4" />
-            <h1 className="font-display text-4xl md:text-5xl text-foreground mb-4">
+            <h1 className="font-display text-4xl md:text-5xl text-foreground mb-2">
               Anéis com <span className="text-gradient-gold">Pedras Naturais</span>
             </h1>
-            <p className="font-body text-lg text-muted-foreground max-w-2xl mx-auto mb-2">
+            <p className="font-body text-lg text-muted-foreground max-w-2xl mx-auto mb-1">
               Energia que cabe no seu dedo
             </p>
-            <p className="font-body text-muted-foreground max-w-3xl mx-auto">
+            <p className="font-body text-sm text-muted-foreground max-w-3xl mx-auto">
               Escolha a pedra que mais combina com sua intenção e use no dia a dia um amuleto de estilo.
-              Cada anel é artesanalmente produzido em resina cristalina com base em aço inoxidável hipoalergênico.
             </p>
           </motion.div>
         </div>
@@ -71,10 +69,10 @@ const AneisPedrasNaturais = () => {
 
 
       {/* Main Content */}
-      <section className="section-padding py-12">
+      <section className="section-padding py-8">
         <div className="max-w-7xl mx-auto">
           {/* Filters */}
-          <div className="flex flex-wrap justify-center gap-2 mb-10">
+          <div className="flex flex-wrap justify-center gap-2 mb-6">
             {stoneFilters.map((filter) => {
               const Icon = filter.icon;
               return (

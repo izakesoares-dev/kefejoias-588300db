@@ -40,8 +40,7 @@ const PingentesPedrasNaturais = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      {/* Hero Section */}
-      <section className="pt-24 pb-12 section-padding bg-gradient-to-b from-secondary/50 to-background">
+      <section className="pt-24 pb-4 section-padding bg-gradient-to-b from-secondary/50 to-background">
         <div className="max-w-7xl mx-auto">
           <Breadcrumbs items={[{ label: "Pingentes", href: "/pingentes" }, { label: "Pedras Naturais" }]} />
           <motion.div
@@ -49,54 +48,21 @@ const PingentesPedrasNaturais = () => {
             animate={{ opacity: 1, y: 0 }}
             className="text-center"
           >
-            <div className="gold-line mx-auto mb-4" />
-            <h1 className="font-display text-4xl md:text-5xl text-foreground mb-4">
+            <h1 className="font-display text-4xl md:text-5xl text-foreground mb-2">
               Pingentes com <span className="text-gradient-gold">Pedras</span>
             </h1>
-            <p className="font-body text-lg text-muted-foreground max-w-2xl mx-auto mb-2">
-              Seu amuleto pessoal perto do coração
-            </p>
-            <p className="font-body text-muted-foreground max-w-3xl mx-auto">
-              Escolha a pedra que mais combina com sua intenção e use como pingente em corrente ou cordão.
-              Cada pedra carrega uma energia única que acompanha você em todos os momentos.
+            <p className="font-body text-sm text-muted-foreground max-w-2xl mx-auto">
+              Escolha a pedra que mais combina com sua intenção e use como pingente.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Specs Bar */}
-      <section className="section-padding py-6 border-y border-border/50 bg-card/50">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-12 text-sm">
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <span>📏 Tamanho: 2cm a 3cm</span>
-            </div>
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <span>✨ Resina protetora ou pedra polida</span>
-            </div>
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <Link2 size={18} className="text-primary" />
-              <span>Corrente aço inox (inclusa ou opcional)</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Pricing Info */}
-      <section className="section-padding py-6 bg-primary/5">
-        <div className="max-w-7xl mx-auto text-center">
-          <p className="font-body text-muted-foreground">
-            💎 <span className="font-semibold text-foreground">Com corrente:</span> a partir de R$ 69,90 | 
-            <span className="font-semibold text-foreground ml-2">Apenas pingente:</span> a partir de R$ 49,90
-          </p>
-        </div>
-      </section>
-
       {/* Main Content */}
-      <section className="section-padding py-12">
+      <section className="section-padding py-8">
         <div className="max-w-7xl mx-auto">
           {/* Filters */}
-          <div className="flex flex-wrap justify-center gap-2 mb-10">
+          <div className="flex flex-wrap justify-center gap-2 mb-6">
             {filters.map((filter) => {
               const Icon = filter.icon;
               return (
