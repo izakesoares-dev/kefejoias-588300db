@@ -34,7 +34,7 @@ const RingProductCard = ({ product, index = 0 }: RingProductCardProps) => {
 
   const renderPreview = () => {
     if (activeThumb === "video1") {
-      const src = product.videoUrl || MEASUREMENT_VIDEO;
+      const src = product.videoUrl || SHOWCASE_VIDEO;
       return <video src={src} className="w-full h-full object-contain" controls autoPlay muted loop playsInline />;
     }
     if (activeThumb === "video2") {
