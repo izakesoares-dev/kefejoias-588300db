@@ -10,6 +10,11 @@ import santinhaCianita from "@/assets/santinha-cianita.jpg";
 import santinhaQuartzoVerde from "@/assets/santinha-quartzo-verde.jpg";
 import santinhaQuartzoRosa from "@/assets/santinha-quartzo-rosa.jpg";
 import santinhaSodalita from "@/assets/santinha-sodalita.jpg";
+import santinhaJade from "@/assets/santinha-jade.jpg";
+import santinhaOlhoTigre from "@/assets/santinha-olho-tigre.jpg";
+import santinhaLapisLazuli from "@/assets/santinha-lapis-lazuli.jpg";
+import santinhaCornalina from "@/assets/santinha-cornalina.jpg";
+import santinhaHematita from "@/assets/santinha-hematita.jpg";
 
 export const santinhaProducts: Product[] = [
   {
