@@ -129,6 +129,21 @@ const RingProductCard = ({ product, index = 0 }: RingProductCardProps) => {
 
       {/* ===== PARTE INFERIOR: Informações do produto ===== */}
       <div className="p-4 space-y-3">
+        {/* Seletor de Tamanho */}
+        <div className="flex items-center gap-2">
+          <span className="text-sm font-body font-medium text-foreground">Tamanho:</span>
+          <Select value={selectedSize} onValueChange={setSelectedSize}>
+            <SelectTrigger className="w-24 h-9 text-sm">
+              <SelectValue placeholder="Tam." />
+            </SelectTrigger>
+            <SelectContent>
+              {sizes.map((s) => (
+                <SelectItem key={s} value={String(s)}>Tam. {s}</SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+
         {/* Título & Preço */}
         <div>
           <p className="text-[10px] text-muted-foreground font-body uppercase tracking-wider">{product.significance}</p>
@@ -140,23 +155,11 @@ const RingProductCard = ({ product, index = 0 }: RingProductCardProps) => {
           </div>
         </div>
 
-        {/* Tamanho + Comprar */}
-        <div className="flex items-center gap-2">
-          <Select value={selectedSize} onValueChange={setSelectedSize}>
-            <SelectTrigger className="w-28 h-10 text-sm">
-              <SelectValue placeholder="Tamanho" />
-            </SelectTrigger>
-            <SelectContent>
-              {sizes.map((s) => (
-                <SelectItem key={s} value={String(s)}>Tam. {s}</SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-          <Button onClick={handleBuy} disabled={!selectedSize} className="flex-1 h-10 gap-2 font-body font-semibold rounded-xl">
-            <ShoppingBag size={16} />
-            Comprar
-          </Button>
-        </div>
+        {/* Comprar */}
+        <Button onClick={handleBuy} disabled={!selectedSize} className="w-full h-10 gap-2 font-body font-semibold rounded-xl">
+          <ShoppingBag size={16} />
+          Comprar
+        </Button>
 
         {/* Frete */}
         <div className="flex items-center gap-2">
