@@ -117,7 +117,7 @@ const Pedras = () => {
               <Link
                 key={stone.id}
                 to={`/produtos?pedra=${stone.id}`}
-                className="bg-card border border-border rounded-lg p-3 text-center hover:border-primary/50 transition-all group"
+                className="bg-card border-2 border-green-deep/30 rounded-lg p-3 text-center hover:border-green-deep transition-all group shadow-sm"
               >
                 <span className="text-xl block mb-2">{stone.icon}</span>
                 <span className="text-sm font-body text-foreground group-hover:text-primary transition-colors">
