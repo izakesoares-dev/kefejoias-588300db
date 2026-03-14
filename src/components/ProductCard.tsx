@@ -15,8 +15,25 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
   const { addItem } = useCart();
   const [activeThumb, setActiveThumb] = useState<"img" | number | "video">("img");
 
-  const DEFAULT_VIDEO = "/videos/como-descobrir-numero-anel.mp4";
-  const videoUrl = product.videoUrl || DEFAULT_VIDEO;
+  const CATEGORY_VIDEOS: Record<string, string> = {
+    anel: "/videos/como-descobrir-numero-anel.mp4",
+    colar: "/videos/colares-showcase.mp4",
+    pulseira: "/videos/pulseiras-showcase.mp4",
+    pingente: "/videos/pingentes-showcase.mp4",
+  };
+
+  const getCategoryVideo = (p: Product): string => {
+    if (p.videoUrl) return p.videoUrl;
+    // Detect by product id/slug for special categories
+    if (p.id.startsWith("mandala")) return "/videos/mandalas-showcase.mp4";
+    if (p.id.startsWith("incensario")) return "/videos/incensarios-showcase.mp4";
+    if (p.id.startsWith("piramide")) return "/videos/piramides-showcase.mp4";
+    if (p.id.startsWith("santinha")) return "/videos/santinhas-showcase.mp4";
+    if (p.id.startsWith("kit")) return "/videos/kits-showcase.mp4";
+    return CATEGORY_VIDEOS[p.category] || "/videos/colares-showcase.mp4";
+  };
+
+  const videoUrl = getCategoryVideo(product);
 
   const displayImages = product.images.length >= 3
     ? product.images.slice(0, 3)
