@@ -32,7 +32,7 @@ const PulseirasMinimalistas = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      <section className="pt-24 pb-2 section-padding bg-gradient-to-b from-secondary/50 to-background">
+      <section className="pt-24 pb-0 px-6 bg-gradient-to-b from-secondary/50 to-background">
         <div className="max-w-7xl mx-auto">
           
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center">
@@ -46,7 +46,7 @@ const PulseirasMinimalistas = () => {
         </div>
       </section>
 
-      <section className="section-padding py-4">
+      <section className="px-6 pt-2 pb-4">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-wrap justify-center gap-2 mb-4">
             {filters.map((filter) => {

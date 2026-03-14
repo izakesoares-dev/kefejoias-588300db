@@ -49,7 +49,7 @@ const KitsPresente = () => {
       <Navbar />
 
       {/* Hero */}
-      <section className="pt-24 pb-2 section-padding bg-gradient-to-b from-secondary/50 to-background">
+      <section className="pt-24 pb-0 px-6 bg-gradient-to-b from-secondary/50 to-background">
         <div className="max-w-7xl mx-auto">
           
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center">
@@ -64,7 +64,7 @@ const KitsPresente = () => {
       </section>
 
       {/* Highlights */}
-      <section className="py-8 section-padding border-y border-border/50 bg-card/50">
+      <section className="py-4 px-6 border-y border-border/50 bg-card/50">
         <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           {[
             { icon: "🎁", title: "Embalagem Premium", desc: "Caixa de presente luxuosa" },
@@ -82,7 +82,7 @@ const KitsPresente = () => {
       </section>
 
       {/* Filters */}
-      <section className="py-4 section-padding">
+      <section className="px-6 pt-2 pb-2">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-wrap gap-2 justify-center">
             {filters.map((f) => {
@@ -107,7 +107,7 @@ const KitsPresente = () => {
       </section>
 
       {/* Products */}
-      <section className="pb-16 section-padding">
+      <section className="px-6 pb-16">
         <div className="max-w-7xl mx-auto">
           {filtered.length === 0 ? (
             <p className="text-center text-muted-foreground font-body py-12">Nenhum kit encontrado para este filtro.</p>
