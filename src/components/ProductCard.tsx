@@ -162,9 +162,9 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
             </div>
 
             <div className="flex items-center gap-3 text-muted-foreground text-[11px]">
-              <span className="flex items-center gap-1"><CreditCard size={11} className="text-secondary" />Cartão</span>
-              <span className="flex items-center gap-1"><QrCode size={11} className="text-secondary" />Pix</span>
-              <span className="flex items-center gap-1"><Barcode size={11} className="text-secondary" />Boleto</span>
+              <span className="flex items-center gap-1"><CreditCard size={11} className="text-whatsapp-green" />Cartão</span>
+              <span className="flex items-center gap-1"><QrCode size={11} className="text-whatsapp-green" />Pix</span>
+              <span className="flex items-center gap-1"><Barcode size={11} className="text-whatsapp-green" />Boleto</span>
             </div>
           </div>
         </div>
