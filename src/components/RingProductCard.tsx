@@ -154,23 +154,11 @@ const RingProductCard = ({ product, index = 0 }: RingProductCardProps) => {
           </div>
         </div>
 
-        {/* Tamanho + Comprar */}
-        <div className="flex items-center gap-2">
-          <Select value={selectedSize} onValueChange={setSelectedSize}>
-            <SelectTrigger className="w-28 h-10 text-sm">
-              <SelectValue placeholder="Tamanho" />
-            </SelectTrigger>
-            <SelectContent>
-              {sizes.map((s) => (
-                <SelectItem key={s} value={String(s)}>Tam. {s}</SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-          <Button onClick={handleBuy} disabled={!selectedSize} className="flex-1 h-10 gap-2 font-body font-semibold rounded-xl">
-            <ShoppingBag size={16} />
-            Comprar
-          </Button>
-        </div>
+        {/* Comprar */}
+        <Button onClick={handleBuy} disabled={!selectedSize} className="w-full h-10 gap-2 font-body font-semibold rounded-xl">
+          <ShoppingBag size={16} />
+          Comprar
+        </Button>
 
         {/* Frete */}
         <div className="flex items-center gap-2">
