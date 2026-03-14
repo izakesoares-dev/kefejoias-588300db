@@ -40,7 +40,7 @@ const Pedras = () => {
       </section>
 
       {/* Categories Navigation */}
-      <section className="px-6 pb-8">
+      <section className="px-6 pb-4">
         <div className="max-w-7xl mx-auto">
           <Tabs value={activeCategory} onValueChange={(v) => setActiveCategory(v as StoneCategory)}>
             <TabsList className="w-full flex-wrap h-auto gap-2 bg-transparent p-0 justify-center">

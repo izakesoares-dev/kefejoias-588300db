@@ -44,7 +44,7 @@ const AcoInox = () => {
         </div>
       </section>
 
-      <section className="px-6 pb-8">
+      <section className="px-6 pb-4">
         <div className="max-w-7xl mx-auto flex flex-wrap justify-center gap-4">
           {subcategories.map((sub) => (
             <Link

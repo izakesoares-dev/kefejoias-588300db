@@ -54,7 +54,7 @@ const Aneis = () => {
 
 
       {/* All Rings */}
-      <section className="px-6 pb-16">
+      <section className="px-6 pb-16 pt-4">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-2xl font-display text-foreground mb-6">
             Todos os Anéis ({allRings.length})

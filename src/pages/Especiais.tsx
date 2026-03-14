@@ -46,7 +46,7 @@ const Especiais = () => {
         </div>
       </section>
 
-      <section className="px-6 pb-16">
+      <section className="px-6 pb-16 pt-4">
         <div className="max-w-4xl mx-auto grid sm:grid-cols-2 gap-6">
           {subcategories.map((sub, i) => (
             <motion.div

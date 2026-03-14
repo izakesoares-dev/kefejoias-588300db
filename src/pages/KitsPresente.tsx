@@ -82,7 +82,7 @@ const KitsPresente = () => {
       </section>
 
       {/* Filters */}
-      <section className="py-8 section-padding">
+      <section className="py-4 section-padding">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-wrap gap-2 justify-center">
             {filters.map((f) => {
