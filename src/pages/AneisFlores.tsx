@@ -51,7 +51,7 @@ const AneisFlores = () => {
         </div>
       </section>
 
-      <section className="section-padding py-8">
+      <section className="section-padding py-4">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
             {displayRings.map((product, index) => (
