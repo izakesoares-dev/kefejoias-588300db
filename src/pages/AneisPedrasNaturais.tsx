@@ -5,16 +5,8 @@ import RingProductCard from "@/components/RingProductCard";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import { Ruler, Shield, Sparkles, Heart, Gem } from "lucide-react";
+import { Shield, Sparkles, Heart, Gem } from "lucide-react";
 import Breadcrumbs from "@/components/Breadcrumbs";
-
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
 
 const stoneFilters = [
   { id: "todos", label: "Todas as Pedras", icon: Gem },
@@ -77,55 +69,6 @@ const AneisPedrasNaturais = () => {
         </div>
       </section>
 
-      {/* Specs Bar */}
-      <section className="section-padding py-6 border-y border-border/50 bg-card/50">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-12 text-sm">
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <Ruler size={18} className="text-primary" />
-              <span>Tamanhos: 14 a 21</span>
-            </div>
-            <Dialog>
-              <DialogTrigger className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors cursor-pointer underline-offset-4 hover:underline">
-                <span>📏 Guia de Medidas</span>
-              </DialogTrigger>
-              <DialogContent className="max-w-md">
-                <DialogHeader>
-                  <DialogTitle className="font-display text-2xl">Guia de Medidas para Anéis</DialogTitle>
-                </DialogHeader>
-                <div className="space-y-4 py-4">
-                  <p className="text-muted-foreground font-body">
-                    Para descobrir seu tamanho ideal, meça o diâmetro interno de um anel que você já usa:
-                  </p>
-                  <div className="bg-secondary/50 rounded-lg p-4 space-y-2">
-                    <div className="grid grid-cols-2 gap-2 text-sm">
-                      <span className="font-semibold">Tamanho</span>
-                      <span className="font-semibold">Diâmetro (mm)</span>
-                      <span>14</span><span>14,9 mm</span>
-                      <span>15</span><span>15,3 mm</span>
-                      <span>16</span><span>15,9 mm</span>
-                      <span>17</span><span>16,5 mm</span>
-                      <span>18</span><span>17,1 mm</span>
-                      <span>19</span><span>17,7 mm</span>
-                      <span>20</span><span>18,3 mm</span>
-                      <span>21</span><span>18,9 mm</span>
-                    </div>
-                  </div>
-                  <p className="text-xs text-muted-foreground">
-                    💡 Dica: Use uma régua ou fita métrica para medir o diâmetro interno do anel.
-                  </p>
-                </div>
-              </DialogContent>
-            </Dialog>
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <span>✨ Acabamento polido</span>
-            </div>
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <span>🛡️ Aço inoxidável</span>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Main Content */}
       <section className="section-padding py-12">
