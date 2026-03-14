@@ -62,6 +62,7 @@ export default {
         },
         "warm-white": "hsl(var(--warm-white))",
         "warm-gray": "hsl(var(--warm-gray))",
+        "brown-elegant": "hsl(var(--brown-elegant))",
         "green-deep": "hsl(var(--green-deep))",
         "green-dark": "hsl(var(--green-dark))",
         olive: {
