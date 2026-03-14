@@ -33,7 +33,7 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
     if (activeThumb === "video") {
       return (
         <video
-          src={product.videoUrl}
+          src={videoUrl}
           className="w-full h-full object-contain"
           controls
           autoPlay
