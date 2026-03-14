@@ -146,9 +146,15 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
               <p className="text-xs text-muted-foreground font-body truncate">{product.significance}</p>
             </div>
 
-            <div>
-              <span className="text-xl font-display font-bold text-green-deep">{formatPrice(product.price)}</span>
-              <span className="text-[11px] text-muted-foreground ml-2">ou 3x {formatPrice(product.price / 3)}</span>
+            <div className="flex items-center justify-between">
+              <div>
+                <span className="text-xl font-display font-bold text-green-deep">{formatPrice(product.price)}</span>
+                <span className="text-[11px] text-muted-foreground ml-2">ou 3x {formatPrice(product.price / 3)}</span>
+              </div>
+              <div className="flex items-center gap-2 text-muted-foreground text-[11px]">
+                <span className="flex items-center gap-1"><CreditCard size={11} className="text-whatsapp-green" />Cartão</span>
+                <span className="flex items-center gap-1"><QrCode size={11} className="text-whatsapp-green" />Pix</span>
+              </div>
             </div>
 
             <div className="flex items-center gap-2">
@@ -159,11 +165,6 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
                 <ShoppingBag size={14} />
                 {product.sizes ? "Ver tamanhos" : "Comprar"}
               </Button>
-            </div>
-
-            <div className="flex items-center gap-3 text-muted-foreground text-[11px]">
-              <span className="flex items-center gap-1"><CreditCard size={11} className="text-whatsapp-green" />Cartão</span>
-              <span className="flex items-center gap-1"><QrCode size={11} className="text-whatsapp-green" />Pix</span>
             </div>
           </div>
         </div>

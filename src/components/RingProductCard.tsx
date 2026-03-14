@@ -118,13 +118,19 @@ const RingProductCard = ({ product, index = 0 }: RingProductCardProps) => {
           <p className="text-xs text-muted-foreground font-body truncate">{product.significance}</p>
         </div>
 
-        {/* Preço */}
-        <div>
-          <span className="text-xl font-display font-bold text-green-deep">{formatPrice(product.price)}</span>
-          <span className="text-[11px] text-muted-foreground ml-2">ou 3x {formatPrice(product.price / 3)}</span>
+        {/* Preço + Pagamento */}
+        <div className="flex items-center justify-between">
+          <div>
+            <span className="text-xl font-display font-bold text-green-deep">{formatPrice(product.price)}</span>
+            <span className="text-[11px] text-muted-foreground ml-2">ou 3x {formatPrice(product.price / 3)}</span>
+          </div>
+          <div className="flex items-center gap-2 text-muted-foreground text-[11px]">
+            <span className="flex items-center gap-1"><CreditCard size={11} className="text-whatsapp-green" />Cartão</span>
+            <span className="flex items-center gap-1"><QrCode size={11} className="text-whatsapp-green" />Pix</span>
+          </div>
         </div>
 
-        {/* Tamanho + Comprar na mesma linha */}
+        {/* Tamanho + Comprar */}
         <div className="flex items-center gap-2">
           <Select value={selectedSize} onValueChange={setSelectedSize}>
             <SelectTrigger className="w-[72px] h-9 text-sm">
@@ -140,12 +146,6 @@ const RingProductCard = ({ product, index = 0 }: RingProductCardProps) => {
             <ShoppingBag size={14} />
             Comprar
           </Button>
-        </div>
-
-        {/* Pagamento */}
-        <div className="flex items-center gap-3 text-muted-foreground text-[11px]">
-          <span className="flex items-center gap-1"><CreditCard size={11} className="text-whatsapp-green" />Cartão</span>
-          <span className="flex items-center gap-1"><QrCode size={11} className="text-whatsapp-green" />Pix</span>
         </div>
       </div>
     </motion.div>
