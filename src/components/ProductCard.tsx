@@ -16,7 +16,7 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
   const [activeThumb, setActiveThumb] = useState<"img" | number | "video">("img");
 
   const CATEGORY_VIDEOS: Record<string, string> = {
-    anel: "/videos/como-descobrir-numero-anel.mp4",
+    anel: "/videos/aneis-showcase.mp4",
     colar: "/videos/colares-showcase.mp4",
     pulseira: "/videos/pulseiras-showcase.mp4",
     pingente: "/videos/pingentes-showcase.mp4",
