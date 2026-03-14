@@ -34,7 +34,7 @@ const PingentesResinaNatural = () => {
 
       <section className="pt-24 pb-2 section-padding bg-gradient-to-b from-secondary/50 to-background">
         <div className="max-w-7xl mx-auto">
-          <Breadcrumbs items={[{ label: "Pingentes", href: "/pingentes" }, { label: "Resina Natural" }]} />
+          
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

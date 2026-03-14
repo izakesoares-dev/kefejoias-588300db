@@ -32,7 +32,7 @@ const ColaresResina = () => {
 
       <section className="pt-24 pb-2 section-padding bg-gradient-to-b from-secondary/50 to-background">
         <div className="max-w-7xl mx-auto">
-          <Breadcrumbs items={[{ label: "Colares", href: "/colares" }, { label: "Resina" }]} />
+          
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

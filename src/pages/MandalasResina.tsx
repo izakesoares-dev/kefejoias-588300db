@@ -45,7 +45,7 @@ const MandalasResina = () => {
       {/* Hero */}
       <section className="pt-24 pb-2 section-padding bg-gradient-to-b from-secondary/50 to-background">
         <div className="max-w-7xl mx-auto">
-          <Breadcrumbs items={[{ label: "Especiais", href: "/especiais" }, { label: "Mandalas" }]} />
+          
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center">
             <h1 className="font-display text-4xl md:text-5xl text-foreground mb-2">
               Mandalas em <span className="text-gradient-gold">Resina</span>

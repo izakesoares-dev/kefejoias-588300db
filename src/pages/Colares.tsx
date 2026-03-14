@@ -30,7 +30,7 @@ const Colares = () => {
 
       <section className="pt-24 pb-2 px-6">
         <div className="max-w-7xl mx-auto">
-          <Breadcrumbs items={[{ label: "Colares" }]} />
+          
           <div className="text-center">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
