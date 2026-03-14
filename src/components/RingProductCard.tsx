@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ShoppingBag, Truck, CreditCard, QrCode, Barcode, Play } from "lucide-react";
+import { ShoppingBag, CreditCard, QrCode, Barcode, Play } from "lucide-react";
 import { Product, formatPrice } from "@/data/products";
 import { useCart } from "@/contexts/CartContext";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import {
   Select,
   SelectContent,
@@ -23,9 +22,6 @@ const MEASUREMENT_VIDEO = "/videos/como-descobrir-numero-anel.mp4";
 const RingProductCard = ({ product, index = 0 }: RingProductCardProps) => {
   const { addItem } = useCart();
   const [selectedSize, setSelectedSize] = useState<string>("");
-  const [cep, setCep] = useState("");
-  const [shippingResult, setShippingResult] = useState<string | null>(null);
-  const [shippingLoading, setShippingLoading] = useState(false);
   const [activeThumb, setActiveThumb] = useState<"img" | number | "video1" | "video2">("img");
 
   const sizes = product.sizes || [14, 15, 16, 17, 18, 19, 20, 21, 22];
@@ -33,15 +29,6 @@ const RingProductCard = ({ product, index = 0 }: RingProductCardProps) => {
   const handleBuy = () => {
     if (!selectedSize) return;
     addItem(product, 1, Number(selectedSize));
-  };
-
-  const handleCalcShipping = () => {
-    if (!cep || cep.length < 8) return;
-    setShippingLoading(true);
-    setTimeout(() => {
-      setShippingResult("R$ 18,90 — 5 a 8 dias úteis");
-      setShippingLoading(false);
-    }, 1000);
   };
 
   const renderPreview = () => {
@@ -68,25 +55,21 @@ const RingProductCard = ({ product, index = 0 }: RingProductCardProps) => {
       transition={{ delay: index * 0.08, duration: 0.5 }}
       className="rounded-2xl overflow-hidden border border-border/50 shadow-lg hover:shadow-gold transition-shadow duration-500 bg-card"
     >
-      {/* ===== PARTE SUPERIOR: Foto principal + mídias sobrepostas ===== */}
+      {/* ===== Foto principal + mídias sobrepostas ===== */}
       <div className="relative">
-        {/* Foto principal de fundo */}
         <img
           src={product.images[0]}
           alt={product.name}
           className="w-full aspect-square object-cover"
         />
-        {/* Overlay escuro para contraste */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/50" />
 
-        {/* Badge */}
         {product.badge && (
           <span className="absolute top-3 left-3 z-10 px-3 py-0.5 text-xs font-body font-semibold bg-primary text-primary-foreground rounded-full">
             {product.badge}
           </span>
         )}
 
-        {/* Preview expandido (quando clica em miniatura/vídeo) */}
         {showPreview && (
           <div className="absolute inset-0 z-10 bg-black/80 flex items-center justify-center p-4">
             <div className="w-full h-full rounded-lg overflow-hidden">
@@ -95,7 +78,6 @@ const RingProductCard = ({ product, index = 0 }: RingProductCardProps) => {
           </div>
         )}
 
-        {/* Miniaturas + vídeos sobrepostos na parte inferior da foto */}
         <div className="absolute bottom-3 left-3 z-20 flex items-center gap-2">
           {product.images.slice(0, 3).map((img, i) => (
             <button
@@ -127,13 +109,24 @@ const RingProductCard = ({ product, index = 0 }: RingProductCardProps) => {
         </div>
       </div>
 
-      {/* ===== PARTE INFERIOR: Informações do produto ===== */}
-      <div className="p-4 space-y-3">
-        {/* Seletor de Tamanho */}
+      {/* ===== Informações do produto (compacto) ===== */}
+      <div className="px-4 py-3 space-y-2">
+        {/* Título e descrição */}
+        <div>
+          <h3 className="font-display text-base text-foreground leading-tight truncate">{product.name}</h3>
+          <p className="text-xs text-muted-foreground font-body truncate">{product.significance}</p>
+        </div>
+
+        {/* Preço */}
+        <div>
+          <span className="text-xl font-display font-bold text-primary">{formatPrice(product.price)}</span>
+          <span className="text-[11px] text-muted-foreground ml-2">ou 3x {formatPrice(product.price / 3)}</span>
+        </div>
+
+        {/* Tamanho + Comprar na mesma linha */}
         <div className="flex items-center gap-2">
-          <span className="text-sm font-body font-medium text-foreground">Tamanho:</span>
           <Select value={selectedSize} onValueChange={setSelectedSize}>
-            <SelectTrigger className="w-24 h-9 text-sm">
+            <SelectTrigger className="w-[72px] h-9 text-sm">
               <SelectValue placeholder="Tam." />
             </SelectTrigger>
             <SelectContent>
@@ -142,48 +135,17 @@ const RingProductCard = ({ product, index = 0 }: RingProductCardProps) => {
               ))}
             </SelectContent>
           </Select>
-        </div>
-
-        {/* Título & Preço */}
-        <div>
-          <p className="text-[10px] text-muted-foreground font-body uppercase tracking-wider">{product.significance}</p>
-          <h3 className="font-display text-lg text-foreground mt-0.5 leading-tight">{product.name}</h3>
-          <p className="text-sm text-muted-foreground font-body mt-0.5 line-clamp-1">{product.shortDescription}</p>
-          <div className="flex items-baseline gap-2 mt-1.5">
-            <span className="text-2xl font-display font-bold text-primary">{formatPrice(product.price)}</span>
-            <span className="text-xs text-muted-foreground">ou 3x {formatPrice(product.price / 3)}</span>
-          </div>
-        </div>
-
-        {/* Comprar */}
-        <Button onClick={handleBuy} disabled={!selectedSize} className="w-full h-10 gap-2 font-body font-semibold rounded-xl">
-          <ShoppingBag size={16} />
-          Comprar
-        </Button>
-
-        {/* Frete */}
-        <div className="flex items-center gap-2">
-          <Truck size={14} className="text-primary flex-shrink-0" />
-          <Input
-            placeholder="CEP"
-            value={cep}
-            onChange={(e) => setCep(e.target.value.replace(/\D/g, "").slice(0, 8))}
-            className="flex-1 h-8 text-xs"
-            maxLength={9}
-          />
-          <Button onClick={handleCalcShipping} variant="outline" size="sm" disabled={shippingLoading || cep.length < 8} className="h-8 text-xs">
-            {shippingLoading ? "..." : "Calcular"}
+          <Button onClick={handleBuy} disabled={!selectedSize} className="flex-1 h-9 gap-1.5 font-body font-semibold rounded-xl text-sm">
+            <ShoppingBag size={14} />
+            Comprar
           </Button>
         </div>
-        {shippingResult && (
-          <p className="text-xs text-foreground font-body bg-secondary/50 rounded px-2 py-1">{shippingResult}</p>
-        )}
 
         {/* Pagamento */}
-        <div className="flex items-center gap-3 text-muted-foreground text-xs pt-1 border-t border-border/50">
-          <span className="flex items-center gap-1"><CreditCard size={12} className="text-primary" />Cartão</span>
-          <span className="flex items-center gap-1"><QrCode size={12} className="text-primary" />Pix</span>
-          <span className="flex items-center gap-1"><Barcode size={12} className="text-primary" />Boleto</span>
+        <div className="flex items-center gap-3 text-muted-foreground text-[11px]">
+          <span className="flex items-center gap-1"><CreditCard size={11} className="text-primary" />Cartão</span>
+          <span className="flex items-center gap-1"><QrCode size={11} className="text-primary" />Pix</span>
+          <span className="flex items-center gap-1"><Barcode size={11} className="text-primary" />Boleto</span>
         </div>
       </div>
     </motion.div>
