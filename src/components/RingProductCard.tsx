@@ -120,7 +120,7 @@ const RingProductCard = ({ product, index = 0 }: RingProductCardProps) => {
 
         {/* Preço */}
         <div>
-          <span className="text-xl font-display font-bold text-primary">{formatPrice(product.price)}</span>
+          <span className="text-xl font-display font-bold" style={{ color: '#FFD700' }}>{formatPrice(product.price)}</span>
           <span className="text-[11px] text-muted-foreground ml-2">ou 3x {formatPrice(product.price / 3)}</span>
         </div>
 
