@@ -43,7 +43,7 @@ const Flores = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.05 }}
-                className="bg-card border border-border rounded-xl p-6 hover:border-primary/50 transition-all group"
+                className="bg-card border-2 border-green-deep/30 rounded-xl p-6 hover:border-green-deep transition-all group shadow-sm"
               >
                 <div className="flex items-center gap-4 mb-4">
                   <span className="text-4xl">{flower.icon}</span>

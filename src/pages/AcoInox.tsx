@@ -49,7 +49,7 @@ const AcoInox = () => {
             <Link
               key={sub.href}
               to={sub.href}
-              className="bg-card border border-border rounded-lg px-6 py-4 hover:border-primary/50 transition-all text-center group"
+              className="bg-card border-2 border-green-deep/30 rounded-lg px-6 py-4 hover:border-green-deep transition-all text-center group shadow-sm"
             >
               <span className="text-base font-body font-medium text-foreground group-hover:text-primary transition-colors">
                 {sub.label}

@@ -76,7 +76,7 @@ const Pedras = () => {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: index * 0.05 }}
-                      className="bg-card border border-border rounded-lg p-5 hover:border-primary/50 transition-all group"
+                      className="bg-card border-2 border-green-deep/30 rounded-lg p-5 hover:border-green-deep transition-all group shadow-sm"
                     >
                       <div className="flex items-start gap-3 mb-3">
                         <span className="text-2xl">{stone.icon}</span>
@@ -117,7 +117,7 @@ const Pedras = () => {
               <Link
                 key={stone.id}
                 to={`/produtos?pedra=${stone.id}`}
-                className="bg-card border border-border rounded-lg p-3 text-center hover:border-primary/50 transition-all group"
+                className="bg-card border-2 border-green-deep/30 rounded-lg p-3 text-center hover:border-green-deep transition-all group shadow-sm"
               >
                 <span className="text-xl block mb-2">{stone.icon}</span>
                 <span className="text-sm font-body text-foreground group-hover:text-primary transition-colors">
