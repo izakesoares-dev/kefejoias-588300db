@@ -208,7 +208,7 @@ const Navbar = () => {
                         <Link
                           to={cat.href}
                           onClick={() => setOpen(false)}
-                          className="block text-sm font-body font-medium text-primary py-1"
+                          className="block text-[15px] font-body font-extrabold text-green-deep bg-primary rounded-lg px-3 py-2 text-center hover:bg-gold-dark hover:text-white transition-colors"
                         >
                           Ver todos
                         </Link>

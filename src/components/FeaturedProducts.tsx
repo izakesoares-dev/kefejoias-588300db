@@ -50,7 +50,7 @@ const FeaturedProducts = () => {
         >
           <Link
             to="/produtos"
-            className="inline-block px-8 py-3 border border-primary/30 text-primary font-body font-medium text-sm tracking-wide rounded-sm hover:bg-primary/5 transition-colors"
+            className="inline-block px-10 py-3.5 bg-primary text-green-deep font-body font-extrabold text-[16px] tracking-wide rounded-xl hover:bg-gold-dark hover:text-white transition-colors shadow-gold-sm"
           >
             Ver todos os produtos
           </Link>
