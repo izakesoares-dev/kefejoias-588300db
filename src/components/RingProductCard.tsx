@@ -138,7 +138,7 @@ const RingProductCard = ({ product, index = 0 }: RingProductCardProps) => {
             </SelectTrigger>
             <SelectContent>
               {sizes.map((s) => (
-                <SelectItem key={s} value={String(s)}>Tam. {s}</SelectItem>
+                <SelectItem key={s} value={String(s)}>{s}</SelectItem>
               ))}
             </SelectContent>
           </Select>
