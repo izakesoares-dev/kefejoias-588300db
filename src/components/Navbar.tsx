@@ -81,11 +81,11 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-green-deep/95 backdrop-blur-lg border-b border-gold/20">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-lg border-b border-border shadow-sm">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
         <Link to="/" className="flex items-center gap-1.5">
           <img src={kefeLogo} alt="Kefe Joias" className="h-10 md:h-12 rounded-sm" />
-          <span className="text-[9px] md:text-[11px] tracking-[0.12em] text-primary/80 font-body uppercase whitespace-nowrap">Para todos os seus momentos</span>
+          <span className="text-[9px] md:text-[11px] tracking-[0.12em] text-green-deep font-body uppercase whitespace-nowrap">Para todos os seus momentos</span>
         </Link>
 
         {/* Desktop */}
@@ -99,7 +99,7 @@ const Navbar = () => {
             >
               <Link
                 to={cat.href}
-                className="flex items-center gap-1 text-[15px] font-body tracking-wide text-foreground/80 hover:text-primary transition-colors duration-300"
+                className="flex items-center gap-1 text-[15px] font-body tracking-wide text-green-deep hover:text-primary transition-colors duration-300"
               >
                 {cat.label}
                 <ChevronDown className={`w-3 h-3 transition-transform ${activeDropdown === key ? "rotate-180" : ""}`} />
@@ -112,7 +112,7 @@ const Navbar = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 4 }}
                     transition={{ duration: 0.15 }}
-                    className="absolute top-full left-0 mt-2 bg-card border border-gold/20 rounded-lg shadow-gold py-2 min-w-[220px] z-50"
+                    className="absolute top-full left-0 mt-2 bg-white border border-border rounded-lg shadow-elegant py-2 min-w-[220px] z-50"
                   >
                     <Link
                       to={cat.href}
@@ -121,13 +121,13 @@ const Navbar = () => {
                     >
                       Ver todos
                     </Link>
-                    <div className="border-t border-gold/10 my-1" />
+                    <div className="border-t border-border my-1" />
                     {cat.items.map((item) => (
                       <Link
                         key={item.href}
                         to={item.href}
                         onClick={() => setActiveDropdown(null)}
-                        className="block px-4 py-2 text-sm font-body text-foreground/70 hover:text-primary hover:bg-accent transition-colors"
+                        className="block px-4 py-2 text-sm font-body text-foreground/70 hover:text-green-deep hover:bg-accent transition-colors"
                       >
                         {item.label}
                       </Link>
@@ -152,7 +152,7 @@ const Navbar = () => {
           >
             <ShoppingBag size={20} />
             {totalItems > 0 && (
-              <span className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-primary text-primary-foreground text-[10px] font-body font-bold flex items-center justify-center">
+              <span className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-secondary text-secondary-foreground text-[10px] font-body font-bold flex items-center justify-center">
                 {totalItems}
               </span>
             )}
@@ -163,16 +163,16 @@ const Navbar = () => {
         <div className="flex items-center gap-4 md:hidden">
           <button
             onClick={() => setIsCartOpen(true)}
-            className="relative text-primary"
+            className="relative text-green-deep"
           >
             <ShoppingBag size={22} />
             {totalItems > 0 && (
-              <span className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-primary text-primary-foreground text-[10px] font-body font-bold flex items-center justify-center">
+              <span className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-secondary text-secondary-foreground text-[10px] font-body font-bold flex items-center justify-center">
                 {totalItems}
               </span>
             )}
           </button>
-          <button onClick={() => setOpen(!open)} className="text-primary">
+          <button onClick={() => setOpen(!open)} className="text-green-deep">
             {open ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
@@ -185,14 +185,14 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-green-deep/98 backdrop-blur-lg border-b border-gold/20 max-h-[80vh] overflow-y-auto"
+            className="md:hidden bg-white/98 backdrop-blur-lg border-b border-border max-h-[80vh] overflow-y-auto"
           >
             <div className="flex flex-col px-6 py-6 gap-3">
               {categories.map(([key, cat]) => (
                 <div key={key}>
                   <button
                     onClick={() => setExpandedMobile(expandedMobile === key ? null : key)}
-                    className="flex items-center justify-between w-full text-base font-body text-foreground/80 hover:text-primary transition-colors"
+                    className="flex items-center justify-between w-full text-base font-body text-green-deep hover:text-primary transition-colors"
                   >
                     {cat.label}
                     <ChevronDown className={`w-4 h-4 transition-transform ${expandedMobile === key ? "rotate-180" : ""}`} />
@@ -217,7 +217,7 @@ const Navbar = () => {
                             key={item.href}
                             to={item.href}
                             onClick={() => setOpen(false)}
-                            className="block text-sm text-foreground/60 hover:text-primary transition-colors py-1"
+                            className="block text-sm text-foreground/60 hover:text-green-deep transition-colors py-1"
                           >
                             {item.label}
                           </Link>

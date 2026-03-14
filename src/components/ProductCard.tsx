@@ -81,8 +81,8 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
       transition={{ delay: index * 0.08, duration: 0.5 }}
     >
       <Link to={`/produto/${product.slug}`} className="block">
-        <div className="rounded-2xl overflow-hidden border border-gold/30 shadow-gold-sm hover:shadow-gold transition-all duration-500 bg-gradient-card group">
-          {/* ===== Main image + overlay thumbnails ===== */}
+        <div className="rounded-2xl overflow-hidden border border-gold/25 shadow-elegant hover:shadow-gold transition-all duration-500 bg-card group">
+          {/* ===== Main image ===== */}
           <div className="relative">
             <img
               src={product.images[0]}
@@ -91,10 +91,10 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
               loading="lazy"
               decoding="async"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/60" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/40" />
 
             {product.badge && (
-              <span className="absolute top-3 left-3 z-10 px-3 py-0.5 text-xs font-body font-semibold bg-primary text-primary-foreground rounded-full">
+              <span className="absolute top-3 left-3 z-10 px-3 py-0.5 text-xs font-body font-semibold bg-secondary text-secondary-foreground rounded-full">
                 {product.badge}
               </span>
             )}
@@ -118,7 +118,7 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
                     setActiveThumb(activeThumb === i ? "img" : i);
                   }}
                   className={`w-11 h-11 rounded-lg overflow-hidden border-2 transition-all flex-shrink-0 shadow-md ${
-                    activeThumb === i ? "border-primary shadow-gold" : "border-white/50 hover:border-primary/60"
+                    activeThumb === i ? "border-primary shadow-gold" : "border-white/70 hover:border-primary/60"
                   }`}
                 >
                   <img src={img} alt={`Ângulo ${i + 1}`} className="w-full h-full object-cover" />
@@ -130,8 +130,8 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
                   e.stopPropagation();
                   setActiveThumb(activeThumb === "video" ? "img" : "video");
                 }}
-                className={`w-11 h-11 rounded-lg border-2 transition-all flex-shrink-0 flex items-center justify-center bg-black/60 shadow-md ${
-                  activeThumb === "video" ? "border-primary shadow-gold" : "border-white/50 hover:border-primary/60"
+                className={`w-11 h-11 rounded-lg border-2 transition-all flex-shrink-0 flex items-center justify-center bg-black/50 shadow-md ${
+                  activeThumb === "video" ? "border-primary shadow-gold" : "border-white/70 hover:border-primary/60"
                 }`}
               >
                 <Play size={13} className="text-primary" />
@@ -142,7 +142,7 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
           {/* ===== Product info ===== */}
           <div className="px-4 py-3 space-y-2">
             <div>
-              <h3 className="font-display text-base text-foreground leading-tight truncate">{product.name}</h3>
+              <h3 className="font-display text-base leading-tight truncate">{product.name}</h3>
               <p className="text-xs text-muted-foreground font-body truncate">{product.significance}</p>
             </div>
 
@@ -154,7 +154,7 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
             <div className="flex items-center gap-2">
               <Button
                 onClick={handleBuy}
-                className="flex-1 h-9 gap-1.5 font-body font-semibold rounded-xl text-sm bg-secondary hover:bg-primary hover:text-primary-foreground transition-colors"
+                className="flex-1 h-9 gap-1.5 font-body font-semibold rounded-xl text-sm bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
               >
                 <ShoppingBag size={14} />
                 {product.sizes ? "Ver tamanhos" : "Comprar"}
