@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ShoppingBag, CreditCard, QrCode, Barcode, Play } from "lucide-react";
+import { ShoppingBag, CreditCard, QrCode, Play } from "lucide-react";
 import { Product, formatPrice } from "@/data/products";
 import { useCart } from "@/contexts/CartContext";
 import { Button } from "@/components/ui/button";
