@@ -35,7 +35,7 @@ const Collections = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="text-sm tracking-[0.3em] uppercase text-green-deep mb-4 font-body">
+          <p className="text-base md:text-lg tracking-[0.3em] uppercase text-green-deep mb-4 font-body font-extrabold">
             Coleções
           </p>
           <h2 className="text-3xl md:text-5xl font-display font-medium mb-4">
