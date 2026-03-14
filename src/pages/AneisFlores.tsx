@@ -17,7 +17,7 @@ const AneisFlores = () => {
   const displayRings = flowerRings.length > 0
     ? flowerRings
     : products.filter(
-        (p) => p.category === "anel" && p.subcategory !== "pedras-naturais"
+        (p) => p.category === "anel" && p.subcategory !== "pedras-naturais" && !p.id.startsWith("kit")
       );
 
   return (
