@@ -85,7 +85,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
         <Link to="/" className="flex items-center gap-1.5">
           <img src={kefeLogo} alt="Kefe Joias" className="h-10 md:h-12 rounded-sm" />
-          <span className="text-[6px] md:text-[7px] tracking-[0.12em] text-primary/80 font-body uppercase whitespace-nowrap">Para todos os seus momentos</span>
+          <span className="text-[9px] md:text-[11px] tracking-[0.12em] text-primary/80 font-body uppercase whitespace-nowrap">Para todos os seus momentos</span>
         </Link>
 
         {/* Desktop */}
