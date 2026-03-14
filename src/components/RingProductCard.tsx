@@ -120,7 +120,7 @@ const RingProductCard = ({ product, index = 0 }: RingProductCardProps) => {
 
         {/* Preço */}
         <div>
-          <span className="text-xl font-display font-bold" style={{ color: '#FFD700' }}>{formatPrice(product.price)}</span>
+          <span className="text-xl font-display font-bold text-green-deep">{formatPrice(product.price)}</span>
           <span className="text-[11px] text-muted-foreground ml-2">ou 3x {formatPrice(product.price / 3)}</span>
         </div>
 
@@ -136,7 +136,7 @@ const RingProductCard = ({ product, index = 0 }: RingProductCardProps) => {
               ))}
             </SelectContent>
           </Select>
-          <Button onClick={handleBuy} disabled={!selectedSize} className="flex-1 h-9 gap-1.5 font-body font-bold rounded-xl text-sm bg-primary text-brown-elegant hover:bg-gold-dark hover:text-white transition-colors shadow-gold-sm">
+          <Button onClick={handleBuy} disabled={!selectedSize} className="flex-1 h-9 gap-1.5 font-body font-bold rounded-xl text-sm bg-primary text-green-deep hover:bg-gold-dark hover:text-white transition-colors shadow-gold-sm">
             <ShoppingBag size={14} />
             Comprar
           </Button>
