@@ -58,8 +58,11 @@ const Footer = () => {
   ];
 
   return (
-    <footer id="contato" className="section-padding bg-card/50 border-t border-border/50">
+    <footer id="contato" className="section-padding bg-gradient-footer border-t border-gold/20">
       <div className="max-w-7xl mx-auto">
+        {/* Decorative gold line */}
+        <div className="gold-line-wide mb-12" />
+
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
           {/* Brand */}
           <motion.div
@@ -69,24 +72,24 @@ const Footer = () => {
             className="lg:col-span-1"
           >
             <h3 className="text-2xl font-display font-medium text-gradient-gold mb-4">Kefe</h3>
-            <p className="text-sm text-muted-foreground font-body leading-relaxed mb-4">
+            <p className="text-sm text-foreground/60 font-body leading-relaxed mb-4">
               Biojoias que eternizam histórias. Pedras naturais, flores desidratadas, 
               sementes e pimentas encapsuladas em resina com significado e afeto.
             </p>
             <div className="flex flex-col gap-2">
-              <a href="mailto:contato@kefe.joias@gmail.com" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors font-body">
-                <Mail size={14} /> contato@kefe.joias
+              <a href="mailto:contato@kefe.joias@gmail.com" className="flex items-center gap-2 text-sm text-foreground/50 hover:text-primary transition-colors font-body">
+                <Mail size={14} className="text-primary" /> contato@kefe.joias
               </a>
               <a
                 href="https://wa.me/5511996470414"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors font-body"
+                className="flex items-center gap-2 text-sm text-foreground/50 hover:text-primary transition-colors font-body"
               >
                 📱 (11) 99647-0414
               </a>
-              <span className="flex items-center gap-2 text-sm text-muted-foreground font-body">
-                <MapPin size={14} /> São Paulo, SP
+              <span className="flex items-center gap-2 text-sm text-foreground/50 font-body">
+                <MapPin size={14} className="text-primary" /> São Paulo, SP
               </span>
             </div>
           </motion.div>
@@ -100,13 +103,13 @@ const Footer = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.1 * (index + 1) }}
             >
-              <h4 className="font-display text-sm uppercase tracking-wider text-foreground mb-4">{section.title}</h4>
+              <h4 className="font-display text-sm uppercase tracking-wider text-primary mb-4">{section.title}</h4>
               <div className="flex flex-col gap-2">
                 {section.links.map((link) => (
                   <Link
                     key={link.label}
                     to={link.href}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors font-body"
+                    className="text-sm text-foreground/50 hover:text-primary transition-colors font-body"
                   >
                     {link.label}
                   </Link>
@@ -122,8 +125,8 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.4 }}
           >
-            <h4 className="font-display text-sm uppercase tracking-wider text-foreground mb-4">Newsletter</h4>
-            <p className="text-sm text-muted-foreground font-body mb-3">
+            <h4 className="font-display text-sm uppercase tracking-wider text-primary mb-4">Newsletter</h4>
+            <p className="text-sm text-foreground/50 font-body mb-3">
               🎁 10% off na primeira compra
             </p>
             <form onSubmit={handleNewsletterSubmit} className="flex gap-2 mb-6">
@@ -132,15 +135,15 @@ const Footer = () => {
                 placeholder="Seu e-mail"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="bg-background border-border text-sm h-9"
+                className="bg-muted border-gold/20 text-sm h-9 text-foreground placeholder:text-foreground/30"
                 required
               />
-              <Button type="submit" size="sm" className="bg-primary text-primary-foreground px-3">
+              <Button type="submit" size="sm" className="bg-primary text-primary-foreground px-3 hover:bg-gold-light">
                 Assinar
               </Button>
             </form>
 
-            <h4 className="font-display text-sm uppercase tracking-wider text-foreground mb-3">Redes Sociais</h4>
+            <h4 className="font-display text-sm uppercase tracking-wider text-primary mb-3">Redes Sociais</h4>
             <div className="flex gap-3">
               {socialLinks.map((social) => (
                 <a
@@ -148,7 +151,7 @@ const Footer = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-secondary/80 transition-colors"
+                  className="w-9 h-9 rounded-full border border-gold/30 flex items-center justify-center text-primary/60 hover:text-primary hover:border-primary hover:shadow-gold-sm transition-all"
                   title={social.label}
                 >
                   {social.icon}
@@ -159,8 +162,9 @@ const Footer = () => {
         </div>
 
         {/* Payment & Security */}
-        <div className="border-t border-border/50 pt-6 mb-6">
-          <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-muted-foreground font-body">
+        <div className="gold-line-wide mb-6" />
+        <div className="pb-6 mb-6">
+          <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-foreground/50 font-body">
             <span className="flex items-center gap-1">🔒 Site Seguro</span>
             <span className="flex items-center gap-1">💳 Pix • Cartão • Boleto</span>
             <span className="flex items-center gap-1">🚚 Enviamos para todo Brasil</span>
@@ -169,8 +173,9 @@ const Footer = () => {
         </div>
 
         {/* Copyright */}
-        <div className="border-t border-border/50 pt-6 text-center">
-          <p className="text-xs text-muted-foreground font-body">
+        <div className="gold-line-wide mb-6" />
+        <div className="text-center">
+          <p className="text-xs text-foreground/40 font-body">
             © {new Date().getFullYear()} Kefe Joias. Todos os direitos reservados.
           </p>
         </div>
