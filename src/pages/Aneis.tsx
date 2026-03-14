@@ -52,23 +52,6 @@ const Aneis = () => {
         </div>
       </section>
 
-      {/* Subcategories */}
-      <section className="px-6 pb-8">
-        <div className="max-w-7xl mx-auto flex flex-wrap justify-center gap-4">
-          {subcategories.map((sub) => (
-            <Link
-              key={sub.href}
-              to={sub.href}
-              className="bg-card border border-border rounded-lg px-6 py-4 hover:border-primary/50 transition-all text-center group"
-            >
-              <span className="text-base font-body font-medium text-foreground group-hover:text-primary transition-colors">
-                {sub.label}
-              </span>
-              <p className="text-sm text-muted-foreground mt-1">{sub.description}</p>
-            </Link>
-          ))}
-        </div>
-      </section>
 
       {/* All Rings */}
       <section className="px-6 pb-16">
