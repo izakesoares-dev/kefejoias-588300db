@@ -136,7 +136,7 @@ const RingProductCard = ({ product, index = 0 }: RingProductCardProps) => {
               ))}
             </SelectContent>
           </Select>
-          <Button onClick={handleBuy} disabled={!selectedSize} className="flex-1 h-9 gap-1.5 font-body font-semibold rounded-xl text-sm">
+          <Button onClick={handleBuy} disabled={!selectedSize} className="flex-1 h-9 gap-1.5 font-body font-semibold rounded-xl text-sm bg-primary text-white hover:bg-gold-dark transition-colors shadow-gold-sm">
             <ShoppingBag size={14} />
             Comprar
           </Button>
