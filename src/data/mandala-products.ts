@@ -10,6 +10,9 @@ import mandalaOlhoTigre from "@/assets/mandala-olho-tigre.jpg";
 import mandala7Chakras from "@/assets/mandala-7-chakras.jpg";
 import mandalaLapisLazuli from "@/assets/mandala-lapis-lazuli.jpg";
 import mandalaPimentas from "@/assets/mandala-pimentas.jpg";
+import mandalaHematita from "@/assets/mandala-hematita.jpg";
+import mandalaCornalina from "@/assets/mandala-cornalina.jpg";
+import mandalaSelenita from "@/assets/mandala-selenita.jpg";
 
 import { Product } from "./products";
 
@@ -215,5 +218,55 @@ export const mandalaProducts: Product[] = [
     relatedIds: ["mandala-turmalina", "mandala-olho-tigre"],
     inStock: true,
     badge: "Mais vendido",
+  },
+  {
+    id: "mandala-hematita",
+    name: "Mandala de Hematita",
+    slug: "mandala-hematita",
+    category: "pingente",
+    price: 259.90,
+    description: "A hematita, pedra do aterramento e da força, compõe uma mandala imponente em tons metálicos escuros. Ideal para quem busca estabilidade, foco e determinação no ambiente. Disponível em 15cm e 20cm.",
+    shortDescription: "Hematita em mandala — aterramento, força e estabilidade",
+    images: [mandalaHematita, mandalaHematita, mandalaHematita],
+    elements: [
+      { name: "Hematita", meaning: "Aterramento, estabilidade e força de vontade", icon: "⛓️" },
+    ],
+    significance: "Força e aterramento",
+    relatedIds: ["mandala-turmalina", "mandala-olho-tigre"],
+    inStock: true,
+  },
+  {
+    id: "mandala-cornalina",
+    name: "Mandala de Cornalina",
+    slug: "mandala-cornalina",
+    category: "pingente",
+    price: 249.90,
+    description: "A cornalina, pedra da vitalidade e criatividade, forma uma mandala vibrante em tons de laranja e vermelho. Ativa a motivação e a paixão pela vida. Ideal para ateliês e espaços criativos. Disponível em 15cm e 20cm.",
+    shortDescription: "Cornalina em mandala — vitalidade, criatividade e paixão",
+    images: [mandalaCornalina, mandalaCornalina, mandalaCornalina],
+    elements: [
+      { name: "Cornalina", meaning: "Vitalidade, criatividade e motivação", icon: "🧡" },
+    ],
+    significance: "Vitalidade e criatividade",
+    relatedIds: ["mandala-citrino", "mandala-olho-tigre"],
+    inStock: true,
+    badge: "Novo",
+  },
+  {
+    id: "mandala-selenita",
+    name: "Mandala de Selenita",
+    slug: "mandala-selenita",
+    category: "pingente",
+    price: 269.90,
+    description: "A selenita, pedra da luz divina, compõe uma mandala etérea de brilho perolado. Limpeza energética profunda e conexão espiritual para qualquer ambiente. Um verdadeiro portal de luz. Disponível em 15cm e 20cm.",
+    shortDescription: "Selenita em mandala — luz divina e purificação do ambiente",
+    images: [mandalaSelenita, mandalaSelenita, mandalaSelenita],
+    elements: [
+      { name: "Selenita", meaning: "Luz divina, limpeza energética e paz", icon: "🤍" },
+    ],
+    significance: "Luz e purificação",
+    relatedIds: ["mandala-quartzo-rosa", "mandala-ametista"],
+    inStock: true,
+    badge: "Especial",
   },
 ];

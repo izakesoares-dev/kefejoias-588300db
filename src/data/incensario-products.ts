@@ -8,6 +8,11 @@ import incensarioTurmalinaNegra from "@/assets/incensario-turmalina-negra.jpg";
 import incensarioCitrino from "@/assets/incensario-citrino.jpg";
 import incensarioLapisLazuli from "@/assets/incensario-lapis-lazuli.jpg";
 import incensario7Chakras from "@/assets/incensario-7-chakras.jpg";
+import incensarioOlhoTigre from "@/assets/incensario-olho-tigre.jpg";
+import incensarioJade from "@/assets/incensario-jade.jpg";
+import incensarioCornalina from "@/assets/incensario-cornalina.jpg";
+import incensarioSelenita from "@/assets/incensario-selenita.jpg";
+import incensarioObsidiana from "@/assets/incensario-obsidiana.jpg";
 
 import { Product } from "./products";
 
@@ -180,5 +185,86 @@ export const incensarioProducts: Product[] = [
     relatedIds: ["incensario-ametista", "incensario-quartzo-rosa", "incensario-citrino"],
     inStock: true,
     badge: "Especial",
+  },
+  {
+    id: "incensario-olho-tigre",
+    name: "Incensário de Olho de Tigre",
+    slug: "incensario-olho-tigre",
+    category: "pingente",
+    price: 119.90,
+    description: "Cascalhos de olho de tigre encapsulados em resina cristalina dourada. Durante a queima do incenso, atrai coragem, proteção e foco. Ideal para rituais de força e determinação.",
+    shortDescription: "Olho de tigre em resina — coragem, proteção e foco",
+    images: [incensarioOlhoTigre, incensarioOlhoTigre, incensarioOlhoTigre],
+    elements: [
+      { name: "Olho de Tigre", meaning: "Coragem, autoconfiança e proteção", icon: "🐯" },
+    ],
+    significance: "Coragem e proteção",
+    relatedIds: ["incensario-turmalina-negra", "incensario-citrino"],
+    inStock: true,
+  },
+  {
+    id: "incensario-jade",
+    name: "Incensário de Jade",
+    slug: "incensario-jade",
+    category: "pingente",
+    price: 119.90,
+    description: "Jade verde encapsulada em resina cristalina. Atrai sorte, harmonia e prosperidade durante a queima do incenso. Ideal para rituais de abundância e equilíbrio.",
+    shortDescription: "Jade verde em resina — sorte, harmonia e prosperidade",
+    images: [incensarioJade, incensarioJade, incensarioJade],
+    elements: [
+      { name: "Jade", meaning: "Sorte, prosperidade e harmonia", icon: "💚" },
+    ],
+    significance: "Sorte e harmonia",
+    relatedIds: ["incensario-citrino", "incensario-quartzo-rosa"],
+    inStock: true,
+  },
+  {
+    id: "incensario-cornalina",
+    name: "Incensário de Cornalina",
+    slug: "incensario-cornalina",
+    category: "pingente",
+    price: 119.90,
+    description: "Cornalina encapsulada em resina cristalina. Ativa vitalidade, criatividade e motivação durante a queima do incenso. Perfeita para rituais de energia e ação.",
+    shortDescription: "Cornalina em resina — vitalidade, criatividade e motivação",
+    images: [incensarioCornalina, incensarioCornalina, incensarioCornalina],
+    elements: [
+      { name: "Cornalina", meaning: "Vitalidade, criatividade e paixão", icon: "🧡" },
+    ],
+    significance: "Vitalidade e criatividade",
+    relatedIds: ["incensario-citrino", "incensario-olho-tigre"],
+    inStock: true,
+  },
+  {
+    id: "incensario-selenita",
+    name: "Incensário de Selenita",
+    slug: "incensario-selenita",
+    category: "pingente",
+    price: 139.90,
+    description: "Selenita, a pedra da luz divina, encapsulada em resina cristalina. Limpeza energética profunda e conexão espiritual durante a queima do incenso. Brilho etéreo que purifica o ambiente.",
+    shortDescription: "Selenita em resina — luz divina e limpeza energética profunda",
+    images: [incensarioSelenita, incensarioSelenita, incensarioSelenita],
+    elements: [
+      { name: "Selenita", meaning: "Luz divina, limpeza energética e paz", icon: "🤍" },
+    ],
+    significance: "Luz e purificação",
+    relatedIds: ["incensario-ametista", "incensario-quartzo-rosa"],
+    inStock: true,
+    badge: "Novo",
+  },
+  {
+    id: "incensario-obsidiana",
+    name: "Incensário de Obsidiana",
+    slug: "incensario-obsidiana",
+    category: "pingente",
+    price: 129.90,
+    description: "Obsidiana encapsulada em resina cristalina. Proteção ancestral e transformação profunda durante a queima do incenso. Absorve energias negativas e revela verdades ocultas.",
+    shortDescription: "Obsidiana em resina — proteção ancestral e transformação",
+    images: [incensarioObsidiana, incensarioObsidiana, incensarioObsidiana],
+    elements: [
+      { name: "Obsidiana", meaning: "Proteção profunda, verdade e transformação", icon: "⚫" },
+    ],
+    significance: "Proteção e transformação",
+    relatedIds: ["incensario-turmalina-negra", "incensario-7-chakras"],
+    inStock: true,
   },
 ];
