@@ -142,13 +142,13 @@ const Navbar = () => {
             href="https://instagram.com/kefe.joias"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-primary/70 hover:text-primary transition-colors"
+            className="text-whatsapp-green hover:text-whatsapp-green/80 transition-colors"
           >
             <Instagram size={18} />
           </a>
           <button
             onClick={() => setIsCartOpen(true)}
-            className="relative text-primary/70 hover:text-primary transition-colors"
+            className="relative text-whatsapp-green hover:text-whatsapp-green/80 transition-colors"
           >
             <ShoppingBag size={20} />
             {totalItems > 0 && (
@@ -163,7 +163,7 @@ const Navbar = () => {
         <div className="flex items-center gap-4 md:hidden">
           <button
             onClick={() => setIsCartOpen(true)}
-            className="relative text-green-deep"
+            className="relative text-whatsapp-green"
           >
             <ShoppingBag size={22} />
             {totalItems > 0 && (
