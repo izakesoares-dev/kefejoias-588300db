@@ -85,6 +85,7 @@ const Aneis = () => {
       </section>
 
       <Footer />
+      <ShippingFooter />
       <WhatsAppButton />
     </div>
   );

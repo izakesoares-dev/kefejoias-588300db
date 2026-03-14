@@ -191,6 +191,7 @@ const AneisPedrasNaturais = () => {
       </section>
 
       <Footer />
+      <ShippingFooter />
       <WhatsAppButton />
     </div>
   );

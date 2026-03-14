@@ -91,6 +91,7 @@ const AneisFlores = () => {
       </section>
 
       <Footer />
+      <ShippingFooter />
       <WhatsAppButton />
     </div>
   );
