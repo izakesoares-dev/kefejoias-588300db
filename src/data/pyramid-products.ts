@@ -10,6 +10,11 @@ import pyramidJade from "@/assets/pyramid-jade.jpg";
 import pyramidLapisLazuli from "@/assets/pyramid-lapis-lazuli.jpg";
 import pyramidSelenita from "@/assets/pyramid-selenita.jpg";
 import pyramidCornalina from "@/assets/pyramid-cornalina.jpg";
+import pyramidAventurina from "@/assets/pyramid-aventurina.jpg";
+import pyramidSodalita from "@/assets/pyramid-sodalita.jpg";
+import pyramidHematita from "@/assets/pyramid-hematita.jpg";
+import pyramidFluorita from "@/assets/pyramid-fluorita.jpg";
+import pyramidAmazonita from "@/assets/pyramid-amazonita.jpg";
 
 export const pyramidProducts: Product[] = [
   {
