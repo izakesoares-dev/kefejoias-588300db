@@ -15,6 +15,9 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
   const { addItem } = useCart();
   const [activeThumb, setActiveThumb] = useState<"img" | number | "video">("img");
 
+  const DEFAULT_VIDEO = "/videos/como-descobrir-numero-anel.mp4";
+  const videoUrl = product.videoUrl || DEFAULT_VIDEO;
+
   const displayImages = product.images.length >= 3
     ? product.images.slice(0, 3)
     : [product.images[0], product.images[0], product.images[0]];
@@ -27,10 +30,10 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
   };
 
   const renderPreview = () => {
-    if (activeThumb === "video" && product.videoUrl) {
+    if (activeThumb === "video") {
       return (
         <video
-          src={product.videoUrl}
+          src={videoUrl}
           className="w-full h-full object-contain"
           controls
           autoPlay
@@ -105,20 +108,18 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
                   <img src={img} alt={`Ângulo ${i + 1}`} className="w-full h-full object-cover" />
                 </button>
               ))}
-              {product.videoUrl && (
-                <button
-                  onClick={(e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    setActiveThumb(activeThumb === "video" ? "img" : "video");
-                  }}
-                  className={`w-11 h-11 rounded-lg border-2 transition-all flex-shrink-0 flex items-center justify-center bg-black/60 shadow-md ${
-                    activeThumb === "video" ? "border-primary shadow-gold" : "border-white/50 hover:border-primary/60"
-                  }`}
-                >
-                  <Play size={13} className="text-white" />
-                </button>
-              )}
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  setActiveThumb(activeThumb === "video" ? "img" : "video");
+                }}
+                className={`w-11 h-11 rounded-lg border-2 transition-all flex-shrink-0 flex items-center justify-center bg-black/60 shadow-md ${
+                  activeThumb === "video" ? "border-primary shadow-gold" : "border-white/50 hover:border-primary/60"
+                }`}
+              >
+                <Play size={13} className="text-white" />
+              </button>
             </div>
           </div>
 
