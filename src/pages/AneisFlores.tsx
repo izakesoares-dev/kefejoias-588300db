@@ -33,7 +33,7 @@ const AneisFlores = () => {
       />
       <Navbar />
 
-      <section className="pt-24 pb-12 section-padding bg-gradient-to-b from-secondary/50 to-background">
+      <section className="pt-24 pb-4 section-padding bg-gradient-to-b from-secondary/50 to-background">
         <div className="max-w-7xl mx-auto">
           <Breadcrumbs items={[{ label: "Anéis", href: "/aneis" }, { label: "Flores" }]} />
           <motion.div
@@ -41,11 +41,10 @@ const AneisFlores = () => {
             animate={{ opacity: 1, y: 0 }}
             className="text-center"
           >
-            <div className="gold-line mx-auto mb-4" />
-            <h1 className="font-display text-4xl md:text-5xl text-foreground mb-4">
+            <h1 className="font-display text-4xl md:text-5xl text-foreground mb-2">
               Anéis com <span className="text-gradient-gold">Flores Eternizadas</span>
             </h1>
-            <p className="font-body text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="font-body text-sm text-muted-foreground max-w-2xl mx-auto">
               Flores reais capturadas para sempre em resina cristalina — beleza eterna no seu dedo.
             </p>
           </motion.div>
