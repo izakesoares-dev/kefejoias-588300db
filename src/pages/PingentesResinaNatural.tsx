@@ -51,7 +51,7 @@ const PingentesResinaNatural = () => {
       </section>
 
       {/* Main Content */}
-      <section className="section-padding py-4">
+      <section className="px-6 pt-2 pb-4">
         <div className="max-w-7xl mx-auto">
           {/* Filters */}
           <div className="flex flex-wrap justify-center gap-2 mb-4">
