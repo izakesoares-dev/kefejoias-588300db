@@ -1,6 +1,7 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ShoppingBag } from "lucide-react";
+import { ShoppingBag, CreditCard, QrCode, Barcode, Play } from "lucide-react";
 import { Product, formatPrice } from "@/data/products";
 import { useCart } from "@/contexts/CartContext";
 import { Button } from "@/components/ui/button";
@@ -12,75 +13,142 @@ interface ProductCardProps {
 
 const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
   const { addItem } = useCart();
+  const [activeThumb, setActiveThumb] = useState<"img" | number | "video">("img");
 
-  const handleQuickAdd = (e: React.MouseEvent) => {
+  const displayImages = product.images.length >= 3
+    ? product.images.slice(0, 3)
+    : [product.images[0], product.images[0], product.images[0]];
+
+  const handleBuy = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    if (product.sizes) {
-      // Navigate to product page for size selection
-      return;
-    }
+    if (product.sizes) return; // Navigate to detail page for size selection
     addItem(product);
   };
+
+  const renderPreview = () => {
+    if (activeThumb === "video" && product.videoUrl) {
+      return (
+        <video
+          src={product.videoUrl}
+          className="w-full h-full object-contain"
+          controls
+          autoPlay
+          muted
+          loop
+          playsInline
+        />
+      );
+    }
+    if (typeof activeThumb === "number") {
+      return (
+        <img
+          src={displayImages[activeThumb]}
+          alt={product.name}
+          className="w-full h-full object-cover rounded-lg"
+        />
+      );
+    }
+    return null;
+  };
+
+  const showPreview = activeThumb !== "img";
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ delay: index * 0.1, duration: 0.5 }}
+      transition={{ delay: index * 0.08, duration: 0.5 }}
     >
-      <Link to={`/produto/${product.slug}`} className="group block">
-        <div className="relative overflow-hidden rounded-lg bg-card border border-border/50 transition-all duration-500 hover:shadow-gold hover:border-primary/30">
-          {/* Badge */}
-          {product.badge && (
-            <span className="absolute top-3 left-3 z-10 px-3 py-1 text-xs font-body font-semibold bg-primary text-primary-foreground rounded-full">
-              {product.badge}
-            </span>
-          )}
-
-          {/* Image */}
-          <div className="aspect-square overflow-hidden">
+      <Link to={`/produto/${product.slug}`} className="block">
+        <div className="rounded-2xl overflow-hidden border border-border/50 shadow-lg hover:shadow-gold transition-shadow duration-500 bg-card">
+          {/* ===== Main image + overlay thumbnails ===== */}
+          <div className="relative">
             <img
               src={product.images[0]}
               alt={product.name}
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              className="w-full aspect-square object-cover"
               loading="lazy"
               decoding="async"
             />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/50" />
+
+            {product.badge && (
+              <span className="absolute top-3 left-3 z-10 px-3 py-0.5 text-xs font-body font-semibold bg-primary text-primary-foreground rounded-full">
+                {product.badge}
+              </span>
+            )}
+
+            {showPreview && (
+              <div className="absolute inset-0 z-10 bg-black/80 flex items-center justify-center p-4">
+                <div className="w-full h-full rounded-lg overflow-hidden">
+                  {renderPreview()}
+                </div>
+              </div>
+            )}
+
+            {/* Thumbnail strip */}
+            <div className="absolute bottom-3 left-3 z-20 flex items-center gap-2">
+              {displayImages.map((img, i) => (
+                <button
+                  key={i}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setActiveThumb(activeThumb === i ? "img" : i);
+                  }}
+                  className={`w-11 h-11 rounded-lg overflow-hidden border-2 transition-all flex-shrink-0 shadow-md ${
+                    activeThumb === i ? "border-primary shadow-gold" : "border-white/50 hover:border-primary/60"
+                  }`}
+                >
+                  <img src={img} alt={`Ângulo ${i + 1}`} className="w-full h-full object-cover" />
+                </button>
+              ))}
+              {product.videoUrl && (
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setActiveThumb(activeThumb === "video" ? "img" : "video");
+                  }}
+                  className={`w-11 h-11 rounded-lg border-2 transition-all flex-shrink-0 flex items-center justify-center bg-black/60 shadow-md ${
+                    activeThumb === "video" ? "border-primary shadow-gold" : "border-white/50 hover:border-primary/60"
+                  }`}
+                >
+                  <Play size={13} className="text-white" />
+                </button>
+              )}
+            </div>
           </div>
 
-          {/* Quick add overlay */}
-          {!product.sizes && (
-            <div className="absolute inset-0 flex items-end justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          {/* ===== Product info (compact) ===== */}
+          <div className="px-4 py-3 space-y-2">
+            <div>
+              <h3 className="font-display text-base text-foreground leading-tight truncate">{product.name}</h3>
+              <p className="text-xs text-muted-foreground font-body truncate">{product.significance}</p>
+            </div>
+
+            <div>
+              <span className="text-xl font-display font-bold text-primary">{formatPrice(product.price)}</span>
+              <span className="text-[11px] text-muted-foreground ml-2">ou 3x {formatPrice(product.price / 3)}</span>
+            </div>
+
+            <div className="flex items-center gap-2">
               <Button
-                onClick={handleQuickAdd}
-                className="mb-4 bg-primary/90 backdrop-blur-sm hover:bg-primary text-primary-foreground gap-2"
-                size="sm"
+                onClick={handleBuy}
+                className="flex-1 h-9 gap-1.5 font-body font-semibold rounded-xl text-sm"
               >
                 <ShoppingBag size={14} />
-                Adicionar
+                {product.sizes ? "Ver tamanhos" : "Comprar"}
               </Button>
             </div>
-          )}
 
-          {/* Info */}
-          <div className="p-4">
-            <p className="text-xs text-muted-foreground font-body uppercase tracking-wider mb-1">
-              {product.significance}
-            </p>
-            <h3 className="font-display text-lg text-foreground group-hover:text-primary transition-colors">
-              {product.name}
-            </h3>
-            <p className="text-sm text-muted-foreground font-body mt-1 line-clamp-2">
-              {product.shortDescription}
-            </p>
-            <p className="mt-3 text-lg font-display font-semibold text-primary">
-              {formatPrice(product.price)}
-            </p>
-            {product.sizes && (
-              <p className="text-xs text-muted-foreground mt-1">Tamanhos 15 a 21</p>
-            )}
+            <div className="flex items-center gap-3 text-muted-foreground text-[11px]">
+              <span className="flex items-center gap-1"><CreditCard size={11} className="text-primary" />Cartão</span>
+              <span className="flex items-center gap-1"><QrCode size={11} className="text-primary" />Pix</span>
+              <span className="flex items-center gap-1"><Barcode size={11} className="text-primary" />Boleto</span>
+            </div>
           </div>
         </div>
       </Link>
