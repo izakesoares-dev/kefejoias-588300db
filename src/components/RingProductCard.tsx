@@ -96,7 +96,7 @@ const RingProductCard = ({ product, index = 0 }: RingProductCardProps) => {
         )}
 
         {/* Miniaturas + vídeos sobrepostos na parte inferior da foto */}
-        <div className="absolute bottom-3 left-3 right-3 z-20 flex items-center gap-2">
+        <div className="absolute bottom-3 left-3 z-20 flex items-center gap-2">
           {product.images.slice(0, 3).map((img, i) => (
             <button
               key={i}
@@ -125,6 +125,20 @@ const RingProductCard = ({ product, index = 0 }: RingProductCardProps) => {
             <span className="text-[8px] text-white leading-tight text-center">📏<br/>Medida</span>
           </button>
         </div>
+
+        {/* Seletor de tamanho no canto inferior direito da foto */}
+        <div className="absolute bottom-3 right-3 z-20">
+          <Select value={selectedSize} onValueChange={setSelectedSize}>
+            <SelectTrigger className="w-24 h-9 text-xs bg-black/60 border-white/50 text-white backdrop-blur-sm shadow-md">
+              <SelectValue placeholder="Tam." />
+            </SelectTrigger>
+            <SelectContent>
+              {sizes.map((s) => (
+                <SelectItem key={s} value={String(s)}>Tam. {s}</SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
       </div>
 
       {/* ===== PARTE INFERIOR: Informações do produto ===== */}
@@ -140,23 +154,11 @@ const RingProductCard = ({ product, index = 0 }: RingProductCardProps) => {
           </div>
         </div>
 
-        {/* Tamanho + Comprar */}
-        <div className="flex items-center gap-2">
-          <Select value={selectedSize} onValueChange={setSelectedSize}>
-            <SelectTrigger className="w-28 h-10 text-sm">
-              <SelectValue placeholder="Tamanho" />
-            </SelectTrigger>
-            <SelectContent>
-              {sizes.map((s) => (
-                <SelectItem key={s} value={String(s)}>Tam. {s}</SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-          <Button onClick={handleBuy} disabled={!selectedSize} className="flex-1 h-10 gap-2 font-body font-semibold rounded-xl">
-            <ShoppingBag size={16} />
-            Comprar
-          </Button>
-        </div>
+        {/* Comprar */}
+        <Button onClick={handleBuy} disabled={!selectedSize} className="w-full h-10 gap-2 font-body font-semibold rounded-xl">
+          <ShoppingBag size={16} />
+          Comprar
+        </Button>
 
         {/* Frete */}
         <div className="flex items-center gap-2">
