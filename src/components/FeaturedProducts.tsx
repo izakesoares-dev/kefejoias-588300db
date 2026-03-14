@@ -27,11 +27,11 @@ const FeaturedProducts = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <p className="text-sm tracking-[0.3em] uppercase text-primary mb-4 font-body">
+          <p className="text-base md:text-lg tracking-[0.3em] uppercase text-green-deep mb-4 font-body font-extrabold">
             Destaques
           </p>
           <h2 className="text-3xl md:text-5xl font-display font-medium mb-4">
-            Mais <span className="text-gradient-gold">Vendidos</span>
+            Mais <span className="text-primary">Vendidos</span>
           </h2>
           <div className="gold-line mx-auto mt-6" />
         </motion.div>
