@@ -36,7 +36,7 @@ const ColaresAco = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      <section className="pt-24 pb-4 section-padding bg-gradient-to-b from-secondary/50 to-background">
+      <section className="pt-24 pb-2 section-padding bg-gradient-to-b from-secondary/50 to-background">
         <div className="max-w-7xl mx-auto">
           <Breadcrumbs items={[{ label: "Colares", href: "/colares" }, { label: "Aço Inox" }]} />
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center">
@@ -50,9 +50,9 @@ const ColaresAco = () => {
         </div>
       </section>
 
-      <section className="section-padding py-8">
+      <section className="section-padding py-4">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-wrap justify-center gap-2 mb-6">
+          <div className="flex flex-wrap justify-center gap-2 mb-4">
             {filters.map((filter) => {
               const Icon = filter.icon;
               return (

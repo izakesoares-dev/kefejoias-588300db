@@ -40,7 +40,7 @@ const PingentesPedrasNaturais = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      <section className="pt-24 pb-4 section-padding bg-gradient-to-b from-secondary/50 to-background shadow">
+      <section className="pt-24 pb-2 section-padding bg-gradient-to-b from-secondary/50 to-background shadow">
         <div className="max-w-7xl mx-auto">
           <Breadcrumbs items={[{ label: "Pingentes", href: "/pingentes" }, { label: "Pedras Naturais" }]} />
           <motion.div
@@ -59,10 +59,10 @@ const PingentesPedrasNaturais = () => {
       </section>
 
       {/* Main Content */}
-      <section className="section-padding py-8">
+      <section className="section-padding py-4">
         <div className="max-w-7xl mx-auto">
           {/* Filters */}
-          <div className="flex flex-wrap justify-center gap-2 mb-6">
+          <div className="flex flex-wrap justify-center gap-2 mb-4">
             {filters.map((filter) => {
               const Icon = filter.icon;
               return (
