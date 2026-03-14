@@ -142,7 +142,7 @@ const Navbar = () => {
             href="https://instagram.com/kefe.joias"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-primary/70 hover:text-primary transition-colors"
+            className="text-whatsapp-green hover:text-whatsapp-green/80 transition-colors"
           >
             <Instagram size={18} />
           </a>
