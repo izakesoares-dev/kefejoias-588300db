@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ShoppingBag, CreditCard, QrCode, Barcode, Play } from "lucide-react";
+import { ShoppingBag, CreditCard, QrCode, Play } from "lucide-react";
 import { Product, formatPrice } from "@/data/products";
 import { useCart } from "@/contexts/CartContext";
 import { Button } from "@/components/ui/button";
@@ -164,7 +164,6 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
             <div className="flex items-center gap-3 text-muted-foreground text-[11px]">
               <span className="flex items-center gap-1"><CreditCard size={11} className="text-whatsapp-green" />Cartão</span>
               <span className="flex items-center gap-1"><QrCode size={11} className="text-whatsapp-green" />Pix</span>
-              <span className="flex items-center gap-1"><Barcode size={11} className="text-whatsapp-green" />Boleto</span>
             </div>
           </div>
         </div>
