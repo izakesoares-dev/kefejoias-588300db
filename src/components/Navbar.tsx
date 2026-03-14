@@ -117,7 +117,7 @@ const Navbar = () => {
                     <Link
                       to={cat.href}
                       onClick={() => setActiveDropdown(null)}
-                      className="block px-4 py-2 text-sm font-body font-medium text-primary hover:bg-accent transition-colors"
+                      className="block px-4 py-2.5 text-[15px] font-body font-extrabold text-green-deep bg-primary rounded-lg mx-2 mb-1 text-center hover:bg-gold-dark hover:text-white transition-colors"
                     >
                       Ver todos
                     </Link>
