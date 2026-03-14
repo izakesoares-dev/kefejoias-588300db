@@ -154,7 +154,7 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
             <div className="flex items-center gap-2">
               <Button
                 onClick={handleBuy}
-                className="flex-1 h-10 gap-1.5 font-body font-extrabold rounded-xl text-[15px] bg-primary text-green-deep hover:bg-gold-dark hover:text-white transition-colors shadow-gold-sm"
+                className="flex-1 h-10 gap-1.5 font-body font-extrabold rounded-xl text-[15px] bg-primary text-secondary hover:bg-gold-dark hover:text-white transition-colors shadow-gold-sm"
               >
                 <ShoppingBag size={14} />
                 {product.sizes ? "Ver tamanhos" : "Comprar"}
@@ -162,9 +162,9 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
             </div>
 
             <div className="flex items-center gap-3 text-muted-foreground text-[11px]">
-              <span className="flex items-center gap-1"><CreditCard size={11} className="text-primary" />Cartão</span>
-              <span className="flex items-center gap-1"><QrCode size={11} className="text-primary" />Pix</span>
-              <span className="flex items-center gap-1"><Barcode size={11} className="text-primary" />Boleto</span>
+              <span className="flex items-center gap-1"><CreditCard size={11} className="text-secondary" />Cartão</span>
+              <span className="flex items-center gap-1"><QrCode size={11} className="text-secondary" />Pix</span>
+              <span className="flex items-center gap-1"><Barcode size={11} className="text-secondary" />Boleto</span>
             </div>
           </div>
         </div>
