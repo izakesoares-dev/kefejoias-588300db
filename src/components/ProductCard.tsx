@@ -108,7 +108,7 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
                   <img src={img} alt={`Ângulo ${i + 1}`} className="w-full h-full object-cover" />
                 </button>
               ))}
-              {product.videoUrl && (
+              {/* Video button always shown */}
                 <button
                   onClick={(e) => {
                     e.preventDefault();
