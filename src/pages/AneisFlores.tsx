@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import SEOHead, { breadcrumbJsonLd } from "@/components/SEOHead";
-import Breadcrumbs from "@/components/Breadcrumbs";
+
 
 
 const AneisFlores = () => {
@@ -35,7 +35,7 @@ const AneisFlores = () => {
 
       <section className="pt-24 pb-2 section-padding bg-gradient-to-b from-secondary/50 to-background">
         <div className="max-w-7xl mx-auto">
-          <Breadcrumbs items={[{ label: "Anéis", href: "/aneis" }, { label: "Flores" }]} />
+          
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

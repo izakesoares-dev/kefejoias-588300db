@@ -6,7 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Shield, Sparkles, Heart, Gem, Moon } from "lucide-react";
-import Breadcrumbs from "@/components/Breadcrumbs";
+
 
 const filters = [
   { id: "todos", label: "Todas as Pedras", icon: Gem },
@@ -36,7 +36,7 @@ const PulseirasPedras = () => {
 
       <section className="pt-24 pb-2 section-padding bg-gradient-to-b from-secondary/50 to-background">
         <div className="max-w-7xl mx-auto">
-          <Breadcrumbs items={[{ label: "Pulseiras", href: "/pulseiras" }, { label: "Pedras" }]} />
+          
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center">
             <h1 className="font-display text-4xl md:text-5xl text-foreground mb-2">
               Pulseiras de <span className="text-gradient-gold">Pedras</span>
