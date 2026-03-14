@@ -163,7 +163,7 @@ const Navbar = () => {
         <div className="flex items-center gap-4 md:hidden">
           <button
             onClick={() => setIsCartOpen(true)}
-            className="relative text-green-deep"
+            className="relative text-whatsapp-green"
           >
             <ShoppingBag size={22} />
             {totalItems > 0 && (
