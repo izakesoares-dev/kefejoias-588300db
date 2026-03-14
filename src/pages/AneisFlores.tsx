@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import SEOHead, { breadcrumbJsonLd } from "@/components/SEOHead";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import ShippingFooter from "@/components/ShippingFooter";
 
 const AneisFlores = () => {
   const flowerRings = products.filter(
