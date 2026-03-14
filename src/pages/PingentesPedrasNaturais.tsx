@@ -40,7 +40,7 @@ const PingentesPedrasNaturais = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      <section className="pt-24 pb-2 section-padding bg-gradient-to-b from-secondary/50 to-background shadow">
+      <section className="pt-24 pb-0 px-6 bg-gradient-to-b from-secondary/50 to-background shadow">
         <div className="max-w-7xl mx-auto">
           
           <motion.div
