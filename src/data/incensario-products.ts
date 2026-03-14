@@ -8,6 +8,11 @@ import incensarioTurmalinaNegra from "@/assets/incensario-turmalina-negra.jpg";
 import incensarioCitrino from "@/assets/incensario-citrino.jpg";
 import incensarioLapisLazuli from "@/assets/incensario-lapis-lazuli.jpg";
 import incensario7Chakras from "@/assets/incensario-7-chakras.jpg";
+import incensarioOlhoTigre from "@/assets/incensario-olho-tigre.jpg";
+import incensarioJade from "@/assets/incensario-jade.jpg";
+import incensarioCornalina from "@/assets/incensario-cornalina.jpg";
+import incensarioSelenita from "@/assets/incensario-selenita.jpg";
+import incensarioObsidiana from "@/assets/incensario-obsidiana.jpg";
 
 import { Product } from "./products";
 
