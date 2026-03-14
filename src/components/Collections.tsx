@@ -35,11 +35,11 @@ const Collections = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="text-sm tracking-[0.3em] uppercase text-primary mb-4 font-body">
+          <p className="text-sm tracking-[0.3em] uppercase text-green-deep mb-4 font-body">
             Coleções
           </p>
           <h2 className="text-3xl md:text-5xl font-display font-medium mb-4">
-            Beleza com Significado
+            Beleza com <span className="text-primary">Significado</span>
           </h2>
           <div className="gold-line mx-auto mt-6" />
         </motion.div>
