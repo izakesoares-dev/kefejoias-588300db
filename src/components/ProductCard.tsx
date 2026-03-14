@@ -30,7 +30,7 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
   };
 
   const renderPreview = () => {
-    if (activeThumb === "video" && product.videoUrl) {
+    if (activeThumb === "video") {
       return (
         <video
           src={product.videoUrl}
