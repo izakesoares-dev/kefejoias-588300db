@@ -10,11 +10,11 @@ const About = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
-          <p className="text-sm tracking-[0.3em] uppercase text-primary mb-4 font-body">
+          <p className="text-base md:text-lg tracking-[0.3em] uppercase text-green-deep mb-4 font-body font-extrabold">
             Nossa Essência
           </p>
           <h2 className="text-3xl md:text-5xl font-display font-medium mb-8">
-            Joias que Contam <span className="italic text-gradient-gold">Histórias</span>
+            Joias que Contam <span className="italic text-primary">Histórias</span>
           </h2>
           <div className="gold-line mx-auto mb-10" />
           <p className="text-lg text-muted-foreground font-body leading-relaxed mb-6">

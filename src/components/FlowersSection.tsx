@@ -44,11 +44,11 @@ const FlowersSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-14"
         >
-          <p className="text-sm tracking-[0.3em] uppercase text-primary mb-4 font-body">
+          <p className="text-base md:text-lg tracking-[0.3em] uppercase text-green-deep mb-4 font-body font-extrabold">
             Joias Afetivas
           </p>
           <h2 className="text-3xl md:text-5xl font-display font-medium mb-4">
-            Eternize Suas <span className="italic text-gradient-gold">Memórias</span>
+            Eternize Suas <span className="italic text-primary">Memórias</span>
           </h2>
           <p className="text-muted-foreground font-body leading-relaxed max-w-2xl mx-auto">
             Transformamos momentos especiais em joias únicas. Flores, lembranças de bebê, 
