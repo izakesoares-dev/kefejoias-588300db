@@ -43,19 +43,15 @@ const IncensariosResina = () => {
       <Navbar />
 
       {/* Hero */}
-      <section className="pt-24 pb-12 section-padding bg-gradient-to-b from-secondary/50 to-background">
+      <section className="pt-24 pb-2 section-padding bg-gradient-to-b from-secondary/50 to-background">
         <div className="max-w-7xl mx-auto">
           <Breadcrumbs items={[{ label: "Especiais", href: "/especiais" }, { label: "Incensários" }]} />
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center">
-            <div className="gold-line mx-auto mb-4" />
-            <h1 className="font-display text-4xl md:text-5xl text-foreground mb-4">
+            <h1 className="font-display text-4xl md:text-5xl text-foreground mb-2">
               Incensários de <span className="text-gradient-gold">Resina</span>
             </h1>
-            <p className="font-body text-lg text-muted-foreground max-w-2xl mx-auto mb-2">
-              O ritual do incenso elevado à arte
-            </p>
-            <p className="font-body text-muted-foreground max-w-3xl mx-auto">
-              Suportes artesanais com flores e pedras encapsuladas em resina cristalina. Cada peça transforma o simples ato de queimar incenso em uma experiência energética e sensorial única.
+            <p className="font-body text-sm text-muted-foreground max-w-2xl mx-auto">
+              Suportes artesanais com flores e pedras encapsuladas em resina cristalina.
             </p>
           </motion.div>
         </div>
@@ -106,9 +102,9 @@ const IncensariosResina = () => {
       </section>
 
       {/* Products */}
-      <section className="section-padding py-12">
+      <section className="section-padding py-4">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-wrap justify-center gap-2 mb-10">
+          <div className="flex flex-wrap justify-center gap-2 mb-4">
             {filters.map((filter) => {
               const Icon = filter.icon;
               return (

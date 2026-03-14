@@ -19,12 +19,12 @@ const Pedras = () => {
       <Navbar />
       
       {/* Hero */}
-      <section className="pt-32 pb-16 px-6">
+      <section className="pt-24 pb-4 px-6">
         <div className="max-w-7xl mx-auto text-center">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-display font-medium text-gradient-gold mb-6"
+            className="text-4xl md:text-5xl font-display font-medium text-gradient-gold mb-2"
           >
             Pedras com Propósito
           </motion.h1>
@@ -32,16 +32,15 @@ const Pedras = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-lg text-muted-foreground font-body max-w-2xl mx-auto"
+            className="text-sm text-muted-foreground font-body max-w-2xl mx-auto"
           >
-            Descubra o poder ancestral das pedras naturais. Cada cristal carrega uma energia única 
-            que pode transformar sua vida. Escolha a pedra que ressoa com sua intenção.
+            Descubra o poder ancestral das pedras naturais. Cada cristal carrega uma energia única.
           </motion.p>
         </div>
       </section>
 
       {/* Categories Navigation */}
-      <section className="px-6 pb-8">
+      <section className="px-6 pb-4">
         <div className="max-w-7xl mx-auto">
           <Tabs value={activeCategory} onValueChange={(v) => setActiveCategory(v as StoneCategory)}>
             <TabsList className="w-full flex-wrap h-auto gap-2 bg-transparent p-0 justify-center">

@@ -28,14 +28,14 @@ const Colares = () => {
       />
       <Navbar />
 
-      <section className="pt-28 pb-12 px-6">
+      <section className="pt-24 pb-2 px-6">
         <div className="max-w-7xl mx-auto">
           <Breadcrumbs items={[{ label: "Colares" }]} />
           <div className="text-center">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-5xl font-display font-medium text-gradient-gold mb-4"
+            className="text-4xl md:text-5xl font-display font-medium text-gradient-gold mb-2"
           >
             Colares
           </motion.h1>
@@ -43,7 +43,7 @@ const Colares = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-lg text-muted-foreground font-body max-w-2xl mx-auto"
+            className="text-sm text-muted-foreground font-body max-w-2xl mx-auto"
           >
             Colares artesanais com pedras naturais e flores eternizadas em resina cristalina.
           </motion.p>
@@ -51,7 +51,7 @@ const Colares = () => {
         </div>
       </section>
 
-      <section className="px-6 pb-8">
+      <section className="px-6 pb-4">
         <div className="max-w-7xl mx-auto flex flex-wrap justify-center gap-4">
           {subcategories.map((sub) => (
             <Link
@@ -68,7 +68,7 @@ const Colares = () => {
         </div>
       </section>
 
-      <section className="px-6 pb-16">
+      <section className="px-6 pb-16 pt-4">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-2xl font-display text-foreground mb-6">
             Todos os Colares ({allNecklaces.length})

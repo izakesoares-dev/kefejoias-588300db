@@ -37,19 +37,15 @@ const PiramidesQuanticas = () => {
       <Navbar />
 
       {/* Hero */}
-      <section className="pt-24 pb-12 section-padding bg-gradient-to-b from-secondary/50 to-background">
+      <section className="pt-24 pb-2 section-padding bg-gradient-to-b from-secondary/50 to-background">
         <div className="max-w-7xl mx-auto">
           <Breadcrumbs items={[{ label: "Especiais", href: "/especiais" }, { label: "Pirâmides Quânticas" }]} />
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center">
-            <div className="gold-line mx-auto mb-4" />
-            <h1 className="font-display text-4xl md:text-5xl text-foreground mb-4">
+            <h1 className="font-display text-4xl md:text-5xl text-foreground mb-2">
               Pirâmides <span className="text-gradient-gold">Quânticas</span>
             </h1>
-            <p className="font-body text-lg text-muted-foreground max-w-2xl mx-auto mb-2">
-              Geometria sagrada e energia cristalina
-            </p>
-            <p className="font-body text-muted-foreground max-w-3xl mx-auto">
-              Peças para meditação, decoração e harmonização de ambientes. Cada pirâmide encapsula uma pedra natural selecionada em resina cristalina de alta qualidade.
+            <p className="font-body text-sm text-muted-foreground max-w-2xl mx-auto">
+              Geometria sagrada e energia cristalina para meditação e harmonização de ambientes.
             </p>
           </motion.div>
         </div>
@@ -100,9 +96,9 @@ const PiramidesQuanticas = () => {
       </section>
 
       {/* Products */}
-      <section className="section-padding py-12">
+      <section className="section-padding py-4">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-wrap justify-center gap-2 mb-10">
+          <div className="flex flex-wrap justify-center gap-2 mb-4">
             {filters.map((filter) => {
               const Icon = filter.icon;
               return (
