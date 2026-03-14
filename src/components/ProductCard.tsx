@@ -24,7 +24,6 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
 
   const getCategoryVideo = (p: Product): string => {
     if (p.videoUrl) return p.videoUrl;
-    // Detect by product id/slug for special categories
     if (p.id.startsWith("mandala")) return "/videos/mandalas-showcase.mp4";
     if (p.id.startsWith("incensario")) return "/videos/incensarios-showcase.mp4";
     if (p.id.startsWith("piramide")) return "/videos/piramides-showcase.mp4";
@@ -42,7 +41,7 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
   const handleBuy = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    if (product.sizes) return; // Navigate to detail page for size selection
+    if (product.sizes) return;
     addItem(product);
   };
 
@@ -82,7 +81,7 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
       transition={{ delay: index * 0.08, duration: 0.5 }}
     >
       <Link to={`/produto/${product.slug}`} className="block">
-        <div className="rounded-2xl overflow-hidden border border-border/50 shadow-lg hover:shadow-gold transition-shadow duration-500 bg-card">
+        <div className="rounded-2xl overflow-hidden border border-gold/30 shadow-gold-sm hover:shadow-gold transition-all duration-500 bg-gradient-card group">
           {/* ===== Main image + overlay thumbnails ===== */}
           <div className="relative">
             <img
@@ -92,7 +91,7 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
               loading="lazy"
               decoding="async"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/50" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/60" />
 
             {product.badge && (
               <span className="absolute top-3 left-3 z-10 px-3 py-0.5 text-xs font-body font-semibold bg-primary text-primary-foreground rounded-full">
@@ -135,12 +134,12 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
                   activeThumb === "video" ? "border-primary shadow-gold" : "border-white/50 hover:border-primary/60"
                 }`}
               >
-                <Play size={13} className="text-white" />
+                <Play size={13} className="text-primary" />
               </button>
             </div>
           </div>
 
-          {/* ===== Product info (compact) ===== */}
+          {/* ===== Product info ===== */}
           <div className="px-4 py-3 space-y-2">
             <div>
               <h3 className="font-display text-base text-foreground leading-tight truncate">{product.name}</h3>
@@ -155,7 +154,7 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
             <div className="flex items-center gap-2">
               <Button
                 onClick={handleBuy}
-                className="flex-1 h-9 gap-1.5 font-body font-semibold rounded-xl text-sm"
+                className="flex-1 h-9 gap-1.5 font-body font-semibold rounded-xl text-sm bg-secondary hover:bg-primary hover:text-primary-foreground transition-colors"
               >
                 <ShoppingBag size={14} />
                 {product.sizes ? "Ver tamanhos" : "Comprar"}
