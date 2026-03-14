@@ -99,7 +99,7 @@ const Navbar = () => {
             >
               <Link
                 to={cat.href}
-                className="flex items-center gap-1 text-[15px] font-body tracking-wide text-green-deep hover:text-primary transition-colors duration-300"
+                className="flex items-center gap-1 text-[17px] font-body tracking-wide text-green-deep hover:text-primary transition-colors duration-300"
               >
                 {cat.label}
                 <ChevronDown className={`w-3 h-3 transition-transform ${activeDropdown === key ? "rotate-180" : ""}`} />
