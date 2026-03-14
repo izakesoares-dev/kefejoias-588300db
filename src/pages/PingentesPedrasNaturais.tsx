@@ -6,7 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Link2, Shield, Sparkles, Heart, Gem, Zap, Brain, Moon } from "lucide-react";
-import Breadcrumbs from "@/components/Breadcrumbs";
+
 
 const filters = [
 { id: "todos", label: "Todas as Pedras", icon: Gem },
