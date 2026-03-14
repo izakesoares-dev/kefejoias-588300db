@@ -147,14 +147,14 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
             </div>
 
             <div>
-              <span className="text-xl font-display font-bold text-primary">{formatPrice(product.price)}</span>
+              <span className="text-xl font-display font-bold text-copper">{formatPrice(product.price)}</span>
               <span className="text-[11px] text-muted-foreground ml-2">ou 3x {formatPrice(product.price / 3)}</span>
             </div>
 
             <div className="flex items-center gap-2">
               <Button
                 onClick={handleBuy}
-                className="flex-1 h-9 gap-1.5 font-body font-semibold rounded-xl text-sm bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
+                className="flex-1 h-9 gap-1.5 font-body font-semibold rounded-xl text-sm bg-copper text-white hover:bg-primary transition-colors"
               >
                 <ShoppingBag size={14} />
                 {product.sizes ? "Ver tamanhos" : "Comprar"}

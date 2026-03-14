@@ -56,7 +56,10 @@ export default {
           light: "hsl(var(--gold-light))",
           dark: "hsl(var(--gold-dark))",
         },
-        copper: "hsl(var(--copper))",
+        copper: {
+          DEFAULT: "hsl(var(--copper))",
+          dark: "hsl(var(--copper-dark))",
+        },
         "warm-white": "hsl(var(--warm-white))",
         "warm-gray": "hsl(var(--warm-gray))",
         "green-deep": "hsl(var(--green-deep))",
