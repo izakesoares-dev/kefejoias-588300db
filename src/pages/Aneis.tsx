@@ -6,6 +6,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import SEOHead, { breadcrumbJsonLd } from "@/components/SEOHead";
 import RingProductCard from "@/components/RingProductCard";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import ShippingFooter from "@/components/ShippingFooter";
 import { products } from "@/data/products";
 
 const subcategories = [
