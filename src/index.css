@@ -57,13 +57,13 @@
     --font-display: 'Playfair Display', serif;
     --font-body: 'DM Sans', sans-serif;
 
-    --gradient-gold: linear-gradient(135deg, hsl(46, 69%, 52%), hsl(43, 72%, 40%));
-    --gradient-gold-shine: linear-gradient(135deg, hsl(46, 69%, 60%), hsl(46, 69%, 52%), hsl(43, 72%, 40%));
+    --gradient-gold: linear-gradient(135deg, hsl(51, 100%, 50%), hsl(43, 76%, 38%));
+    --gradient-gold-shine: linear-gradient(135deg, hsl(51, 100%, 60%), hsl(51, 100%, 50%), hsl(43, 76%, 38%));
     --gradient-dark: linear-gradient(180deg, hsl(40, 33%, 98%), hsl(40, 20%, 95%));
     --gradient-card: linear-gradient(145deg, hsl(0, 0%, 100%), hsl(40, 20%, 98%));
     --gradient-footer: linear-gradient(180deg, hsl(117, 16%, 24%), hsl(117, 20%, 18%));
-    --shadow-gold: 0 4px 30px -5px hsl(46 69% 52% / 0.2);
-    --shadow-gold-sm: 0 2px 12px -3px hsl(46 69% 52% / 0.15);
+    --shadow-gold: 0 4px 30px -5px hsl(51 100% 50% / 0.3);
+    --shadow-gold-sm: 0 2px 12px -3px hsl(51 100% 50% / 0.25);
     --shadow-elegant: 0 8px 30px -10px hsl(0 0% 0% / 0.1);
 
     --sidebar-background: 0 0% 100%;

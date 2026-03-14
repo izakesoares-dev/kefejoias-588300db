@@ -154,9 +154,10 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
             <div className="flex items-center gap-2">
               <Button
                 onClick={handleBuy}
-                className="flex-1 h-9 gap-1.5 font-body font-semibold rounded-xl text-sm bg-primary text-white hover:bg-gold-dark transition-colors shadow-gold-sm"
+                className="flex-1 h-9 gap-1.5 font-body font-bold rounded-xl text-sm bg-primary !text-[#FFFFFF] hover:bg-gold-dark transition-colors shadow-gold-sm"
+                style={{ color: '#FFFFFF' }}
               >
-                <ShoppingBag size={14} />
+                <ShoppingBag size={14} className="text-white" />
                 {product.sizes ? "Ver tamanhos" : "Comprar"}
               </Button>
             </div>
