@@ -21,7 +21,7 @@ import ringJaspeVermelho from "@/assets/ring-jaspe-vermelho.jpg";
 
 import type { Product } from "./products";
 
-const sizes = [14, 15, 16, 17, 18, 19, 20, 21];
+const sizes = [14, 15, 16, 17, 18, 19, 20, 21, 22];
 
 export const stoneRings: Product[] = [
   {
