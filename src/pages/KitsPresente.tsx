@@ -107,7 +107,7 @@ const KitsPresente = () => {
       </section>
 
       {/* Products */}
-      <section className="pb-16 section-padding">
+      <section className="px-6 pb-16">
         <div className="max-w-7xl mx-auto">
           {filtered.length === 0 ? (
             <p className="text-center text-muted-foreground font-body py-12">Nenhum kit encontrado para este filtro.</p>
