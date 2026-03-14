@@ -28,14 +28,14 @@ const Pingentes = () => {
       />
       <Navbar />
 
-      <section className="pt-28 pb-12 px-6">
+      <section className="pt-24 pb-2 px-6">
         <div className="max-w-7xl mx-auto">
           <Breadcrumbs items={[{ label: "Pingentes" }]} />
           <div className="text-center">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-5xl font-display font-medium text-gradient-gold mb-4"
+            className="text-4xl md:text-5xl font-display font-medium text-gradient-gold mb-2"
           >
             Pingentes
           </motion.h1>
@@ -43,7 +43,7 @@ const Pingentes = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-lg text-muted-foreground font-body max-w-2xl mx-auto"
+            className="text-sm text-muted-foreground font-body max-w-2xl mx-auto"
           >
             Pingentes únicos com pedras naturais e flores eternizadas em resina cristalina.
           </motion.p>
