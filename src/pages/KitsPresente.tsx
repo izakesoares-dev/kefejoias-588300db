@@ -49,16 +49,15 @@ const KitsPresente = () => {
       <Navbar />
 
       {/* Hero */}
-      <section className="pt-24 pb-12 section-padding bg-gradient-to-b from-secondary/50 to-background">
+      <section className="pt-24 pb-2 section-padding bg-gradient-to-b from-secondary/50 to-background">
         <div className="max-w-7xl mx-auto">
           <Breadcrumbs items={[{ label: "Especiais", href: "/especiais" }, { label: "Kits Presente" }]} />
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center">
-            <div className="gold-line mx-auto mb-4" />
-            <h1 className="font-display text-4xl md:text-5xl text-foreground mb-4">
+            <h1 className="font-display text-4xl md:text-5xl text-foreground mb-2">
               Kits <span className="text-gradient-gold">Presente</span>
             </h1>
-            <p className="text-muted-foreground font-body max-w-2xl mx-auto text-lg">
-              Coleções exclusivas que combinam joias, acessórios e peças decorativas — tudo artesanalmente produzido em resina com pedras naturais e flores eternizadas.
+            <p className="text-sm text-muted-foreground font-body max-w-2xl mx-auto">
+              Coleções exclusivas que combinam joias, acessórios e peças decorativas artesanais.
             </p>
           </motion.div>
         </div>
