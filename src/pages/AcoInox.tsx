@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ProductCard from "@/components/ProductCard";
-import Breadcrumbs from "@/components/Breadcrumbs";
+
 import { products } from "@/data/products";
 
 const subcategories = [
