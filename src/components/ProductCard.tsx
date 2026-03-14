@@ -147,7 +147,7 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
             </div>
 
             <div>
-              <span className="text-xl font-display font-bold" style={{ color: '#FFD700' }}>{formatPrice(product.price)}</span>
+              <span className="text-xl font-display font-bold text-green-deep">{formatPrice(product.price)}</span>
               <span className="text-[11px] text-muted-foreground ml-2">ou 3x {formatPrice(product.price / 3)}</span>
             </div>
 
