@@ -10,6 +10,9 @@ import mandalaOlhoTigre from "@/assets/mandala-olho-tigre.jpg";
 import mandala7Chakras from "@/assets/mandala-7-chakras.jpg";
 import mandalaLapisLazuli from "@/assets/mandala-lapis-lazuli.jpg";
 import mandalaPimentas from "@/assets/mandala-pimentas.jpg";
+import mandalaHematita from "@/assets/mandala-hematita.jpg";
+import mandalaCornalina from "@/assets/mandala-cornalina.jpg";
+import mandalaSelenita from "@/assets/mandala-selenita.jpg";
 
 import { Product } from "./products";
 
