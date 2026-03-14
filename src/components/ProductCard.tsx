@@ -146,14 +146,14 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
               <p className="text-xs text-muted-foreground font-body truncate">{product.significance}</p>
             </div>
 
-            <div className="flex items-center justify-between gap-1">
+            <div className="flex items-center justify-between">
               <span className="whitespace-nowrap">
-                <span className="text-lg font-display font-bold text-green-deep">{formatPrice(product.price)}</span>
-                <span className="text-[10px] text-muted-foreground ml-1">ou 3x {formatPrice(product.price / 3)}</span>
+                <span className="text-xl font-display font-bold text-green-deep">{formatPrice(product.price)}</span>
+                <span className="text-[11px] text-muted-foreground ml-1.5">ou 3x {formatPrice(product.price / 3)}</span>
               </span>
-              <div className="flex items-center gap-2 text-muted-foreground text-[12px] font-bold whitespace-nowrap">
-                <span className="flex items-center gap-0.5"><CreditCard size={13} className="text-whatsapp-green" />Cartão</span>
-                <span className="flex items-center gap-0.5"><QrCode size={13} className="text-whatsapp-green" />Pix</span>
+              <div className="flex items-center gap-2 text-foreground text-sm font-bold whitespace-nowrap shrink-0">
+                <span className="flex items-center gap-1"><CreditCard size={15} className="text-whatsapp-green" />Cartão</span>
+                <span className="flex items-center gap-1"><QrCode size={15} className="text-whatsapp-green" />Pix</span>
               </div>
             </div>
 
