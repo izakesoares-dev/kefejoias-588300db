@@ -38,8 +38,7 @@ const ColaresPedras = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      {/* Hero Section */}
-      <section className="pt-24 pb-12 section-padding bg-gradient-to-b from-secondary/50 to-background">
+      <section className="pt-24 pb-4 section-padding bg-gradient-to-b from-secondary/50 to-background">
         <div className="max-w-7xl mx-auto">
           <Breadcrumbs items={[{ label: "Colares", href: "/colares" }, { label: "Pedras" }]} />
           <motion.div
@@ -47,58 +46,13 @@ const ColaresPedras = () => {
             animate={{ opacity: 1, y: 0 }}
             className="text-center"
           >
-            <div className="gold-line mx-auto mb-4" />
-            <h1 className="font-display text-4xl md:text-5xl text-foreground mb-4">
+            <h1 className="font-display text-4xl md:text-5xl text-foreground mb-2">
               Colares com <span className="text-gradient-gold">Pedras</span>
             </h1>
-            <p className="font-body text-lg text-muted-foreground max-w-2xl mx-auto mb-2">
-              Estilo e proteção juntos
-            </p>
-            <p className="font-body text-muted-foreground max-w-3xl mx-auto">
-              Colares com pedras naturais selecionadas, prontos para usar. 
-              Cada peça combina a beleza das pedras com contas de aço inoxidável.
+            <p className="font-body text-sm text-muted-foreground max-w-2xl mx-auto">
+              Colares com pedras naturais selecionadas, prontos para usar.
             </p>
           </motion.div>
-        </div>
-      </section>
-
-      {/* Specs Bar */}
-      <section className="section-padding py-6 border-y border-border/50 bg-card/50">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-12 text-sm">
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <span>📏 Comprimento: 45cm + 5cm extensão</span>
-            </div>
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <span>✨ Pedras naturais selecionadas</span>
-            </div>
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <span>🔗 Fecho aço inoxidável antialérgico</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Chain Options */}
-      <section className="section-padding py-6 bg-primary/5">
-        <div className="max-w-7xl mx-auto">
-          <h3 className="font-display text-center text-lg text-foreground mb-4">Escolha seu tipo de corrente</h3>
-          <div className="flex flex-wrap justify-center gap-6">
-            <div className="flex items-center gap-3 bg-card rounded-xl px-6 py-4 border border-border/50">
-              <span className="text-2xl">⛓️</span>
-              <div>
-                <p className="font-body font-semibold text-foreground text-sm">Corrente de Aço Inoxidável</p>
-                <p className="font-body text-xs text-muted-foreground">Durável, antialérgica e resistente à água</p>
-              </div>
-            </div>
-            <div className="flex items-center gap-3 bg-card rounded-xl px-6 py-4 border border-border/50">
-              <span className="text-2xl">🧵</span>
-              <div>
-                <p className="font-body font-semibold text-foreground text-sm">Cordão de Poliéster 1mm</p>
-                <p className="font-body text-xs text-muted-foreground">Leve, flexível e ajustável com nó corrediço</p>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
