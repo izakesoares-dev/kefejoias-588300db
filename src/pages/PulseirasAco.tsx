@@ -46,9 +46,9 @@ const PulseirasAco = () => {
         </div>
       </section>
 
-      <section className="section-padding py-12">
+      <section className="section-padding py-8">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-wrap justify-center gap-2 mb-10">
+          <div className="flex flex-wrap justify-center gap-2 mb-6">
             {filters.map((filter) => {
               const Icon = filter.icon;
               return (
