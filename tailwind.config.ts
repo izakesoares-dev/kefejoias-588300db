@@ -59,6 +59,8 @@ export default {
         copper: "hsl(var(--copper))",
         "warm-white": "hsl(var(--warm-white))",
         "warm-gray": "hsl(var(--warm-gray))",
+        "green-deep": "hsl(var(--green-deep))",
+        "green-dark": "hsl(var(--green-dark))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
