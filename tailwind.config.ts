@@ -69,6 +69,7 @@ export default {
           DEFAULT: "hsl(var(--olive))",
           light: "hsl(var(--olive-light))",
         },
+        "whatsapp-green": "hsl(var(--whatsapp-green))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
