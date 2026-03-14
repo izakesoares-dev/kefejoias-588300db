@@ -43,19 +43,15 @@ const MandalasResina = () => {
       <Navbar />
 
       {/* Hero */}
-      <section className="pt-24 pb-12 section-padding bg-gradient-to-b from-secondary/50 to-background">
+      <section className="pt-24 pb-2 section-padding bg-gradient-to-b from-secondary/50 to-background">
         <div className="max-w-7xl mx-auto">
           <Breadcrumbs items={[{ label: "Especiais", href: "/especiais" }, { label: "Mandalas" }]} />
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center">
-            <div className="gold-line mx-auto mb-4" />
-            <h1 className="font-display text-4xl md:text-5xl text-foreground mb-4">
+            <h1 className="font-display text-4xl md:text-5xl text-foreground mb-2">
               Mandalas em <span className="text-gradient-gold">Resina</span>
             </h1>
-            <p className="font-body text-lg text-muted-foreground max-w-2xl mx-auto mb-2">
-              A geometria da natureza
-            </p>
-            <p className="font-body text-muted-foreground max-w-3xl mx-auto">
-              Peças decorativas que unem flores, pedras e simbologia. Para pendurar na parede ou apoiar – disponíveis em 15cm e 20cm.
+            <p className="font-body text-sm text-muted-foreground max-w-2xl mx-auto">
+              Peças decorativas que unem flores, pedras e simbologia. Disponíveis em 15cm e 20cm.
             </p>
           </motion.div>
         </div>
