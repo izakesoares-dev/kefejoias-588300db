@@ -57,7 +57,7 @@ const Especiais = () => {
             >
               <Link
                 to={sub.href}
-                className="block bg-card border border-border rounded-lg p-6 hover:border-primary/50 transition-all group"
+                className="block bg-card border-2 border-green-deep/30 rounded-lg p-6 hover:border-green-deep transition-all group shadow-sm"
               >
                 <span className="text-3xl mb-3 block">{sub.icon}</span>
                 <h2 className="text-lg font-display text-foreground group-hover:text-primary transition-colors mb-1">
