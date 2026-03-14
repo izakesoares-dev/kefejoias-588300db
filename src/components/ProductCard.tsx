@@ -15,6 +15,9 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
   const { addItem } = useCart();
   const [activeThumb, setActiveThumb] = useState<"img" | number | "video">("img");
 
+  const DEFAULT_VIDEO = "/videos/como-descobrir-numero-anel.mp4";
+  const videoUrl = product.videoUrl || DEFAULT_VIDEO;
+
   const displayImages = product.images.length >= 3
     ? product.images.slice(0, 3)
     : [product.images[0], product.images[0], product.images[0]];
