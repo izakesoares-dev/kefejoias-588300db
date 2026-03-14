@@ -148,7 +148,7 @@ const Navbar = () => {
           </a>
           <button
             onClick={() => setIsCartOpen(true)}
-            className="relative text-primary/70 hover:text-primary transition-colors"
+            className="relative text-whatsapp-green hover:text-whatsapp-green/80 transition-colors"
           >
             <ShoppingBag size={20} />
             {totalItems > 0 && (
