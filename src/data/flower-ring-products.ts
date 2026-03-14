@@ -16,7 +16,7 @@ import ringFlorCravo from "@/assets/ring-flor-cravo.jpg";
 import ringFlorHortensia from "@/assets/ring-flor-hortensia.jpg";
 import ringFlorCerejeira from "@/assets/ring-flor-cerejeira.jpg";
 
-const sizes = [14, 15, 16, 17, 18, 19, 20, 21];
+const sizes = [14, 15, 16, 17, 18, 19, 20, 21, 22];
 
 export const flowerRings: Product[] = [
   {
