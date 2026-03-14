@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Ruler, Shield, Sparkles, Heart, Gem } from "lucide-react";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import ShippingFooter from "@/components/ShippingFooter";
 import {
   Dialog,
   DialogContent,
