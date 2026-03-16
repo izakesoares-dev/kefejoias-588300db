@@ -3,6 +3,18 @@ import { Sparkles, Ruler, Play, ChevronDown, ChevronUp, MessageCircle, Circle, L
 
 const MEASUREMENT_VIDEO = "/videos/como-descobrir-numero-anel-new.mp4";
 
+const SIZE_TABLE = [
+  { size: 14, mm: "16,2 mm", circ: "5,4 cm" },
+  { size: 15, mm: "16,4 mm", circ: "5,5 cm" },
+  { size: 16, mm: "16,7 mm", circ: "5,6 cm" },
+  { size: 17, mm: "17,2 mm", circ: "5,7 cm" },
+  { size: 18, mm: "17,5 mm", circ: "5,8 cm" },
+  { size: 19, mm: "17,8 mm", circ: "5,9 cm" },
+  { size: 20, mm: "18,2 mm", circ: "6,0 cm" },
+  { size: 21, mm: "18,5 mm", circ: "6,1 cm" },
+  { size: 22, mm: "18,9 mm", circ: "6,2 cm" },
+];
+
 const ArtisanBadge = () => {
   const [showVideo, setShowVideo] = useState(false);
   const [showGuide, setShowGuide] = useState(false);
