@@ -119,6 +119,8 @@ const RingProductCard = ({ product, index = 0 }: RingProductCardProps) => {
           <p className="text-xs text-muted-foreground font-body truncate">{product.significance}</p>
         </div>
 
+        <ArtisanBadge />
+
         {/* Preço + Pagamento */}
         <div className="flex items-center justify-between">
           <span className="whitespace-nowrap">

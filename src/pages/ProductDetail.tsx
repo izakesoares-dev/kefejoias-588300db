@@ -114,6 +114,8 @@ const ProductDetail = () => {
 
               <p className="font-body text-muted-foreground leading-relaxed">{product.description}</p>
 
+              <ArtisanBadge />
+
               {/* Size selector */}
               {product.sizes && (
                 <div>
