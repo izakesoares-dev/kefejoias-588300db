@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ShoppingBag, CreditCard, QrCode, Play } from "lucide-react";
+import ArtisanBadge from "@/components/ArtisanBadge";
 import { Product, formatPrice } from "@/data/products";
 import { useCart } from "@/contexts/CartContext";
 import { Button } from "@/components/ui/button";
@@ -117,6 +118,8 @@ const RingProductCard = ({ product, index = 0 }: RingProductCardProps) => {
           <h3 className="font-display text-base text-foreground leading-tight truncate">{product.name}</h3>
           <p className="text-xs text-muted-foreground font-body truncate">{product.significance}</p>
         </div>
+
+        <ArtisanBadge />
 
         {/* Preço + Pagamento */}
         <div className="flex items-center justify-between">
