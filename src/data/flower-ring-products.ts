@@ -37,7 +37,7 @@ export const flowerRings: Product[] = [
     price: 99.90,
     description: "Uma rosa vermelha real eternizada em resina cristalina — símbolo máximo do amor e da paixão. Cada anel é único, com pétalas preservadas para sempre. Base em aço inoxidável hipoalergênico.",
     shortDescription: "Rosa real eternizada em resina — amor eterno no seu dedo",
-    images: [ringFlorRosa, ringFlorRosa, ringFlorRosa],
+    images: [ringFlorSempreVivaRosa1, ringFlorSempreVivaRosa2, ringFlorSempreVivaRosa3],
     elements: [{ name: "Rosa Vermelha", meaning: "Amor eterno, paixão e gratidão", icon: "🌹" }],
     sizes,
     significance: "Amor eterno",
