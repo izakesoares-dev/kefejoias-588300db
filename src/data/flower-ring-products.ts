@@ -35,6 +35,7 @@ export const flowerRings: Product[] = [
     shortDescription:
       "Sempre-viva vermelha em resina, formato quadrado e presença marcante",
     images: [ringSvVermelha1, ringSvVermelha2, ringFlorSempreVivaRosa1],
+    videoUrl: "/videos/anel-sv-vermelha.mp4",
     elements: [
       {
         name: "Sempre-Viva Vermelha",
