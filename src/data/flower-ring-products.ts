@@ -341,6 +341,7 @@ export const flowerRings: Product[] = [
     shortDescription:
       "Mix radiante de sempre-vivas em resina cristalina",
     images: [ringSvVermelha2, ringFlorSempreVivaAmarela2, ringFlorSempreVivaMista],
+    videoUrl: "/videos/anel-sv-vermelha.mp4",
     elements: [
       {
         name: "Sempre-Viva Mista",
