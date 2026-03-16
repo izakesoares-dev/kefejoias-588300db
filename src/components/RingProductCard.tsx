@@ -112,7 +112,7 @@ const RingProductCard = ({ product, index = 0 }: RingProductCardProps) => {
       </div>
 
       {/* ===== Informações do produto (compacto) ===== */}
-      <div className="px-3 py-2 space-y-1">
+      <div className="px-2.5 py-1 space-y-0.5">
         {/* Título e descrição */}
         <div>
           <h3 className="font-display text-base text-foreground leading-tight truncate">{product.name}</h3>
