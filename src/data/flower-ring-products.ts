@@ -239,6 +239,7 @@ export const flowerRings: Product[] = [
     shortDescription:
       "Sempre-viva roxa quadrada em versão luxo",
     images: [ringSvRoxaQuad2, ringSvRoxaQuad1, ringFlorSempreVivaMista],
+    videoUrl: "/videos/anel-sv-roxa-quad.mp4",
     elements: [
       {
         name: "Sempre-Viva Roxa Luxo",
