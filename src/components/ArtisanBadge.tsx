@@ -77,9 +77,6 @@ const ArtisanBadge = () => {
               <p className="text-xs text-muted-foreground font-body leading-relaxed pl-4">
                 Pegue um anel que sirva no dedo desejado. Coloque sobre uma régua e meça o <strong className="text-foreground">diâmetro interno</strong> – a parte de dentro, de uma borda à outra. Depois compare com a tabela abaixo.
               </p>
-              <div className="pl-4">
-                <MethodVideo videoSrc={VIDEO_METODO_REGUA} label="Ver demonstração com régua" />
-              </div>
             </div>
 
             {/* Método 2 */}
