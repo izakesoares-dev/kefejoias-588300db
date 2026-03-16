@@ -70,7 +70,7 @@ export const flowerRings: Product[] = [
     price: 94.90,
     description: "Um pequeno girassol real eternizado em resina cristalina dourada. Símbolo de alegria, vitalidade e energia solar, este anel irradia positividade e otimismo. Peça artesanal única.",
     shortDescription: "Girassol real em resina — alegria, vitalidade e energia solar",
-    images: [ringFlorGirassol, ringFlorGirassol, ringFlorGirassol],
+    images: [ringFlorSempreVivaAmarela1, ringFlorSempreVivaAmarela2, ringFlorSempreVivaAmarela3],
     elements: [{ name: "Girassol", meaning: "Felicidade, vitalidade e energia solar", icon: "🌻" }],
     sizes,
     significance: "Alegria e vitalidade",
