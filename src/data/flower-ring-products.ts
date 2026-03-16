@@ -1,15 +1,5 @@
 import { Product } from "./products";
 
-import ringFlorRosa from "@/assets/ring-flor-rosa.jpg";
-import ringFlorLavanda from "@/assets/ring-flor-lavanda.jpg";
-import ringFlorGirassol from "@/assets/ring-flor-girassol.jpg";
-import ringFlorMargarida from "@/assets/ring-flor-margarida.jpg";
-import ringFlorPimenta from "@/assets/ring-flor-pimenta.jpg";
-import ringFlorPimentaRosa from "@/assets/ring-flor-pimenta-rosa.jpg";
-import ringFlorJasmin from "@/assets/ring-flor-jasmin.jpg";
-import ringFlorDenteLeao from "@/assets/ring-flor-dente-leao.jpg";
-import ringFlorLaranjeira from "@/assets/ring-flor-laranjeira.jpg";
-import ringFlorSempreViva from "@/assets/ring-flor-sempre-viva.jpg";
 import ringFlorSempreVivaVerde1 from "@/assets/ring-flor-sempre-viva-verde-1.jpg";
 import ringFlorSempreVivaVerde2 from "@/assets/ring-flor-sempre-viva-verde-2.jpg";
 import ringFlorSempreVivaAmarela1 from "@/assets/ring-flor-sempre-viva-amarela-1.jpg";
@@ -19,259 +9,384 @@ import ringFlorSempreVivaRosa1 from "@/assets/ring-flor-sempre-viva-rosa-1.jpg";
 import ringFlorSempreVivaRosa2 from "@/assets/ring-flor-sempre-viva-rosa-2.jpg";
 import ringFlorSempreVivaRosa3 from "@/assets/ring-flor-sempre-viva-rosa-3.jpg";
 import ringFlorSempreVivaMista from "@/assets/ring-flor-sempre-viva-mista.jpg";
-import ringFlorVioleta from "@/assets/ring-flor-violeta.jpg";
-import ringFlorOrquidea from "@/assets/ring-flor-orquidea.jpg";
-import ringFlorCravo from "@/assets/ring-flor-cravo.jpg";
-import ringFlorHortensia from "@/assets/ring-flor-hortensia.jpg";
-import ringFlorCerejeira from "@/assets/ring-flor-cerejeira.jpg";
+
+import ringSvVermelha1 from "@/assets/ring-sv-vermelha-1.jpg";
+import ringSvVermelha2 from "@/assets/ring-sv-vermelha-2.jpg";
+import ringSvRoxaDome1 from "@/assets/ring-sv-roxa-dome-1.jpg";
+import ringSvRoxaDome2 from "@/assets/ring-sv-roxa-dome-2.jpg";
+import ringSvRoxaDome3 from "@/assets/ring-sv-roxa-dome-3.jpg";
+import ringSvRoxaDome4 from "@/assets/ring-sv-roxa-dome-4.jpg";
+import ringSvRoxaQuad1 from "@/assets/ring-sv-roxa-quad-1.jpg";
+import ringSvRoxaQuad2 from "@/assets/ring-sv-roxa-quad-2.jpg";
+import ringSvRoxaQuad3 from "@/assets/ring-sv-roxa-quad-3.jpg";
 
 const sizes = [14, 15, 16, 17, 18, 19, 20, 21, 22];
 
 export const flowerRings: Product[] = [
   {
     id: "anel-flor-rosa",
-    name: "Anel Rosa Eterna",
+    name: "Anel Sempre-Viva Vermelha Quadrado",
     slug: "anel-flor-rosa",
     category: "anel",
     subcategory: "flores",
-    price: 99.90,
-    description: "Uma rosa vermelha real eternizada em resina cristalina — símbolo máximo do amor e da paixão. Cada anel é único, com pétalas preservadas para sempre. Base em aço inoxidável hipoalergênico.",
-    shortDescription: "Rosa real eternizada em resina — amor eterno no seu dedo",
-    images: [ringFlorSempreVivaRosa1, ringFlorSempreVivaRosa2, ringFlorSempreVivaRosa3],
-    elements: [{ name: "Rosa Vermelha", meaning: "Amor eterno, paixão e gratidão", icon: "🌹" }],
+    price: 99.9,
+    description:
+      "Sempre-viva vermelha eternizada em resina cristalina, em formato quadrado marcante. Biojoia artesanal que simboliza amor, força e memória afetiva.",
+    shortDescription:
+      "Sempre-viva vermelha em resina, formato quadrado e presença marcante",
+    images: [ringSvVermelha1, ringSvVermelha2, ringFlorSempreVivaRosa1],
+    elements: [
+      {
+        name: "Sempre-Viva Vermelha",
+        meaning: "Amor duradouro, paixão e vitalidade",
+        icon: "🌺",
+      },
+    ],
     sizes,
     significance: "Amor eterno",
-    relatedIds: ["anel-flor-lavanda", "anel-flor-cerejeira"],
+    relatedIds: ["anel-flor-pimenta", "anel-flor-cerejeira"],
     inStock: true,
     badge: "Mais vendido",
   },
   {
     id: "anel-flor-lavanda",
-    name: "Anel Lavanda",
+    name: "Anel Sempre-Viva Roxa Dome",
     slug: "anel-flor-lavanda",
     category: "anel",
     subcategory: "flores",
-    price: 89.90,
-    description: "Delicados ramos de lavanda real são eternizados em resina cristalina, trazendo calma e serenidade para o dia a dia. O aroma da lavanda é lembrado pela beleza visual desta biojoia artesanal.",
-    shortDescription: "Lavanda real em resina — calma, paz e purificação",
-    images: [ringFlorLavanda, ringFlorLavanda, ringFlorLavanda],
-    elements: [{ name: "Lavanda", meaning: "Calma, purificação e paz interior", icon: "💜" }],
+    price: 89.9,
+    description:
+      "Sempre-viva roxa em design dome arredondado, com acabamento translúcido e confortável no uso diário. Um modelo moderno e elegante.",
+    shortDescription:
+      "Sempre-viva roxa em formato dome arredondado e acabamento cristalino",
+    images: [ringSvRoxaDome1, ringSvRoxaDome2, ringSvRoxaDome3],
+    elements: [
+      {
+        name: "Sempre-Viva Roxa",
+        meaning: "Calma, intuição e equilíbrio emocional",
+        icon: "💜",
+      },
+    ],
     sizes,
-    significance: "Paz e serenidade",
-    relatedIds: ["anel-flor-rosa", "anel-flor-violeta"],
+    significance: "Serenidade e proteção",
+    relatedIds: ["anel-flor-violeta", "anel-flor-orquidea"],
     inStock: true,
   },
   {
     id: "anel-flor-girassol",
-    name: "Anel Girassol",
+    name: "Anel Sempre-Viva Amarela Solar",
     slug: "anel-flor-girassol",
     category: "anel",
     subcategory: "flores",
-    price: 94.90,
-    description: "Um pequeno girassol real eternizado em resina cristalina dourada. Símbolo de alegria, vitalidade e energia solar, este anel irradia positividade e otimismo. Peça artesanal única.",
-    shortDescription: "Girassol real em resina — alegria, vitalidade e energia solar",
+    price: 94.9,
+    description:
+      "Sempre-viva amarela preservada em resina cristalina, trazendo uma energia alegre e luminosa para o visual.",
+    shortDescription:
+      "Sempre-viva amarela em resina com energia solar e alegre",
     images: [ringFlorSempreVivaAmarela1, ringFlorSempreVivaAmarela2, ringFlorSempreVivaAmarela3],
-    elements: [{ name: "Girassol", meaning: "Felicidade, vitalidade e energia solar", icon: "🌻" }],
+    elements: [
+      {
+        name: "Sempre-Viva Amarela",
+        meaning: "Prosperidade, alegria e confiança",
+        icon: "🌼",
+      },
+    ],
     sizes,
-    significance: "Alegria e vitalidade",
-    relatedIds: ["anel-flor-margarida", "anel-flor-sempre-viva"],
+    significance: "Alegria e prosperidade",
+    relatedIds: ["anel-flor-cravo", "anel-flor-hortensia"],
     inStock: true,
     badge: "Popular",
   },
   {
     id: "anel-flor-margarida",
-    name: "Anel Margarida",
+    name: "Anel Sempre-Viva Mista",
     slug: "anel-flor-margarida",
     category: "anel",
     subcategory: "flores",
-    price: 84.90,
-    description: "A pureza e inocência da margarida eternizada em resina cristalina. Uma flor delicada que simboliza novos começos e simplicidade. Ideal para quem valoriza a beleza natural das coisas simples.",
-    shortDescription: "Margarida real em resina — pureza, inocência e novos começos",
-    images: [ringFlorMargarida, ringFlorMargarida, ringFlorMargarida],
-    elements: [{ name: "Margarida", meaning: "Pureza, inocência e alegria simples", icon: "🌼" }],
+    price: 84.9,
+    description:
+      "Composição de sempre-vivas em tonalidades variadas, criando um visual delicado, natural e único em cada peça.",
+    shortDescription:
+      "Mix de sempre-vivas em resina para um visual artesanal único",
+    images: [ringFlorSempreVivaMista, ringFlorSempreVivaVerde1, ringFlorSempreVivaVerde2],
+    elements: [
+      {
+        name: "Sempre-Viva Mista",
+        meaning: "Renovação, harmonia e leveza",
+        icon: "🌸",
+      },
+    ],
     sizes,
-    significance: "Pureza e inocência",
-    relatedIds: ["anel-flor-girassol", "anel-flor-sempre-viva"],
+    significance: "Harmonia e renovação",
+    relatedIds: ["anel-flor-sempre-viva", "anel-flor-hortensia"],
     inStock: true,
   },
   {
     id: "anel-flor-pimenta",
-    name: "Anel Pimenta Vermelha",
+    name: "Anel Sempre-Viva Vermelha Intensa",
     slug: "anel-flor-pimenta",
     category: "anel",
     subcategory: "flores",
-    price: 89.90,
-    description: "Pimenta vermelha real eternizada em resina cristalina — proteção energética poderosa no seu dedo. Afasta mau-olhado, inveja e energias negativas. Uma peça ousada e cheia de significado.",
-    shortDescription: "Pimenta vermelha em resina — proteção, força e afasta mau-olhado",
-    images: [ringFlorPimenta, ringFlorPimenta, ringFlorPimenta],
-    elements: [{ name: "Pimenta Vermelha", meaning: "Proteção energética, afasta mau-olhado e força vital", icon: "🌶️" }],
+    price: 89.9,
+    description:
+      "Variação intensa da sempre-viva vermelha em resina, com aspecto vibrante e elegante para compor looks com personalidade.",
+    shortDescription:
+      "Sempre-viva vermelha intensa com visual marcante e sofisticado",
+    images: [ringSvVermelha1, ringSvVermelha2, ringFlorSempreVivaRosa2],
+    elements: [
+      {
+        name: "Sempre-Viva Vermelha",
+        meaning: "Força, coragem e proteção afetiva",
+        icon: "❤️",
+      },
+    ],
     sizes,
-    significance: "Proteção e força",
-    relatedIds: ["anel-flor-pimenta-rosa", "anel-flor-cravo"],
+    significance: "Força e presença",
+    relatedIds: ["anel-flor-rosa", "anel-flor-cerejeira"],
     inStock: true,
     badge: "Mais vendido",
   },
   {
     id: "anel-flor-pimenta-rosa",
-    name: "Anel Pimenta Rosa",
+    name: "Anel Sempre-Viva Rosa Delicada",
     slug: "anel-flor-pimenta-rosa",
     category: "anel",
     subcategory: "flores",
-    price: 89.90,
-    description: "Delicadas pimentas rosas preservadas em resina cristalina. A pimenta rosa é símbolo de doçura e proteção suave. Uma peça feminina e elegante, perfeita para quem busca proteção com delicadeza.",
-    shortDescription: "Pimenta rosa em resina — proteção suave, doçura e feminilidade",
-    images: [ringFlorPimentaRosa, ringFlorPimentaRosa, ringFlorPimentaRosa],
-    elements: [{ name: "Pimenta Rosa", meaning: "Proteção suave, doçura e equilíbrio emocional", icon: "🌸" }],
+    price: 89.9,
+    description:
+      "Sempre-viva rosa em composição suave e feminina, eternizada em resina cristalina para uso diário.",
+    shortDescription:
+      "Sempre-viva rosa com delicadeza e toque romântico",
+    images: [ringFlorSempreVivaRosa1, ringFlorSempreVivaRosa2, ringFlorSempreVivaRosa3],
+    elements: [
+      {
+        name: "Sempre-Viva Rosa",
+        meaning: "Afeto, ternura e autocuidado",
+        icon: "🌷",
+      },
+    ],
     sizes,
-    significance: "Proteção e doçura",
-    relatedIds: ["anel-flor-pimenta", "anel-flor-rosa"],
+    significance: "Doçura e afeto",
+    relatedIds: ["anel-flor-rosa", "anel-flor-laranjeira"],
     inStock: true,
   },
   {
     id: "anel-flor-jasmin",
-    name: "Anel Jasmin",
+    name: "Anel Sempre-Viva Roxa Quadrado",
     slug: "anel-flor-jasmin",
     category: "anel",
     subcategory: "flores",
-    price: 94.90,
-    description: "Flores de jasmim real eternizadas em resina cristalina. O jasmim é a flor da sensualidade e da espiritualidade. Seu perfume é lembrado pela beleza delicada desta peça artesanal única.",
-    shortDescription: "Jasmim real em resina — sensualidade, pureza espiritual e delicadeza",
-    images: [ringFlorJasmin, ringFlorJasmin, ringFlorJasmin],
-    elements: [{ name: "Jasmim", meaning: "Sensualidade, pureza espiritual e amor divino", icon: "🤍" }],
+    price: 94.9,
+    description:
+      "Sempre-viva roxa em formato quadrado com visual contemporâneo. Uma peça artesanal que valoriza a beleza natural da flor.",
+    shortDescription:
+      "Sempre-viva roxa em formato quadrado moderno",
+    images: [ringSvRoxaQuad1, ringSvRoxaQuad2, ringSvRoxaQuad3],
+    elements: [
+      {
+        name: "Sempre-Viva Roxa",
+        meaning: "Espiritualidade, equilíbrio e criatividade",
+        icon: "🔮",
+      },
+    ],
     sizes,
-    significance: "Pureza e sensualidade",
-    relatedIds: ["anel-flor-laranjeira", "anel-flor-orquidea"],
+    significance: "Equilíbrio e intuição",
+    relatedIds: ["anel-flor-violeta", "anel-flor-orquidea"],
     inStock: true,
   },
   {
     id: "anel-flor-dente-leao",
-    name: "Anel Dente-de-Leão",
+    name: "Anel Sempre-Viva Roxa Dome Premium",
     slug: "anel-flor-dente-leao",
     category: "anel",
     subcategory: "flores",
-    price: 99.90,
-    description: "Um dente-de-leão completo eternizado em resina cristalina — símbolo de desejos, liberdade e transformação. Cada semente preservada representa um sonho que pode voar. Peça única e encantadora.",
-    shortDescription: "Dente-de-leão em resina — desejos, liberdade e transformação",
-    images: [ringFlorDenteLeao, ringFlorDenteLeao, ringFlorDenteLeao],
-    elements: [{ name: "Dente-de-Leão", meaning: "Desejos, liberdade, resiliência e transformação", icon: "🌬️" }],
+    price: 99.9,
+    description:
+      "Modelo dome premium com sempre-viva roxa em alta definição, com brilho intenso e excelente acabamento artesanal.",
+    shortDescription:
+      "Sempre-viva roxa dome premium com brilho intenso",
+    images: [ringSvRoxaDome2, ringSvRoxaDome4, ringSvRoxaDome3],
+    elements: [
+      {
+        name: "Sempre-Viva Roxa Premium",
+        meaning: "Transformação, proteção e elegância",
+        icon: "✨",
+      },
+    ],
     sizes,
-    significance: "Desejos e liberdade",
-    relatedIds: ["anel-flor-sempre-viva", "anel-flor-flores-campo"],
+    significance: "Transformação e proteção",
+    relatedIds: ["anel-flor-lavanda", "anel-flor-violeta"],
     inStock: true,
     badge: "Exclusivo",
   },
   {
     id: "anel-flor-laranjeira",
-    name: "Anel Flor de Laranjeira",
+    name: "Anel Sempre-Viva Roxa Quadrado Luxo",
     slug: "anel-flor-laranjeira",
     category: "anel",
     subcategory: "flores",
-    price: 99.90,
-    description: "A flor de laranjeira é símbolo de casamento, fertilidade e novos começos. Eternizada em resina cristalina, cria um anel perfeito para noivas, pedidos de casamento ou celebrações de amor.",
-    shortDescription: "Flor de laranjeira em resina — casamento, fertilidade e pureza",
-    images: [ringFlorLaranjeira, ringFlorLaranjeira, ringFlorLaranjeira],
-    elements: [{ name: "Flor de Laranjeira", meaning: "Casamento, fertilidade e pureza", icon: "🍊" }],
+    price: 99.9,
+    description:
+      "Versão luxo da sempre-viva roxa em formato quadrado, ideal para quem busca um anel expressivo e sofisticado.",
+    shortDescription:
+      "Sempre-viva roxa quadrada em versão luxo",
+    images: [ringSvRoxaQuad2, ringSvRoxaQuad1, ringFlorSempreVivaMista],
+    elements: [
+      {
+        name: "Sempre-Viva Roxa Luxo",
+        meaning: "Refinamento, estabilidade e beleza eterna",
+        icon: "💎",
+      },
+    ],
     sizes,
-    significance: "União e pureza",
-    relatedIds: ["anel-flor-jasmin", "anel-flor-rosa"],
+    significance: "Elegância e refinamento",
+    relatedIds: ["anel-flor-jasmin", "anel-flor-orquidea"],
     inStock: true,
     badge: "Especial",
   },
   {
     id: "anel-flor-sempre-viva",
-    name: "Anel Sempre-Viva",
+    name: "Anel Sempre-Viva Verde Natural",
     slug: "anel-flor-sempre-viva",
     category: "anel",
     subcategory: "flores",
-    price: 84.90,
-    description: "A sempre-viva é a flor da eternidade e da resistência. Preservada em resina cristalina, simboliza amor que nunca morre e memórias eternas. Uma peça delicada e cheia de significado.",
-    shortDescription: "Sempre-viva em resina — eternidade, resistência e amor imortal",
+    price: 84.9,
+    description:
+      "Sempre-viva em tons naturais de verde com estética orgânica e minimalista, preservada em resina transparente.",
+    shortDescription:
+      "Sempre-viva verde com visual natural e minimalista",
     images: [ringFlorSempreVivaVerde1, ringFlorSempreVivaVerde2, ringFlorSempreVivaMista],
-    elements: [{ name: "Sempre-Viva", meaning: "Eternidade, resistência e amor que nunca morre", icon: "🌾" }],
+    elements: [
+      {
+        name: "Sempre-Viva Verde",
+        meaning: "Cura, crescimento e renovação",
+        icon: "🌿",
+      },
+    ],
     sizes,
-    significance: "Eternidade e amor",
-    relatedIds: ["anel-flor-margarida", "anel-flor-dente-leao"],
+    significance: "Renovação e equilíbrio",
+    relatedIds: ["anel-flor-margarida", "anel-flor-hortensia"],
     inStock: true,
   },
   {
     id: "anel-flor-violeta",
-    name: "Anel Violeta",
+    name: "Anel Sempre-Viva Lilás Clássico",
     slug: "anel-flor-violeta",
     category: "anel",
     subcategory: "flores",
-    price: 89.90,
-    description: "Delicadas violetas reais preservadas em resina cristalina. A violeta é a flor da modéstia, lealdade e devoção. Seus tons lilás trazem calma e sofisticação a esta biojoia artesanal.",
-    shortDescription: "Violetas reais em resina — modéstia, lealdade e devoção",
-    images: [ringFlorVioleta, ringFlorVioleta, ringFlorVioleta],
-    elements: [{ name: "Violeta", meaning: "Modéstia, lealdade, devoção e espiritualidade", icon: "💟" }],
+    price: 89.9,
+    description:
+      "Sempre-viva lilás com acabamento clássico e versátil, combinando com diferentes estilos no dia a dia.",
+    shortDescription:
+      "Sempre-viva lilás clássica, versátil e elegante",
+    images: [ringSvRoxaDome1, ringSvRoxaDome4, ringSvRoxaQuad3],
+    elements: [
+      {
+        name: "Sempre-Viva Lilás",
+        meaning: "Sabedoria, sensibilidade e harmonia",
+        icon: "🪻",
+      },
+    ],
     sizes,
-    significance: "Lealdade e devoção",
-    relatedIds: ["anel-flor-lavanda", "anel-flor-hortensia"],
+    significance: "Sabedoria e harmonia",
+    relatedIds: ["anel-flor-lavanda", "anel-flor-jasmin"],
     inStock: true,
   },
   {
     id: "anel-flor-orquidea",
-    name: "Anel Orquídea",
+    name: "Anel Sempre-Viva Roxa Premium Quadrado",
     slug: "anel-flor-orquidea",
     category: "anel",
     subcategory: "flores",
-    price: 109.90,
-    description: "Uma orquídea real eternizada em resina cristalina — símbolo de luxo, beleza rara e amor refinado. Cada peça captura a elegância única desta flor exótica. Uma biojoia premium e sofisticada.",
-    shortDescription: "Orquídea real em resina — luxo, beleza rara e elegância",
-    images: [ringFlorOrquidea, ringFlorOrquidea, ringFlorOrquidea],
-    elements: [{ name: "Orquídea", meaning: "Luxo, beleza rara, amor refinado e perfeição", icon: "🌺" }],
+    price: 109.9,
+    description:
+      "Sempre-viva roxa premium em formato quadrado, com acabamento de alto padrão para composições sofisticadas.",
+    shortDescription:
+      "Sempre-viva roxa premium em quadrado sofisticado",
+    images: [ringSvRoxaQuad1, ringSvRoxaQuad2, ringSvRoxaDome1],
+    elements: [
+      {
+        name: "Sempre-Viva Roxa Premium",
+        meaning: "Nobreza, presença e autoconfiança",
+        icon: "👑",
+      },
+    ],
     sizes,
-    significance: "Luxo e elegância",
-    relatedIds: ["anel-flor-cerejeira", "anel-flor-jasmin"],
+    significance: "Presença e nobreza",
+    relatedIds: ["anel-flor-jasmin", "anel-flor-laranjeira"],
     inStock: true,
     badge: "Premium",
   },
   {
     id: "anel-flor-cravo",
-    name: "Anel Cravo",
+    name: "Anel Sempre-Viva Mista Radiante",
     slug: "anel-flor-cravo",
     category: "anel",
     subcategory: "flores",
-    price: 89.90,
-    description: "O cravo é a flor do fascínio e da distinção. Eternizado em resina cristalina, suas pétalas exuberantes criam um anel marcante e cheio de personalidade. Símbolo de amor profundo e admiração.",
-    shortDescription: "Cravo real em resina — fascínio, distinção e amor profundo",
-    images: [ringFlorCravo, ringFlorCravo, ringFlorCravo],
-    elements: [{ name: "Cravo", meaning: "Fascínio, distinção, amor profundo e admiração", icon: "🌷" }],
+    price: 89.9,
+    description:
+      "Composição radiante de sempre-vivas com mix de tons quentes e frios, resultando em uma biojoia expressiva.",
+    shortDescription:
+      "Mix radiante de sempre-vivas em resina cristalina",
+    images: [ringSvVermelha2, ringFlorSempreVivaAmarela2, ringFlorSempreVivaMista],
+    elements: [
+      {
+        name: "Sempre-Viva Mista",
+        meaning: "Vitalidade, alegria e movimento",
+        icon: "🌈",
+      },
+    ],
     sizes,
-    significance: "Fascínio e admiração",
-    relatedIds: ["anel-flor-rosa", "anel-flor-pimenta"],
+    significance: "Energia e vitalidade",
+    relatedIds: ["anel-flor-girassol", "anel-flor-rosa"],
     inStock: true,
   },
   {
     id: "anel-flor-hortensia",
-    name: "Anel Hortênsia",
+    name: "Anel Sempre-Viva Roxa Contemporâneo",
     slug: "anel-flor-hortensia",
     category: "anel",
     subcategory: "flores",
-    price: 94.90,
-    description: "Pétalas de hortênsia azul eternizadas em resina cristalina. A hortênsia representa gratidão, abundância e emoção sincera. Seus tons azuis trazem sofisticação e frescor a esta peça artesanal.",
-    shortDescription: "Hortênsia azul em resina — gratidão, abundância e emoção sincera",
-    images: [ringFlorHortensia, ringFlorHortensia, ringFlorHortensia],
-    elements: [{ name: "Hortênsia", meaning: "Gratidão, abundância e emoção sincera", icon: "💙" }],
+    price: 94.9,
+    description:
+      "Design contemporâneo com sempre-viva roxa, unindo acabamento moderno e visual artístico.",
+    shortDescription:
+      "Sempre-viva roxa com design contemporâneo",
+    images: [ringSvRoxaQuad3, ringSvRoxaDome3, ringFlorSempreVivaVerde2],
+    elements: [
+      {
+        name: "Sempre-Viva Roxa",
+        meaning: "Criatividade, presença e autenticidade",
+        icon: "🎨",
+      },
+    ],
     sizes,
-    significance: "Gratidão e abundância",
-    relatedIds: ["anel-flor-violeta", "anel-flor-cerejeira"],
+    significance: "Autenticidade e estilo",
+    relatedIds: ["anel-flor-violeta", "anel-flor-sempre-viva"],
     inStock: true,
   },
   {
     id: "anel-flor-cerejeira",
-    name: "Anel Flor de Cerejeira",
+    name: "Anel Sempre-Viva Rosa & Roxa",
     slug: "anel-flor-cerejeira",
     category: "anel",
     subcategory: "flores",
-    price: 99.90,
-    description: "Flores de cerejeira reais preservadas em resina cristalina. A cerejeira simboliza a beleza efêmera da vida e o renascimento. Seus tons rosados delicados criam uma peça romântica e poética.",
-    shortDescription: "Flor de cerejeira em resina — beleza efêmera, renascimento e poesia",
-    images: [ringFlorCerejeira, ringFlorCerejeira, ringFlorCerejeira],
-    elements: [{ name: "Flor de Cerejeira", meaning: "Beleza efêmera, renascimento e renovação", icon: "🌸" }],
+    price: 99.9,
+    description:
+      "Combinação de sempre-vivas em tons rosa e roxo para um visual delicado e elegante, com acabamento artesanal.",
+    shortDescription:
+      "Mix de sempre-viva rosa e roxa em peça artesanal",
+    images: [ringFlorSempreVivaRosa3, ringSvRoxaQuad2, ringSvVermelha1],
+    elements: [
+      {
+        name: "Sempre-Viva Rosa & Roxa",
+        meaning: "Amor, intuição e sensibilidade",
+        icon: "💐",
+      },
+    ],
     sizes,
-    significance: "Beleza e renascimento",
-    relatedIds: ["anel-flor-orquidea", "anel-flor-rosa"],
+    significance: "Sensibilidade e beleza",
+    relatedIds: ["anel-flor-rosa", "anel-flor-violeta"],
     inStock: true,
     badge: "Novo",
   },
