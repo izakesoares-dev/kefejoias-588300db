@@ -213,6 +213,7 @@ export const flowerRings: Product[] = [
     shortDescription:
       "Sempre-viva roxa dome premium com brilho intenso",
     images: [ringSvRoxaDome2, ringSvRoxaDome4, ringSvRoxaDome3],
+    videoUrl: "/videos/anel-sv-roxa-dome.mp4",
     elements: [
       {
         name: "Sempre-Viva Roxa Premium",
