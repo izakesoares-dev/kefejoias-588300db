@@ -19,7 +19,7 @@ interface RingProductCardProps {
 }
 
 const SHOWCASE_VIDEO = "/videos/aneis-showcase.mp4";
-const MEASUREMENT_VIDEO = "/videos/como-descobrir-numero-anel.mp4";
+const MEASUREMENT_VIDEO = "/videos/como-descobrir-numero-anel-new.mp4";
 
 const RingProductCard = ({ product, index = 0 }: RingProductCardProps) => {
   const { addItem } = useCart();

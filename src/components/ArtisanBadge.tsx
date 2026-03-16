@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Sparkles, Ruler, Play, ChevronDown, ChevronUp, MessageCircle } from "lucide-react";
 
-const MEASUREMENT_VIDEO = "/videos/como-descobrir-numero-anel.mp4";
+const MEASUREMENT_VIDEO = "/videos/como-descobrir-numero-anel-new.mp4";
 
 const SIZE_TABLE = [
   { size: 14, mm: "14,5 mm" },
