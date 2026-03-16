@@ -35,6 +35,7 @@ export const flowerRings: Product[] = [
     shortDescription:
       "Sempre-viva vermelha em resina, formato quadrado e presença marcante",
     images: [ringSvVermelha1, ringSvVermelha2, ringFlorSempreVivaRosa1],
+    videoUrl: "/videos/anel-sv-vermelha.mp4",
     elements: [
       {
         name: "Sempre-Viva Vermelha",
@@ -60,6 +61,7 @@ export const flowerRings: Product[] = [
     shortDescription:
       "Sempre-viva roxa em formato dome arredondado e acabamento cristalino",
     images: [ringSvRoxaDome1, ringSvRoxaDome2, ringSvRoxaDome3],
+    videoUrl: "/videos/anel-sv-roxa-dome.mp4",
     elements: [
       {
         name: "Sempre-Viva Roxa",
@@ -84,6 +86,7 @@ export const flowerRings: Product[] = [
     shortDescription:
       "Sempre-viva amarela em resina com energia solar e alegre",
     images: [ringFlorSempreVivaAmarela1, ringFlorSempreVivaAmarela2, ringFlorSempreVivaAmarela3],
+    videoUrl: "/videos/anel-sv-vermelha.mp4",
     elements: [
       {
         name: "Sempre-Viva Amarela",
@@ -109,6 +112,7 @@ export const flowerRings: Product[] = [
     shortDescription:
       "Mix de sempre-vivas em resina para um visual artesanal único",
     images: [ringFlorSempreVivaMista, ringFlorSempreVivaVerde1, ringFlorSempreVivaVerde2],
+    videoUrl: "/videos/anel-sv-roxa-dome.mp4",
     elements: [
       {
         name: "Sempre-Viva Mista",
@@ -133,6 +137,7 @@ export const flowerRings: Product[] = [
     shortDescription:
       "Sempre-viva vermelha intensa com visual marcante e sofisticado",
     images: [ringSvVermelha1, ringSvVermelha2, ringFlorSempreVivaRosa2],
+    videoUrl: "/videos/anel-sv-vermelha.mp4",
     elements: [
       {
         name: "Sempre-Viva Vermelha",
@@ -158,6 +163,7 @@ export const flowerRings: Product[] = [
     shortDescription:
       "Sempre-viva rosa com delicadeza e toque romântico",
     images: [ringFlorSempreVivaRosa1, ringFlorSempreVivaRosa2, ringFlorSempreVivaRosa3],
+    videoUrl: "/videos/anel-sv-vermelha.mp4",
     elements: [
       {
         name: "Sempre-Viva Rosa",
@@ -182,6 +188,7 @@ export const flowerRings: Product[] = [
     shortDescription:
       "Sempre-viva roxa em formato quadrado moderno",
     images: [ringSvRoxaQuad1, ringSvRoxaQuad2, ringSvRoxaQuad3],
+    videoUrl: "/videos/anel-sv-roxa-quad.mp4",
     elements: [
       {
         name: "Sempre-Viva Roxa",
@@ -206,6 +213,7 @@ export const flowerRings: Product[] = [
     shortDescription:
       "Sempre-viva roxa dome premium com brilho intenso",
     images: [ringSvRoxaDome2, ringSvRoxaDome4, ringSvRoxaDome3],
+    videoUrl: "/videos/anel-sv-roxa-dome.mp4",
     elements: [
       {
         name: "Sempre-Viva Roxa Premium",
@@ -231,6 +239,7 @@ export const flowerRings: Product[] = [
     shortDescription:
       "Sempre-viva roxa quadrada em versão luxo",
     images: [ringSvRoxaQuad2, ringSvRoxaQuad1, ringFlorSempreVivaMista],
+    videoUrl: "/videos/anel-sv-roxa-quad.mp4",
     elements: [
       {
         name: "Sempre-Viva Roxa Luxo",
@@ -256,6 +265,7 @@ export const flowerRings: Product[] = [
     shortDescription:
       "Sempre-viva verde com visual natural e minimalista",
     images: [ringFlorSempreVivaVerde1, ringFlorSempreVivaVerde2, ringFlorSempreVivaMista],
+    videoUrl: "/videos/anel-sv-roxa-dome.mp4",
     elements: [
       {
         name: "Sempre-Viva Verde",
@@ -280,6 +290,7 @@ export const flowerRings: Product[] = [
     shortDescription:
       "Sempre-viva lilás clássica, versátil e elegante",
     images: [ringSvRoxaDome1, ringSvRoxaDome4, ringSvRoxaQuad3],
+    videoUrl: "/videos/anel-sv-roxa-dome.mp4",
     elements: [
       {
         name: "Sempre-Viva Lilás",
@@ -304,6 +315,7 @@ export const flowerRings: Product[] = [
     shortDescription:
       "Sempre-viva roxa premium em quadrado sofisticado",
     images: [ringSvRoxaQuad1, ringSvRoxaQuad2, ringSvRoxaDome1],
+    videoUrl: "/videos/anel-sv-roxa-quad.mp4",
     elements: [
       {
         name: "Sempre-Viva Roxa Premium",
@@ -329,6 +341,7 @@ export const flowerRings: Product[] = [
     shortDescription:
       "Mix radiante de sempre-vivas em resina cristalina",
     images: [ringSvVermelha2, ringFlorSempreVivaAmarela2, ringFlorSempreVivaMista],
+    videoUrl: "/videos/anel-sv-vermelha.mp4",
     elements: [
       {
         name: "Sempre-Viva Mista",
@@ -353,6 +366,7 @@ export const flowerRings: Product[] = [
     shortDescription:
       "Sempre-viva roxa com design contemporâneo",
     images: [ringSvRoxaQuad3, ringSvRoxaDome3, ringFlorSempreVivaVerde2],
+    videoUrl: "/videos/anel-sv-roxa-quad.mp4",
     elements: [
       {
         name: "Sempre-Viva Roxa",
@@ -377,6 +391,7 @@ export const flowerRings: Product[] = [
     shortDescription:
       "Mix de sempre-viva rosa e roxa em peça artesanal",
     images: [ringFlorSempreVivaRosa3, ringSvRoxaQuad2, ringSvVermelha1],
+    videoUrl: "/videos/anel-sv-vermelha.mp4",
     elements: [
       {
         name: "Sempre-Viva Rosa & Roxa",
