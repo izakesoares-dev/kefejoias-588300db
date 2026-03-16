@@ -186,7 +186,7 @@ export const flowerRings: Product[] = [
     price: 84.90,
     description: "A sempre-viva é a flor da eternidade e da resistência. Preservada em resina cristalina, simboliza amor que nunca morre e memórias eternas. Uma peça delicada e cheia de significado.",
     shortDescription: "Sempre-viva em resina — eternidade, resistência e amor imortal",
-    images: [ringFlorSempreViva, ringFlorSempreViva, ringFlorSempreViva],
+    images: [ringFlorSempreVivaVerde1, ringFlorSempreVivaVerde2, ringFlorSempreVivaMista],
     elements: [{ name: "Sempre-Viva", meaning: "Eternidade, resistência e amor que nunca morre", icon: "🌾" }],
     sizes,
     significance: "Eternidade e amor",
