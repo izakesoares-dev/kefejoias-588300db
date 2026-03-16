@@ -32,22 +32,19 @@ const ArtisanBadge = () => {
         {!showVideo ? (
           <button
             onClick={() => setShowVideo(true)}
-            className="relative w-full aspect-video rounded-lg overflow-hidden bg-black/10 group cursor-pointer"
+            className="relative w-full h-11 rounded-lg overflow-hidden bg-black/60 group cursor-pointer flex items-center gap-2.5 px-3"
           >
-            <video src={MEASUREMENT_VIDEO} className="w-full h-full object-cover" muted preload="metadata" />
-            <div className="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/30 transition-colors">
-              <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center shadow-lg">
-                <Play size={18} className="text-primary-foreground ml-0.5" />
-              </div>
+            <div className="w-7 h-7 rounded-full bg-primary flex items-center justify-center shrink-0">
+              <Play size={13} className="text-primary-foreground ml-0.5" />
             </div>
-            <span className="absolute bottom-2 left-2 text-[10px] text-white font-body font-semibold bg-black/50 px-2 py-0.5 rounded">
+            <span className="text-xs text-white font-body font-semibold">
               📏 Como descobrir seu número
             </span>
           </button>
         ) : (
           <video
             src={MEASUREMENT_VIDEO}
-            className="w-full aspect-video rounded-lg"
+            className="w-full rounded-lg"
             controls
             autoPlay
             playsInline
