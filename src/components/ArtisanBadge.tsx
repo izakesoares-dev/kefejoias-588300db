@@ -84,10 +84,10 @@ const ArtisanBadge = () => {
             <div className="space-y-1">
               <p className="text-xs font-body font-bold text-foreground flex items-center gap-1.5">
                 <Circle size={10} className="text-whatsapp-green fill-whatsapp-green" />
-                Método 1 (anel que já serve):
+                Método 1: Com um anel que você já tem
               </p>
               <p className="text-xs text-muted-foreground font-body leading-relaxed pl-4">
-                Meça o <strong className="text-foreground">diâmetro interno</strong> (parte de dentro, de uma borda à outra) com uma régua e compare com a tabela.
+                Pegue um anel que sirva no dedo desejado. Coloque sobre uma régua e meça o <strong className="text-foreground">diâmetro interno</strong> – a parte de dentro, de uma borda à outra. Depois compare com a tabela abaixo.
               </p>
             </div>
 
@@ -95,10 +95,21 @@ const ArtisanBadge = () => {
             <div className="space-y-1">
               <p className="text-xs font-body font-bold text-foreground flex items-center gap-1.5">
                 <Circle size={10} className="text-whatsapp-green fill-whatsapp-green" />
-                Método 2 (medir o dedo):
+                Método 2: Medindo o dedo com barbante ou fita
               </p>
               <p className="text-xs text-muted-foreground font-body leading-relaxed pl-4">
-                Use um barbante ou tira de papel, dê uma volta no dedo, marque e meça com régua. Depois confira na tabela.
+                Enrole um barbante ou tira de papel na <strong className="text-foreground">base do dedo</strong>, sem apertar. Marque onde encontra a outra ponta, estique sobre uma régua e confira a <strong className="text-foreground">circunferência</strong> na tabela.
+              </p>
+            </div>
+
+            {/* Método 3 */}
+            <div className="space-y-1">
+              <p className="text-xs font-body font-bold text-foreground flex items-center gap-1.5">
+                <Circle size={10} className="text-whatsapp-green fill-whatsapp-green" />
+                Método 3: Usando uma aneleira
+              </p>
+              <p className="text-xs text-muted-foreground font-body leading-relaxed pl-4">
+                É um kit com aros numerados — experimente até achar o mais confortável. Joalherias costumam ter esse medidor e podem ajudar!
               </p>
             </div>
 
@@ -109,8 +120,8 @@ const ArtisanBadge = () => {
                 Dicas importantes:
               </p>
               <ul className="text-xs text-muted-foreground font-body space-y-0.5 list-none pl-5">
-                <li>• Meça no final do dia (dedos mais inchadinhos)</li>
-                <li>• Se ficar entre dois números, escolha o maior</li>
+                <li>• Meça no final do dia, quando os dedos estão mais quentes</li>
+                <li>• Se ficar entre dois números, escolha o maior — melhor folgado que apertado</li>
                 <li>• Em caso de dúvida, entre em contato!</li>
               </ul>
             </div>
@@ -119,13 +130,19 @@ const ArtisanBadge = () => {
             <div className="space-y-1.5">
               <p className="text-xs font-body font-bold text-foreground flex items-center gap-1.5">
                 <Sparkles size={13} className="text-whatsapp-green" />
-                Tabela de medidas (diâmetro interno):
+                Tabela de medidas:
               </p>
-              <div className="grid grid-cols-3 gap-x-2 gap-y-0.5">
-                {SIZE_TABLE.map(({ size, mm }) => (
-                  <div key={size} className="flex items-center justify-between text-xs font-body py-0.5 px-1.5 rounded bg-background/60">
-                    <span className="font-semibold text-foreground">{size}</span>
-                    <span className="text-muted-foreground">→ {mm}</span>
+              <div className="grid grid-cols-1 gap-y-0.5">
+                <div className="flex items-center text-[10px] font-body font-bold text-muted-foreground px-1.5 pb-0.5">
+                  <span className="w-10">Tam.</span>
+                  <span className="flex-1">Diâmetro</span>
+                  <span className="flex-1 text-right">Circunf.</span>
+                </div>
+                {SIZE_TABLE.map(({ size, mm, circ }) => (
+                  <div key={size} className="flex items-center text-xs font-body py-0.5 px-1.5 rounded bg-background/60">
+                    <span className="w-10 font-semibold text-foreground">{size}</span>
+                    <span className="flex-1 text-muted-foreground">{mm}</span>
+                    <span className="flex-1 text-right text-muted-foreground">{circ}</span>
                   </div>
                 ))}
               </div>
@@ -133,7 +150,7 @@ const ArtisanBadge = () => {
 
             {/* CTA contato */}
             <a
-              href="https://wa.me/5511999999999?text=Olá! Preciso de ajuda para descobrir meu número de anel."
+              href="https://wa.me/5511996470414?text=Olá! Preciso de ajuda para descobrir meu número de anel."
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 text-xs font-body font-semibold text-whatsapp-green hover:text-whatsapp-green/80 transition-colors"
