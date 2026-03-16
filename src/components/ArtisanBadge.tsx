@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { Sparkles, Ruler, Play, ChevronDown, ChevronUp, MessageCircle, Circle, Lightbulb } from "lucide-react";
+import metodoReguaAsset from "/videos/metodo-regua.mp4.asset.json";
+import metodoBarbanteAsset from "/videos/metodo-barbante.mp4.asset.json";
+import metodoAneleiraAsset from "/videos/metodo-aneleira.mp4.asset.json";
 
 const MEASUREMENT_VIDEO = "/videos/como-descobrir-numero-anel-new.mp4";
 
