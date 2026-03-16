@@ -290,6 +290,7 @@ export const flowerRings: Product[] = [
     shortDescription:
       "Sempre-viva lilás clássica, versátil e elegante",
     images: [ringSvRoxaDome1, ringSvRoxaDome4, ringSvRoxaQuad3],
+    videoUrl: "/videos/anel-sv-roxa-dome.mp4",
     elements: [
       {
         name: "Sempre-Viva Lilás",
