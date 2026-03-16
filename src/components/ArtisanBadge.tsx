@@ -3,59 +3,6 @@ import { Sparkles, Ruler, Play, ChevronDown, ChevronUp, MessageCircle, Circle, L
 
 const MEASUREMENT_VIDEO = "/videos/como-descobrir-numero-anel-new.mp4";
 
-const VIDEO_METODO_REGUA = "/__l5e/assets-v1/0b407444-5191-4cdf-89fc-7865d2e7a808/metodo-regua.mp4";
-const VIDEO_METODO_BARBANTE = "/__l5e/assets-v1/349f37d6-3bf0-4dcd-8ea1-c115b3014f7a/metodo-barbante.mp4";
-const VIDEO_METODO_ANELEIRA = "/__l5e/assets-v1/6a39c4f2-cc30-42ac-818f-5fbaf0dac37d/metodo-aneleira.mp4";
-
-const SIZE_TABLE = [
-  { size: 14, mm: "16,2 mm", circ: "5,4 cm" },
-  { size: 15, mm: "16,4 mm", circ: "5,5 cm" },
-  { size: 16, mm: "16,7 mm", circ: "5,6 cm" },
-  { size: 17, mm: "17,2 mm", circ: "5,7 cm" },
-  { size: 18, mm: "17,5 mm", circ: "5,8 cm" },
-  { size: 19, mm: "17,8 mm", circ: "5,9 cm" },
-  { size: 20, mm: "18,2 mm", circ: "6,0 cm" },
-  { size: 21, mm: "18,5 mm", circ: "6,1 cm" },
-  { size: 22, mm: "18,9 mm", circ: "6,2 cm" },
-];
-
-interface MethodVideoProps {
-  videoSrc: string;
-  label: string;
-}
-
-const MethodVideo = ({ videoSrc, label }: MethodVideoProps) => {
-  const [playing, setPlaying] = useState(false);
-
-  if (!playing) {
-    return (
-      <button
-        onClick={() => setPlaying(true)}
-        className="relative w-full h-20 rounded-lg overflow-hidden bg-black/60 group cursor-pointer flex items-center gap-2.5 px-3 mt-1"
-      >
-        <div className="w-7 h-7 rounded-full bg-whatsapp-green flex items-center justify-center shrink-0">
-          <Play size={13} className="text-primary-foreground ml-0.5" />
-        </div>
-        <span className="text-xs text-white font-body font-semibold">
-          ▶ {label}
-        </span>
-      </button>
-    );
-  }
-
-  return (
-    <video
-      src={videoSrc}
-      className="w-full rounded-lg mt-1"
-      controls
-      autoPlay
-      playsInline
-      muted
-      loop
-    />
-  );
-};
-
 const ArtisanBadge = () => {
   const [showVideo, setShowVideo] = useState(false);
   const [showGuide, setShowGuide] = useState(false);
