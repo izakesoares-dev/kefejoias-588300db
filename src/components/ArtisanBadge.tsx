@@ -20,7 +20,7 @@ const ArtisanBadge = () => {
   const [showGuide, setShowGuide] = useState(false);
 
   return (
-    <div className="space-y-0.5">
+    <div className="space-y-0">
       {/* Selo Peça Única */}
       <div className="rounded-xl border border-primary/30 bg-[#F9F6F0] dark:bg-card px-3 py-2 space-y-1">
         <p className="font-display text-sm font-bold text-foreground flex items-center gap-1.5">
