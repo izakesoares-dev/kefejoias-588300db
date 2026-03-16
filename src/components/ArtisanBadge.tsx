@@ -88,9 +88,6 @@ const ArtisanBadge = () => {
               <p className="text-xs text-muted-foreground font-body leading-relaxed pl-4">
                 Enrole um barbante ou tira de papel na <strong className="text-foreground">base do dedo</strong>, sem apertar. Marque onde encontra a outra ponta, estique sobre uma régua e confira a <strong className="text-foreground">circunferência</strong> na tabela.
               </p>
-              <div className="pl-4">
-                <MethodVideo videoSrc={VIDEO_METODO_BARBANTE} label="Ver demonstração com barbante" />
-              </div>
             </div>
 
             {/* Método 3 */}
