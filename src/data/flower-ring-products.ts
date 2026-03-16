@@ -391,6 +391,7 @@ export const flowerRings: Product[] = [
     shortDescription:
       "Mix de sempre-viva rosa e roxa em peça artesanal",
     images: [ringFlorSempreVivaRosa3, ringSvRoxaQuad2, ringSvVermelha1],
+    videoUrl: "/videos/anel-sv-vermelha.mp4",
     elements: [
       {
         name: "Sempre-Viva Rosa & Roxa",
