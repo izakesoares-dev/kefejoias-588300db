@@ -99,9 +99,6 @@ const ArtisanBadge = () => {
               <p className="text-xs text-muted-foreground font-body leading-relaxed pl-4">
                 É um kit com aros numerados — experimente até achar o mais confortável. Joalherias costumam ter esse medidor e podem ajudar!
               </p>
-              <div className="pl-4">
-                <MethodVideo videoSrc={VIDEO_METODO_ANELEIRA} label="Ver demonstração com aneleira" />
-              </div>
             </div>
 
             {/* Dicas */}
