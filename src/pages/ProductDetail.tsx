@@ -12,6 +12,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import SEOHead, { productJsonLd, breadcrumbJsonLd } from "@/components/SEOHead";
+import ArtisanBadge from "@/components/ArtisanBadge";
 
 const ProductDetail = () => {
   const { slug } = useParams<{ slug: string }>();
