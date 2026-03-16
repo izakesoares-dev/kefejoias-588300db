@@ -137,6 +137,7 @@ export const flowerRings: Product[] = [
     shortDescription:
       "Sempre-viva vermelha intensa com visual marcante e sofisticado",
     images: [ringSvVermelha1, ringSvVermelha2, ringFlorSempreVivaRosa2],
+    videoUrl: "/videos/anel-sv-vermelha.mp4",
     elements: [
       {
         name: "Sempre-Viva Vermelha",
