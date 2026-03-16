@@ -57,13 +57,21 @@ const ArtisanBadge = () => {
             </span>
           </button>
         ) : (
-          <video
-            src={MEASUREMENT_VIDEO}
-            className="w-full rounded-lg"
-            controls
-            autoPlay
-            playsInline
-          />
+          <div className="relative">
+            <video
+              src={MEASUREMENT_VIDEO}
+              className="w-full rounded-lg max-h-40"
+              controls
+              autoPlay
+              playsInline
+            />
+            <button
+              onClick={() => setShowVideo(false)}
+              className="absolute top-1 right-1 w-6 h-6 rounded-full bg-black/60 text-white flex items-center justify-center text-xs hover:bg-black/80 transition-colors"
+            >
+              ✕
+            </button>
+          </div>
         )}
 
         {/* Guia completo expansível */}
