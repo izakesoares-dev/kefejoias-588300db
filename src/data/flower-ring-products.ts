@@ -10,6 +10,15 @@ import ringFlorJasmin from "@/assets/ring-flor-jasmin.jpg";
 import ringFlorDenteLeao from "@/assets/ring-flor-dente-leao.jpg";
 import ringFlorLaranjeira from "@/assets/ring-flor-laranjeira.jpg";
 import ringFlorSempreViva from "@/assets/ring-flor-sempre-viva.jpg";
+import ringFlorSempreVivaVerde1 from "@/assets/ring-flor-sempre-viva-verde-1.jpg";
+import ringFlorSempreVivaVerde2 from "@/assets/ring-flor-sempre-viva-verde-2.jpg";
+import ringFlorSempreVivaAmarela1 from "@/assets/ring-flor-sempre-viva-amarela-1.jpg";
+import ringFlorSempreVivaAmarela2 from "@/assets/ring-flor-sempre-viva-amarela-2.jpg";
+import ringFlorSempreVivaAmarela3 from "@/assets/ring-flor-sempre-viva-amarela-3.jpg";
+import ringFlorSempreVivaRosa1 from "@/assets/ring-flor-sempre-viva-rosa-1.jpg";
+import ringFlorSempreVivaRosa2 from "@/assets/ring-flor-sempre-viva-rosa-2.jpg";
+import ringFlorSempreVivaRosa3 from "@/assets/ring-flor-sempre-viva-rosa-3.jpg";
+import ringFlorSempreVivaMista from "@/assets/ring-flor-sempre-viva-mista.jpg";
 import ringFlorVioleta from "@/assets/ring-flor-violeta.jpg";
 import ringFlorOrquidea from "@/assets/ring-flor-orquidea.jpg";
 import ringFlorCravo from "@/assets/ring-flor-cravo.jpg";
@@ -28,7 +37,7 @@ export const flowerRings: Product[] = [
     price: 99.90,
     description: "Uma rosa vermelha real eternizada em resina cristalina — símbolo máximo do amor e da paixão. Cada anel é único, com pétalas preservadas para sempre. Base em aço inoxidável hipoalergênico.",
     shortDescription: "Rosa real eternizada em resina — amor eterno no seu dedo",
-    images: [ringFlorRosa, ringFlorRosa, ringFlorRosa],
+    images: [ringFlorSempreVivaRosa1, ringFlorSempreVivaRosa2, ringFlorSempreVivaRosa3],
     elements: [{ name: "Rosa Vermelha", meaning: "Amor eterno, paixão e gratidão", icon: "🌹" }],
     sizes,
     significance: "Amor eterno",
@@ -61,7 +70,7 @@ export const flowerRings: Product[] = [
     price: 94.90,
     description: "Um pequeno girassol real eternizado em resina cristalina dourada. Símbolo de alegria, vitalidade e energia solar, este anel irradia positividade e otimismo. Peça artesanal única.",
     shortDescription: "Girassol real em resina — alegria, vitalidade e energia solar",
-    images: [ringFlorGirassol, ringFlorGirassol, ringFlorGirassol],
+    images: [ringFlorSempreVivaAmarela1, ringFlorSempreVivaAmarela2, ringFlorSempreVivaAmarela3],
     elements: [{ name: "Girassol", meaning: "Felicidade, vitalidade e energia solar", icon: "🌻" }],
     sizes,
     significance: "Alegria e vitalidade",
@@ -177,7 +186,7 @@ export const flowerRings: Product[] = [
     price: 84.90,
     description: "A sempre-viva é a flor da eternidade e da resistência. Preservada em resina cristalina, simboliza amor que nunca morre e memórias eternas. Uma peça delicada e cheia de significado.",
     shortDescription: "Sempre-viva em resina — eternidade, resistência e amor imortal",
-    images: [ringFlorSempreViva, ringFlorSempreViva, ringFlorSempreViva],
+    images: [ringFlorSempreVivaVerde1, ringFlorSempreVivaVerde2, ringFlorSempreVivaMista],
     elements: [{ name: "Sempre-Viva", meaning: "Eternidade, resistência e amor que nunca morre", icon: "🌾" }],
     sizes,
     significance: "Eternidade e amor",
