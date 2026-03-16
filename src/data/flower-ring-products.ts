@@ -61,6 +61,7 @@ export const flowerRings: Product[] = [
     shortDescription:
       "Sempre-viva roxa em formato dome arredondado e acabamento cristalino",
     images: [ringSvRoxaDome1, ringSvRoxaDome2, ringSvRoxaDome3],
+    videoUrl: "/videos/anel-sv-roxa-dome.mp4",
     elements: [
       {
         name: "Sempre-Viva Roxa",
