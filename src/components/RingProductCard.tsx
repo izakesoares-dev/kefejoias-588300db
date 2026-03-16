@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ShoppingBag, CreditCard, QrCode, Play } from "lucide-react";
+import ArtisanBadge from "@/components/ArtisanBadge";
 import { Product, formatPrice } from "@/data/products";
 import { useCart } from "@/contexts/CartContext";
 import { Button } from "@/components/ui/button";
