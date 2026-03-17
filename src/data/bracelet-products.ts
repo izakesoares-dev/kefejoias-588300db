@@ -32,24 +32,19 @@ import braceletAcoTurmalina from "@/assets/bracelet-aco-turmalina.jpg";
 import braceletAcoLapis from "@/assets/bracelet-aco-lapis.jpg";
 
 // Minimalist Bracelet Images
-import braceletMiniQuartzoRosa from "@/assets/bracelet-mini-quartzo-rosa.jpg";
 import braceletMiniAmetista from "@/assets/bracelet-mini-ametista.jpg";
 import braceletMiniAmetista2 from "@/assets/bracelet-mini-ametista-2.jpg";
 import braceletMiniAmetista3 from "@/assets/bracelet-mini-ametista-3.jpg";
+
 import braceletMiniOlhoTigre from "@/assets/bracelet-mini-olho-tigre.jpg";
 import braceletMiniOlhoTigre2 from "@/assets/bracelet-mini-olho-tigre-2.jpg";
 import braceletMiniOlhoTigre3 from "@/assets/bracelet-mini-olho-tigre-3.jpg";
-import braceletMiniTurquesa from "@/assets/bracelet-mini-turquesa.jpg";
 import braceletMiniJade from "@/assets/bracelet-mini-jade.jpg";
 import braceletMiniJade2 from "@/assets/bracelet-mini-jade-2.jpg";
 import braceletMiniJade3 from "@/assets/bracelet-mini-jade-3.jpg";
-import braceletMiniCitrino from "@/assets/bracelet-mini-citrino.jpg";
 import braceletMiniLapis from "@/assets/bracelet-mini-lapis.jpg";
 import braceletMiniLapis2 from "@/assets/bracelet-mini-lapis-2.jpg";
 import braceletMiniLapis3 from "@/assets/bracelet-mini-lapis-3.jpg";
-import braceletMiniTurmalina from "@/assets/bracelet-mini-turmalina.jpg";
-import braceletMiniCornalina from "@/assets/bracelet-mini-cornalina.jpg";
-import braceletMiniPedraLua from "@/assets/bracelet-mini-pedra-lua.jpg";
 import braceletMiniGranada from "@/assets/bracelet-mini-granada.jpg";
 import braceletMiniGranada2 from "@/assets/bracelet-mini-granada-2.jpg";
 import braceletMiniGranada3 from "@/assets/bracelet-mini-granada-3.jpg";
@@ -507,39 +502,23 @@ export const steelBracelets: Product[] = [
 // ========== MINIMALISTAS ==========
 export const minimalistBracelets: Product[] = [
   {
-    id: "pulseira-mini-quartzo-rosa",
-    name: "Pulseira Mini Quartzo Rosa",
-    slug: "pulseira-mini-quartzo-rosa",
-    category: "pulseira",
-    subcategory: "pedras-naturais",
-    price: 59.90,
-    description: "Pedrinhas de quartzo rosa intercaladas com esferas de aço inoxidável. Amor-próprio discreto e elegante. Fecho ajustável.",
-    shortDescription: "Pulseira minimalista de quartzo rosa – amor discreto",
-    images: [braceletMiniQuartzoRosa, braceletMiniQuartzoRosa, braceletMiniQuartzoRosa],
-    elements: [
-      { name: "Quartzo Rosa", meaning: "Amor-próprio e cura emocional", icon: "💎" },
-    ],
-    significance: "Amor discreto",
-    relatedIds: ["pulseira-mini-ametista", "pulseira-mini-olho-tigre"],
-    inStock: true,
-    badge: "Mais vendido",
-  },
-  {
     id: "pulseira-mini-ametista",
     name: "Pulseira Mini Ametista",
     slug: "pulseira-mini-ametista",
     category: "pulseira",
     subcategory: "pedras-naturais",
     price: 59.90,
-    description: "Pedrinhas de ametista delicadamente combinadas com esferas de aço. Calma e intuição em uma peça discreta e sofisticada. Fecho ajustável.",
+    description: "Pedrinhas de ametista delicadamente combinadas com esferas de aço inoxidável. A ametista é a pedra da espiritualidade e intuição, promove calma interior, equilíbrio emocional e proteção espiritual. Ideal para quem busca paz e clareza mental. Fecho ajustável.",
     shortDescription: "Pulseira minimalista de ametista – calma e intuição",
     images: [braceletMiniAmetista, braceletMiniAmetista2, braceletMiniAmetista3],
+    videoUrl: "/__l5e/assets-v1/76c98bc5-6852-4ee2-80a5-0845143388ae/pulseira-mini-ametista.mp4",
     elements: [
-      { name: "Ametista", meaning: "Intuição, calma e proteção espiritual", icon: "🔮" },
+      { name: "Ametista", meaning: "Intuição, calma, proteção espiritual e equilíbrio emocional", icon: "🔮" },
     ],
     significance: "Calma e intuição",
-    relatedIds: ["pulseira-mini-quartzo-rosa", "pulseira-mini-turquesa"],
+    relatedIds: ["pulseira-mini-olho-tigre", "pulseira-mini-jade"],
     inStock: true,
+    badge: "Mais vendido",
   },
   {
     id: "pulseira-mini-olho-tigre",
@@ -548,33 +527,16 @@ export const minimalistBracelets: Product[] = [
     category: "pulseira",
     subcategory: "pedras-naturais",
     price: 59.90,
-    description: "Pedrinhas de olho de tigre intercaladas com esferas de aço inoxidável. Proteção e coragem com elegância minimalista. Fecho ajustável.",
-    shortDescription: "Pulseira minimalista de olho de tigre – proteção elegante",
+    description: "Pedrinhas de olho de tigre intercaladas com esferas de aço inoxidável. O olho de tigre é a pedra da coragem e autoconfiança, oferece proteção energética e ajuda a tomar decisões com clareza. Fecho ajustável.",
+    shortDescription: "Pulseira minimalista de olho de tigre – proteção e coragem",
     images: [braceletMiniOlhoTigre, braceletMiniOlhoTigre2, braceletMiniOlhoTigre3],
+    videoUrl: "/__l5e/assets-v1/8a13aab2-5dc7-483f-aa81-f408a4e31ea0/pulseira-mini-olho-tigre.mp4",
     elements: [
-      { name: "Olho de Tigre", meaning: "Coragem, proteção e autoconfiança", icon: "🐯" },
+      { name: "Olho de Tigre", meaning: "Coragem, proteção, autoconfiança e clareza mental", icon: "🐯" },
     ],
-    significance: "Proteção elegante",
-    relatedIds: ["pulseira-mini-quartzo-rosa", "pulseira-mini-jade"],
+    significance: "Proteção e coragem",
+    relatedIds: ["pulseira-mini-ametista", "pulseira-mini-granada"],
     inStock: true,
-  },
-  {
-    id: "pulseira-mini-turquesa",
-    name: "Pulseira Mini Turquesa",
-    slug: "pulseira-mini-turquesa",
-    category: "pulseira",
-    subcategory: "pedras-naturais",
-    price: 64.90,
-    description: "Pedrinhas de turquesa intercaladas com esferas de aço inoxidável. Comunicação e proteção em uma peça vibrante e delicada. Fecho ajustável.",
-    shortDescription: "Pulseira minimalista de turquesa – comunicação e proteção",
-    images: [braceletMiniTurquesa, braceletMiniTurquesa, braceletMiniTurquesa],
-    elements: [
-      { name: "Turquesa", meaning: "Comunicação, proteção e cura", icon: "🩵" },
-    ],
-    significance: "Comunicação e proteção",
-    relatedIds: ["pulseira-mini-ametista", "pulseira-mini-jade"],
-    inStock: true,
-    badge: "Novo",
   },
   {
     id: "pulseira-mini-jade",
@@ -583,31 +545,15 @@ export const minimalistBracelets: Product[] = [
     category: "pulseira",
     subcategory: "pedras-naturais",
     price: 59.90,
-    description: "Pedrinhas de jade verde intercaladas com esferas de aço inoxidável dourado. Prosperidade e harmonia em um design minimalista. Fecho ajustável.",
-    shortDescription: "Pulseira minimalista de jade – prosperidade discreta",
+    description: "Pedrinhas de jade verde intercaladas com esferas de aço inoxidável dourado. A jade é a pedra da prosperidade e sorte, promove harmonia, equilíbrio e abundância. Considerada sagrada em diversas culturas. Fecho ajustável.",
+    shortDescription: "Pulseira minimalista de jade – prosperidade e harmonia",
     images: [braceletMiniJade, braceletMiniJade2, braceletMiniJade3],
+    videoUrl: "/__l5e/assets-v1/a8e44494-9533-410c-97db-3169ba46f203/pulseira-mini-jade.mp4",
     elements: [
-      { name: "Jade", meaning: "Sorte, prosperidade e harmonia", icon: "💚" },
+      { name: "Jade", meaning: "Prosperidade, sorte, harmonia e equilíbrio", icon: "💚" },
     ],
-    significance: "Prosperidade discreta",
-    relatedIds: ["pulseira-mini-olho-tigre", "pulseira-mini-quartzo-rosa"],
-    inStock: true,
-  },
-  {
-    id: "pulseira-mini-citrino",
-    name: "Pulseira Mini Citrino",
-    slug: "pulseira-mini-citrino",
-    category: "pulseira",
-    subcategory: "pedras-naturais",
-    price: 59.90,
-    description: "Pedrinhas de citrino intercaladas com esferas de aço inoxidável. Abundância e luz solar em um design delicado. Fecho ajustável.",
-    shortDescription: "Pulseira minimalista de citrino – abundância discreta",
-    images: [braceletMiniCitrino, braceletMiniCitrino, braceletMiniCitrino],
-    elements: [
-      { name: "Citrino", meaning: "Abundância, autoestima e energia positiva", icon: "💛" },
-    ],
-    significance: "Abundância discreta",
-    relatedIds: ["pulseira-mini-jade", "pulseira-mini-cornalina"],
+    significance: "Prosperidade e sorte",
+    relatedIds: ["pulseira-mini-lapis", "pulseira-mini-agua-marinha"],
     inStock: true,
   },
   {
@@ -617,69 +563,17 @@ export const minimalistBracelets: Product[] = [
     category: "pulseira",
     subcategory: "pedras-naturais",
     price: 64.90,
-    description: "Pedrinhas de lápis-lazúli intercaladas com esferas de aço dourado. Sabedoria e elegância em um design minimalista. Fecho ajustável.",
-    shortDescription: "Pulseira minimalista de lápis-lazúli – sabedoria elegante",
+    description: "Pedrinhas de lápis-lazúli intercaladas com esferas de aço dourado. O lápis-lazúli é a pedra da sabedoria e verdade, estimula a comunicação autêntica e a conexão com a intuição profunda. Fecho ajustável.",
+    shortDescription: "Pulseira minimalista de lápis-lazúli – sabedoria e verdade",
     images: [braceletMiniLapis, braceletMiniLapis2, braceletMiniLapis3],
+    videoUrl: "/__l5e/assets-v1/57b25893-17f3-4c94-97b0-074148177893/pulseira-mini-lapis.mp4",
     elements: [
-      { name: "Lápis-Lazúli", meaning: "Sabedoria, verdade e intuição", icon: "💙" },
+      { name: "Lápis-Lazúli", meaning: "Sabedoria, verdade, intuição e comunicação", icon: "💙" },
     ],
-    significance: "Sabedoria elegante",
-    relatedIds: ["pulseira-mini-ametista", "pulseira-mini-turmalina"],
+    significance: "Sabedoria e verdade",
+    relatedIds: ["pulseira-mini-ametista", "pulseira-mini-agua-marinha"],
     inStock: true,
     badge: "Edição limitada",
-  },
-  {
-    id: "pulseira-mini-turmalina",
-    name: "Pulseira Mini Turmalina Negra",
-    slug: "pulseira-mini-turmalina",
-    category: "pulseira",
-    subcategory: "pedras-naturais",
-    price: 59.90,
-    description: "Pedrinhas de turmalina negra intercaladas com esferas de aço inoxidável. Proteção discreta e sofisticada. Fecho ajustável.",
-    shortDescription: "Pulseira minimalista de turmalina – proteção discreta",
-    images: [braceletMiniTurmalina, braceletMiniTurmalina, braceletMiniTurmalina],
-    elements: [
-      { name: "Turmalina Negra", meaning: "Escudo energético e aterramento", icon: "🖤" },
-    ],
-    significance: "Proteção discreta",
-    relatedIds: ["pulseira-mini-olho-tigre", "pulseira-mini-lapis"],
-    inStock: true,
-  },
-  {
-    id: "pulseira-mini-cornalina",
-    name: "Pulseira Mini Cornalina",
-    slug: "pulseira-mini-cornalina",
-    category: "pulseira",
-    subcategory: "pedras-naturais",
-    price: 59.90,
-    description: "Pedrinhas de cornalina intercaladas com esferas de aço dourado. Vitalidade e criatividade em um design discreto. Fecho ajustável.",
-    shortDescription: "Pulseira minimalista de cornalina – vitalidade e criatividade",
-    images: [braceletMiniCornalina, braceletMiniCornalina, braceletMiniCornalina],
-    elements: [
-      { name: "Cornalina", meaning: "Vitalidade, criatividade e paixão", icon: "🧡" },
-    ],
-    significance: "Vitalidade e criatividade",
-    relatedIds: ["pulseira-mini-citrino", "pulseira-mini-olho-tigre"],
-    inStock: true,
-    badge: "Novo",
-  },
-  {
-    id: "pulseira-mini-pedra-lua",
-    name: "Pulseira Mini Pedra da Lua",
-    slug: "pulseira-mini-pedra-lua",
-    category: "pulseira",
-    subcategory: "pedras-naturais",
-    price: 69.90,
-    description: "Pedrinhas de pedra da lua intercaladas com esferas de aço dourado. Intuição feminina e ciclos naturais em um design ethereal. Fecho ajustável.",
-    shortDescription: "Pulseira minimalista de pedra da lua – intuição e feminilidade",
-    images: [braceletMiniPedraLua, braceletMiniPedraLua, braceletMiniPedraLua],
-    elements: [
-      { name: "Pedra da Lua", meaning: "Intuição feminina, ciclos e equilíbrio emocional", icon: "🌙" },
-    ],
-    significance: "Intuição e feminilidade",
-    relatedIds: ["pulseira-mini-quartzo-rosa", "pulseira-mini-ametista"],
-    inStock: true,
-    badge: "Especial",
   },
   {
     id: "pulseira-mini-granada",
@@ -688,14 +582,15 @@ export const minimalistBracelets: Product[] = [
     category: "pulseira",
     subcategory: "pedras-naturais",
     price: 64.90,
-    description: "Pedrinhas de granada facetadas intercaladas com esferas de aço inoxidável. A granada é conhecida como a pedra da paixão e vitalidade, estimula a energia vital e fortalece a coragem. Fecho lagosta ajustável.",
+    description: "Pedrinhas de granada facetadas intercaladas com esferas de aço inoxidável. A granada é a pedra da paixão e vitalidade, estimula a energia vital, fortalece a coragem e desperta a força interior. Fecho lagosta ajustável.",
     shortDescription: "Pulseira minimalista de granada – paixão e vitalidade",
     images: [braceletMiniGranada, braceletMiniGranada2, braceletMiniGranada3],
+    videoUrl: "/__l5e/assets-v1/52ec6adc-5c55-4c4f-8240-f27753ddd8f9/pulseira-mini-granada.mp4",
     elements: [
       { name: "Granada", meaning: "Paixão, vitalidade, coragem e força interior", icon: "❤️‍🔥" },
     ],
     significance: "Paixão e vitalidade",
-    relatedIds: ["pulseira-mini-cornalina", "pulseira-mini-olho-tigre"],
+    relatedIds: ["pulseira-mini-olho-tigre", "pulseira-mini-ametista"],
     inStock: true,
     badge: "Novo",
   },
@@ -706,14 +601,15 @@ export const minimalistBracelets: Product[] = [
     category: "pulseira",
     subcategory: "pedras-naturais",
     price: 74.90,
-    description: "Pedrinhas de água-marinha natural com pingente bruto de água-marinha e acabamento em aço inoxidável. A água-marinha é a pedra da serenidade e comunicação, acalma emoções e traz clareza mental. Fecho lagosta ajustável.",
+    description: "Pedrinhas de água-marinha natural com pingente bruto de água-marinha e acabamento em aço inoxidável. A água-marinha é a pedra da serenidade e comunicação, acalma emoções turbulentas e traz clareza mental. Associada ao elemento água, é ideal para quem busca paz interior. Fecho lagosta ajustável.",
     shortDescription: "Pulseira minimalista de água-marinha – serenidade e clareza",
     images: [braceletMiniAguaMarinha, braceletMiniAguaMarinha, braceletMiniAguaMarinha],
+    videoUrl: "/__l5e/assets-v1/8a82684f-2a71-41f9-9fe6-9450ab7bd3f9/pulseira-mini-agua-marinha.mp4",
     elements: [
       { name: "Água-Marinha", meaning: "Serenidade, comunicação, clareza e calma emocional", icon: "🌊" },
     ],
     significance: "Serenidade e clareza",
-    relatedIds: ["pulseira-mini-turquesa", "pulseira-mini-ametista"],
+    relatedIds: ["pulseira-mini-jade", "pulseira-mini-lapis"],
     inStock: true,
     badge: "Exclusivo",
   },
