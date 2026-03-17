@@ -41,8 +41,8 @@ const ArtisanBadge = ({ selectedSize, onSizeChange }: ArtisanBadgeProps) => {
       <div className="space-y-2">
         <div className="max-h-[420px] overflow-y-auto" onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}>
           {/* Tamanhos disponíveis */}
-          <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center gap-1.5 min-w-0">
+          <div className="space-y-2 mb-4">
+            <div className="flex items-center gap-1.5">
               <p className="font-display text-sm font-bold text-foreground whitespace-nowrap">
                 14 ao 22 disponíveis
               </p>
