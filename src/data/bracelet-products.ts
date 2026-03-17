@@ -619,7 +619,7 @@ export const minimalistBracelets: Product[] = [
     price: 64.90,
     description: "Pedrinhas de lápis-lazúli intercaladas com esferas de aço dourado. Sabedoria e elegância em um design minimalista. Fecho ajustável.",
     shortDescription: "Pulseira minimalista de lápis-lazúli – sabedoria elegante",
-    images: [braceletMiniLapis, braceletMiniLapis, braceletMiniLapis],
+    images: [braceletMiniLapis, braceletMiniLapis2, braceletMiniLapis3],
     elements: [
       { name: "Lápis-Lazúli", meaning: "Sabedoria, verdade e intuição", icon: "💙" },
     ],
