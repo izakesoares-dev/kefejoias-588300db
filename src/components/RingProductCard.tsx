@@ -129,7 +129,13 @@ const RingProductCard = ({ product, index = 0, globalSize }: RingProductCardProp
           <p className="text-xs text-muted-foreground font-body truncate">{product.significance}</p>
         </div>
 
-        <ArtisanBadge selectedSize={selectedSize} onSizeChange={setSelectedSize} />
+        <ArtisanBadge selectedSize={selectedSize} onSizeChange={setLocalSize} />
+
+        {showSizeWarning && (
+          <p className="text-xs text-red-500 font-body font-semibold animate-pulse">
+            ⚠️ Escolha o tamanho do anel
+          </p>
+        )}
 
         {/* Preço + Pagamento */}
         <div className="flex items-center justify-between">
