@@ -526,7 +526,7 @@ export const minimalistBracelets: Product[] = [
     description: "Pedrinhas de olho de tigre intercaladas com esferas de aço inoxidável. O olho de tigre é a pedra da coragem e autoconfiança, oferece proteção energética e ajuda a tomar decisões com clareza. Fecho ajustável.",
     shortDescription: "Pulseira minimalista de olho de tigre – proteção e coragem",
     images: [braceletMiniOlhoTigre2, braceletMiniOlhoTigre3, braceletMiniOlhoTigre2],
-    videoUrl: "/__l5e/assets-v1/8a13aab2-5dc7-483f-aa81-f408a4e31ea0/pulseira-mini-olho-tigre.mp4",
+    videoUrl: "/__l5e/assets-v1/82717150-3729-4b05-9f94-bc9c4c972cc2/pulseira-mini-olho-tigre-new.mp4",
     elements: [
       { name: "Olho de Tigre", meaning: "Coragem, proteção, autoconfiança e clareza mental", icon: "🐯" },
     ],
