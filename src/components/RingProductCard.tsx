@@ -56,7 +56,9 @@ const RingProductCard = ({ product, index = 0 }: RingProductCardProps) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.08, duration: 0.5 }}
-      className="rounded-2xl overflow-hidden border border-border/50 shadow-lg hover:shadow-gold transition-shadow duration-500 bg-card"
+    >
+    <Link to={`/produto/${product.slug}`} className="block">
+      <div className="rounded-2xl overflow-hidden border border-border/50 shadow-lg hover:shadow-gold transition-shadow duration-500 bg-card"
     >
       {/* ===== Foto principal + mídias sobrepostas ===== */}
       <div className="relative">
