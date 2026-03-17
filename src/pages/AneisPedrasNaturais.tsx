@@ -65,6 +65,9 @@ const AneisPedrasNaturais = () => {
             <p className="font-body text-sm text-muted-foreground max-w-3xl mx-auto">
               Escolha a pedra que mais combina com sua intenção e use no dia a dia um amuleto de estilo.
             </p>
+            <div className="flex justify-center mt-4">
+              <RingSizeSelector value={globalSize} onChange={setGlobalSize} />
+            </div>
           </motion.div>
         </div>
       </section>
