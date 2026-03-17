@@ -600,7 +600,7 @@ export const minimalistBracelets: Product[] = [
     description: "Pedrinhas de água-marinha natural com pingente bruto de água-marinha e acabamento em aço inoxidável. A água-marinha é a pedra da serenidade e comunicação, acalma emoções turbulentas e traz clareza mental. Associada ao elemento água, é ideal para quem busca paz interior. Fecho lagosta ajustável.",
     shortDescription: "Pulseira minimalista de água-marinha – serenidade e clareza",
     images: [braceletMiniAguaMarinha, braceletMiniAguaMarinha, braceletMiniAguaMarinha],
-    videoUrl: "/__l5e/assets-v1/8a82684f-2a71-41f9-9fe6-9450ab7bd3f9/pulseira-mini-agua-marinha.mp4",
+    videoUrl: "/__l5e/assets-v1/4c58afa5-67fd-445b-ba50-bb2805c15fba/pulseira-mini-agua-marinha-new.mp4",
     elements: [
       { name: "Água-Marinha", meaning: "Serenidade, comunicação, clareza e calma emocional", icon: "🌊" },
     ],
