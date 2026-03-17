@@ -7,13 +7,6 @@ import ArtisanBadge from "@/components/ArtisanBadge";
 import { Product, formatPrice } from "@/data/products";
 import { useCart } from "@/contexts/CartContext";
 import { Button } from "@/components/ui/button";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 
 interface RingProductCardProps {
   product: Product;
@@ -27,8 +20,6 @@ const RingProductCard = ({ product, index = 0 }: RingProductCardProps) => {
   const { addItem } = useCart();
   const [selectedSize, setSelectedSize] = useState<string>("");
   const [activeThumb, setActiveThumb] = useState<"img" | number | "video1" | "video2">("img");
-
-  const sizes = product.sizes || [14, 15, 16, 17, 18, 19, 20, 21, 22];
 
   const handleBuy = () => {
     if (!selectedSize) return;
@@ -129,7 +120,7 @@ const RingProductCard = ({ product, index = 0 }: RingProductCardProps) => {
           <p className="text-xs text-muted-foreground font-body truncate">{product.significance}</p>
         </div>
 
-        <ArtisanBadge />
+        <ArtisanBadge selectedSize={selectedSize} onSizeChange={setSelectedSize} />
 
         {/* Preço + Pagamento */}
         <div className="flex items-center justify-between">
@@ -143,20 +134,8 @@ const RingProductCard = ({ product, index = 0 }: RingProductCardProps) => {
           </div>
         </div>
 
-        {/* Tamanho + Comprar */}
-        <div className="flex items-center gap-2">
-          <div onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}>
-            <Select value={selectedSize} onValueChange={setSelectedSize}>
-              <SelectTrigger className="w-[72px] h-9 text-sm">
-                <SelectValue placeholder="Tam." />
-              </SelectTrigger>
-              <SelectContent>
-                {sizes.map((s) => (
-                  <SelectItem key={s} value={String(s)}>{s}</SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
+        {/* Comprar */}
+        <div className="flex items-center">
           <Button onClick={(e) => { e.preventDefault(); e.stopPropagation(); handleBuy(); }} disabled={!selectedSize} className="flex-1 h-10 gap-1.5 font-body font-extrabold rounded-xl text-[15px] bg-primary text-secondary hover:bg-gold-dark hover:text-white transition-colors shadow-gold-sm">
             <ShoppingBag size={14} />
             Comprar
