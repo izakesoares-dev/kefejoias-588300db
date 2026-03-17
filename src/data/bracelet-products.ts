@@ -550,7 +550,7 @@ export const minimalistBracelets: Product[] = [
     price: 59.90,
     description: "Pedrinhas de olho de tigre intercaladas com esferas de aço inoxidável. Proteção e coragem com elegância minimalista. Fecho ajustável.",
     shortDescription: "Pulseira minimalista de olho de tigre – proteção elegante",
-    images: [braceletMiniOlhoTigre, braceletMiniOlhoTigre, braceletMiniOlhoTigre],
+    images: [braceletMiniOlhoTigre, braceletMiniOlhoTigre2, braceletMiniOlhoTigre3],
     elements: [
       { name: "Olho de Tigre", meaning: "Coragem, proteção e autoconfiança", icon: "🐯" },
     ],
