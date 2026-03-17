@@ -544,7 +544,7 @@ export const minimalistBracelets: Product[] = [
     description: "Pedrinhas de jade verde intercaladas com esferas de aço inoxidável dourado. A jade é a pedra da prosperidade e sorte, promove harmonia, equilíbrio e abundância. Considerada sagrada em diversas culturas. Fecho ajustável.",
     shortDescription: "Pulseira minimalista de jade – prosperidade e harmonia",
     images: [braceletMiniJade2, braceletMiniJade3, braceletMiniJade2],
-    videoUrl: "/__l5e/assets-v1/a8e44494-9533-410c-97db-3169ba46f203/pulseira-mini-jade.mp4",
+    videoUrl: "/__l5e/assets-v1/f08676cb-47f8-4f04-9953-69776ac840b3/pulseira-mini-jade-new.mp4",
     elements: [
       { name: "Jade", meaning: "Prosperidade, sorte, harmonia e equilíbrio", icon: "💚" },
     ],
