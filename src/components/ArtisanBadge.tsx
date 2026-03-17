@@ -43,11 +43,11 @@ const ArtisanBadge = ({ selectedSize, onSizeChange }: ArtisanBadgeProps) => {
           {/* Tamanhos disponíveis */}
           <div className="space-y-2 mb-4">
             <div className="flex items-center justify-between w-full">
-              <p className="font-display text-base font-bold text-foreground whitespace-nowrap">
+              <p className="font-display text-lg font-bold text-foreground whitespace-nowrap">
                 14 ao 22 disponíveis
               </p>
               <div className="flex items-center gap-1.5">
-                <span className="font-display text-base font-bold text-foreground">📏 Seu tamanho</span>
+                <span className="font-display text-lg font-bold text-foreground">📏 Seu tamanho</span>
                 <Select value={selectedSize || "none"} onValueChange={(val) => {
                   onSizeChange?.(val === "none" ? "" : val);
                 }}>
