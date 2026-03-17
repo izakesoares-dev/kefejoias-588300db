@@ -104,7 +104,7 @@ const RingProductCard = ({ product, index = 0 }: RingProductCardProps) => {
             <Play size={13} className="text-white" />
           </button>
           <button
-            onClick={() => setActiveThumb(activeThumb === "video2" ? "img" : "video2")}
+            onClick={(e) => { e.preventDefault(); e.stopPropagation(); setActiveThumb(activeThumb === "video2" ? "img" : "video2"); }}
             className={`w-11 h-11 rounded-lg border-2 transition-all flex-shrink-0 flex items-center justify-center bg-black/60 shadow-md ${
               activeThumb === "video2" ? "border-primary shadow-gold" : "border-white/50 hover:border-primary/60"
             }`}
