@@ -1,5 +1,12 @@
 import { useState } from "react";
-import { Sparkles, Play, X } from "lucide-react";
+import { Play, X, ChevronDown } from "lucide-react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const MEASUREMENT_VIDEO = "/videos/como-descobrir-numero-anel-new.mp4";
 
@@ -15,28 +22,37 @@ const ArtisanBadge = ({ selectedSize, onSizeChange }: ArtisanBadgeProps) => {
 
   return (
     <div className="space-y-0">
-      {/* Tamanhos + descrição em caixa com scroll vertical */}
       <div className="rounded-xl border border-primary/30 bg-[#F9F6F0] dark:bg-card px-3 py-2 space-y-1.5">
         <div className="h-[200px] overflow-y-auto border border-border/50 rounded-lg p-2 bg-background" onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}>
-          <p className="font-display text-sm font-bold text-foreground mb-2">
-            Tamanhos disponíveis
-          </p>
-          <div className="flex flex-wrap gap-1.5">
-            {SIZES.map((size) => (
-              <button
-                key={size}
-                onClick={(e) => { e.preventDefault(); e.stopPropagation(); onSizeChange?.(String(size)); }}
-                className={`shrink-0 w-9 h-9 rounded-full text-xs font-body font-semibold flex items-center justify-center transition-all ${
-                  selectedSize === String(size)
-                    ? "bg-primary text-primary-foreground shadow-gold"
-                    : "border border-border text-foreground hover:border-primary/60"
-                }`}
+          {/* Tamanhos disponíveis - linha única com dropdown */}
+          <div className="flex items-center gap-2 mb-3">
+            <p className="font-display text-sm font-bold text-foreground whitespace-nowrap">
+              Tamanhos disponíveis
+            </p>
+            <Select value={selectedSize} onValueChange={(val) => onSizeChange?.(val)}>
+              <SelectTrigger
+                className="w-[80px] h-8 rounded-lg font-body font-semibold text-sm
+                  bg-secondary border-2 border-primary text-green-deep
+                  shadow-sm hover:shadow-gold-sm focus:ring-primary/40 transition-all"
               >
-                {size}
-              </button>
-            ))}
+                <SelectValue placeholder="Tam." />
+              </SelectTrigger>
+              <SelectContent className="bg-secondary border-2 border-primary rounded-lg shadow-gold-sm">
+                {SIZES.map((size) => (
+                  <SelectItem
+                    key={size}
+                    value={String(size)}
+                    className="font-body font-semibold text-green-deep cursor-pointer
+                      focus:bg-primary/15 focus:text-green-deep"
+                  >
+                    {size}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
-          <p className="text-xs text-muted-foreground font-body italic leading-relaxed mt-3">
+
+          <p className="text-xs text-muted-foreground font-body italic leading-relaxed">
             Cada anel é produzido manualmente, com carinho e dedicação.
             A flor que você receberá será muito semelhante à da foto,
             mas com as variações naturais que tornam cada peça especial e exclusiva.
