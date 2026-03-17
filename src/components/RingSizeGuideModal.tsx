@@ -50,7 +50,7 @@ const RingSizeGuideModal = ({ open, onOpenChange }: RingSizeGuideModalProps) => 
         </div>
 
         {/* Accordion Methods */}
-        <Accordion type="multiple" className="w-full">
+        <Accordion type="single" collapsible className="w-full">
           <AccordionItem value="method1" className="border-primary/20">
             <AccordionTrigger className="font-display text-sm text-foreground hover:no-underline py-3">
               ▶️ Método 1: Com um anel que você já tem
