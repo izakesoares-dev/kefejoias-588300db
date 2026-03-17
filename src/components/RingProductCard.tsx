@@ -21,8 +21,9 @@ const MEASUREMENT_VIDEO = "/videos/como-descobrir-numero-anel-new.mp4";
 const RingProductCard = ({ product, index = 0, globalSize }: RingProductCardProps) => {
   const { addItem } = useCart();
   const [localSize, setLocalSize] = useState<string>("");
-  const [activeThumb, setActiveThumb] = useState<"img" | number | "video1" | "video2">("img");
+  const [activeThumb, setActiveThumb] = useState<"img" | number | "video1">("img");
   const [showSizeWarning, setShowSizeWarning] = useState(false);
+  const [showMeasureModal, setShowMeasureModal] = useState(false);
 
   const selectedSize = globalSize || localSize;
 
