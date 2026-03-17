@@ -39,7 +39,7 @@ const ArtisanBadge = ({ selectedSize, onSizeChange }: ArtisanBadgeProps) => {
   return (
     <div className="space-y-0">
       <div className="space-y-2">
-        <div className="max-h-[420px] overflow-y-auto" onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}>
+        <div className="max-h-[420px] overflow-y-auto scrollbar-none" style={{ scrollbarWidth: 'none' }} onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}>
           {/* Tamanhos disponíveis */}
           <div className="space-y-2 mb-4">
             <div className="flex items-center justify-between w-full">
