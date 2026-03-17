@@ -110,12 +110,12 @@ const RingProductCard = ({ product, index = 0 }: RingProductCardProps) => {
         </div>
         <button
           onClick={(e) => { e.preventDefault(); e.stopPropagation(); setActiveThumb(activeThumb === "video2" ? "img" : "video2"); }}
-          className={`absolute bottom-3 right-3 z-20 w-11 h-11 rounded-lg border-2 transition-all flex-shrink-0 overflow-hidden relative shadow-md ${
-            activeThumb === "video2" ? "border-primary shadow-gold" : "border-white/50 hover:border-primary/60"
+          className={`absolute bottom-3 right-3 z-20 w-12 h-12 rounded-lg border-2 transition-all overflow-hidden shadow-md ${
+            activeThumb === "video2" ? "border-primary shadow-gold" : "border-white/70 hover:border-primary/60"
           }`}
         >
           <img src={ringMeasurementImg} alt="Medida" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 flex items-center justify-center bg-black/20">
+          <div className="absolute inset-0 flex items-center justify-center bg-black/30">
             <Ruler size={14} className="text-white drop-shadow-md" />
           </div>
         </button>
