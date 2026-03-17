@@ -38,16 +38,16 @@ const ArtisanBadge = ({ selectedSize, onSizeChange }: ArtisanBadgeProps) => {
 
   return (
     <div className="space-y-0">
-      <div className="space-y-2">
+      <div className="space-y-1">
         <div className="max-h-[420px] overflow-y-auto scrollbar-none" style={{ scrollbarWidth: 'none' }} onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}>
           {/* Tamanhos disponíveis */}
-          <div className="space-y-2 mb-4">
+          <div className="space-y-1 mb-2">
             <div className="flex items-center justify-between w-full">
-              <p className="font-display text-base font-bold text-foreground whitespace-nowrap">
+              <p className="font-display text-sm font-bold text-foreground whitespace-nowrap">
                 14 ao 22 disponíveis
               </p>
-              <div className="flex items-center gap-1.5">
-                <span className="font-display text-base font-bold text-foreground whitespace-nowrap">📏 Seu tamanho</span>
+              <div className="flex items-center gap-1">
+                <span className="font-display text-sm font-bold text-foreground whitespace-nowrap">📏 Seu tamanho</span>
                 <Select value={selectedSize || "none"} onValueChange={(val) => {
                   onSizeChange?.(val === "none" ? "" : val);
                 }}>
