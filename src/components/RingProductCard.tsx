@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ShoppingBag, CreditCard, QrCode, Play } from "lucide-react";
 import ArtisanBadge from "@/components/ArtisanBadge";
