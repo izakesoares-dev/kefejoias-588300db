@@ -35,7 +35,7 @@ import braceletAcoLapis from "@/assets/bracelet-aco-lapis.jpg";
 import braceletMiniAmetista from "@/assets/bracelet-mini-ametista.jpg";
 import braceletMiniAmetista2 from "@/assets/bracelet-mini-ametista-2.jpg";
 import braceletMiniAmetista3 from "@/assets/bracelet-mini-ametista-3.jpg";
-import braceletMiniAmetista4 from "@/assets/bracelet-mini-ametista-4.jpg";
+
 import braceletMiniOlhoTigre from "@/assets/bracelet-mini-olho-tigre.jpg";
 import braceletMiniOlhoTigre2 from "@/assets/bracelet-mini-olho-tigre-2.jpg";
 import braceletMiniOlhoTigre3 from "@/assets/bracelet-mini-olho-tigre-3.jpg";
