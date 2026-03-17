@@ -114,7 +114,7 @@ const ProductDetail = () => {
 
               <p className="font-body text-muted-foreground leading-relaxed">{product.description}</p>
 
-              <ArtisanBadge />
+              {product.category === "anel" && <ArtisanBadge />}
 
               {/* Size selector */}
               {product.sizes && (
