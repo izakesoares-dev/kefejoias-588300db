@@ -31,9 +31,9 @@ const ArtisanBadge = ({ selectedSize, onSizeChange }: ArtisanBadgeProps) => {
             </p>
             <Select value={selectedSize} onValueChange={(val) => onSizeChange?.(val)}>
               <SelectTrigger
-                className="w-[100px] h-8 rounded-lg font-body font-semibold text-sm
-                  bg-transparent border-2 border-primary text-green-deep
-                  shadow-sm hover:shadow-gold-sm focus:ring-primary/40 transition-all"
+                className="w-[90px] h-7 rounded-md font-body font-semibold text-xs px-2 gap-1
+                  bg-transparent border border-primary text-green-deep
+                  hover:shadow-gold-sm focus:ring-primary/40 transition-all"
               >
                 <SelectValue placeholder="14 - 22" />
               </SelectTrigger>
