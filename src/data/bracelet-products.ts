@@ -34,14 +34,26 @@ import braceletAcoLapis from "@/assets/bracelet-aco-lapis.jpg";
 // Minimalist Bracelet Images
 import braceletMiniQuartzoRosa from "@/assets/bracelet-mini-quartzo-rosa.jpg";
 import braceletMiniAmetista from "@/assets/bracelet-mini-ametista.jpg";
+import braceletMiniAmetista2 from "@/assets/bracelet-mini-ametista-2.jpg";
+import braceletMiniAmetista3 from "@/assets/bracelet-mini-ametista-3.jpg";
 import braceletMiniOlhoTigre from "@/assets/bracelet-mini-olho-tigre.jpg";
+import braceletMiniOlhoTigre2 from "@/assets/bracelet-mini-olho-tigre-2.jpg";
+import braceletMiniOlhoTigre3 from "@/assets/bracelet-mini-olho-tigre-3.jpg";
 import braceletMiniTurquesa from "@/assets/bracelet-mini-turquesa.jpg";
 import braceletMiniJade from "@/assets/bracelet-mini-jade.jpg";
+import braceletMiniJade2 from "@/assets/bracelet-mini-jade-2.jpg";
+import braceletMiniJade3 from "@/assets/bracelet-mini-jade-3.jpg";
 import braceletMiniCitrino from "@/assets/bracelet-mini-citrino.jpg";
 import braceletMiniLapis from "@/assets/bracelet-mini-lapis.jpg";
+import braceletMiniLapis2 from "@/assets/bracelet-mini-lapis-2.jpg";
+import braceletMiniLapis3 from "@/assets/bracelet-mini-lapis-3.jpg";
 import braceletMiniTurmalina from "@/assets/bracelet-mini-turmalina.jpg";
 import braceletMiniCornalina from "@/assets/bracelet-mini-cornalina.jpg";
 import braceletMiniPedraLua from "@/assets/bracelet-mini-pedra-lua.jpg";
+import braceletMiniGranada from "@/assets/bracelet-mini-granada.jpg";
+import braceletMiniGranada2 from "@/assets/bracelet-mini-granada-2.jpg";
+import braceletMiniGranada3 from "@/assets/bracelet-mini-granada-3.jpg";
+import braceletMiniAguaMarinha from "@/assets/bracelet-mini-agua-marinha.jpg";
 
 // ========== MACRAMÊ ==========
 export const macrameBracelets: Product[] = [
@@ -521,7 +533,7 @@ export const minimalistBracelets: Product[] = [
     price: 59.90,
     description: "Pedrinhas de ametista delicadamente combinadas com esferas de aço. Calma e intuição em uma peça discreta e sofisticada. Fecho ajustável.",
     shortDescription: "Pulseira minimalista de ametista – calma e intuição",
-    images: [braceletMiniAmetista, braceletMiniAmetista, braceletMiniAmetista],
+    images: [braceletMiniAmetista, braceletMiniAmetista2, braceletMiniAmetista3],
     elements: [
       { name: "Ametista", meaning: "Intuição, calma e proteção espiritual", icon: "🔮" },
     ],
@@ -538,7 +550,7 @@ export const minimalistBracelets: Product[] = [
     price: 59.90,
     description: "Pedrinhas de olho de tigre intercaladas com esferas de aço inoxidável. Proteção e coragem com elegância minimalista. Fecho ajustável.",
     shortDescription: "Pulseira minimalista de olho de tigre – proteção elegante",
-    images: [braceletMiniOlhoTigre, braceletMiniOlhoTigre, braceletMiniOlhoTigre],
+    images: [braceletMiniOlhoTigre, braceletMiniOlhoTigre2, braceletMiniOlhoTigre3],
     elements: [
       { name: "Olho de Tigre", meaning: "Coragem, proteção e autoconfiança", icon: "🐯" },
     ],
@@ -573,7 +585,7 @@ export const minimalistBracelets: Product[] = [
     price: 59.90,
     description: "Pedrinhas de jade verde intercaladas com esferas de aço inoxidável dourado. Prosperidade e harmonia em um design minimalista. Fecho ajustável.",
     shortDescription: "Pulseira minimalista de jade – prosperidade discreta",
-    images: [braceletMiniJade, braceletMiniJade, braceletMiniJade],
+    images: [braceletMiniJade, braceletMiniJade2, braceletMiniJade3],
     elements: [
       { name: "Jade", meaning: "Sorte, prosperidade e harmonia", icon: "💚" },
     ],
@@ -607,7 +619,7 @@ export const minimalistBracelets: Product[] = [
     price: 64.90,
     description: "Pedrinhas de lápis-lazúli intercaladas com esferas de aço dourado. Sabedoria e elegância em um design minimalista. Fecho ajustável.",
     shortDescription: "Pulseira minimalista de lápis-lazúli – sabedoria elegante",
-    images: [braceletMiniLapis, braceletMiniLapis, braceletMiniLapis],
+    images: [braceletMiniLapis, braceletMiniLapis2, braceletMiniLapis3],
     elements: [
       { name: "Lápis-Lazúli", meaning: "Sabedoria, verdade e intuição", icon: "💙" },
     ],
@@ -668,5 +680,41 @@ export const minimalistBracelets: Product[] = [
     relatedIds: ["pulseira-mini-quartzo-rosa", "pulseira-mini-ametista"],
     inStock: true,
     badge: "Especial",
+  },
+  {
+    id: "pulseira-mini-granada",
+    name: "Pulseira Mini Granada",
+    slug: "pulseira-mini-granada",
+    category: "pulseira",
+    subcategory: "pedras-naturais",
+    price: 64.90,
+    description: "Pedrinhas de granada facetadas intercaladas com esferas de aço inoxidável. A granada é conhecida como a pedra da paixão e vitalidade, estimula a energia vital e fortalece a coragem. Fecho lagosta ajustável.",
+    shortDescription: "Pulseira minimalista de granada – paixão e vitalidade",
+    images: [braceletMiniGranada, braceletMiniGranada2, braceletMiniGranada3],
+    elements: [
+      { name: "Granada", meaning: "Paixão, vitalidade, coragem e força interior", icon: "❤️‍🔥" },
+    ],
+    significance: "Paixão e vitalidade",
+    relatedIds: ["pulseira-mini-cornalina", "pulseira-mini-olho-tigre"],
+    inStock: true,
+    badge: "Novo",
+  },
+  {
+    id: "pulseira-mini-agua-marinha",
+    name: "Pulseira Mini Água-Marinha",
+    slug: "pulseira-mini-agua-marinha",
+    category: "pulseira",
+    subcategory: "pedras-naturais",
+    price: 74.90,
+    description: "Pedrinhas de água-marinha natural com pingente bruto de água-marinha e acabamento em aço inoxidável. A água-marinha é a pedra da serenidade e comunicação, acalma emoções e traz clareza mental. Fecho lagosta ajustável.",
+    shortDescription: "Pulseira minimalista de água-marinha – serenidade e clareza",
+    images: [braceletMiniAguaMarinha, braceletMiniAguaMarinha, braceletMiniAguaMarinha],
+    elements: [
+      { name: "Água-Marinha", meaning: "Serenidade, comunicação, clareza e calma emocional", icon: "🌊" },
+    ],
+    significance: "Serenidade e clareza",
+    relatedIds: ["pulseira-mini-turquesa", "pulseira-mini-ametista"],
+    inStock: true,
+    badge: "Exclusivo",
   },
 ];
