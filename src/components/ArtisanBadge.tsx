@@ -42,13 +42,13 @@ const ArtisanBadge = ({ selectedSize, onSizeChange }: ArtisanBadgeProps) => {
         <div className="max-h-[420px] overflow-y-auto" onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}>
           {/* Tamanhos disponíveis */}
           <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center gap-3 min-w-0">
-              <p className="font-display text-base font-bold text-foreground whitespace-nowrap">
+            <div className="flex items-center gap-1.5 min-w-0">
+              <p className="font-display text-sm font-bold text-foreground whitespace-nowrap">
                 Tamanhos
               </p>
               <Select value={selectedSize} onValueChange={(val) => onSizeChange?.(val)}>
                 <SelectTrigger
-                  className="w-[90px] h-9 rounded-md font-display font-bold text-base px-3 gap-1
+                  className="w-[68px] h-7 rounded-md font-display font-bold text-sm px-2 gap-0.5
                     bg-transparent border border-primary text-green-deep
                     hover:shadow-gold-sm focus:ring-primary/40 transition-all"
                 >
