@@ -113,7 +113,7 @@ const RingProductCard = ({ product, index = 0 }: RingProductCardProps) => {
               activeThumb === "video2" ? "border-primary shadow-gold" : "border-white/50 hover:border-primary/60"
             }`}
           >
-            <img src={methodStringImg} alt="Medida" className="w-full h-full object-cover" />
+            <img src={ringMeasurementImg} alt="Medida" className="w-full h-full object-cover" />
             <div className="absolute inset-0 flex items-center justify-center bg-black/20">
               <Ruler size={14} className="text-white drop-shadow-md" />
             </div>
