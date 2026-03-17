@@ -49,9 +49,6 @@ const AneisFlores = () => {
             <p className="font-body text-sm text-muted-foreground max-w-2xl mx-auto">
               Flores reais capturadas para sempre em resina cristalina — beleza eterna no seu dedo.
             </p>
-            <div className="flex justify-center mt-4">
-              <RingSizeSelector value={globalSize} onChange={setGlobalSize} />
-            </div>
           </motion.div>
         </div>
       </section>
