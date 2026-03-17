@@ -151,7 +151,7 @@ const RingProductCard = ({ product, index = 0, globalSize }: RingProductCardProp
 
         {/* Comprar */}
         <div className="flex items-center">
-          <Button onClick={(e) => { e.preventDefault(); e.stopPropagation(); handleBuy(); }} disabled={!selectedSize} className="flex-1 h-10 gap-1.5 font-body font-extrabold rounded-xl text-[15px] bg-primary text-secondary hover:bg-gold-dark hover:text-white transition-colors shadow-gold-sm">
+          <Button onClick={(e) => { e.preventDefault(); e.stopPropagation(); handleBuy(); }} className="flex-1 h-10 gap-1.5 font-body font-extrabold rounded-xl text-[15px] bg-primary text-secondary hover:bg-gold-dark hover:text-white transition-colors shadow-gold-sm">
             <ShoppingBag size={14} />
             Comprar
           </Button>

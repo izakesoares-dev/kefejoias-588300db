@@ -60,7 +60,7 @@ const AneisFlores = () => {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
             {displayRings.map((product, index) => (
-              <RingProductCard key={product.id} product={product} index={index} />
+              <RingProductCard key={product.id} product={product} index={index} globalSize={globalSize} />
             ))}
           </div>
 
