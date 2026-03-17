@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Ruler } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import {
   Select,
   SelectContent,
@@ -7,9 +7,26 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import RingSizeGuideModal from "@/components/RingSizeGuideModal";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const SIZES = [14, 15, 16, 17, 18, 19, 20, 21, 22];
+
+const sizeTable = [
+  { size: 14, diameter: "16,2", circ: "5,4" },
+  { size: 15, diameter: "16,5", circ: "5,5" },
+  { size: 16, diameter: "16,8", circ: "5,6" },
+  { size: 17, diameter: "17,2", circ: "5,7" },
+  { size: 18, diameter: "17,5", circ: "5,8" },
+  { size: 19, diameter: "17,8", circ: "5,9" },
+  { size: 20, diameter: "18,2", circ: "6,0" },
+  { size: 21, diameter: "18,5", circ: "6,1" },
+  { size: 22, diameter: "18,8", circ: "6,2" },
+];
 
 interface ArtisanBadgeProps {
   selectedSize?: string;
@@ -22,9 +39,9 @@ const ArtisanBadge = ({ selectedSize, onSizeChange }: ArtisanBadgeProps) => {
   return (
     <div className="space-y-0">
       <div className="rounded-xl border border-primary/30 bg-[#F9F6F0] dark:bg-card px-3 py-2 space-y-1.5">
-        <div className="h-[200px] overflow-y-auto border border-border/50 rounded-lg p-2 bg-background" onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}>
-          {/* Tamanhos disponíveis - linha única com dropdown + botão guia */}
-          <div className="flex items-center justify-between mb-3">
+        <div className="max-h-[320px] overflow-y-auto border border-border/50 rounded-lg p-2 bg-background" onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}>
+          {/* Tamanhos disponíveis */}
+          <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-1.5 min-w-0">
               <p className="font-display text-[11px] font-bold text-foreground whitespace-nowrap">
                 Tamanhos
@@ -54,25 +71,93 @@ const ArtisanBadge = ({ selectedSize, onSizeChange }: ArtisanBadgeProps) => {
 
             <button
               type="button"
-              onClick={(e) => { e.preventDefault(); e.stopPropagation(); setShowGuide(true); }}
+              onClick={(e) => { e.preventDefault(); e.stopPropagation(); setShowGuide(!showGuide); }}
               onMouseDown={(e) => { e.stopPropagation(); }}
               className="flex items-center gap-1 px-1.5 py-0.5 rounded-md font-display text-[11px] font-bold
                 text-foreground border border-primary/40 bg-primary/5
                 hover:bg-primary/10 hover:shadow-gold-sm transition-all whitespace-nowrap"
             >
-              📏 Como descobrir? ▼
+              📏 Como descobrir?
+              <ChevronDown size={12} className={`transition-transform duration-200 ${showGuide ? "rotate-180" : ""}`} />
             </button>
           </div>
 
-          <p className="text-xs text-muted-foreground font-body italic leading-relaxed">
+          {/* Guia inline */}
+          {showGuide && (
+            <div className="space-y-2 animate-in fade-in slide-in-from-top-2 duration-200">
+              {/* Accordion métodos */}
+              <Accordion type="multiple" className="w-full">
+                <AccordionItem value="method1" className="border-primary/20">
+                  <AccordionTrigger className="font-display text-[11px] text-foreground hover:no-underline py-2">
+                    ▶️ Método 1: Com um anel que você já tem
+                  </AccordionTrigger>
+                  <AccordionContent className="text-[10px] font-body text-muted-foreground space-y-1 pb-2">
+                    <p>• Pegue um anel que sirva bem no dedo desejado</p>
+                    <p>• Coloque sobre uma régua e meça o <strong className="text-foreground">diâmetro interno</strong></p>
+                    <p>• Compare com a tabela abaixo</p>
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="method2" className="border-primary/20">
+                  <AccordionTrigger className="font-display text-[11px] text-foreground hover:no-underline py-2">
+                    ▶️ Método 2: Com barbante ou fita
+                  </AccordionTrigger>
+                  <AccordionContent className="text-[10px] font-body text-muted-foreground space-y-1 pb-2">
+                    <p>• Enrole um barbante na base do dedo (sem apertar)</p>
+                    <p>• Marque o ponto de encontro</p>
+                    <p>• Estique sobre uma régua e veja em milímetros</p>
+                    <p>• Compare com a tabela de circunferência</p>
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="method3" className="border-primary/20">
+                  <AccordionTrigger className="font-display text-[11px] text-foreground hover:no-underline py-2">
+                    ▶️ Método 3: Com aneleira profissional
+                  </AccordionTrigger>
+                  <AccordionContent className="text-[10px] font-body text-muted-foreground space-y-1 pb-2">
+                    <p>• Visite uma joalheria e peça para medir seu dedo</p>
+                    <p>• É o método mais preciso e rápido</p>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+
+              {/* Tabela */}
+              <div className="rounded-lg border border-primary/20 overflow-hidden">
+                <table className="w-full text-[10px] font-body">
+                  <thead>
+                    <tr className="bg-primary/10">
+                      <th className="py-1 px-2 text-left font-display text-foreground">Tam.</th>
+                      <th className="py-1 px-2 text-center font-display text-foreground">Diâmetro</th>
+                      <th className="py-1 px-2 text-center font-display text-foreground">Circunf.</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {sizeTable.map((row, i) => (
+                      <tr key={row.size} className={i % 2 === 0 ? "bg-secondary/30" : "bg-background"}>
+                        <td className="py-0.5 px-2 font-semibold text-foreground">{row.size}</td>
+                        <td className="py-0.5 px-2 text-center text-muted-foreground">{row.diameter} mm</td>
+                        <td className="py-0.5 px-2 text-center text-muted-foreground">{row.circ} cm</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+
+              {/* Dicas */}
+              <div className="rounded-lg bg-primary/5 border border-primary/20 p-2 space-y-0.5">
+                <p className="font-display text-[10px] font-bold text-foreground">💡 Dicas:</p>
+                <p className="text-[10px] font-body text-muted-foreground">• Meça no final do dia</p>
+                <p className="text-[10px] font-body text-muted-foreground">• Entre dois números, escolha o maior</p>
+                <p className="text-[10px] font-body text-muted-foreground">• Mãos esquerda e direita podem diferir</p>
+              </div>
+            </div>
+          )}
+
+          <p className="text-[10px] text-muted-foreground font-body italic leading-relaxed mt-1">
             Cada anel é produzido manualmente, com carinho e dedicação.
-            A flor que você receberá será muito semelhante à da foto,
-            mas com as variações naturais que tornam cada peça especial e exclusiva.
           </p>
         </div>
       </div>
-
-      <RingSizeGuideModal open={showGuide} onOpenChange={setShowGuide} />
     </div>
   );
 };
