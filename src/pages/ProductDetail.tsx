@@ -189,14 +189,14 @@ const ProductDetail = () => {
                 <div className="flex items-center gap-3">
                   <button
                     onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                    className="w-9 h-9 rounded bg-secondary text-foreground flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
+                    className="w-9 h-9 rounded border border-border bg-transparent text-foreground flex items-center justify-center hover:border-primary hover:text-primary transition-colors"
                   >
                     -
                   </button>
                   <span className="font-body text-foreground w-8 text-center">{quantity}</span>
                   <button
                     onClick={() => setQuantity(quantity + 1)}
-                    className="w-9 h-9 rounded bg-secondary text-foreground flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
+                    className="w-9 h-9 rounded border border-border bg-transparent text-foreground flex items-center justify-center hover:border-primary hover:text-primary transition-colors"
                   >
                     +
                   </button>
