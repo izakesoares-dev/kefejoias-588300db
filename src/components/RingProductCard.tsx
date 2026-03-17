@@ -1,5 +1,5 @@
 import { useState } from "react";
-import methodStringImg from "@/assets/method-string.jpg";
+import ringMeasurementImg from "@/assets/ring-measurement.jpg";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ShoppingBag, CreditCard, QrCode, Play, Ruler } from "lucide-react";
