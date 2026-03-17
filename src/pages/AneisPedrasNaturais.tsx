@@ -20,7 +20,7 @@ const stoneFilters = [
 ];
 
 const AneisPedrasNaturais = () => {
-  const [activeFilter, setActiveFilter] = useState("todos");
+  const [globalSize, setGlobalSize] = useState("");
 
   // Filter rings with natural stones
   const stoneRings = products.filter(
