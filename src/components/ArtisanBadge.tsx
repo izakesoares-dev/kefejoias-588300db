@@ -73,12 +73,11 @@ const ArtisanBadge = ({ selectedSize, onSizeChange }: ArtisanBadgeProps) => {
               type="button"
               onClick={(e) => { e.preventDefault(); e.stopPropagation(); setShowGuide(!showGuide); }}
               onMouseDown={(e) => { e.stopPropagation(); }}
-              className="flex items-center gap-2 px-3 py-1.5 rounded-md font-display text-sm font-bold
-                text-foreground border border-primary/40 bg-primary/5
-                hover:bg-primary/10 hover:shadow-gold-sm transition-all whitespace-nowrap"
+              className="flex items-center gap-1 font-display text-sm font-bold
+                text-primary hover:text-primary/80 transition-all whitespace-nowrap"
             >
               📏 Como descobrir?
-              <ChevronDown size={16} className={`transition-transform duration-200 ${showGuide ? "rotate-180" : ""}`} />
+              <ChevronDown size={14} className={`transition-transform duration-200 ${showGuide ? "rotate-180" : ""}`} />
             </button>
           </div>
 
