@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
@@ -5,7 +6,7 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import SEOHead, { breadcrumbJsonLd } from "@/components/SEOHead";
 import RingProductCard from "@/components/RingProductCard";
-
+import RingSizeSelector from "@/components/RingSizeSelector";
 
 import { products } from "@/data/products";
 
@@ -15,6 +16,7 @@ const subcategories = [
 ];
 
 const Aneis = () => {
+  const [globalSize, setGlobalSize] = useState("");
   const allRings = products.filter((p) => p.category === "anel");
 
   return (
