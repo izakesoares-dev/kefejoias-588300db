@@ -15,42 +15,32 @@ const ArtisanBadge = ({ selectedSize, onSizeChange }: ArtisanBadgeProps) => {
 
   return (
     <div className="space-y-0">
-      {/* Selo Peça Única */}
-      <div className="rounded-xl border border-primary/30 bg-[#F9F6F0] dark:bg-card px-3 py-2 space-y-1">
-        <p className="font-display text-sm font-bold text-foreground flex items-center gap-1.5">
-          <Sparkles size={14} className="text-whatsapp-green" />
-          Peça Única Artesanal
-        </p>
-        <p className="text-xs text-muted-foreground font-body italic leading-relaxed">
-          Cada anel é produzido manualmente, com carinho e dedicação.
-          A flor que você receberá será muito semelhante à da foto,
-          mas com as variações naturais que tornam cada peça especial e exclusiva.
-        </p>
-      </div>
-
-      {/* Tamanhos + barra de rolagem na mesma linha */}
+      {/* Tamanhos + descrição em caixa com scroll vertical */}
       <div className="rounded-xl border border-primary/30 bg-[#F9F6F0] dark:bg-card px-3 py-2 space-y-1.5">
-        <div className="flex items-center gap-2">
-          <p className="font-display text-sm font-bold text-foreground whitespace-nowrap">
-            Tam. 14-22
+        <div className="h-[200px] overflow-y-auto border border-border/50 rounded-lg p-2 bg-background" onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}>
+          <p className="font-display text-sm font-bold text-foreground mb-2">
+            Tamanhos disponíveis
           </p>
-          <div className="flex-1 overflow-y-auto max-h-[72px] scrollbar-hide" onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}>
-            <div className="flex flex-wrap gap-1.5">
-              {SIZES.map((size) => (
-                <button
-                  key={size}
-                  onClick={(e) => { e.preventDefault(); e.stopPropagation(); onSizeChange?.(String(size)); }}
-                  className={`shrink-0 w-8 h-8 rounded-full text-xs font-body font-semibold flex items-center justify-center transition-all ${
-                    selectedSize === String(size)
-                      ? "bg-primary text-primary-foreground shadow-gold"
-                      : "bg-background border border-border text-foreground hover:border-primary/60"
-                  }`}
-                >
-                  {size}
-                </button>
-              ))}
-            </div>
+          <div className="flex flex-wrap gap-1.5">
+            {SIZES.map((size) => (
+              <button
+                key={size}
+                onClick={(e) => { e.preventDefault(); e.stopPropagation(); onSizeChange?.(String(size)); }}
+                className={`shrink-0 w-9 h-9 rounded-full text-xs font-body font-semibold flex items-center justify-center transition-all ${
+                  selectedSize === String(size)
+                    ? "bg-primary text-primary-foreground shadow-gold"
+                    : "border border-border text-foreground hover:border-primary/60"
+                }`}
+              >
+                {size}
+              </button>
+            ))}
           </div>
+          <p className="text-xs text-muted-foreground font-body italic leading-relaxed mt-3">
+            Cada anel é produzido manualmente, com carinho e dedicação.
+            A flor que você receberá será muito semelhante à da foto,
+            mas com as variações naturais que tornam cada peça especial e exclusiva.
+          </p>
         </div>
 
         {/* Link para vídeo */}
