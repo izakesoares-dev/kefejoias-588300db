@@ -66,7 +66,7 @@ const Aneis = () => {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
             {allRings.map((product, i) => (
-              <RingProductCard key={product.id} product={product} index={i} />
+              <RingProductCard key={product.id} product={product} index={i} globalSize={globalSize} />
             ))}
           </div>
         </div>
