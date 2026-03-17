@@ -119,6 +119,19 @@ const ArtisanBadge = ({ selectedSize, onSizeChange }: ArtisanBadgeProps) => {
                     <p>• É o método mais preciso e rápido</p>
                   </AccordionContent>
                 </AccordionItem>
+                <AccordionItem value="method4" className="border-primary/20">
+                  <AccordionTrigger className="font-display text-[11px] text-foreground hover:no-underline py-2">
+                    ▶️ Método 4: Assista ao vídeo explicativo
+                  </AccordionTrigger>
+                  <AccordionContent className="pb-2">
+                    <video
+                      src="/videos/como-descobrir-numero-anel-new.mp4"
+                      className="w-full rounded-lg"
+                      controls
+                      playsInline
+                    />
+                  </AccordionContent>
+                </AccordionItem>
               </Accordion>
 
               {/* Tabela */}
