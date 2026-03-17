@@ -31,18 +31,14 @@ import braceletAcoCitrino from "@/assets/bracelet-aco-citrino.jpg";
 import braceletAcoTurmalina from "@/assets/bracelet-aco-turmalina.jpg";
 import braceletAcoLapis from "@/assets/bracelet-aco-lapis.jpg";
 
-// Minimalist Bracelet Images
-import braceletMiniAmetista from "@/assets/bracelet-mini-ametista.jpg";
+// Minimalist Bracelet Images (only uploaded photos)
 import braceletMiniAmetista2 from "@/assets/bracelet-mini-ametista-2.jpg";
 import braceletMiniAmetista3 from "@/assets/bracelet-mini-ametista-3.jpg";
-
-import braceletMiniOlhoTigre from "@/assets/bracelet-mini-olho-tigre.jpg";
+import braceletMiniAmetista4 from "@/assets/bracelet-mini-ametista-4.jpg";
 import braceletMiniOlhoTigre2 from "@/assets/bracelet-mini-olho-tigre-2.jpg";
 import braceletMiniOlhoTigre3 from "@/assets/bracelet-mini-olho-tigre-3.jpg";
-import braceletMiniJade from "@/assets/bracelet-mini-jade.jpg";
 import braceletMiniJade2 from "@/assets/bracelet-mini-jade-2.jpg";
 import braceletMiniJade3 from "@/assets/bracelet-mini-jade-3.jpg";
-import braceletMiniLapis from "@/assets/bracelet-mini-lapis.jpg";
 import braceletMiniLapis2 from "@/assets/bracelet-mini-lapis-2.jpg";
 import braceletMiniLapis3 from "@/assets/bracelet-mini-lapis-3.jpg";
 import braceletMiniGranada from "@/assets/bracelet-mini-granada.jpg";
