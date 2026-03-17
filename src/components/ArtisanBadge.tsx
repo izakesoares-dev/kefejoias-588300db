@@ -38,16 +38,16 @@ const ArtisanBadge = ({ selectedSize, onSizeChange }: ArtisanBadgeProps) => {
 
   return (
     <div className="space-y-0">
-      <div className="space-y-2">
+      <div className="space-y-1">
         <div className="max-h-[420px] overflow-y-auto scrollbar-none" style={{ scrollbarWidth: 'none' }} onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}>
           {/* Tamanhos disponíveis */}
-          <div className="space-y-2 mb-4">
+          <div className="space-y-1 mb-2">
             <div className="flex items-center justify-between w-full">
-              <p className="font-display text-base font-bold text-foreground whitespace-nowrap">
+              <p className="font-display text-sm font-bold text-foreground whitespace-nowrap">
                 14 ao 22 disponíveis
               </p>
-              <div className="flex items-center gap-1.5">
-                <span className="font-display text-base font-bold text-foreground whitespace-nowrap">📏 Seu tamanho</span>
+              <div className="flex items-center gap-1">
+                <span className="font-display text-sm font-bold text-foreground whitespace-nowrap">📏 Seu tamanho</span>
                 <Select value={selectedSize || "none"} onValueChange={(val) => {
                   onSizeChange?.(val === "none" ? "" : val);
                 }}>
@@ -85,11 +85,11 @@ const ArtisanBadge = ({ selectedSize, onSizeChange }: ArtisanBadgeProps) => {
               type="button"
               onClick={(e) => { e.preventDefault(); e.stopPropagation(); setShowGuide(!showGuide); }}
               onMouseDown={(e) => { e.stopPropagation(); }}
-              className="flex items-center gap-1 font-display text-base font-bold
+              className="flex items-center gap-1 font-display text-xs font-bold
                 text-foreground hover:text-foreground/80 transition-all whitespace-nowrap"
             >
               Como descobrir seu tamanho?
-              <ChevronDown size={14} className={`transition-transform duration-200 ${showGuide ? "rotate-180" : ""}`} />
+              <ChevronDown size={12} className={`transition-transform duration-200 ${showGuide ? "rotate-180" : ""}`} />
             </button>
           </div>
 
@@ -177,13 +177,10 @@ const ArtisanBadge = ({ selectedSize, onSizeChange }: ArtisanBadgeProps) => {
             </div>
           )}
 
-          <div className="mt-2 space-y-0.5">
-            <p className="text-xs font-display font-bold text-foreground text-center">✨ Peça Única Artesanal</p>
-            <p className="text-xs text-muted-foreground font-body italic leading-relaxed">
-              Cada anel é produzido manualmente, com carinho e dedicação.
-            </p>
-            <p className="text-xs text-muted-foreground font-body italic leading-relaxed">
-              A flor que você receberá será muito semelhante à da foto, mas com as variações naturais que tornam cada peça especial e exclusiva.
+          <div className="mt-1 space-y-0">
+            <p className="text-[11px] font-display font-bold text-foreground text-center">✨ Peça Única Artesanal</p>
+            <p className="text-[10px] text-muted-foreground font-body italic leading-snug">
+              Cada anel é produzido manualmente, com carinho e dedicação. A flor que você receberá será muito semelhante à da foto, mas com variações naturais que tornam cada peça especial.
             </p>
           </div>
         </div>
