@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 interface RingProductCardProps {
   product: Product;
   index?: number;
+  globalSize?: string;
 }
 
 const SHOWCASE_VIDEO = "/videos/aneis-showcase.mp4";
