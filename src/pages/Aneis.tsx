@@ -50,6 +50,9 @@ const Aneis = () => {
           >
             Anéis artesanais com pedras naturais e flores eternizadas em resina cristalina.
           </motion.p>
+          <div className="flex justify-center mt-4">
+            <RingSizeSelector value={globalSize} onChange={setGlobalSize} />
+          </div>
           </div>
         </div>
       </section>
