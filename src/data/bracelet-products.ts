@@ -533,7 +533,7 @@ export const minimalistBracelets: Product[] = [
     price: 59.90,
     description: "Pedrinhas de ametista delicadamente combinadas com esferas de aço. Calma e intuição em uma peça discreta e sofisticada. Fecho ajustável.",
     shortDescription: "Pulseira minimalista de ametista – calma e intuição",
-    images: [braceletMiniAmetista, braceletMiniAmetista, braceletMiniAmetista],
+    images: [braceletMiniAmetista, braceletMiniAmetista2, braceletMiniAmetista3],
     elements: [
       { name: "Ametista", meaning: "Intuição, calma e proteção espiritual", icon: "🔮" },
     ],
