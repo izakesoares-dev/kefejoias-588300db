@@ -44,7 +44,7 @@ const ArtisanBadge = ({ selectedSize, onSizeChange }: ArtisanBadgeProps) => {
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-1.5 min-w-0">
               <p className="font-display text-sm font-bold text-foreground whitespace-nowrap">
-                Tamanhos 14 - 22
+                14 ao 22 disponíveis
               </p>
               <Select value={selectedSize || "none"} onValueChange={(val) => {
                 onSizeChange?.(val === "none" ? "" : val);
