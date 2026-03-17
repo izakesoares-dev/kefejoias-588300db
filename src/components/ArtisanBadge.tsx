@@ -32,10 +32,10 @@ const ArtisanBadge = ({ selectedSize, onSizeChange }: ArtisanBadgeProps) => {
       <div className="rounded-xl border border-primary/30 bg-[#F9F6F0] dark:bg-card px-3 py-2 space-y-1.5">
         <div className="flex items-center gap-2">
           <p className="font-display text-sm font-bold text-foreground whitespace-nowrap">
-            Tam.
+            Tam. 14-22
           </p>
-          <div className="flex-1 overflow-x-auto scrollbar-hide" onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}>
-            <div className="flex gap-1.5">
+          <div className="flex-1 overflow-y-auto max-h-[72px] scrollbar-hide" onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}>
+            <div className="flex flex-wrap gap-1.5">
               {SIZES.map((size) => (
                 <button
                   key={size}
