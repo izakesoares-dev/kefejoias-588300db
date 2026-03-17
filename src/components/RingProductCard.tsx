@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ShoppingBag, CreditCard, QrCode, Play } from "lucide-react";
 import ArtisanBadge from "@/components/ArtisanBadge";
@@ -55,8 +56,10 @@ const RingProductCard = ({ product, index = 0 }: RingProductCardProps) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.08, duration: 0.5 }}
-      className="rounded-2xl overflow-hidden border border-border/50 shadow-lg hover:shadow-gold transition-shadow duration-500 bg-card"
     >
+    <Link to={`/produto/${product.slug}`} className="block">
+      <div className="rounded-2xl overflow-hidden border border-border/50 shadow-lg hover:shadow-gold transition-shadow duration-500 bg-card">
+
       {/* ===== Foto principal + mídias sobrepostas ===== */}
       <div className="relative">
         <img
@@ -84,7 +87,7 @@ const RingProductCard = ({ product, index = 0 }: RingProductCardProps) => {
           {product.images.slice(0, 3).map((img, i) => (
             <button
               key={i}
-              onClick={() => setActiveThumb(activeThumb === i ? "img" : i)}
+              onClick={(e) => { e.preventDefault(); e.stopPropagation(); setActiveThumb(activeThumb === i ? "img" : i); }}
               className={`w-11 h-11 rounded-lg overflow-hidden border-2 transition-all flex-shrink-0 shadow-md ${
                 activeThumb === i ? "border-primary shadow-gold" : "border-white/50 hover:border-primary/60"
               }`}
@@ -93,7 +96,7 @@ const RingProductCard = ({ product, index = 0 }: RingProductCardProps) => {
             </button>
           ))}
           <button
-            onClick={() => setActiveThumb(activeThumb === "video1" ? "img" : "video1")}
+            onClick={(e) => { e.preventDefault(); e.stopPropagation(); setActiveThumb(activeThumb === "video1" ? "img" : "video1"); }}
             className={`w-11 h-11 rounded-lg border-2 transition-all flex-shrink-0 flex items-center justify-center bg-black/60 shadow-md ${
               activeThumb === "video1" ? "border-primary shadow-gold" : "border-white/50 hover:border-primary/60"
             }`}
@@ -101,7 +104,7 @@ const RingProductCard = ({ product, index = 0 }: RingProductCardProps) => {
             <Play size={13} className="text-white" />
           </button>
           <button
-            onClick={() => setActiveThumb(activeThumb === "video2" ? "img" : "video2")}
+            onClick={(e) => { e.preventDefault(); e.stopPropagation(); setActiveThumb(activeThumb === "video2" ? "img" : "video2"); }}
             className={`w-11 h-11 rounded-lg border-2 transition-all flex-shrink-0 flex items-center justify-center bg-black/60 shadow-md ${
               activeThumb === "video2" ? "border-primary shadow-gold" : "border-white/50 hover:border-primary/60"
             }`}
@@ -135,22 +138,26 @@ const RingProductCard = ({ product, index = 0 }: RingProductCardProps) => {
 
         {/* Tamanho + Comprar */}
         <div className="flex items-center gap-2">
-          <Select value={selectedSize} onValueChange={setSelectedSize}>
-            <SelectTrigger className="w-[72px] h-9 text-sm">
-              <SelectValue placeholder="Tam." />
-            </SelectTrigger>
-            <SelectContent>
-              {sizes.map((s) => (
-                <SelectItem key={s} value={String(s)}>{s}</SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-          <Button onClick={handleBuy} disabled={!selectedSize} className="flex-1 h-10 gap-1.5 font-body font-extrabold rounded-xl text-[15px] bg-primary text-secondary hover:bg-gold-dark hover:text-white transition-colors shadow-gold-sm">
+          <div onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}>
+            <Select value={selectedSize} onValueChange={setSelectedSize}>
+              <SelectTrigger className="w-[72px] h-9 text-sm">
+                <SelectValue placeholder="Tam." />
+              </SelectTrigger>
+              <SelectContent>
+                {sizes.map((s) => (
+                  <SelectItem key={s} value={String(s)}>{s}</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+          <Button onClick={(e) => { e.preventDefault(); e.stopPropagation(); handleBuy(); }} disabled={!selectedSize} className="flex-1 h-10 gap-1.5 font-body font-extrabold rounded-xl text-[15px] bg-primary text-secondary hover:bg-gold-dark hover:text-white transition-colors shadow-gold-sm">
             <ShoppingBag size={14} />
             Comprar
           </Button>
         </div>
       </div>
+      </div>
+    </Link>
     </motion.div>
   );
 };
