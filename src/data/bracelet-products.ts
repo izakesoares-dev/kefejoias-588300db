@@ -562,7 +562,7 @@ export const minimalistBracelets: Product[] = [
     description: "Pedrinhas de lápis-lazúli intercaladas com esferas de aço dourado. O lápis-lazúli é a pedra da sabedoria e verdade, estimula a comunicação autêntica e a conexão com a intuição profunda. Fecho ajustável.",
     shortDescription: "Pulseira minimalista de lápis-lazúli – sabedoria e verdade",
     images: [braceletMiniLapis2, braceletMiniLapis3, braceletMiniLapis2],
-    videoUrl: "/__l5e/assets-v1/57b25893-17f3-4c94-97b0-074148177893/pulseira-mini-lapis.mp4",
+    videoUrl: "/__l5e/assets-v1/63d71a8d-2de1-433c-b1e8-fade7bf3ddf8/pulseira-mini-lapis-new.mp4",
     elements: [
       { name: "Lápis-Lazúli", meaning: "Sabedoria, verdade, intuição e comunicação", icon: "💙" },
     ],
