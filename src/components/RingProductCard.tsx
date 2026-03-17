@@ -57,66 +57,67 @@ const RingProductCard = ({ product, index = 0, globalSize }: RingProductCardProp
       viewport={{ once: true }}
       transition={{ delay: index * 0.08, duration: 0.5 }}
     >
-    <Link to={`/produto/${product.slug}`} className="block">
       <div className="rounded-2xl overflow-hidden border border-border/50 shadow-lg hover:shadow-gold transition-shadow duration-500 bg-card">
 
-      {/* ===== Foto principal + mídias sobrepostas ===== */}
-      <div className="relative">
-        <img
-          src={product.images[0]}
-          alt={product.name}
-          className="w-full aspect-square object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/50" />
+      {/* ===== Foto principal + mídias sobrepostas (Link apenas aqui) ===== */}
+      <Link to={`/produto/${product.slug}`} className="block">
+        <div className="relative">
+          <img
+            src={product.images[0]}
+            alt={product.name}
+            className="w-full aspect-square object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/50" />
 
-        {product.badge && (
-          <span className="absolute top-3 left-3 z-10 px-3 py-0.5 text-xs font-body font-semibold bg-primary text-primary-foreground rounded-full">
-            {product.badge}
-          </span>
-        )}
+          {product.badge && (
+            <span className="absolute top-3 left-3 z-10 px-3 py-0.5 text-xs font-body font-semibold bg-primary text-primary-foreground rounded-full">
+              {product.badge}
+            </span>
+          )}
 
-        {showPreview && (
-          <div className="absolute inset-0 z-10 bg-black/80 flex items-center justify-center p-4">
-            <div className="w-full h-full rounded-lg overflow-hidden">
-              {renderPreview()}
+          {showPreview && (
+            <div className="absolute inset-0 z-10 bg-black/80 flex items-center justify-center p-4">
+              <div className="w-full h-full rounded-lg overflow-hidden">
+                {renderPreview()}
+              </div>
             </div>
-          </div>
-        )}
+          )}
 
-        <div className="absolute bottom-3 left-3 z-20 flex items-center gap-2">
-          {product.images.slice(0, 3).map((img, i) => (
+          <div className="absolute bottom-3 left-3 z-20 flex items-center gap-2">
+            {product.images.slice(0, 3).map((img, i) => (
+              <button
+                key={i}
+                onClick={(e) => { e.preventDefault(); e.stopPropagation(); setActiveThumb(activeThumb === i ? "img" : i); }}
+                className={`w-11 h-11 rounded-lg overflow-hidden border-2 transition-all flex-shrink-0 shadow-md ${
+                  activeThumb === i ? "border-primary shadow-gold" : "border-white/50 hover:border-primary/60"
+                }`}
+              >
+                <img src={img} alt={`Ângulo ${i + 1}`} className="w-full h-full object-cover" />
+              </button>
+            ))}
             <button
-              key={i}
-              onClick={(e) => { e.preventDefault(); e.stopPropagation(); setActiveThumb(activeThumb === i ? "img" : i); }}
-              className={`w-11 h-11 rounded-lg overflow-hidden border-2 transition-all flex-shrink-0 shadow-md ${
-                activeThumb === i ? "border-primary shadow-gold" : "border-white/50 hover:border-primary/60"
+              onClick={(e) => { e.preventDefault(); e.stopPropagation(); setActiveThumb(activeThumb === "video1" ? "img" : "video1"); }}
+              className={`w-11 h-11 rounded-lg border-2 transition-all flex-shrink-0 overflow-hidden relative shadow-md ${
+                activeThumb === "video1" ? "border-primary shadow-gold" : "border-white/50 hover:border-primary/60"
               }`}
             >
-              <img src={img} alt={`Ângulo ${i + 1}`} className="w-full h-full object-cover" />
+              <img src={product.images[0]} alt="Vídeo" className="w-full h-full object-cover" />
+              <div className="absolute inset-0 flex items-center justify-center bg-black/30">
+                <Play size={14} className="text-white fill-white" />
+              </div>
             </button>
-          ))}
+          </div>
           <button
-            onClick={(e) => { e.preventDefault(); e.stopPropagation(); setActiveThumb(activeThumb === "video1" ? "img" : "video1"); }}
-            className={`w-11 h-11 rounded-lg border-2 transition-all flex-shrink-0 overflow-hidden relative shadow-md ${
-              activeThumb === "video1" ? "border-primary shadow-gold" : "border-white/50 hover:border-primary/60"
-            }`}
+            onClick={(e) => { e.preventDefault(); e.stopPropagation(); setShowMeasureModal(true); }}
+            className="absolute bottom-3 right-3 z-20 w-12 h-12 rounded-lg border-2 border-white/70 hover:border-primary/60 transition-all overflow-hidden shadow-md"
           >
-            <img src={product.images[0]} alt="Vídeo" className="w-full h-full object-cover" />
+            <img src={ringMeasurementImg} alt="Medida" className="w-full h-full object-cover" />
             <div className="absolute inset-0 flex items-center justify-center bg-black/30">
-              <Play size={14} className="text-white fill-white" />
+              <Ruler size={14} className="text-white drop-shadow-md" />
             </div>
           </button>
         </div>
-        <button
-          onClick={(e) => { e.preventDefault(); e.stopPropagation(); setShowMeasureModal(true); }}
-          className="absolute bottom-3 right-3 z-20 w-12 h-12 rounded-lg border-2 border-white/70 hover:border-primary/60 transition-all overflow-hidden shadow-md"
-        >
-          <img src={ringMeasurementImg} alt="Medida" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 flex items-center justify-center bg-black/30">
-            <Ruler size={14} className="text-white drop-shadow-md" />
-          </div>
-        </button>
-      </div>
+      </Link>
 
       {/* Modal vídeo medição */}
       <Dialog open={showMeasureModal} onOpenChange={setShowMeasureModal}>
@@ -133,13 +134,12 @@ const RingProductCard = ({ product, index = 0, globalSize }: RingProductCardProp
         </DialogContent>
       </Dialog>
 
-      {/* ===== Informações do produto (compacto) ===== */}
+      {/* ===== Informações do produto (fora do Link) ===== */}
       <div className="px-2 pt-0 pb-1 space-y-0">
-        {/* Título e descrição */}
-        <div>
+        <Link to={`/produto/${product.slug}`} className="block">
           <h3 className="font-display text-base text-foreground leading-tight truncate">{product.name}</h3>
           <p className="text-xs text-muted-foreground font-body truncate">{product.significance}</p>
-        </div>
+        </Link>
 
         <ArtisanBadge selectedSize={selectedSize} onSizeChange={setLocalSize} />
 
@@ -163,14 +163,13 @@ const RingProductCard = ({ product, index = 0, globalSize }: RingProductCardProp
 
         {/* Comprar */}
         <div className="flex items-center">
-          <Button onClick={(e) => { e.preventDefault(); e.stopPropagation(); handleBuy(); }} className="flex-1 h-10 gap-1.5 font-body font-extrabold rounded-xl text-[15px] bg-primary text-secondary hover:bg-gold-dark hover:text-white transition-colors shadow-gold-sm">
+          <Button onClick={handleBuy} className="flex-1 h-10 gap-1.5 font-body font-extrabold rounded-xl text-[15px] bg-primary text-secondary hover:bg-gold-dark hover:text-white transition-colors shadow-gold-sm">
             <ShoppingBag size={14} />
             Comprar
           </Button>
         </div>
       </div>
       </div>
-    </Link>
     </motion.div>
   );
 };
