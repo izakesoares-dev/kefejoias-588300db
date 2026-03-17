@@ -17,13 +17,21 @@ interface RingProductCardProps {
 const SHOWCASE_VIDEO = "/videos/aneis-showcase.mp4";
 const MEASUREMENT_VIDEO = "/videos/como-descobrir-numero-anel-new.mp4";
 
-const RingProductCard = ({ product, index = 0 }: RingProductCardProps) => {
+const RingProductCard = ({ product, index = 0, globalSize }: RingProductCardProps) => {
   const { addItem } = useCart();
-  const [selectedSize, setSelectedSize] = useState<string>("");
+  const [localSize, setLocalSize] = useState<string>("");
   const [activeThumb, setActiveThumb] = useState<"img" | number | "video1" | "video2">("img");
+  const [showSizeWarning, setShowSizeWarning] = useState(false);
+
+  const selectedSize = globalSize || localSize;
 
   const handleBuy = () => {
-    if (!selectedSize) return;
+    if (!selectedSize) {
+      setShowSizeWarning(true);
+      setTimeout(() => setShowSizeWarning(false), 3000);
+      return;
+    }
+    setShowSizeWarning(false);
     addItem(product, 1, Number(selectedSize));
   };
 
