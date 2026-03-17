@@ -506,7 +506,7 @@ export const minimalistBracelets: Product[] = [
     price: 59.90,
     description: "Pedrinhas de ametista delicadamente combinadas com esferas de aço inoxidável. A ametista é a pedra da espiritualidade e intuição, promove calma interior, equilíbrio emocional e proteção espiritual. Ideal para quem busca paz e clareza mental. Fecho ajustável.",
     shortDescription: "Pulseira minimalista de ametista – calma e intuição",
-    images: [braceletMiniAmetista, braceletMiniAmetista2, braceletMiniAmetista3],
+    images: [braceletMiniAmetista2, braceletMiniAmetista3, braceletMiniAmetista4],
     videoUrl: "/__l5e/assets-v1/76c98bc5-6852-4ee2-80a5-0845143388ae/pulseira-mini-ametista.mp4",
     elements: [
       { name: "Ametista", meaning: "Intuição, calma, proteção espiritual e equilíbrio emocional", icon: "🔮" },
