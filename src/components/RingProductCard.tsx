@@ -135,36 +135,36 @@ const RingProductCard = ({ product, index = 0, globalSize }: RingProductCardProp
       </Dialog>
 
       {/* ===== Informações do produto (fora do Link) ===== */}
-      <div className="px-2 pt-0 pb-1 space-y-0">
+      <div className="px-2 pt-0 pb-1.5 space-y-0">
         <Link to={`/produto/${product.slug}`} className="block">
-          <h3 className="font-display text-base text-foreground leading-tight truncate">{product.name}</h3>
-          <p className="text-xs text-muted-foreground font-body truncate">{product.significance}</p>
+          <h3 className="font-display text-sm text-foreground leading-tight truncate">{product.name}</h3>
+          <p className="text-[11px] text-muted-foreground font-body truncate">{product.significance}</p>
         </Link>
 
         <ArtisanBadge selectedSize={selectedSize} onSizeChange={setLocalSize} />
 
         {showSizeWarning && (
-          <p className="text-xs text-red-500 font-body font-semibold animate-pulse">
+          <p className="text-[11px] text-red-500 font-body font-semibold animate-pulse">
             ⚠️ Escolha o tamanho do anel
           </p>
         )}
 
         {/* Preço + Pagamento */}
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between mt-0.5">
           <span className="whitespace-nowrap">
-            <span className="text-xl font-display font-bold text-green-deep">{formatPrice(product.price)}</span>
-            <span className="text-[11px] text-muted-foreground ml-1.5">ou 3x {formatPrice(product.price / 3)}</span>
+            <span className="text-lg font-display font-bold text-green-deep">{formatPrice(product.price)}</span>
+            <span className="text-[10px] text-muted-foreground ml-1">ou 3x {formatPrice(product.price / 3)}</span>
           </span>
-          <div className="flex items-center gap-2 text-foreground text-sm font-bold whitespace-nowrap shrink-0">
-            <span className="flex items-center gap-1"><CreditCard size={15} className="text-whatsapp-green" />Cartão</span>
-            <span className="flex items-center gap-1"><QrCode size={15} className="text-whatsapp-green" />Pix</span>
+          <div className="flex items-center gap-1.5 text-foreground text-xs font-bold whitespace-nowrap shrink-0">
+            <span className="flex items-center gap-0.5"><CreditCard size={13} className="text-whatsapp-green" />Cartão</span>
+            <span className="flex items-center gap-0.5"><QrCode size={13} className="text-whatsapp-green" />Pix</span>
           </div>
         </div>
 
         {/* Comprar */}
-        <div className="flex items-center">
-          <Button onClick={handleBuy} className="flex-1 h-10 gap-1.5 font-body font-extrabold rounded-xl text-[15px] bg-primary text-secondary hover:bg-gold-dark hover:text-white transition-colors shadow-gold-sm">
-            <ShoppingBag size={14} />
+        <div className="flex items-center mt-1">
+          <Button onClick={handleBuy} className="flex-1 h-9 gap-1.5 font-body font-extrabold rounded-xl text-sm bg-primary text-secondary hover:bg-gold-dark hover:text-white transition-colors shadow-gold-sm">
+            <ShoppingBag size={13} />
             Comprar
           </Button>
         </div>

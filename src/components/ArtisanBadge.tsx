@@ -177,13 +177,10 @@ const ArtisanBadge = ({ selectedSize, onSizeChange }: ArtisanBadgeProps) => {
             </div>
           )}
 
-          <div className="mt-2 space-y-0.5">
-            <p className="text-xs font-display font-bold text-foreground text-center">✨ Peça Única Artesanal</p>
-            <p className="text-xs text-muted-foreground font-body italic leading-relaxed">
-              Cada anel é produzido manualmente, com carinho e dedicação.
-            </p>
-            <p className="text-xs text-muted-foreground font-body italic leading-relaxed">
-              A flor que você receberá será muito semelhante à da foto, mas com as variações naturais que tornam cada peça especial e exclusiva.
+          <div className="mt-1 space-y-0">
+            <p className="text-[11px] font-display font-bold text-foreground text-center">✨ Peça Única Artesanal</p>
+            <p className="text-[10px] text-muted-foreground font-body italic leading-snug">
+              Cada anel é produzido manualmente, com carinho e dedicação. A flor que você receberá será muito semelhante à da foto, mas com variações naturais que tornam cada peça especial.
             </p>
           </div>
         </div>
