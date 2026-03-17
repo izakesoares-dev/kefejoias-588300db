@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Play, X, ChevronDown } from "lucide-react";
+import { Ruler } from "lucide-react";
 import {
   Select,
   SelectContent,
@@ -7,8 +7,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-
-const MEASUREMENT_VIDEO = "/videos/como-descobrir-numero-anel-new.mp4";
+import RingSizeGuideModal from "@/components/RingSizeGuideModal";
 
 const SIZES = [14, 15, 16, 17, 18, 19, 20, 21, 22];
 
@@ -18,14 +17,14 @@ interface ArtisanBadgeProps {
 }
 
 const ArtisanBadge = ({ selectedSize, onSizeChange }: ArtisanBadgeProps) => {
-  const [showVideo, setShowVideo] = useState(false);
+  const [showGuide, setShowGuide] = useState(false);
 
   return (
     <div className="space-y-0">
       <div className="rounded-xl border border-primary/30 bg-[#F9F6F0] dark:bg-card px-3 py-2 space-y-1.5">
         <div className="h-[200px] overflow-y-auto border border-border/50 rounded-lg p-2 bg-background" onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}>
-          {/* Tamanhos disponíveis - linha única com dropdown */}
-          <div className="flex items-center gap-2 mb-3">
+          {/* Tamanhos disponíveis - linha única com dropdown + botão guia */}
+          <div className="flex items-center gap-2 mb-3 flex-wrap">
             <p className="font-display text-sm font-bold text-foreground whitespace-nowrap">
               Tamanhos disponíveis
             </p>
@@ -50,6 +49,15 @@ const ArtisanBadge = ({ selectedSize, onSizeChange }: ArtisanBadgeProps) => {
                 ))}
               </SelectContent>
             </Select>
+
+            <button
+              onClick={(e) => { e.preventDefault(); e.stopPropagation(); setShowGuide(true); }}
+              className="flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-body font-semibold
+                border border-primary/50 text-primary bg-primary/5
+                hover:bg-primary/10 hover:shadow-gold-sm transition-all whitespace-nowrap"
+            >
+              📏 Como descobrir?
+            </button>
           </div>
 
           <p className="text-xs text-muted-foreground font-body italic leading-relaxed">
@@ -58,34 +66,9 @@ const ArtisanBadge = ({ selectedSize, onSizeChange }: ArtisanBadgeProps) => {
             mas com as variações naturais que tornam cada peça especial e exclusiva.
           </p>
         </div>
-
-        {/* Link para vídeo */}
-        {!showVideo ? (
-          <button
-            onClick={(e) => { e.preventDefault(); e.stopPropagation(); setShowVideo(true); }}
-            className="flex items-center gap-1.5 text-xs font-body font-semibold text-whatsapp-green hover:text-whatsapp-green/80 transition-colors"
-          >
-            <Play size={12} className="fill-whatsapp-green" />
-            📏 Como descobrir seu número
-          </button>
-        ) : (
-          <div className="relative" onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}>
-            <video
-              src={MEASUREMENT_VIDEO}
-              className="w-full rounded-lg max-h-40"
-              controls
-              autoPlay
-              playsInline
-            />
-            <button
-              onClick={() => setShowVideo(false)}
-              className="absolute top-1 right-1 w-6 h-6 rounded-full bg-black/60 text-white flex items-center justify-center text-xs hover:bg-black/80 transition-colors"
-            >
-              <X size={12} />
-            </button>
-          </div>
-        )}
       </div>
+
+      <RingSizeGuideModal open={showGuide} onOpenChange={setShowGuide} />
     </div>
   );
 };
