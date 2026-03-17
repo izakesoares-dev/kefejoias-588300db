@@ -35,7 +35,7 @@ const AneisFlores = () => {
       />
       <Navbar />
 
-      <section className="pt-32 pb-0 px-6 bg-gradient-to-b from-secondary/50 to-background">
+      <section className="pt-28 pb-0 px-6 bg-gradient-to-b from-secondary/50 to-background">
         <div className="max-w-7xl mx-auto">
           
           <motion.div
