@@ -41,14 +41,14 @@ const ArtisanBadge = ({ selectedSize, onSizeChange }: ArtisanBadgeProps) => {
       <div className="rounded-xl border border-primary/30 bg-[#F9F6F0] dark:bg-card px-4 py-3 space-y-2">
         <div className="max-h-[420px] overflow-y-auto border border-border/50 rounded-lg p-3 bg-background" onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}>
           {/* Tamanhos disponíveis */}
-          <div className="flex items-center justify-between mb-3">
-            <div className="flex items-center gap-2 min-w-0">
-              <p className="font-display text-sm font-bold text-foreground whitespace-nowrap">
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center gap-3 min-w-0">
+              <p className="font-display text-base font-bold text-foreground whitespace-nowrap">
                 Tamanhos
               </p>
               <Select value={selectedSize} onValueChange={(val) => onSizeChange?.(val)}>
                 <SelectTrigger
-                  className="w-[80px] h-8 rounded-md font-display font-bold text-sm px-2 gap-1
+                  className="w-[90px] h-9 rounded-md font-display font-bold text-base px-3 gap-1
                     bg-transparent border border-primary text-green-deep
                     hover:shadow-gold-sm focus:ring-primary/40 transition-all"
                 >
@@ -59,7 +59,7 @@ const ArtisanBadge = ({ selectedSize, onSizeChange }: ArtisanBadgeProps) => {
                     <SelectItem
                       key={size}
                       value={String(size)}
-                      className="font-body text-sm font-semibold text-green-deep cursor-pointer
+                      className="font-body text-base font-semibold text-green-deep cursor-pointer
                         focus:bg-primary/15 focus:text-green-deep"
                     >
                       {size}
@@ -73,12 +73,12 @@ const ArtisanBadge = ({ selectedSize, onSizeChange }: ArtisanBadgeProps) => {
               type="button"
               onClick={(e) => { e.preventDefault(); e.stopPropagation(); setShowGuide(!showGuide); }}
               onMouseDown={(e) => { e.stopPropagation(); }}
-              className="flex items-center gap-1.5 px-2.5 py-1 rounded-md font-display text-xs font-bold
+              className="flex items-center gap-2 px-3 py-1.5 rounded-md font-display text-sm font-bold
                 text-foreground border border-primary/40 bg-primary/5
                 hover:bg-primary/10 hover:shadow-gold-sm transition-all whitespace-nowrap"
             >
               📏 Como descobrir?
-              <ChevronDown size={14} className={`transition-transform duration-200 ${showGuide ? "rotate-180" : ""}`} />
+              <ChevronDown size={16} className={`transition-transform duration-200 ${showGuide ? "rotate-180" : ""}`} />
             </button>
           </div>
 
