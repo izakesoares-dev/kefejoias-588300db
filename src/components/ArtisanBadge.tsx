@@ -38,8 +38,8 @@ const ArtisanBadge = ({ selectedSize, onSizeChange }: ArtisanBadgeProps) => {
 
   return (
     <div className="space-y-0">
-      <div className="rounded-xl border border-primary/30 bg-[#F9F6F0] dark:bg-card px-4 py-3 space-y-2">
-        <div className="max-h-[420px] overflow-y-auto border border-border/50 rounded-lg p-3 bg-background" onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}>
+      <div className="space-y-2">
+        <div className="max-h-[420px] overflow-y-auto" onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}>
           {/* Tamanhos disponíveis */}
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-3 min-w-0">
