@@ -25,13 +25,13 @@ const ArtisanBadge = ({ selectedSize, onSizeChange }: ArtisanBadgeProps) => {
         <div className="h-[200px] overflow-y-auto border border-border/50 rounded-lg p-2 bg-background" onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}>
           {/* Tamanhos disponíveis - linha única com dropdown + botão guia */}
           <div className="flex items-center justify-between mb-3">
-            <div className="flex items-center gap-2">
-              <p className="font-display text-sm font-bold text-foreground whitespace-nowrap">
-                Tamanhos disponíveis
+            <div className="flex items-center gap-1.5 min-w-0">
+              <p className="font-display text-[11px] font-bold text-foreground whitespace-nowrap">
+                Tamanhos
               </p>
               <Select value={selectedSize} onValueChange={(val) => onSizeChange?.(val)}>
                 <SelectTrigger
-                  className="w-[90px] h-7 rounded-md font-body font-semibold text-xs px-2 gap-1
+                  className="w-[72px] h-6 rounded-md font-display font-bold text-[11px] px-1.5 gap-0.5
                     bg-transparent border border-primary text-green-deep
                     hover:shadow-gold-sm focus:ring-primary/40 transition-all"
                 >
@@ -54,7 +54,7 @@ const ArtisanBadge = ({ selectedSize, onSizeChange }: ArtisanBadgeProps) => {
 
             <button
               onClick={(e) => { e.preventDefault(); e.stopPropagation(); setShowGuide(true); }}
-              className="flex items-center gap-1 px-2 py-1 rounded-md font-display text-xs font-bold
+              className="flex items-center gap-1 px-1.5 py-0.5 rounded-md font-display text-[11px] font-bold
                 text-foreground border border-primary/40 bg-primary/5
                 hover:bg-primary/10 hover:shadow-gold-sm transition-all whitespace-nowrap"
             >
