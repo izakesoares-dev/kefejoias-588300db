@@ -108,10 +108,8 @@ const RingProductCard = ({ product, index = 0, globalSize }: RingProductCardProp
           </button>
         </div>
         <button
-          onClick={(e) => { e.preventDefault(); e.stopPropagation(); setActiveThumb(activeThumb === "video2" ? "img" : "video2"); }}
-          className={`absolute bottom-3 right-3 z-20 w-12 h-12 rounded-lg border-2 transition-all overflow-hidden shadow-md ${
-            activeThumb === "video2" ? "border-primary shadow-gold" : "border-white/70 hover:border-primary/60"
-          }`}
+          onClick={(e) => { e.preventDefault(); e.stopPropagation(); setShowMeasureModal(true); }}
+          className="absolute bottom-3 right-3 z-20 w-12 h-12 rounded-lg border-2 border-white/70 hover:border-primary/60 transition-all overflow-hidden shadow-md"
         >
           <img src={ringMeasurementImg} alt="Medida" className="w-full h-full object-cover" />
           <div className="absolute inset-0 flex items-center justify-center bg-black/30">
@@ -119,6 +117,20 @@ const RingProductCard = ({ product, index = 0, globalSize }: RingProductCardProp
           </div>
         </button>
       </div>
+
+      {/* Modal vídeo medição */}
+      <Dialog open={showMeasureModal} onOpenChange={setShowMeasureModal}>
+        <DialogContent className="max-w-2xl w-[95vw] p-2 sm:p-4 bg-black/95 border-primary/30 rounded-xl">
+          <VisuallyHidden.Root><DialogTitle>Como descobrir o tamanho do anel</DialogTitle></VisuallyHidden.Root>
+          <video
+            src={MEASUREMENT_VIDEO}
+            className="w-full rounded-lg"
+            controls
+            autoPlay
+            playsInline
+          />
+        </DialogContent>
+      </Dialog>
 
       {/* ===== Informações do produto (compacto) ===== */}
       <div className="px-2 pt-0 pb-1 space-y-0">
