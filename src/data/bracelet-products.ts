@@ -585,7 +585,7 @@ export const minimalistBracelets: Product[] = [
     price: 59.90,
     description: "Pedrinhas de jade verde intercaladas com esferas de aço inoxidável dourado. Prosperidade e harmonia em um design minimalista. Fecho ajustável.",
     shortDescription: "Pulseira minimalista de jade – prosperidade discreta",
-    images: [braceletMiniJade, braceletMiniJade, braceletMiniJade],
+    images: [braceletMiniJade, braceletMiniJade2, braceletMiniJade3],
     elements: [
       { name: "Jade", meaning: "Sorte, prosperidade e harmonia", icon: "💚" },
     ],
