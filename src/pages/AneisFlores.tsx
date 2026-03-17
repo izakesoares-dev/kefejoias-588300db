@@ -1,14 +1,16 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { products } from "@/data/products";
 import RingProductCard from "@/components/RingProductCard";
+import RingSizeSelector from "@/components/RingSizeSelector";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import SEOHead, { breadcrumbJsonLd } from "@/components/SEOHead";
 
-
-
 const AneisFlores = () => {
+  const [globalSize, setGlobalSize] = useState("");
+
   const flowerRings = products.filter(
     (p) => p.category === "anel" && p.subcategory === "flores"
   );
@@ -47,6 +49,9 @@ const AneisFlores = () => {
             <p className="font-body text-sm text-muted-foreground max-w-2xl mx-auto">
               Flores reais capturadas para sempre em resina cristalina — beleza eterna no seu dedo.
             </p>
+            <div className="flex justify-center mt-4">
+              <RingSizeSelector value={globalSize} onChange={setGlobalSize} />
+            </div>
           </motion.div>
         </div>
       </section>
@@ -55,7 +60,7 @@ const AneisFlores = () => {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
             {displayRings.map((product, index) => (
-              <RingProductCard key={product.id} product={product} index={index} />
+              <RingProductCard key={product.id} product={product} index={index} globalSize={globalSize} />
             ))}
           </div>
 

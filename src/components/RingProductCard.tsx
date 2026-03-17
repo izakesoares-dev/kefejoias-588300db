@@ -11,18 +11,27 @@ import { Button } from "@/components/ui/button";
 interface RingProductCardProps {
   product: Product;
   index?: number;
+  globalSize?: string;
 }
 
 const SHOWCASE_VIDEO = "/videos/aneis-showcase.mp4";
 const MEASUREMENT_VIDEO = "/videos/como-descobrir-numero-anel-new.mp4";
 
-const RingProductCard = ({ product, index = 0 }: RingProductCardProps) => {
+const RingProductCard = ({ product, index = 0, globalSize }: RingProductCardProps) => {
   const { addItem } = useCart();
-  const [selectedSize, setSelectedSize] = useState<string>("");
+  const [localSize, setLocalSize] = useState<string>("");
   const [activeThumb, setActiveThumb] = useState<"img" | number | "video1" | "video2">("img");
+  const [showSizeWarning, setShowSizeWarning] = useState(false);
+
+  const selectedSize = globalSize || localSize;
 
   const handleBuy = () => {
-    if (!selectedSize) return;
+    if (!selectedSize) {
+      setShowSizeWarning(true);
+      setTimeout(() => setShowSizeWarning(false), 3000);
+      return;
+    }
+    setShowSizeWarning(false);
     addItem(product, 1, Number(selectedSize));
   };
 
@@ -120,7 +129,13 @@ const RingProductCard = ({ product, index = 0 }: RingProductCardProps) => {
           <p className="text-xs text-muted-foreground font-body truncate">{product.significance}</p>
         </div>
 
-        <ArtisanBadge selectedSize={selectedSize} onSizeChange={setSelectedSize} />
+        <ArtisanBadge selectedSize={selectedSize} onSizeChange={setLocalSize} />
+
+        {showSizeWarning && (
+          <p className="text-xs text-red-500 font-body font-semibold animate-pulse">
+            ⚠️ Escolha o tamanho do anel
+          </p>
+        )}
 
         {/* Preço + Pagamento */}
         <div className="flex items-center justify-between">
@@ -136,7 +151,7 @@ const RingProductCard = ({ product, index = 0 }: RingProductCardProps) => {
 
         {/* Comprar */}
         <div className="flex items-center">
-          <Button onClick={(e) => { e.preventDefault(); e.stopPropagation(); handleBuy(); }} disabled={!selectedSize} className="flex-1 h-10 gap-1.5 font-body font-extrabold rounded-xl text-[15px] bg-primary text-secondary hover:bg-gold-dark hover:text-white transition-colors shadow-gold-sm">
+          <Button onClick={(e) => { e.preventDefault(); e.stopPropagation(); handleBuy(); }} className="flex-1 h-10 gap-1.5 font-body font-extrabold rounded-xl text-[15px] bg-primary text-secondary hover:bg-gold-dark hover:text-white transition-colors shadow-gold-sm">
             <ShoppingBag size={14} />
             Comprar
           </Button>

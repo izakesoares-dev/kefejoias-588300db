@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { products, formatPrice, Product } from "@/data/products";
 import RingProductCard from "@/components/RingProductCard";
+import RingSizeSelector from "@/components/RingSizeSelector";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -20,6 +21,7 @@ const stoneFilters = [
 
 const AneisPedrasNaturais = () => {
   const [activeFilter, setActiveFilter] = useState("todos");
+  const [globalSize, setGlobalSize] = useState("");
 
   // Filter rings with natural stones
   const stoneRings = products.filter(
@@ -63,6 +65,9 @@ const AneisPedrasNaturais = () => {
             <p className="font-body text-sm text-muted-foreground max-w-3xl mx-auto">
               Escolha a pedra que mais combina com sua intenção e use no dia a dia um amuleto de estilo.
             </p>
+            <div className="flex justify-center mt-4">
+              <RingSizeSelector value={globalSize} onChange={setGlobalSize} />
+            </div>
           </motion.div>
         </div>
       </section>
@@ -95,7 +100,7 @@ const AneisPedrasNaturais = () => {
           {/* Products Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
             {filtered.map((product, index) => (
-              <RingProductCard key={product.id} product={product} index={index} />
+              <RingProductCard key={product.id} product={product} index={index} globalSize={globalSize} />
             ))}
           </div>
 

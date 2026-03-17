@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
@@ -5,7 +6,7 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import SEOHead, { breadcrumbJsonLd } from "@/components/SEOHead";
 import RingProductCard from "@/components/RingProductCard";
-
+import RingSizeSelector from "@/components/RingSizeSelector";
 
 import { products } from "@/data/products";
 
@@ -15,6 +16,7 @@ const subcategories = [
 ];
 
 const Aneis = () => {
+  const [globalSize, setGlobalSize] = useState("");
   const allRings = products.filter((p) => p.category === "anel");
 
   return (
@@ -48,6 +50,9 @@ const Aneis = () => {
           >
             Anéis artesanais com pedras naturais e flores eternizadas em resina cristalina.
           </motion.p>
+          <div className="flex justify-center mt-4">
+            <RingSizeSelector value={globalSize} onChange={setGlobalSize} />
+          </div>
           </div>
         </div>
       </section>
@@ -61,7 +66,7 @@ const Aneis = () => {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
             {allRings.map((product, i) => (
-              <RingProductCard key={product.id} product={product} index={i} />
+              <RingProductCard key={product.id} product={product} index={i} globalSize={globalSize} />
             ))}
           </div>
         </div>
