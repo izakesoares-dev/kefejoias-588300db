@@ -97,19 +97,25 @@ const RingProductCard = ({ product, index = 0 }: RingProductCardProps) => {
           ))}
           <button
             onClick={(e) => { e.preventDefault(); e.stopPropagation(); setActiveThumb(activeThumb === "video1" ? "img" : "video1"); }}
-            className={`w-11 h-11 rounded-lg border-2 transition-all flex-shrink-0 flex items-center justify-center bg-black/60 shadow-md ${
+            className={`w-11 h-11 rounded-lg border-2 transition-all flex-shrink-0 overflow-hidden relative shadow-md ${
               activeThumb === "video1" ? "border-primary shadow-gold" : "border-white/50 hover:border-primary/60"
             }`}
           >
-            <Play size={13} className="text-white" />
+            <img src={product.images[0]} alt="Vídeo" className="w-full h-full object-cover" />
+            <div className="absolute inset-0 flex items-center justify-center bg-black/30">
+              <Play size={14} className="text-white fill-white" />
+            </div>
           </button>
           <button
             onClick={(e) => { e.preventDefault(); e.stopPropagation(); setActiveThumb(activeThumb === "video2" ? "img" : "video2"); }}
-            className={`w-11 h-11 rounded-lg border-2 transition-all flex-shrink-0 flex items-center justify-center bg-black/60 shadow-md ${
+            className={`w-11 h-11 rounded-lg border-2 transition-all flex-shrink-0 overflow-hidden relative shadow-md ${
               activeThumb === "video2" ? "border-primary shadow-gold" : "border-white/50 hover:border-primary/60"
             }`}
           >
-            <span className="text-[8px] text-white leading-tight text-center">📏<br/>Medida</span>
+            <img src={product.images[0]} alt="Medida" className="w-full h-full object-cover opacity-60" />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <span className="text-[8px] text-white font-bold leading-tight text-center drop-shadow-md">📏</span>
+            </div>
           </button>
         </div>
       </div>

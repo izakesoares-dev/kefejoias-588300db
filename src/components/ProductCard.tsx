@@ -130,11 +130,14 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
                   e.stopPropagation();
                   setActiveThumb(activeThumb === "video" ? "img" : "video");
                 }}
-                className={`w-11 h-11 rounded-lg border-2 transition-all flex-shrink-0 flex items-center justify-center bg-black/50 shadow-md ${
+                className={`w-11 h-11 rounded-lg border-2 transition-all flex-shrink-0 overflow-hidden relative shadow-md ${
                   activeThumb === "video" ? "border-primary shadow-gold" : "border-white/70 hover:border-primary/60"
                 }`}
               >
-                <Play size={13} className="text-primary" />
+                <img src={product.images[0]} alt="Vídeo" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 flex items-center justify-center bg-black/30">
+                  <Play size={14} className="text-white fill-white" />
+                </div>
               </button>
             </div>
           </div>
