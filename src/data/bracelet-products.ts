@@ -507,7 +507,7 @@ export const minimalistBracelets: Product[] = [
     description: "Pedrinhas de ametista delicadamente combinadas com esferas de aço inoxidável. A ametista é a pedra da espiritualidade e intuição, promove calma interior, equilíbrio emocional e proteção espiritual. Ideal para quem busca paz e clareza mental. Fecho ajustável.",
     shortDescription: "Pulseira minimalista de ametista – calma e intuição",
     images: [braceletMiniAmetista2, braceletMiniAmetista3, braceletMiniAmetista4],
-    videoUrl: "/__l5e/assets-v1/76c98bc5-6852-4ee2-80a5-0845143388ae/pulseira-mini-ametista.mp4",
+    videoUrl: "/__l5e/assets-v1/af6adf78-fd58-4768-95da-ada37441626a/pulseira-mini-ametista-new.mp4",
     elements: [
       { name: "Ametista", meaning: "Intuição, calma, proteção espiritual e equilíbrio emocional", icon: "🔮" },
     ],
@@ -526,7 +526,7 @@ export const minimalistBracelets: Product[] = [
     description: "Pedrinhas de olho de tigre intercaladas com esferas de aço inoxidável. O olho de tigre é a pedra da coragem e autoconfiança, oferece proteção energética e ajuda a tomar decisões com clareza. Fecho ajustável.",
     shortDescription: "Pulseira minimalista de olho de tigre – proteção e coragem",
     images: [braceletMiniOlhoTigre2, braceletMiniOlhoTigre3, braceletMiniOlhoTigre2],
-    videoUrl: "/__l5e/assets-v1/8a13aab2-5dc7-483f-aa81-f408a4e31ea0/pulseira-mini-olho-tigre.mp4",
+    videoUrl: "/__l5e/assets-v1/82717150-3729-4b05-9f94-bc9c4c972cc2/pulseira-mini-olho-tigre-new.mp4",
     elements: [
       { name: "Olho de Tigre", meaning: "Coragem, proteção, autoconfiança e clareza mental", icon: "🐯" },
     ],
@@ -544,7 +544,7 @@ export const minimalistBracelets: Product[] = [
     description: "Pedrinhas de jade verde intercaladas com esferas de aço inoxidável dourado. A jade é a pedra da prosperidade e sorte, promove harmonia, equilíbrio e abundância. Considerada sagrada em diversas culturas. Fecho ajustável.",
     shortDescription: "Pulseira minimalista de jade – prosperidade e harmonia",
     images: [braceletMiniJade2, braceletMiniJade3, braceletMiniJade2],
-    videoUrl: "/__l5e/assets-v1/a8e44494-9533-410c-97db-3169ba46f203/pulseira-mini-jade.mp4",
+    videoUrl: "/__l5e/assets-v1/f08676cb-47f8-4f04-9953-69776ac840b3/pulseira-mini-jade-new.mp4",
     elements: [
       { name: "Jade", meaning: "Prosperidade, sorte, harmonia e equilíbrio", icon: "💚" },
     ],
@@ -562,7 +562,7 @@ export const minimalistBracelets: Product[] = [
     description: "Pedrinhas de lápis-lazúli intercaladas com esferas de aço dourado. O lápis-lazúli é a pedra da sabedoria e verdade, estimula a comunicação autêntica e a conexão com a intuição profunda. Fecho ajustável.",
     shortDescription: "Pulseira minimalista de lápis-lazúli – sabedoria e verdade",
     images: [braceletMiniLapis2, braceletMiniLapis3, braceletMiniLapis2],
-    videoUrl: "/__l5e/assets-v1/57b25893-17f3-4c94-97b0-074148177893/pulseira-mini-lapis.mp4",
+    videoUrl: "/__l5e/assets-v1/63d71a8d-2de1-433c-b1e8-fade7bf3ddf8/pulseira-mini-lapis-new.mp4",
     elements: [
       { name: "Lápis-Lazúli", meaning: "Sabedoria, verdade, intuição e comunicação", icon: "💙" },
     ],
@@ -581,7 +581,7 @@ export const minimalistBracelets: Product[] = [
     description: "Pedrinhas de granada facetadas intercaladas com esferas de aço inoxidável. A granada é a pedra da paixão e vitalidade, estimula a energia vital, fortalece a coragem e desperta a força interior. Fecho lagosta ajustável.",
     shortDescription: "Pulseira minimalista de granada – paixão e vitalidade",
     images: [braceletMiniGranada, braceletMiniGranada2, braceletMiniGranada3],
-    videoUrl: "/__l5e/assets-v1/52ec6adc-5c55-4c4f-8240-f27753ddd8f9/pulseira-mini-granada.mp4",
+    videoUrl: "/__l5e/assets-v1/d2cdace3-d8d5-4f88-a9d2-f316235d1383/pulseira-mini-granada-new.mp4",
     elements: [
       { name: "Granada", meaning: "Paixão, vitalidade, coragem e força interior", icon: "❤️‍🔥" },
     ],
@@ -600,7 +600,7 @@ export const minimalistBracelets: Product[] = [
     description: "Pedrinhas de água-marinha natural com pingente bruto de água-marinha e acabamento em aço inoxidável. A água-marinha é a pedra da serenidade e comunicação, acalma emoções turbulentas e traz clareza mental. Associada ao elemento água, é ideal para quem busca paz interior. Fecho lagosta ajustável.",
     shortDescription: "Pulseira minimalista de água-marinha – serenidade e clareza",
     images: [braceletMiniAguaMarinha, braceletMiniAguaMarinha, braceletMiniAguaMarinha],
-    videoUrl: "/__l5e/assets-v1/8a82684f-2a71-41f9-9fe6-9450ab7bd3f9/pulseira-mini-agua-marinha.mp4",
+    videoUrl: "/__l5e/assets-v1/4c58afa5-67fd-445b-ba50-bb2805c15fba/pulseira-mini-agua-marinha-new.mp4",
     elements: [
       { name: "Água-Marinha", meaning: "Serenidade, comunicação, clareza e calma emocional", icon: "🌊" },
     ],
