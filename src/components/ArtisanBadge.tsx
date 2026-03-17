@@ -46,12 +46,8 @@ const ArtisanBadge = ({ selectedSize, onSizeChange }: ArtisanBadgeProps) => {
               <p className="font-display text-sm font-bold text-foreground whitespace-nowrap">
                 Tamanhos 14 - 22
               </p>
-              <Select value={selectedSize || ""} onValueChange={(val) => {
-                if (val === selectedSize) {
-                  onSizeChange?.("");
-                } else {
-                  onSizeChange?.(val);
-                }
+              <Select value={selectedSize || "none"} onValueChange={(val) => {
+                onSizeChange?.(val === "none" ? "" : val);
               }}>
                 <SelectTrigger
                   className="w-[52px] h-7 rounded-md font-display font-bold text-sm px-2 gap-0.5
@@ -61,6 +57,13 @@ const ArtisanBadge = ({ selectedSize, onSizeChange }: ArtisanBadgeProps) => {
                   <SelectValue placeholder="Nº" />
                 </SelectTrigger>
                 <SelectContent className="w-[60px] min-w-[60px] bg-background/95 backdrop-blur-sm border border-primary rounded-md p-0 shadow-gold-sm">
+                  <SelectItem
+                    value="none"
+                    className="font-body text-xs text-muted-foreground cursor-pointer justify-center px-2 py-1
+                      focus:bg-primary/15"
+                  >
+                    —
+                  </SelectItem>
                   {SIZES.map((size) => (
                     <SelectItem
                       key={size}
