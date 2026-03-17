@@ -85,7 +85,7 @@ const ArtisanBadge = ({ selectedSize, onSizeChange }: ArtisanBadgeProps) => {
               type="button"
               onClick={(e) => { e.preventDefault(); e.stopPropagation(); setShowGuide(!showGuide); }}
               onMouseDown={(e) => { e.stopPropagation(); }}
-              className="flex items-center gap-1 font-display text-sm font-bold
+              className="flex items-center gap-1 font-display text-base font-bold
                 text-foreground hover:text-foreground/80 transition-all whitespace-nowrap"
             >
               Como descobrir seu tamanho?
