@@ -581,7 +581,7 @@ export const minimalistBracelets: Product[] = [
     description: "Pedrinhas de granada facetadas intercaladas com esferas de aço inoxidável. A granada é a pedra da paixão e vitalidade, estimula a energia vital, fortalece a coragem e desperta a força interior. Fecho lagosta ajustável.",
     shortDescription: "Pulseira minimalista de granada – paixão e vitalidade",
     images: [braceletMiniGranada, braceletMiniGranada2, braceletMiniGranada3],
-    videoUrl: "/__l5e/assets-v1/52ec6adc-5c55-4c4f-8240-f27753ddd8f9/pulseira-mini-granada.mp4",
+    videoUrl: "/__l5e/assets-v1/d2cdace3-d8d5-4f88-a9d2-f316235d1383/pulseira-mini-granada-new.mp4",
     elements: [
       { name: "Granada", meaning: "Paixão, vitalidade, coragem e força interior", icon: "❤️‍🔥" },
     ],
