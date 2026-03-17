@@ -34,14 +34,26 @@ import braceletAcoLapis from "@/assets/bracelet-aco-lapis.jpg";
 // Minimalist Bracelet Images
 import braceletMiniQuartzoRosa from "@/assets/bracelet-mini-quartzo-rosa.jpg";
 import braceletMiniAmetista from "@/assets/bracelet-mini-ametista.jpg";
+import braceletMiniAmetista2 from "@/assets/bracelet-mini-ametista-2.jpg";
+import braceletMiniAmetista3 from "@/assets/bracelet-mini-ametista-3.jpg";
 import braceletMiniOlhoTigre from "@/assets/bracelet-mini-olho-tigre.jpg";
+import braceletMiniOlhoTigre2 from "@/assets/bracelet-mini-olho-tigre-2.jpg";
+import braceletMiniOlhoTigre3 from "@/assets/bracelet-mini-olho-tigre-3.jpg";
 import braceletMiniTurquesa from "@/assets/bracelet-mini-turquesa.jpg";
 import braceletMiniJade from "@/assets/bracelet-mini-jade.jpg";
+import braceletMiniJade2 from "@/assets/bracelet-mini-jade-2.jpg";
+import braceletMiniJade3 from "@/assets/bracelet-mini-jade-3.jpg";
 import braceletMiniCitrino from "@/assets/bracelet-mini-citrino.jpg";
 import braceletMiniLapis from "@/assets/bracelet-mini-lapis.jpg";
+import braceletMiniLapis2 from "@/assets/bracelet-mini-lapis-2.jpg";
+import braceletMiniLapis3 from "@/assets/bracelet-mini-lapis-3.jpg";
 import braceletMiniTurmalina from "@/assets/bracelet-mini-turmalina.jpg";
 import braceletMiniCornalina from "@/assets/bracelet-mini-cornalina.jpg";
 import braceletMiniPedraLua from "@/assets/bracelet-mini-pedra-lua.jpg";
+import braceletMiniGranada from "@/assets/bracelet-mini-granada.jpg";
+import braceletMiniGranada2 from "@/assets/bracelet-mini-granada-2.jpg";
+import braceletMiniGranada3 from "@/assets/bracelet-mini-granada-3.jpg";
+import braceletMiniAguaMarinha from "@/assets/bracelet-mini-agua-marinha.jpg";
 
 // ========== MACRAMÊ ==========
 export const macrameBracelets: Product[] = [
