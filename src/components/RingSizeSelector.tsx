@@ -17,9 +17,6 @@ interface RingSizeSelectorProps {
 const RingSizeSelector = ({ value, onChange }: RingSizeSelectorProps) => {
   return (
     <div className="flex items-center gap-3">
-      <label className="font-display text-sm font-semibold text-foreground whitespace-nowrap">
-        Tamanho do anel:
-      </label>
       <Select value={value} onValueChange={onChange}>
         <SelectTrigger
           className="w-[100px] h-10 rounded-lg font-body font-semibold text-sm
