@@ -53,7 +53,9 @@ const ArtisanBadge = ({ selectedSize, onSizeChange }: ArtisanBadgeProps) => {
             </div>
 
             <button
+              type="button"
               onClick={(e) => { e.preventDefault(); e.stopPropagation(); setShowGuide(true); }}
+              onMouseDown={(e) => { e.stopPropagation(); }}
               className="flex items-center gap-1 px-1.5 py-0.5 rounded-md font-display text-[11px] font-bold
                 text-foreground border border-primary/40 bg-primary/5
                 hover:bg-primary/10 hover:shadow-gold-sm transition-all whitespace-nowrap"
