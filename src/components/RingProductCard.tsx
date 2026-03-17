@@ -42,9 +42,6 @@ const RingProductCard = ({ product, index = 0, globalSize }: RingProductCardProp
       const src = product.videoUrl || SHOWCASE_VIDEO;
       return <video src={src} className="w-full h-full object-contain" controls autoPlay muted loop playsInline />;
     }
-    if (activeThumb === "video2") {
-      return <video src={MEASUREMENT_VIDEO} className="w-full h-full object-contain" controls autoPlay muted loop playsInline />;
-    }
     if (typeof activeThumb === "number") {
       return <img src={product.images[activeThumb]} alt={product.name} className="w-full h-full object-cover rounded-lg" />;
     }
