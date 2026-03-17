@@ -31,18 +31,14 @@ import braceletAcoCitrino from "@/assets/bracelet-aco-citrino.jpg";
 import braceletAcoTurmalina from "@/assets/bracelet-aco-turmalina.jpg";
 import braceletAcoLapis from "@/assets/bracelet-aco-lapis.jpg";
 
-// Minimalist Bracelet Images
-import braceletMiniAmetista from "@/assets/bracelet-mini-ametista.jpg";
+// Minimalist Bracelet Images (only uploaded photos)
 import braceletMiniAmetista2 from "@/assets/bracelet-mini-ametista-2.jpg";
 import braceletMiniAmetista3 from "@/assets/bracelet-mini-ametista-3.jpg";
-
-import braceletMiniOlhoTigre from "@/assets/bracelet-mini-olho-tigre.jpg";
+import braceletMiniAmetista4 from "@/assets/bracelet-mini-ametista-4.jpg";
 import braceletMiniOlhoTigre2 from "@/assets/bracelet-mini-olho-tigre-2.jpg";
 import braceletMiniOlhoTigre3 from "@/assets/bracelet-mini-olho-tigre-3.jpg";
-import braceletMiniJade from "@/assets/bracelet-mini-jade.jpg";
 import braceletMiniJade2 from "@/assets/bracelet-mini-jade-2.jpg";
 import braceletMiniJade3 from "@/assets/bracelet-mini-jade-3.jpg";
-import braceletMiniLapis from "@/assets/bracelet-mini-lapis.jpg";
 import braceletMiniLapis2 from "@/assets/bracelet-mini-lapis-2.jpg";
 import braceletMiniLapis3 from "@/assets/bracelet-mini-lapis-3.jpg";
 import braceletMiniGranada from "@/assets/bracelet-mini-granada.jpg";
@@ -510,7 +506,7 @@ export const minimalistBracelets: Product[] = [
     price: 59.90,
     description: "Pedrinhas de ametista delicadamente combinadas com esferas de aço inoxidável. A ametista é a pedra da espiritualidade e intuição, promove calma interior, equilíbrio emocional e proteção espiritual. Ideal para quem busca paz e clareza mental. Fecho ajustável.",
     shortDescription: "Pulseira minimalista de ametista – calma e intuição",
-    images: [braceletMiniAmetista, braceletMiniAmetista2, braceletMiniAmetista3],
+    images: [braceletMiniAmetista2, braceletMiniAmetista3, braceletMiniAmetista4],
     videoUrl: "/__l5e/assets-v1/76c98bc5-6852-4ee2-80a5-0845143388ae/pulseira-mini-ametista.mp4",
     elements: [
       { name: "Ametista", meaning: "Intuição, calma, proteção espiritual e equilíbrio emocional", icon: "🔮" },
@@ -529,7 +525,7 @@ export const minimalistBracelets: Product[] = [
     price: 59.90,
     description: "Pedrinhas de olho de tigre intercaladas com esferas de aço inoxidável. O olho de tigre é a pedra da coragem e autoconfiança, oferece proteção energética e ajuda a tomar decisões com clareza. Fecho ajustável.",
     shortDescription: "Pulseira minimalista de olho de tigre – proteção e coragem",
-    images: [braceletMiniOlhoTigre, braceletMiniOlhoTigre2, braceletMiniOlhoTigre3],
+    images: [braceletMiniOlhoTigre2, braceletMiniOlhoTigre3, braceletMiniOlhoTigre2],
     videoUrl: "/__l5e/assets-v1/8a13aab2-5dc7-483f-aa81-f408a4e31ea0/pulseira-mini-olho-tigre.mp4",
     elements: [
       { name: "Olho de Tigre", meaning: "Coragem, proteção, autoconfiança e clareza mental", icon: "🐯" },
@@ -547,7 +543,7 @@ export const minimalistBracelets: Product[] = [
     price: 59.90,
     description: "Pedrinhas de jade verde intercaladas com esferas de aço inoxidável dourado. A jade é a pedra da prosperidade e sorte, promove harmonia, equilíbrio e abundância. Considerada sagrada em diversas culturas. Fecho ajustável.",
     shortDescription: "Pulseira minimalista de jade – prosperidade e harmonia",
-    images: [braceletMiniJade, braceletMiniJade2, braceletMiniJade3],
+    images: [braceletMiniJade2, braceletMiniJade3, braceletMiniJade2],
     videoUrl: "/__l5e/assets-v1/a8e44494-9533-410c-97db-3169ba46f203/pulseira-mini-jade.mp4",
     elements: [
       { name: "Jade", meaning: "Prosperidade, sorte, harmonia e equilíbrio", icon: "💚" },
@@ -565,7 +561,7 @@ export const minimalistBracelets: Product[] = [
     price: 64.90,
     description: "Pedrinhas de lápis-lazúli intercaladas com esferas de aço dourado. O lápis-lazúli é a pedra da sabedoria e verdade, estimula a comunicação autêntica e a conexão com a intuição profunda. Fecho ajustável.",
     shortDescription: "Pulseira minimalista de lápis-lazúli – sabedoria e verdade",
-    images: [braceletMiniLapis, braceletMiniLapis2, braceletMiniLapis3],
+    images: [braceletMiniLapis2, braceletMiniLapis3, braceletMiniLapis2],
     videoUrl: "/__l5e/assets-v1/57b25893-17f3-4c94-97b0-074148177893/pulseira-mini-lapis.mp4",
     elements: [
       { name: "Lápis-Lazúli", meaning: "Sabedoria, verdade, intuição e comunicação", icon: "💙" },
