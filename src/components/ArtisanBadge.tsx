@@ -60,7 +60,7 @@ const ArtisanBadge = ({ selectedSize, onSizeChange }: ArtisanBadgeProps) => {
                 text-foreground border border-primary/40 bg-primary/5
                 hover:bg-primary/10 hover:shadow-gold-sm transition-all whitespace-nowrap"
             >
-              📏 Como descobrir?
+              📏 Como descobrir? ▼
             </button>
           </div>
 
