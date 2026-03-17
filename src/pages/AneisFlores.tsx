@@ -1,14 +1,16 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { products } from "@/data/products";
 import RingProductCard from "@/components/RingProductCard";
+import RingSizeSelector from "@/components/RingSizeSelector";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import SEOHead, { breadcrumbJsonLd } from "@/components/SEOHead";
 
-
-
 const AneisFlores = () => {
+  const [globalSize, setGlobalSize] = useState("");
+
   const flowerRings = products.filter(
     (p) => p.category === "anel" && p.subcategory === "flores"
   );
