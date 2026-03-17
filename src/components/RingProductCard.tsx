@@ -138,22 +138,26 @@ const RingProductCard = ({ product, index = 0 }: RingProductCardProps) => {
 
         {/* Tamanho + Comprar */}
         <div className="flex items-center gap-2">
-          <Select value={selectedSize} onValueChange={setSelectedSize}>
-            <SelectTrigger className="w-[72px] h-9 text-sm">
-              <SelectValue placeholder="Tam." />
-            </SelectTrigger>
-            <SelectContent>
-              {sizes.map((s) => (
-                <SelectItem key={s} value={String(s)}>{s}</SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-          <Button onClick={handleBuy} disabled={!selectedSize} className="flex-1 h-10 gap-1.5 font-body font-extrabold rounded-xl text-[15px] bg-primary text-secondary hover:bg-gold-dark hover:text-white transition-colors shadow-gold-sm">
+          <div onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}>
+            <Select value={selectedSize} onValueChange={setSelectedSize}>
+              <SelectTrigger className="w-[72px] h-9 text-sm">
+                <SelectValue placeholder="Tam." />
+              </SelectTrigger>
+              <SelectContent>
+                {sizes.map((s) => (
+                  <SelectItem key={s} value={String(s)}>{s}</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+          <Button onClick={(e) => { e.preventDefault(); e.stopPropagation(); handleBuy(); }} disabled={!selectedSize} className="flex-1 h-10 gap-1.5 font-body font-extrabold rounded-xl text-[15px] bg-primary text-secondary hover:bg-gold-dark hover:text-white transition-colors shadow-gold-sm">
             <ShoppingBag size={14} />
             Comprar
           </Button>
         </div>
       </div>
+      </div>
+    </Link>
     </motion.div>
   );
 };
