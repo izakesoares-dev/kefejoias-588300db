@@ -150,7 +150,7 @@ const ArtisanBadge = ({ selectedSize, onSizeChange }: ArtisanBadgeProps) => {
                 <table className="w-full text-xs font-body">
                   <thead>
                     <tr className="bg-primary/10">
-                      <th className="py-1.5 px-3 text-left font-display text-foreground">Tam.</th>
+                      <th className="py-1.5 px-3 text-left font-display text-foreground">Tamanho</th>
                       <th className="py-1.5 px-3 text-center font-display text-foreground">Diâmetro</th>
                       <th className="py-1.5 px-3 text-center font-display text-foreground">Circunf.</th>
                     </tr>
