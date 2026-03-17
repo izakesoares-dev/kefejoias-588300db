@@ -46,7 +46,13 @@ const ArtisanBadge = ({ selectedSize, onSizeChange }: ArtisanBadgeProps) => {
               <p className="font-display text-sm font-bold text-foreground whitespace-nowrap">
                 Tamanhos 14 - 22
               </p>
-              <Select value={selectedSize} onValueChange={(val) => onSizeChange?.(val)}>
+              <Select value={selectedSize || ""} onValueChange={(val) => {
+                if (val === selectedSize) {
+                  onSizeChange?.("");
+                } else {
+                  onSizeChange?.(val);
+                }
+              }}>
                 <SelectTrigger
                   className="w-[52px] h-7 rounded-md font-display font-bold text-sm px-2 gap-0.5
                     bg-transparent border border-primary text-green-deep
