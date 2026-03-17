@@ -44,15 +44,15 @@ const ArtisanBadge = ({ selectedSize, onSizeChange }: ArtisanBadgeProps) => {
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-1.5 min-w-0">
               <p className="font-display text-sm font-bold text-foreground whitespace-nowrap">
-                Tamanhos
+                Tamanhos 14 - 22
               </p>
               <Select value={selectedSize} onValueChange={(val) => onSizeChange?.(val)}>
                 <SelectTrigger
-                  className="w-[72px] h-7 rounded-md font-display font-bold text-sm px-2 gap-0.5
+                  className="w-[52px] h-7 rounded-md font-display font-bold text-sm px-2 gap-0.5
                     bg-transparent border border-primary text-green-deep
                     hover:shadow-gold-sm focus:ring-primary/40 transition-all [&>svg]:h-3.5 [&>svg]:w-3.5"
                 >
-                  <SelectValue placeholder="14 - 22" />
+                  <SelectValue placeholder="Nº" />
                 </SelectTrigger>
                 <SelectContent className="w-[60px] min-w-[60px] bg-background/95 backdrop-blur-sm border border-primary rounded-md p-0 shadow-gold-sm">
                   {SIZES.map((size) => (
