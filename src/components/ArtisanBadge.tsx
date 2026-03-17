@@ -85,11 +85,11 @@ const ArtisanBadge = ({ selectedSize, onSizeChange }: ArtisanBadgeProps) => {
               type="button"
               onClick={(e) => { e.preventDefault(); e.stopPropagation(); setShowGuide(!showGuide); }}
               onMouseDown={(e) => { e.stopPropagation(); }}
-              className="flex items-center gap-1 font-display text-base font-bold
+              className="flex items-center gap-1 font-display text-xs font-bold
                 text-foreground hover:text-foreground/80 transition-all whitespace-nowrap"
             >
               Como descobrir seu tamanho?
-              <ChevronDown size={14} className={`transition-transform duration-200 ${showGuide ? "rotate-180" : ""}`} />
+              <ChevronDown size={12} className={`transition-transform duration-200 ${showGuide ? "rotate-180" : ""}`} />
             </button>
           </div>
 
