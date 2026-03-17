@@ -1,4 +1,5 @@
 import { useState } from "react";
+import methodStringImg from "@/assets/method-string.jpg";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ShoppingBag, CreditCard, QrCode, Play } from "lucide-react";
