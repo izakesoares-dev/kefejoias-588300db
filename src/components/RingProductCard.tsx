@@ -1,7 +1,8 @@
 import { useState } from "react";
+import methodStringImg from "@/assets/method-string.jpg";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ShoppingBag, CreditCard, QrCode, Play } from "lucide-react";
+import { ShoppingBag, CreditCard, QrCode, Play, Ruler } from "lucide-react";
 import ArtisanBadge from "@/components/ArtisanBadge";
 import { Product, formatPrice } from "@/data/products";
 import { useCart } from "@/contexts/CartContext";
@@ -112,9 +113,9 @@ const RingProductCard = ({ product, index = 0 }: RingProductCardProps) => {
               activeThumb === "video2" ? "border-primary shadow-gold" : "border-white/50 hover:border-primary/60"
             }`}
           >
-            <img src={product.images[0]} alt="Medida" className="w-full h-full object-cover opacity-60" />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <span className="text-[8px] text-white font-bold leading-tight text-center drop-shadow-md">📏</span>
+            <img src={methodStringImg} alt="Medida" className="w-full h-full object-cover" />
+            <div className="absolute inset-0 flex items-center justify-center bg-black/20">
+              <Ruler size={14} className="text-white drop-shadow-md" />
             </div>
           </button>
         </div>
