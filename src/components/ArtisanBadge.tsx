@@ -38,17 +38,17 @@ const ArtisanBadge = ({ selectedSize, onSizeChange }: ArtisanBadgeProps) => {
 
   return (
     <div className="space-y-0">
-      <div className="rounded-xl border border-primary/30 bg-[#F9F6F0] dark:bg-card px-3 py-2 space-y-1.5">
-        <div className="max-h-[320px] overflow-y-auto border border-border/50 rounded-lg p-2 bg-background" onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}>
+      <div className="rounded-xl border border-primary/30 bg-[#F9F6F0] dark:bg-card px-4 py-3 space-y-2">
+        <div className="max-h-[420px] overflow-y-auto border border-border/50 rounded-lg p-3 bg-background" onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}>
           {/* Tamanhos disponíveis */}
-          <div className="flex items-center justify-between mb-2">
-            <div className="flex items-center gap-1.5 min-w-0">
-              <p className="font-display text-[11px] font-bold text-foreground whitespace-nowrap">
+          <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center gap-2 min-w-0">
+              <p className="font-display text-sm font-bold text-foreground whitespace-nowrap">
                 Tamanhos
               </p>
               <Select value={selectedSize} onValueChange={(val) => onSizeChange?.(val)}>
                 <SelectTrigger
-                  className="w-[72px] h-6 rounded-md font-display font-bold text-[11px] px-1.5 gap-0.5
+                  className="w-[80px] h-8 rounded-md font-display font-bold text-sm px-2 gap-1
                     bg-transparent border border-primary text-green-deep
                     hover:shadow-gold-sm focus:ring-primary/40 transition-all"
                 >
@@ -59,7 +59,7 @@ const ArtisanBadge = ({ selectedSize, onSizeChange }: ArtisanBadgeProps) => {
                     <SelectItem
                       key={size}
                       value={String(size)}
-                      className="font-body font-semibold text-green-deep cursor-pointer
+                      className="font-body text-sm font-semibold text-green-deep cursor-pointer
                         focus:bg-primary/15 focus:text-green-deep"
                     >
                       {size}
@@ -73,25 +73,25 @@ const ArtisanBadge = ({ selectedSize, onSizeChange }: ArtisanBadgeProps) => {
               type="button"
               onClick={(e) => { e.preventDefault(); e.stopPropagation(); setShowGuide(!showGuide); }}
               onMouseDown={(e) => { e.stopPropagation(); }}
-              className="flex items-center gap-1 px-1.5 py-0.5 rounded-md font-display text-[11px] font-bold
+              className="flex items-center gap-1.5 px-2.5 py-1 rounded-md font-display text-xs font-bold
                 text-foreground border border-primary/40 bg-primary/5
                 hover:bg-primary/10 hover:shadow-gold-sm transition-all whitespace-nowrap"
             >
               📏 Como descobrir?
-              <ChevronDown size={12} className={`transition-transform duration-200 ${showGuide ? "rotate-180" : ""}`} />
+              <ChevronDown size={14} className={`transition-transform duration-200 ${showGuide ? "rotate-180" : ""}`} />
             </button>
           </div>
 
           {/* Guia inline */}
           {showGuide && (
-            <div className="space-y-2 animate-in fade-in slide-in-from-top-2 duration-200">
+            <div className="space-y-3 animate-in fade-in slide-in-from-top-2 duration-200">
               {/* Accordion métodos */}
               <Accordion type="multiple" className="w-full">
                 <AccordionItem value="method1" className="border-primary/20">
-                  <AccordionTrigger className="font-display text-[11px] text-foreground hover:no-underline py-2">
+                  <AccordionTrigger className="font-display text-xs text-foreground hover:no-underline py-2.5">
                     ▶️ Método 1: Com um anel que você já tem
                   </AccordionTrigger>
-                  <AccordionContent className="text-[10px] font-body text-muted-foreground space-y-1 pb-2">
+                  <AccordionContent className="text-xs font-body text-muted-foreground space-y-1.5 pb-3">
                     <p>• Pegue um anel que sirva bem no dedo desejado</p>
                     <p>• Coloque sobre uma régua e meça o <strong className="text-foreground">diâmetro interno</strong></p>
                     <p>• Compare com a tabela abaixo</p>
@@ -99,10 +99,10 @@ const ArtisanBadge = ({ selectedSize, onSizeChange }: ArtisanBadgeProps) => {
                 </AccordionItem>
 
                 <AccordionItem value="method2" className="border-primary/20">
-                  <AccordionTrigger className="font-display text-[11px] text-foreground hover:no-underline py-2">
+                  <AccordionTrigger className="font-display text-xs text-foreground hover:no-underline py-2.5">
                     ▶️ Método 2: Com barbante ou fita
                   </AccordionTrigger>
-                  <AccordionContent className="text-[10px] font-body text-muted-foreground space-y-1 pb-2">
+                  <AccordionContent className="text-xs font-body text-muted-foreground space-y-1.5 pb-3">
                     <p>• Enrole um barbante na base do dedo (sem apertar)</p>
                     <p>• Marque o ponto de encontro</p>
                     <p>• Estique sobre uma régua e veja em milímetros</p>
@@ -111,19 +111,19 @@ const ArtisanBadge = ({ selectedSize, onSizeChange }: ArtisanBadgeProps) => {
                 </AccordionItem>
 
                 <AccordionItem value="method3" className="border-primary/20">
-                  <AccordionTrigger className="font-display text-[11px] text-foreground hover:no-underline py-2">
+                  <AccordionTrigger className="font-display text-xs text-foreground hover:no-underline py-2.5">
                     ▶️ Método 3: Com aneleira profissional
                   </AccordionTrigger>
-                  <AccordionContent className="text-[10px] font-body text-muted-foreground space-y-1 pb-2">
+                  <AccordionContent className="text-xs font-body text-muted-foreground space-y-1.5 pb-3">
                     <p>• Visite uma joalheria e peça para medir seu dedo</p>
                     <p>• É o método mais preciso e rápido</p>
                   </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value="method4" className="border-primary/20">
-                  <AccordionTrigger className="font-display text-[11px] text-foreground hover:no-underline py-2">
+                  <AccordionTrigger className="font-display text-xs text-foreground hover:no-underline py-2.5">
                     ▶️ Método 4: Assista ao vídeo explicativo
                   </AccordionTrigger>
-                  <AccordionContent className="pb-2">
+                  <AccordionContent className="pb-3">
                     <video
                       src="/videos/como-descobrir-numero-anel-new.mp4"
                       className="w-full rounded-lg"
@@ -136,20 +136,20 @@ const ArtisanBadge = ({ selectedSize, onSizeChange }: ArtisanBadgeProps) => {
 
               {/* Tabela */}
               <div className="rounded-lg border border-primary/20 overflow-hidden">
-                <table className="w-full text-[10px] font-body">
+                <table className="w-full text-xs font-body">
                   <thead>
                     <tr className="bg-primary/10">
-                      <th className="py-1 px-2 text-left font-display text-foreground">Tam.</th>
-                      <th className="py-1 px-2 text-center font-display text-foreground">Diâmetro</th>
-                      <th className="py-1 px-2 text-center font-display text-foreground">Circunf.</th>
+                      <th className="py-1.5 px-3 text-left font-display text-foreground">Tam.</th>
+                      <th className="py-1.5 px-3 text-center font-display text-foreground">Diâmetro</th>
+                      <th className="py-1.5 px-3 text-center font-display text-foreground">Circunf.</th>
                     </tr>
                   </thead>
                   <tbody>
                     {sizeTable.map((row, i) => (
                       <tr key={row.size} className={i % 2 === 0 ? "bg-secondary/30" : "bg-background"}>
-                        <td className="py-0.5 px-2 font-semibold text-foreground">{row.size}</td>
-                        <td className="py-0.5 px-2 text-center text-muted-foreground">{row.diameter} mm</td>
-                        <td className="py-0.5 px-2 text-center text-muted-foreground">{row.circ} cm</td>
+                        <td className="py-1 px-3 font-semibold text-foreground">{row.size}</td>
+                        <td className="py-1 px-3 text-center text-muted-foreground">{row.diameter} mm</td>
+                        <td className="py-1 px-3 text-center text-muted-foreground">{row.circ} cm</td>
                       </tr>
                     ))}
                   </tbody>
@@ -157,16 +157,16 @@ const ArtisanBadge = ({ selectedSize, onSizeChange }: ArtisanBadgeProps) => {
               </div>
 
               {/* Dicas */}
-              <div className="rounded-lg bg-primary/5 border border-primary/20 p-2 space-y-0.5">
-                <p className="font-display text-[10px] font-bold text-foreground">💡 Dicas:</p>
-                <p className="text-[10px] font-body text-muted-foreground">• Meça no final do dia</p>
-                <p className="text-[10px] font-body text-muted-foreground">• Entre dois números, escolha o maior</p>
-                <p className="text-[10px] font-body text-muted-foreground">• Mãos esquerda e direita podem diferir</p>
+              <div className="rounded-lg bg-primary/5 border border-primary/20 p-3 space-y-1">
+                <p className="font-display text-xs font-bold text-foreground">💡 Dicas:</p>
+                <p className="text-xs font-body text-muted-foreground">• Meça no final do dia</p>
+                <p className="text-xs font-body text-muted-foreground">• Entre dois números, escolha o maior</p>
+                <p className="text-xs font-body text-muted-foreground">• Mãos esquerda e direita podem diferir</p>
               </div>
             </div>
           )}
 
-          <p className="text-[10px] text-muted-foreground font-body italic leading-relaxed mt-1">
+          <p className="text-xs text-muted-foreground font-body italic leading-relaxed mt-2">
             Cada anel é produzido manualmente, com carinho e dedicação.
           </p>
         </div>
