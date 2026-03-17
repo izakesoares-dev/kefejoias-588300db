@@ -120,7 +120,7 @@ const RingProductCard = ({ product, index = 0, globalSize }: RingProductCardProp
 
       {/* Modal vídeo medição */}
       <Dialog open={showMeasureModal} onOpenChange={setShowMeasureModal}>
-        <DialogContent className="max-w-2xl w-[95vw] p-2 sm:p-4 bg-black/95 border-primary/30 rounded-xl">
+        <DialogContent className="max-w-sm w-[80vw] p-1.5 sm:p-2 bg-black/95 border-primary/30 rounded-xl">
           <VisuallyHidden.Root><DialogTitle>Como descobrir o tamanho do anel</DialogTitle></VisuallyHidden.Root>
           <video
             src={MEASUREMENT_VIDEO}
@@ -128,6 +128,7 @@ const RingProductCard = ({ product, index = 0, globalSize }: RingProductCardProp
             controls
             autoPlay
             playsInline
+            onEnded={() => setShowMeasureModal(false)}
           />
         </DialogContent>
       </Dialog>
