@@ -37,7 +37,7 @@ const ArtisanBadge = ({ selectedSize, onSizeChange }: ArtisanBadgeProps) => {
               >
                 <SelectValue placeholder="14 - 22" />
               </SelectTrigger>
-              <SelectContent className="bg-secondary border-2 border-primary rounded-lg shadow-gold-sm">
+              <SelectContent className="bg-background/80 backdrop-blur-sm border-2 border-primary rounded-lg shadow-gold-sm">
                 {SIZES.map((size) => (
                   <SelectItem
                     key={size}
