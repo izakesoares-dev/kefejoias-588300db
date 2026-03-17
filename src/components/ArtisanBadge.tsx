@@ -178,7 +178,7 @@ const ArtisanBadge = ({ selectedSize, onSizeChange }: ArtisanBadgeProps) => {
           )}
 
           <div className="mt-2 space-y-0.5">
-            <p className="text-xs font-display font-bold text-foreground">✨ Peça Única Artesanal</p>
+            <p className="text-xs font-display font-bold text-foreground text-center">✨ Peça Única Artesanal</p>
             <p className="text-xs text-muted-foreground font-body italic leading-relaxed">
               Cada anel é produzido manualmente, com carinho e dedicação.
             </p>
