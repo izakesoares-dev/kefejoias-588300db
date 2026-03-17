@@ -87,7 +87,7 @@ const RingProductCard = ({ product, index = 0 }: RingProductCardProps) => {
           {product.images.slice(0, 3).map((img, i) => (
             <button
               key={i}
-              onClick={() => setActiveThumb(activeThumb === i ? "img" : i)}
+              onClick={(e) => { e.preventDefault(); e.stopPropagation(); setActiveThumb(activeThumb === i ? "img" : i); }}
               className={`w-11 h-11 rounded-lg overflow-hidden border-2 transition-all flex-shrink-0 shadow-md ${
                 activeThumb === i ? "border-primary shadow-gold" : "border-white/50 hover:border-primary/60"
               }`}
