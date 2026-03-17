@@ -74,7 +74,7 @@ const ArtisanBadge = ({ selectedSize, onSizeChange }: ArtisanBadgeProps) => {
               onClick={(e) => { e.preventDefault(); e.stopPropagation(); setShowGuide(!showGuide); }}
               onMouseDown={(e) => { e.stopPropagation(); }}
               className="flex items-center gap-1 font-display text-sm font-bold
-                text-primary hover:text-primary/80 transition-all whitespace-nowrap"
+                text-foreground hover:text-foreground/80 transition-all whitespace-nowrap"
             >
               📏 Como descobrir?
               <ChevronDown size={14} className={`transition-transform duration-200 ${showGuide ? "rotate-180" : ""}`} />
