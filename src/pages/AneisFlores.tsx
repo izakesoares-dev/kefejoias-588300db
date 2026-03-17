@@ -47,7 +47,7 @@ const AneisFlores = () => {
               Anéis com <span className="text-gradient-gold">Flores Eternizadas</span>
             </h1>
             <p className="font-body text-sm text-muted-foreground max-w-2xl mx-auto">
-              Flores reais capturadas para sempre em resina cristalina — beleza eterna no seu dedo.
+              Flores reais eternizadas para sempre na resina cristalina — beleza eterna no seu dedo.
             </p>
           </motion.div>
         </div>
