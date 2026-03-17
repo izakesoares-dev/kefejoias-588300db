@@ -42,40 +42,43 @@ const ArtisanBadge = ({ selectedSize, onSizeChange }: ArtisanBadgeProps) => {
         <div className="max-h-[420px] overflow-y-auto" onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}>
           {/* Tamanhos disponíveis */}
           <div className="space-y-2 mb-4">
-            <div className="flex items-center gap-1.5">
+            <div className="flex items-center justify-between w-full">
               <p className="font-display text-sm font-bold text-foreground whitespace-nowrap">
                 14 ao 22 disponíveis
               </p>
-              <Select value={selectedSize || "none"} onValueChange={(val) => {
-                onSizeChange?.(val === "none" ? "" : val);
-              }}>
-                <SelectTrigger
-                  className="w-[52px] h-7 rounded-md font-display font-bold text-sm px-2 gap-0.5
-                    bg-transparent border border-primary text-green-deep
-                    hover:shadow-gold-sm focus:ring-primary/40 transition-all [&>svg]:h-3.5 [&>svg]:w-3.5"
-                >
-                  <SelectValue placeholder="Nº" />
-                </SelectTrigger>
-                <SelectContent className="w-[60px] min-w-[60px] bg-background/95 backdrop-blur-sm border border-primary rounded-md p-0 shadow-gold-sm">
-                  <SelectItem
-                    value="none"
-                    className="font-body text-xs text-muted-foreground cursor-pointer justify-center px-2 py-1
-                      focus:bg-primary/15"
+              <div className="flex items-center gap-1.5">
+                <span className="font-display text-sm font-bold text-foreground">📏 Seu tamanho</span>
+                <Select value={selectedSize || "none"} onValueChange={(val) => {
+                  onSizeChange?.(val === "none" ? "" : val);
+                }}>
+                  <SelectTrigger
+                    className="w-[52px] h-7 rounded-md font-display font-bold text-sm px-2 gap-0.5
+                      bg-transparent border border-primary text-green-deep
+                      hover:shadow-gold-sm focus:ring-primary/40 transition-all [&>svg]:h-3.5 [&>svg]:w-3.5"
                   >
-                    —
-                  </SelectItem>
-                  {SIZES.map((size) => (
+                    <SelectValue placeholder="Nº" />
+                  </SelectTrigger>
+                  <SelectContent className="w-[60px] min-w-[60px] bg-background/95 backdrop-blur-sm border border-primary rounded-md p-0 shadow-gold-sm">
                     <SelectItem
-                      key={size}
-                      value={String(size)}
-                      className="font-body text-sm font-semibold text-green-deep cursor-pointer justify-center px-2 py-1.5
-                        focus:bg-primary/15 focus:text-green-deep"
+                      value="none"
+                      className="font-body text-xs text-muted-foreground cursor-pointer justify-center px-2 py-1
+                        focus:bg-primary/15"
                     >
-                      {size}
+                      —
                     </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
+                    {SIZES.map((size) => (
+                      <SelectItem
+                        key={size}
+                        value={String(size)}
+                        className="font-body text-sm font-semibold text-green-deep cursor-pointer justify-center px-2 py-1.5
+                          focus:bg-primary/15 focus:text-green-deep"
+                      >
+                        {size}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
             </div>
 
             <button
@@ -85,7 +88,7 @@ const ArtisanBadge = ({ selectedSize, onSizeChange }: ArtisanBadgeProps) => {
               className="flex items-center gap-1 font-display text-sm font-bold
                 text-foreground hover:text-foreground/80 transition-all whitespace-nowrap"
             >
-              📏 Como descobrir?
+              Como descobrir seu tamanho?
               <ChevronDown size={14} className={`transition-transform duration-200 ${showGuide ? "rotate-180" : ""}`} />
             </button>
           </div>
