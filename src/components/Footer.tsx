@@ -62,20 +62,22 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-5">
           {/* Brand */}
-          <div className="col-span-2 md:col-span-1">
-            <h3 className="text-lg font-display font-medium text-gradient-gold mb-1">Kefe</h3>
-            <p className="text-[11px] text-white/60 font-body leading-snug mb-2">
-              Biojoias que eternizam histórias. Pedras naturais, flores e sementes encapsuladas em resina.
-            </p>
-            <div className="flex flex-col gap-1">
-              <a href="mailto:contato@kefe.joias@gmail.com" className="flex items-center gap-1 text-[11px] text-white/50 hover:text-primary transition-colors font-body">
-                <Mail size={10} className="text-primary" /> contato@kefe.joias
+          <div className="col-span-2 md:col-span-1 space-y-3">
+            <div>
+              <h3 className="text-lg font-display font-medium text-gradient-gold mb-1.5">Kefe</h3>
+              <p className="text-xs text-white/60 font-body leading-relaxed">
+                Joias afetivas feitas à mão com pedras naturais, flores desidratadas, sementes e pimentas encapsuladas em resina — cada peça carrega significado e eterniza uma história.
+              </p>
+            </div>
+            <div className="flex flex-col gap-1.5">
+              <a href="mailto:contato@kefe.joias@gmail.com" className="flex items-center gap-1.5 text-xs text-white/50 hover:text-primary transition-colors font-body">
+                <Mail size={12} className="text-primary/80" /> contato@kefe.joias
               </a>
-              <a href="https://wa.me/5511996470414" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-[11px] text-white/50 hover:text-primary transition-colors font-body">
+              <a href="https://wa.me/5511996470414" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs text-white/50 hover:text-primary transition-colors font-body">
                 📱 (11) 99647-0414
               </a>
-              <span className="flex items-center gap-1 text-[11px] text-white/50 font-body">
-                <MapPin size={10} className="text-primary" /> São Paulo, SP
+              <span className="flex items-center gap-1.5 text-xs text-white/50 font-body">
+                <MapPin size={12} className="text-primary/80" /> São Paulo, SP
               </span>
             </div>
           </div>
