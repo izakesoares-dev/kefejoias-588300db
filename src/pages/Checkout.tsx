@@ -176,11 +176,11 @@ const Checkout = () => {
               onClick={() => handleSelectShipping(i)}
               className={`w-full flex items-center gap-3 p-3 rounded-lg border text-left transition-all text-sm ${
                 selectedShipping === i
-                  ? "border-primary bg-primary/10"
-                  : "border-border/50 bg-background hover:border-primary/30"
+                  ? "border-whatsapp-green bg-whatsapp-green/10"
+                  : "border-border/50 bg-background hover:border-whatsapp-green/30"
               }`}
             >
-              <Truck size={16} className={selectedShipping === i ? "text-primary" : "text-muted-foreground"} />
+              <Truck size={16} className={selectedShipping === i ? "text-whatsapp-green" : "text-muted-foreground"} />
               <div className="flex-1 min-w-0">
                 <p className={`font-body font-medium ${selectedShipping === i ? "text-foreground" : "text-muted-foreground"}`}>
                   {opt.company} — {opt.name}
@@ -189,7 +189,7 @@ const Checkout = () => {
                   {opt.delivery_time} dias úteis
                 </p>
               </div>
-              <span className={`font-display font-semibold shrink-0 ${selectedShipping === i ? "text-primary" : "text-foreground"}`}>
+              <span className={`font-body font-semibold shrink-0 ${selectedShipping === i ? "text-whatsapp-green" : "text-foreground"}`}>
                 {formatPrice(opt.price)}
               </span>
             </button>
