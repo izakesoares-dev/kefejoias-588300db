@@ -11,8 +11,8 @@ import RingSizeSelector from "@/components/RingSizeSelector";
 import { products } from "@/data/products";
 
 const subcategories = [
-  { label: "Anéis com Pedras", href: "/aneis-pedras-naturais", description: "Pedras naturais em base de resina cristalina" },
-  { label: "Anéis com Flores", href: "/aneis-flores", description: "Flores reais eternizadas em resina" },
+  { label: "Pedras Naturais", href: "/aneis-pedras-naturais", icon: "💎" },
+  { label: "Flores", href: "/aneis-flores", icon: "🌸" },
 ];
 
 const Aneis = () => {
