@@ -121,7 +121,7 @@ const Checkout = () => {
                           <select
                             value={item.quantity}
                             onChange={(e) => updateQuantity(item.product.id, Number(e.target.value), item.size)}
-                            className="bg-secondary text-foreground text-sm rounded px-2 py-1 border border-border"
+                            className="bg-transparent text-foreground text-sm font-bold rounded px-2 py-1 border border-border/50 backdrop-blur-sm"
                           >
                             {[1, 2, 3, 4, 5].map((q) => (
                               <option key={q} value={q}>{q}</option>
