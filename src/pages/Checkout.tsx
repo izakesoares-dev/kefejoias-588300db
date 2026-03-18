@@ -541,9 +541,9 @@ const Checkout = () => {
                       </div>
                     )}
                   </div>
-                  <div className="border-t border-border pt-3 flex justify-between">
-                    <span className="font-display text-green-deep font-bold">Total</span>
-                    <span className="font-display text-green-deep text-xl font-bold">
+                  <div className="border-t border-border pt-3 flex justify-between items-center">
+                    <span className="font-body text-green-deep font-bold text-lg">Total</span>
+                    <span className="font-body text-green-deep text-2xl font-bold">
                       {formatPrice(paymentMethod === "pix" ? total * 0.95 : total)}
                     </span>
                   </div>
