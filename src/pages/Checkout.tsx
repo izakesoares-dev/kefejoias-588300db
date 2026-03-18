@@ -492,27 +492,27 @@ const Checkout = () => {
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6">
                   <h2 className="font-display text-xl text-foreground">Forma de pagamento</h2>
 
-                  <div className="flex gap-3">
+                  <div className="flex gap-2">
                     <button
                       onClick={() => setPaymentMethod("pix")}
-                      className={`flex-1 p-4 rounded-lg border text-center transition-all ${
+                      className={`flex-1 p-2 rounded-lg border text-center transition-all ${
                         paymentMethod === "pix" ? "border-primary bg-primary/10" : "border-border bg-card"
                       }`}
                     >
                       <QrCode size={24} className="text-whatsapp-green mx-auto" />
-                      <p className={`text-sm font-body mt-2 ${paymentMethod === "pix" ? "text-primary" : "text-muted-foreground"}`}>
+                      <p className={`text-sm font-body mt-1 ${paymentMethod === "pix" ? "text-primary" : "text-muted-foreground"}`}>
                         Pix
                       </p>
                       <p className="text-xs text-muted-foreground">5% de desconto</p>
                     </button>
                     <button
                       onClick={() => setPaymentMethod("card")}
-                      className={`flex-1 p-4 rounded-lg border text-center transition-all ${
+                      className={`flex-1 p-2 rounded-lg border text-center transition-all ${
                         paymentMethod === "card" ? "border-primary bg-primary/10" : "border-border bg-card"
                       }`}
                     >
                       <CreditCard size={24} className="text-whatsapp-green mx-auto" />
-                      <p className={`text-sm font-body mt-2 ${paymentMethod === "card" ? "text-primary" : "text-muted-foreground"}`}>
+                      <p className={`text-sm font-body mt-1 ${paymentMethod === "card" ? "text-primary" : "text-muted-foreground"}`}>
                         Cartão
                       </p>
                       <p className="text-xs text-muted-foreground">Até 3x sem juros</p>
@@ -520,9 +520,9 @@ const Checkout = () => {
                   </div>
 
                   {paymentMethod === "pix" && (
-                    <div className="p-6 rounded-lg border border-border/50 text-center space-y-3">
-                      <div className="w-40 h-40 mx-auto flex items-center justify-center">
-                        <QrCode size={80} className="text-whatsapp-green" />
+                    <div className="p-2 rounded-lg border border-border/50 text-center space-y-1">
+                      <div className="w-32 h-32 mx-auto flex items-center justify-center">
+                        <QrCode size={70} className="text-whatsapp-green" />
                       </div>
                       <p className="text-sm text-muted-foreground font-body">
                         O QR Code será gerado após a confirmação do pedido
