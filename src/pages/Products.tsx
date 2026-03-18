@@ -34,6 +34,7 @@ const Products = () => {
             <p className="font-body text-sm text-muted-foreground max-w-2xl mx-auto">
               Cada peça conta uma história. Encontre a joia que ressoa com sua energia.
             </p>
+          </motion.div>
         </div>
       </section>
 
