@@ -145,6 +145,7 @@ const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed }: ArtisanBadgePro
                       className="w-full rounded-lg"
                       controls
                       playsInline
+                      onEnded={() => setShowGuide(false)}
                     />
                   </AccordionContent>
                 </AccordionItem>
