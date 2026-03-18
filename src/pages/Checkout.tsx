@@ -155,6 +155,67 @@ const Checkout = () => {
     setPrazo(`${opt.delivery_time} dias úteis`);
   };
 
+  const handleFinalizarPedido = async () => {
+    setProcessingPayment(true);
+    setPaymentError("");
+
+    try {
+      const payload: any = {
+        payment_method: paymentMethod,
+        customer: {
+          name: dadosPessoais.nome,
+          email: dadosPessoais.email,
+          cpf: dadosPessoais.cpf,
+          phone: dadosPessoais.telefone,
+        },
+        items: items.map((item) => ({
+          id: item.product.id,
+          name: item.product.name,
+          quantity: item.quantity,
+          unit_amount: Math.round(item.product.price * 100), // centavos
+        })),
+        shipping: {
+          street: endereco.rua,
+          number: dadosPessoais.numero,
+          complement: dadosPessoais.complemento,
+          neighborhood: endereco.bairro,
+          city: endereco.cidade,
+          state: endereco.estado,
+          postal_code: cep,
+          amount: frete ? Math.round(frete * 100) : 0,
+        },
+      };
+
+      if (paymentMethod === 'card') {
+        payload.card_holder_name = cardData.holder;
+        payload.card_cvv = cardData.cvv;
+        payload.encrypted_card = cardData.number.replace(/\s/g, ''); // In production, use PagBank encryption JS
+        payload.installments = selectedInstallments;
+      }
+
+      const { data, error } = await supabase.functions.invoke('pagbank-checkout', {
+        body: payload,
+      });
+
+      if (error) throw new Error(error.message || 'Erro ao processar pagamento');
+      if (data?.error) throw new Error(data.error);
+
+      setOrderId(data.reference_id || data.order_id);
+
+      if (paymentMethod === 'pix' && data.pix) {
+        setPixData(data.pix);
+      }
+
+      clearCart();
+      setStep("done");
+    } catch (err: any) {
+      console.error('Payment error:', err);
+      setPaymentError(err.message || 'Erro ao processar pagamento. Tente novamente.');
+    } finally {
+      setProcessingPayment(false);
+    }
+  };
+
   const total = subtotal + (frete ?? 0);
 
   if (items.length === 0 && step !== "done") {
