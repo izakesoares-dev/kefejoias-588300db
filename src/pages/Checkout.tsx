@@ -192,7 +192,7 @@ const Checkout = () => {
   const shippingCalculatorJSX = (
     <div className="p-2 rounded-lg bg-card border border-border/50">
       <div className="flex items-center gap-2">
-        <Label className="text-[10px] font-body text-muted-foreground whitespace-nowrap">Calcular frete</Label>
+        <Label className="text-xs font-body font-semibold text-foreground whitespace-nowrap">Calcular frete</Label>
         <Input
           placeholder="00000-000"
           value={cep}
