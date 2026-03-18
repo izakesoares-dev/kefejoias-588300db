@@ -445,7 +445,7 @@ const Checkout = () => {
                           <button
                             key={opt.id}
                             onClick={() => handleSelectShipping(i)}
-                            className={`w-full flex items-center gap-2 px-2.5 py-1.5 rounded-md border text-left transition-all ${
+                            className={`w-full flex items-center gap-1.5 px-2 py-1 rounded-md border text-left transition-all ${
                               selectedShipping === i
                                 ? "border-whatsapp-green bg-whatsapp-green/10"
                                 : "border-border/50 bg-background hover:border-whatsapp-green/30"
