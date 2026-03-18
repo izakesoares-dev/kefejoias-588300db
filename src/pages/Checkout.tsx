@@ -375,7 +375,7 @@ const Checkout = () => {
                       </div>
                       <div>
                         <Label className="text-[11px] leading-tight">Telefone</Label>
-                        <Input placeholder="(11) 99999-9999" className={`mt-0.5 h-8 text-xs ${formErrors.telefone ? "border-destructive" : ""}`} value={dadosPessoais.telefone} onChange={(e) => { setDadosPessoais(p => ({ ...p, telefone: e.target.value })); setFormErrors(p => ({ ...p, telefone: "" })); }} maxLength={15} />
+                        <Input placeholder="(11) 99999-9999" inputMode="numeric" className={`mt-0.5 h-8 text-xs ${formErrors.telefone ? "border-destructive" : ""}`} value={dadosPessoais.telefone} onChange={(e) => { setDadosPessoais(p => ({ ...p, telefone: maskPhone(e.target.value) })); setFormErrors(p => ({ ...p, telefone: "" })); }} maxLength={15} />
                         {formErrors.telefone && <p className="text-[10px] text-destructive mt-0.5">{formErrors.telefone}</p>}
                       </div>
                     </div>
