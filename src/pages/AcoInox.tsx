@@ -43,9 +43,6 @@ const AcoInox = () => {
           >
              Joias em aço inoxidável — resistentes, hipoalergênicas e com brilho duradouro.
            </motion.p>
-           <div className="flex justify-center mt-4">
-             <RingSizeSelector value={globalSize} onChange={setGlobalSize} />
-           </div>
           </div>
         </div>
       </section>
