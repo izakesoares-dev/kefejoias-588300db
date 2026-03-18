@@ -325,7 +325,7 @@ const Checkout = () => {
                           </select>
                           <button
                             onClick={() => removeItem(item.product.id, item.size)}
-                            className="text-[9px] text-muted-foreground hover:text-destructive transition-colors ml-auto"
+                            className="text-xs text-muted-foreground hover:text-destructive transition-colors ml-auto"
                           >
                             Remover
                           </button>
