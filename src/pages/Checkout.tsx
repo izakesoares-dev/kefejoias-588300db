@@ -31,6 +31,14 @@ const maskPhone = (v: string) => {
 const Checkout = () => {
   const { items, subtotal, removeItem, updateQuantity, clearCart } = useCart();
   const [step, setStep] = useState<CheckoutStep>("cart");
+  const cepRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    setTimeout(() => {
+      cepRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+    }, 300);
+  }, []);
   const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>("pix");
   const [cep, setCep] = useState("");
   const [frete, setFrete] = useState<number | null>(null);
