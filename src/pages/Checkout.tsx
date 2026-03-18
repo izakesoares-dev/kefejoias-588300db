@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ChevronLeft, CreditCard, QrCode, ShieldCheck, CheckCircle, Loader2, Truck, Package, BadgePercent, Wallet, Lock, ExternalLink, PenLine, MapPin, Copy, Check } from "lucide-react";
@@ -31,6 +31,14 @@ const maskPhone = (v: string) => {
 const Checkout = () => {
   const { items, subtotal, removeItem, updateQuantity, clearCart } = useCart();
   const [step, setStep] = useState<CheckoutStep>("cart");
+  const cepRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    setTimeout(() => {
+      cepRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+    }, 300);
+  }, []);
   const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>("pix");
   const [cep, setCep] = useState("");
   const [frete, setFrete] = useState<number | null>(null);
@@ -300,7 +308,7 @@ const Checkout = () => {
   }
 
   const shippingCalculatorJSX = (
-    <div className="p-2 rounded-lg bg-card border border-border/50">
+    <div ref={cepRef} className="p-2 rounded-lg bg-card border border-border/50">
       <div className="flex items-center gap-2">
         <Label className="text-base font-body font-bold text-foreground whitespace-nowrap">Calcular frete — CEP</Label>
         <Input
