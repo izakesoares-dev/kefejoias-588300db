@@ -300,19 +300,19 @@ const Checkout = () => {
             {/* Main content */}
             <div className="lg:col-span-2 space-y-3">
               {step === "cart" && (
-                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-4">
+                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-2">
                   {items.map((item) => (
-                    <div key={`${item.product.id}-${item.size}`} className="flex gap-4 p-4 rounded-lg bg-card border border-border/50">
-                      <img src={item.product.images[0]} alt={item.product.name} className="w-20 h-20 rounded object-cover" />
+                    <div key={`${item.product.id}-${item.size}`} className="flex gap-3 p-2.5 rounded-lg bg-card border border-border/50">
+                      <img src={item.product.images[0]} alt={item.product.name} className="w-16 h-16 rounded object-cover" />
                       <div className="flex-1">
-                        <h3 className="font-display text-foreground">{item.product.name}</h3>
-                        {item.size && <p className="text-xs text-muted-foreground">Tam. {item.size}</p>}
-                        <p className="text-sm text-primary font-display mt-1">{formatPrice(item.product.price)}</p>
-                        <div className="flex items-center gap-2 mt-2">
+                        <h3 className="font-display text-sm text-foreground leading-tight">{item.product.name}</h3>
+                        {item.size && <p className="text-[10px] text-muted-foreground">Tam. {item.size}</p>}
+                        <p className="text-xs text-primary font-display mt-0.5">{formatPrice(item.product.price)}</p>
+                        <div className="flex items-center gap-2 mt-1">
                           <select
                             value={item.quantity}
                             onChange={(e) => updateQuantity(item.product.id, Number(e.target.value), item.size)}
-                            className="bg-transparent text-foreground text-sm font-bold rounded px-2 py-1 border border-border/50 backdrop-blur-sm"
+                            className="bg-transparent text-foreground text-xs font-bold rounded px-1.5 py-0.5 border border-border/50 backdrop-blur-sm"
                           >
                             {[1, 2, 3, 4, 5].map((q) => (
                               <option key={q} value={q}>{q}</option>
@@ -320,7 +320,7 @@ const Checkout = () => {
                           </select>
                           <button
                             onClick={() => removeItem(item.product.id, item.size)}
-                            className="text-xs text-muted-foreground hover:text-destructive transition-colors ml-auto"
+                            className="text-[10px] text-muted-foreground hover:text-destructive transition-colors ml-auto"
                           >
                             Remover
                           </button>
@@ -333,6 +333,7 @@ const Checkout = () => {
 
                   <Button
                     onClick={() => setStep("info")}
+                    size="sm"
                     className="w-full bg-gradient-gold text-primary-foreground font-body font-semibold"
                   >
                     Prosseguir
@@ -341,7 +342,7 @@ const Checkout = () => {
               )}
 
               {step === "info" && (
-                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-2">
+                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-1.5">
                   <div className="p-3 rounded-lg bg-card border border-border/50 space-y-2">
                     <h2 className="font-display text-sm text-foreground">Dados pessoais</h2>
                     <div className="grid grid-cols-2 gap-x-2 gap-y-1.5">
