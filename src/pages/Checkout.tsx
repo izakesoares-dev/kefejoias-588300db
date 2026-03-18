@@ -202,6 +202,15 @@ const Checkout = () => {
 
       setOrderId(data.reference_id || data.order_id);
 
+      // PagSeguro legacy API returns a checkout URL for redirect
+      if (data.checkout_url) {
+        clearCart();
+        setStep("done");
+        // Redirect to PagSeguro checkout page
+        window.open(data.checkout_url, '_blank');
+        return;
+      }
+
       if (paymentMethod === 'pix' && data.pix) {
         setPixData(data.pix);
       }
