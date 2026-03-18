@@ -6,6 +6,7 @@ import productAnelNoivado from "@/assets/product-anel-noivado.jpg";
 
 import { stoneRings } from "./ring-products";
 import { flowerRings } from "./flower-ring-products";
+import { steelRings } from "./steel-ring-products";
 import { stonePendants, resinPendants } from "./pendant-products";
 import { stoneNecklaces, resinNecklaces } from "./necklace-products";
 import { macrameBracelets, stoneBracelets, steelBracelets, minimalistBracelets } from "./bracelet-products";
@@ -136,7 +137,7 @@ const otherProducts: Product[] = [
   },
 ];
 
-export const products: Product[] = [...stoneRings, ...flowerRings, ...stonePendants, ...resinPendants, ...stoneNecklaces, ...resinNecklaces, ...macrameBracelets, ...stoneBracelets, ...steelBracelets, ...minimalistBracelets, ...pyramidProducts, ...santinhaProducts, ...mandalaProducts, ...incensarioProducts, ...kitProducts, ...otherProducts];
+export const products: Product[] = [...stoneRings, ...flowerRings, ...steelRings, ...stonePendants, ...resinPendants, ...stoneNecklaces, ...resinNecklaces, ...macrameBracelets, ...stoneBracelets, ...steelBracelets, ...minimalistBracelets, ...pyramidProducts, ...santinhaProducts, ...mandalaProducts, ...incensarioProducts, ...kitProducts, ...otherProducts];
 
 export const getProductBySlug = (slug: string) => products.find((p) => p.slug === slug);
 export const getProductById = (id: string) => products.find((p) => p.id === id);
