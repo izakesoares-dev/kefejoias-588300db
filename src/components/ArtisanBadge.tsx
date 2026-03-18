@@ -88,7 +88,7 @@ const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, 
               </p>
               <div className="flex items-center gap-1">
                 <span className="font-display text-sm font-bold text-foreground whitespace-nowrap">📏 Seu tamanho</span>
-                <Select value={selectedSize || "none"} open={sizeSelectOpen} onOpenChange={setSizeSelectOpen} onValueChange={handleSizeChange}>
+                <Select value={selectedSize || "none"} onValueChange={handleSizeChange}>
                   <SelectTrigger
                     className="w-[52px] h-7 rounded-md font-display font-bold text-sm px-2 gap-0.5
                       bg-transparent border border-primary text-green-deep
@@ -97,7 +97,6 @@ const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, 
                     <SelectValue placeholder="Nº" />
                   </SelectTrigger>
                   <SelectContent
-                    onPointerLeave={() => setSizeSelectOpen(false)}
                     className="w-[60px] min-w-[60px] bg-background/95 backdrop-blur-sm border border-primary rounded-md p-0 shadow-gold-sm"
                   >
                     <SelectItem
