@@ -64,7 +64,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="col-span-2 md:col-span-1 space-y-3">
             <div>
-              <h3 className="text-lg font-display font-medium text-gradient-gold mb-1.5">Kefe</h3>
+              <h3 className="text-lg font-display font-medium text-primary mb-1.5">Kefe</h3>
               <p className="text-xs text-white/60 font-body leading-relaxed">
                 Joias afetivas feitas à mão com pedras naturais, flores desidratadas, sementes e pimentas encapsuladas em resina — cada peça carrega significado e eterniza uma história.
               </p>
