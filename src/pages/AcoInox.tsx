@@ -1,9 +1,12 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ProductCard from "@/components/ProductCard";
+import RingProductCard from "@/components/RingProductCard";
+import RingSizeSelector from "@/components/RingSizeSelector";
 
 import { products } from "@/data/products";
 
@@ -15,6 +18,7 @@ const subcategories = [
 ];
 
 const AcoInox = () => {
+  const [globalSize, setGlobalSize] = useState("");
   const allSteel = products.filter((p) => p.id.includes("aco"));
 
   return (
@@ -37,8 +41,11 @@ const AcoInox = () => {
             transition={{ delay: 0.1 }}
             className="text-sm text-muted-foreground font-body max-w-2xl mx-auto"
           >
-            Joias em aço inoxidável — resistentes, hipoalergênicas e com brilho duradouro.
-          </motion.p>
+             Joias em aço inoxidável — resistentes, hipoalergênicas e com brilho duradouro.
+           </motion.p>
+           <div className="flex justify-center mt-4">
+             <RingSizeSelector value={globalSize} onChange={setGlobalSize} />
+           </div>
           </div>
         </div>
       </section>
@@ -73,7 +80,11 @@ const AcoInox = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.03 }}
               >
-                <ProductCard product={product} />
+                {product.category === "anel" ? (
+                  <RingProductCard product={product} index={i} globalSize={globalSize} />
+                ) : (
+                  <ProductCard product={product} />
+                )}
               </motion.div>
             ))}
           </div>

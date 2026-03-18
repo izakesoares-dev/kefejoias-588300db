@@ -13,6 +13,7 @@ import AcoInox from "./pages/AcoInox";
 import Aneis from "./pages/Aneis";
 import AneisPedrasNaturais from "./pages/AneisPedrasNaturais";
 import AneisFlores from "./pages/AneisFlores";
+import AneisAco from "./pages/AneisAco";
 import Pingentes from "./pages/Pingentes";
 import PingentesPedrasNaturais from "./pages/PingentesPedrasNaturais";
 import PingentesResinaNatural from "./pages/PingentesResinaNatural";
@@ -68,7 +69,7 @@ const App = () => (
             <Route path="/colares-pedras" element={<ColaresPedras />} />
             <Route path="/colares-resina" element={<ColaresResina />} />
             <Route path="/colares-aco" element={<ColaresAco />} />
-            <Route path="/aneis-aco" element={<Products />} />
+            <Route path="/aneis-aco" element={<AneisAco />} />
             <Route path="/pingentes-aco" element={<Products />} />
             {/* Pulseiras */}
             <Route path="/pulseiras-pedras" element={<PulseirasPedras />} />
