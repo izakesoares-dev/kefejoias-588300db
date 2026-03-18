@@ -109,7 +109,7 @@ const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, 
                   <AccordionTrigger className="font-display text-xs text-foreground hover:no-underline py-2.5">
                     ▶️ Método 1: Com um anel que você já tem
                   </AccordionTrigger>
-                  <AccordionContent className="text-xs font-body text-muted-foreground space-y-1.5 pb-3">
+                  <AccordionContent className="text-sm font-body text-muted-foreground space-y-1.5 pb-3">
                     <p>• Pegue um anel que sirva bem no dedo desejado</p>
                     <p>• Coloque sobre uma régua e meça o <strong className="text-foreground">diâmetro interno</strong></p>
                     <p>• Compare com a tabela abaixo</p>
@@ -120,7 +120,7 @@ const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, 
                   <AccordionTrigger className="font-display text-xs text-foreground hover:no-underline py-2.5">
                     ▶️ Método 2: Com barbante ou fita
                   </AccordionTrigger>
-                  <AccordionContent className="text-xs font-body text-muted-foreground space-y-1.5 pb-3">
+                  <AccordionContent className="text-sm font-body text-muted-foreground space-y-1.5 pb-3">
                     <p>• Enrole um barbante na base do dedo (sem apertar)</p>
                     <p>• Marque o ponto de encontro</p>
                     <p>• Estique sobre uma régua e veja em milímetros</p>
@@ -132,7 +132,7 @@ const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, 
                   <AccordionTrigger className="font-display text-xs text-foreground hover:no-underline py-2.5">
                     ▶️ Método 3: Com aneleira profissional
                   </AccordionTrigger>
-                  <AccordionContent className="text-xs font-body text-muted-foreground space-y-1.5 pb-3">
+                  <AccordionContent className="text-sm font-body text-muted-foreground space-y-1.5 pb-3">
                     <p>• Visite uma joalheria e peça para medir seu dedo</p>
                     <p>• É o método mais preciso e rápido</p>
                   </AccordionContent>
