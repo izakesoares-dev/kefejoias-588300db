@@ -568,7 +568,7 @@ const Checkout = () => {
                   )}
 
                   <div className="flex gap-3">
-                    <Button onClick={() => setStep("info")} className="text-lg h-12 bg-gradient-gold text-primary-foreground font-body font-semibold">Voltar</Button>
+                    <Button onClick={() => setStep("info")} size="sm" className="bg-gradient-gold text-primary-foreground font-body font-semibold">Voltar</Button>
                     <Button
                       onClick={() => { clearCart(); setStep("done"); }}
                       className="flex-1 bg-gradient-gold text-primary-foreground font-body font-semibold gap-2"
