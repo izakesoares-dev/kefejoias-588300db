@@ -9,8 +9,8 @@ import ProductCard from "@/components/ProductCard";
 import { products } from "@/data/products";
 
 const subcategories = [
-  { label: "Colares de Pedras", href: "/colares-pedras", description: "Colares com pedras naturais e cordão" },
-  { label: "Colares de Resina", href: "/colares-resina", description: "Flores e sementes eternizadas em pingentes de resina" },
+  { label: "Colares de Pedras", href: "/colares-pedras", icon: "💎" },
+  { label: "Colares de Resina", href: "/colares-resina", icon: "🌸" },
 ];
 
 const Colares = () => {
