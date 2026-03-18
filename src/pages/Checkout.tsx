@@ -543,7 +543,6 @@ const Checkout = () => {
                       <p className={`text-sm font-body mt-1 ${paymentMethod === "pix" ? "text-primary" : "text-muted-foreground"}`}>
                         Pix
                       </p>
-                      <p className="text-xs text-muted-foreground">5% de desconto</p>
                     </button>
                     <button
                       onClick={() => setPaymentMethod("card")}
@@ -568,7 +567,7 @@ const Checkout = () => {
                         O QR Code será gerado após a confirmação do pedido
                       </p>
                       <p className="text-xl font-body text-whatsapp-green font-bold">
-                        Total com Pix: {formatPrice(total * 0.95)}
+                        Total via Pix: {formatPrice(total)}
                       </p>
                     </div>
                   )}
@@ -577,29 +576,60 @@ const Checkout = () => {
                     <div className="space-y-4 p-4 rounded-lg bg-card border border-border/50">
                       <div>
                         <Label>Número do cartão</Label>
-                        <Input placeholder="0000 0000 0000 0000" className="mt-1" />
+                        <Input
+                          placeholder="0000 0000 0000 0000"
+                          className="mt-1"
+                          value={cardData.number}
+                          onChange={(e) => setCardData(p => ({ ...p, number: e.target.value.replace(/\D/g, '').replace(/(\d{4})/g, '$1 ').trim().slice(0, 19) }))}
+                          maxLength={19}
+                        />
                       </div>
                       <div className="grid grid-cols-2 gap-4">
                         <div>
                           <Label>Validade</Label>
-                          <Input placeholder="MM/AA" className="mt-1" />
+                          <Input
+                            placeholder="MM/AA"
+                            className="mt-1"
+                            value={cardData.expiry}
+                            onChange={(e) => {
+                              let v = e.target.value.replace(/\D/g, '').slice(0, 4);
+                              if (v.length >= 3) v = v.slice(0, 2) + '/' + v.slice(2);
+                              setCardData(p => ({ ...p, expiry: v }));
+                            }}
+                            maxLength={5}
+                          />
                         </div>
                         <div>
                           <Label>CVV</Label>
-                          <Input placeholder="123" className="mt-1" />
+                          <Input
+                            placeholder="123"
+                            className="mt-1"
+                            value={cardData.cvv}
+                            onChange={(e) => setCardData(p => ({ ...p, cvv: e.target.value.replace(/\D/g, '').slice(0, 4) }))}
+                            maxLength={4}
+                          />
                         </div>
                       </div>
                       <div>
                         <Label>Nome no cartão</Label>
-                        <Input placeholder="Como no cartão" className="mt-1" />
+                        <Input
+                          placeholder="Como no cartão"
+                          className="mt-1"
+                          value={cardData.holder}
+                          onChange={(e) => setCardData(p => ({ ...p, holder: e.target.value.toUpperCase() }))}
+                        />
                       </div>
                       <div>
                         <Label>Parcelas</Label>
-                        <select className="w-full bg-background border border-input rounded-md px-3 py-2 text-sm text-foreground">
+                        <select
+                          className="w-full bg-background border border-input rounded-md px-3 py-2 text-sm text-foreground"
+                          value={selectedInstallments}
+                          onChange={(e) => setSelectedInstallments(Number(e.target.value))}
+                        >
                           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((n) => {
                             if (n === 1) {
                               return (
-                                <option key={n}>
+                                <option key={n} value={n}>
                                   1x de {formatPrice(total)} (sem juros)
                                 </option>
                               );
@@ -608,7 +638,7 @@ const Checkout = () => {
                             const installment = total * (rate * Math.pow(1 + rate, n)) / (Math.pow(1 + rate, n) - 1);
                             const totalWithInterest = installment * n;
                             return (
-                              <option key={n}>
+                              <option key={n} value={n}>
                                 {n}x de {formatPrice(installment)} — Total: {formatPrice(totalWithInterest)} (2,99% a.m.)
                               </option>
                             );
@@ -618,15 +648,31 @@ const Checkout = () => {
                     </div>
                   )}
 
+                  {paymentError && (
+                    <div className="p-3 rounded-lg border border-destructive/30 bg-destructive/5">
+                      <p className="text-sm text-destructive font-body">{paymentError}</p>
+                    </div>
+                  )}
+
                   <div className="flex gap-3 items-center">
                     <Button onClick={() => setStep("info")} size="sm" className="bg-gradient-gold text-primary-foreground font-body font-semibold">Voltar</Button>
                     <Button
-                      onClick={() => { clearCart(); setStep("done"); }}
+                      onClick={handleFinalizarPedido}
+                      disabled={processingPayment}
                       size="sm"
                       className="flex-1 bg-gradient-gold text-primary-foreground font-body font-semibold gap-2"
                     >
-                      <ShieldCheck size={18} />
-                      Finalizar pedido
+                      {processingPayment ? (
+                        <>
+                          <Loader2 size={18} className="animate-spin" />
+                          Processando...
+                        </>
+                      ) : (
+                        <>
+                          <ShieldCheck size={18} />
+                          Finalizar pedido
+                        </>
+                      )}
                     </Button>
                   </div>
                 </motion.div>
