@@ -46,11 +46,13 @@ const artisanLabels: Record<string, string> = {
 const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, artisanType = "flor" }: ArtisanBadgeProps) => {
   const [showGuide, setShowGuide] = useState(false);
   const [minimized, setMinimized] = useState(false);
+  const [sizeSelectOpen, setSizeSelectOpen] = useState(false);
 
   useEffect(() => {
     if (collapsed) {
       setShowGuide(false);
       setMinimized(true);
+      setSizeSelectOpen(false);
     }
   }, [collapsed]);
 
@@ -64,6 +66,7 @@ const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, 
     const nextSize = val === "none" ? "" : val;
     onSizeChange?.(nextSize);
     setShowGuide(false);
+    setSizeSelectOpen(false);
     setMinimized(Boolean(nextSize));
   };
 
@@ -85,7 +88,7 @@ const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, 
               </p>
               <div className="flex items-center gap-1">
                 <span className="font-display text-sm font-bold text-foreground whitespace-nowrap">📏 Seu tamanho</span>
-                <Select value={selectedSize || "none"} onValueChange={handleSizeChange}>
+                <Select value={selectedSize || "none"} open={sizeSelectOpen} onOpenChange={setSizeSelectOpen} onValueChange={handleSizeChange}>
                   <SelectTrigger
                     className="w-[52px] h-7 rounded-md font-display font-bold text-sm px-2 gap-0.5
                       bg-transparent border border-primary text-green-deep
@@ -93,7 +96,10 @@ const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, 
                   >
                     <SelectValue placeholder="Nº" />
                   </SelectTrigger>
-                  <SelectContent className="w-[60px] min-w-[60px] bg-background/95 backdrop-blur-sm border border-primary rounded-md p-0 shadow-gold-sm">
+                  <SelectContent
+                    onPointerLeave={() => setSizeSelectOpen(false)}
+                    className="w-[60px] min-w-[60px] bg-background/95 backdrop-blur-sm border border-primary rounded-md p-0 shadow-gold-sm"
+                  >
                     <SelectItem
                       value="none"
                       className="font-body text-xs text-muted-foreground cursor-pointer justify-center px-2 py-1
