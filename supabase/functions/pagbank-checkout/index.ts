@@ -111,13 +111,29 @@ serve(async (req) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`,
+        'Authorization': token,
         'x-idempotency-key': referenceId,
       },
       body: JSON.stringify(orderPayload),
     });
 
-    const data = await response.json();
+    const responseText = await response.text();
+    console.log('PagBank response status:', response.status);
+    console.log('PagBank response body (first 500 chars):', responseText.substring(0, 500));
+
+    let data: any;
+    try {
+      data = JSON.parse(responseText);
+    } catch {
+      console.error('PagBank returned non-JSON response:', responseText.substring(0, 200));
+      return new Response(JSON.stringify({ 
+        error: 'Resposta inesperada do PagBank. Verifique o token de autenticação.',
+        details: responseText.substring(0, 200),
+      }), {
+        status: 502,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      });
+    }
 
     if (!response.ok) {
       console.error('PagBank API error:', JSON.stringify(data));
