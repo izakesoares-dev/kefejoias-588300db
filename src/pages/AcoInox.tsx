@@ -1,9 +1,12 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ProductCard from "@/components/ProductCard";
+import RingProductCard from "@/components/RingProductCard";
+import RingSizeSelector from "@/components/RingSizeSelector";
 
 import { products } from "@/data/products";
 
