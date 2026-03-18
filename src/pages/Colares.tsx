@@ -28,14 +28,12 @@ const Colares = () => {
       />
       <Navbar />
 
-      <section className="pt-24 pb-2 px-6">
-        <div className="max-w-7xl mx-auto">
-          
-          <div className="text-center">
+      <section className="pt-24 pb-1 px-4">
+        <div className="max-w-7xl mx-auto text-center">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-5xl font-display font-medium text-gradient-gold mb-2"
+            className="text-3xl md:text-4xl font-display font-medium text-gradient-gold mb-1"
           >
             Colares
           </motion.h1>
@@ -47,28 +45,27 @@ const Colares = () => {
           >
             Colares artesanais com pedras naturais e flores eternizadas em resina cristalina.
           </motion.p>
-          </div>
         </div>
       </section>
 
-      <section className="px-6 pb-4">
-        <div className="max-w-7xl mx-auto grid grid-cols-2 gap-4 max-w-2xl mx-auto">
+      <section className="px-4 py-2">
+        <div className="max-w-2xl mx-auto grid grid-cols-2 gap-3">
           {subcategories.map((sub) => (
             <Link
               key={sub.href}
               to={sub.href}
-              className="bg-card border-2 border-green-deep/30 rounded-lg px-6 py-4 hover:border-green-deep transition-all text-center group shadow-sm"
+              className="bg-card border-2 border-green-deep/30 rounded-lg px-4 py-3 hover:border-green-deep transition-all text-center group shadow-sm"
             >
-              <span className="text-base font-body font-medium text-foreground group-hover:text-primary transition-colors">
+              <span className="text-sm font-body font-medium text-foreground group-hover:text-primary transition-colors">
                 {sub.label}
               </span>
-              <p className="text-sm text-muted-foreground mt-1">{sub.description}</p>
+              <p className="text-xs text-muted-foreground mt-0.5">{sub.description}</p>
             </Link>
           ))}
         </div>
       </section>
 
-      <section className="px-6 pb-16 pt-4">
+      <section className="px-4 pb-12 pt-2">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-2xl font-display text-foreground mb-6">
             Todos os Colares ({allNecklaces.length})
