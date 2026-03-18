@@ -417,6 +417,8 @@ const Checkout = () => {
             <div className="lg:col-span-2 space-y-2">
               {step === "cart" && (
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-1.5">
+                  {shippingCalculatorJSX}
+
                   {items.map((item) => (
                     <div key={`${item.product.id}-${item.size}`} className="flex gap-2 p-2 rounded-lg bg-card border border-border/50">
                       <img src={item.product.images[0]} alt={item.product.name} className="w-14 h-14 rounded object-cover" />
@@ -444,8 +446,6 @@ const Checkout = () => {
                       </div>
                     </div>
                   ))}
-
-                  {shippingCalculatorJSX}
 
                   <Button
                     onClick={() => setStep("info")}
