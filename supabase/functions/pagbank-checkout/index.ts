@@ -5,7 +5,7 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version',
 };
 
-const PAGBANK_API = "https://api.pagseguro.com";
+const PAGSEGURO_API = "https://ws.pagseguro.uol.com.br";
 
 serve(async (req) => {
   if (req.method === 'OPTIONS') {
@@ -13,15 +13,15 @@ serve(async (req) => {
   }
 
   try {
-    const rawToken = Deno.env.get('PAGBANK_TOKEN');
-    if (!rawToken) {
-      throw new Error('PAGBANK_TOKEN não configurado');
+    const email = Deno.env.get('PAGSEGURO_EMAIL');
+    const token = Deno.env.get('PAGSEGURO_TOKEN');
+
+    if (!email || !token) {
+      throw new Error('PAGSEGURO_EMAIL ou PAGSEGURO_TOKEN não configurados');
     }
-    const token = rawToken.replace(/^Bearer\s+/i, '').trim();
-    console.log('Token length:', token.length, '| First 8 chars:', token.substring(0, 8));
 
     const body = await req.json();
-    const { payment_method, customer, items, shipping, installments } = body;
+    const { payment_method, customer, items, shipping } = body;
 
     if (!payment_method || !customer || !items) {
       return new Response(JSON.stringify({ error: 'Dados obrigatórios não fornecidos' }), {
@@ -32,138 +32,117 @@ serve(async (req) => {
 
     const referenceId = `KEFE-${Date.now()}-${Math.random().toString(36).substring(2, 8).toUpperCase()}`;
 
-    const itemsTotal = items.reduce((sum: number, item: any) => sum + (item.unit_amount * item.quantity), 0);
-    const shippingAmount = shipping?.amount || 0;
+    // Build XML payload for legacy PagSeguro API v2
+    const itemsXml = items.map((item: any, i: number) => `
+      <item>
+        <id>${i + 1}</id>
+        <description>${escapeXml(item.name)}</description>
+        <amount>${(item.unit_amount / 100).toFixed(2)}</amount>
+        <quantity>${item.quantity}</quantity>
+      </item>
+    `).join('');
 
-    const orderPayload: any = {
-      reference_id: referenceId,
-      customer: {
-        name: customer.name,
-        email: customer.email,
-        tax_id: customer.cpf.replace(/\D/g, ''),
-        phones: [{
-          country: "55",
-          area: customer.phone.replace(/\D/g, '').substring(0, 2),
-          number: customer.phone.replace(/\D/g, '').substring(2),
-          type: "MOBILE",
-        }],
-      },
-      items: items.map((item: any) => ({
-        reference_id: item.id,
-        name: item.name,
-        quantity: item.quantity,
-        unit_amount: item.unit_amount,
-      })),
-      shipping: {
-        address: {
-          street: shipping.street,
-          number: shipping.number,
-          complement: shipping.complement || "",
-          locality: shipping.neighborhood,
-          city: shipping.city,
-          region_code: shipping.state,
-          country: "BRA",
-          postal_code: shipping.postal_code.replace(/\D/g, ''),
-        },
-      },
-      notification_urls: [],
-    };
+    const shippingAmount = shipping?.amount ? (shipping.amount / 100).toFixed(2) : '0.00';
 
-    if (payment_method === 'pix') {
-      orderPayload.qr_codes = [{
-        amount: {
-          value: itemsTotal + shippingAmount,
-        },
-        expiration_date: new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString(),
-      }];
-    } else if (payment_method === 'card') {
-      const totalAmount = itemsTotal + shippingAmount;
-      orderPayload.charges = [{
-        reference_id: referenceId,
-        description: `Pedido Kefe Joias ${referenceId}`,
-        amount: {
-          value: totalAmount,
-          currency: "BRL",
-        },
-        payment_method: {
-          type: "CREDIT_CARD",
-          installments: installments || 1,
-          capture: true,
-          card: {
-            encrypted: body.encrypted_card,
-            security_code: body.card_cvv,
-            holder: {
-              name: body.card_holder_name,
-              tax_id: customer.cpf.replace(/\D/g, ''),
-            },
-          },
-        },
-      }];
-    }
+    // Map state abbreviation to PagSeguro shipping address
+    const senderPhone = customer.phone.replace(/\D/g, '');
+    const senderAreaCode = senderPhone.substring(0, 2);
+    const senderNumber = senderPhone.substring(2);
+    const senderCpf = customer.cpf.replace(/\D/g, '');
+    const postalCode = shipping?.postal_code?.replace(/\D/g, '') || '';
 
-    console.log('Creating PagBank order:', JSON.stringify({ reference_id: referenceId, payment_method }));
+    const xmlPayload = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<checkout>
+  <currency>BRL</currency>
+  <reference>${referenceId}</reference>
+  <sender>
+    <name>${escapeXml(customer.name)}</name>
+    <email>${escapeXml(customer.email)}</email>
+    <phone>
+      <areaCode>${senderAreaCode}</areaCode>
+      <number>${senderNumber}</number>
+    </phone>
+    <documents>
+      <document>
+        <type>CPF</type>
+        <value>${senderCpf}</value>
+      </document>
+    </documents>
+  </sender>
+  <items>${itemsXml}</items>
+  <shipping>
+    <addressRequired>true</addressRequired>
+    <type>3</type>
+    <cost>${shippingAmount}</cost>
+    <address>
+      <street>${escapeXml(shipping?.street || '')}</street>
+      <number>${escapeXml(shipping?.number || 'S/N')}</number>
+      <complement>${escapeXml(shipping?.complement || '')}</complement>
+      <district>${escapeXml(shipping?.neighborhood || '')}</district>
+      <city>${escapeXml(shipping?.city || '')}</city>
+      <state>${escapeXml(shipping?.state || '')}</state>
+      <country>BRA</country>
+      <postalCode>${postalCode}</postalCode>
+    </address>
+  </shipping>
+  <redirectURL>https://kefejoias.lovable.app/checkout</redirectURL>
+  <notificationURL>https://kefejoias.lovable.app</notificationURL>
+</checkout>`;
 
-    const response = await fetch(`${PAGBANK_API}/orders`, {
+    console.log('Creating PagSeguro checkout:', { reference: referenceId, payment_method });
+
+    const url = `${PAGSEGURO_API}/v2/checkout?email=${encodeURIComponent(email)}&token=${encodeURIComponent(token)}`;
+
+    const response = await fetch(url, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        'Authorization': `Bearer ${token}`,
-        'x-idempotency-key': referenceId,
-        'User-Agent': 'KefeJoias/1.0',
+        'Content-Type': 'application/xml; charset=UTF-8',
+        'Accept': 'application/xml',
       },
-      body: JSON.stringify(orderPayload),
+      body: xmlPayload,
     });
 
     const responseText = await response.text();
-    console.log('PagBank response status:', response.status);
-    console.log('PagBank response body (first 500 chars):', responseText.substring(0, 500));
-
-    let data: any;
-    try {
-      data = JSON.parse(responseText);
-    } catch {
-      console.error('PagBank returned non-JSON response:', responseText.substring(0, 200));
-      return new Response(JSON.stringify({ 
-        error: 'Resposta inesperada do PagBank. Verifique o token de autenticação.',
-        details: responseText.substring(0, 200),
-      }), {
-        status: 502,
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-      });
-    }
+    console.log('PagSeguro response status:', response.status);
+    console.log('PagSeguro response (first 500):', responseText.substring(0, 500));
 
     if (!response.ok) {
-      console.error('PagBank API error:', JSON.stringify(data));
+      // Try to parse error from XML
+      const errorMatch = responseText.match(/<message>(.*?)<\/message>/);
+      const errorMsg = errorMatch ? errorMatch[1] : 'Erro na API PagSeguro';
+      console.error('PagSeguro error:', responseText);
       return new Response(JSON.stringify({ 
-        error: 'Erro ao processar pagamento',
-        details: data,
+        error: errorMsg,
+        details: responseText.substring(0, 500),
       }), {
         status: response.status,
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       });
     }
 
-    const result: any = {
-      order_id: data.id,
-      reference_id: referenceId,
-      status: data.charges?.[0]?.status || data.qr_codes?.[0]?.status || 'CREATED',
-    };
+    // Parse checkout code from XML response
+    const codeMatch = responseText.match(/<code>(.*?)<\/code>/);
+    const dateMatch = responseText.match(/<date>(.*?)<\/date>/);
 
-    if (payment_method === 'pix' && data.qr_codes?.length > 0) {
-      const qr = data.qr_codes[0];
-      result.pix = {
-        qr_code: qr.text,
-        qr_code_image: qr.links?.find((l: any) => l.media === 'image/png')?.href,
-        expiration_date: qr.expiration_date,
-      };
+    if (!codeMatch) {
+      throw new Error('Código de checkout não encontrado na resposta');
     }
 
-    if (payment_method === 'card' && data.charges?.length > 0) {
-      result.charge = {
-        id: data.charges[0].id,
-        status: data.charges[0].status,
-      };
+    const checkoutCode = codeMatch[1];
+    const checkoutUrl = `https://pagseguro.uol.com.br/v2/checkout/payment.html?code=${checkoutCode}`;
+
+    const result: any = {
+      order_id: checkoutCode,
+      reference_id: referenceId,
+      status: 'CREATED',
+      checkout_url: checkoutUrl,
+    };
+
+    // For Pix, PagSeguro legacy checkout handles it on their page
+    // The user will be redirected to PagSeguro to choose payment method
+    if (payment_method === 'pix') {
+      result.redirect = true;
+      result.message = 'Você será redirecionado para o PagSeguro para concluir o pagamento via Pix.';
     }
 
     return new Response(JSON.stringify(result), {
@@ -180,3 +159,12 @@ serve(async (req) => {
     });
   }
 });
+
+function escapeXml(str: string): string {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+}
