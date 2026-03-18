@@ -289,10 +289,10 @@ const Checkout = () => {
               const isActive = stepMap.indexOf(step) >= i;
               return (
                 <div key={label} className="flex items-center gap-1 flex-1">
-                  <div className={`w-5 h-5 rounded-full flex items-center justify-center text-[9px] font-body ${isActive ? "bg-primary text-primary-foreground" : "bg-secondary text-secondary-foreground"}`}>
+                  <div className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-body ${isActive ? "bg-primary text-primary-foreground" : "bg-secondary text-secondary-foreground"}`}>
                     {i + 1}
                   </div>
-                  <span className={`text-[11px] font-body ${isActive ? "text-foreground" : "text-muted-foreground"}`}>
+                  <span className={`text-sm font-body ${isActive ? "text-foreground" : "text-muted-foreground"}`}>
                     {label}
                   </span>
                   {i < 2 && <div className={`flex-1 h-px ${isActive ? "bg-primary/50" : "bg-border"}`} />}
