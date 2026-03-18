@@ -99,30 +99,29 @@ const IncensariosResina = () => {
         </div>
       </section>
 
-      {/* Products */}
-      <section className="px-6 pt-2 pb-4">
+      <section className="px-4 pt-2 pb-4">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-wrap justify-center gap-2 mb-4">
+          <div className="flex flex-wrap justify-center gap-2 mb-3">
             {filters.map((filter) => {
               const Icon = filter.icon;
               return (
                 <button
                   key={filter.id}
                   onClick={() => setActiveFilter(filter.id)}
-                  className={`flex items-center gap-2 px-5 py-2 rounded-full text-sm font-body transition-all duration-300 ${
+                  className={`flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-body transition-all duration-300 ${
                     activeFilter === filter.id
                       ? "bg-primary text-primary-foreground shadow-gold"
                       : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
                   }`}
                 >
-                  <Icon size={16} />
+                  <Icon size={14} />
                   {filter.label}
                 </button>
               );
             })}
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             {filtered.map((product, index) => (
               <ProductCard key={product.id} product={product} index={index} />
             ))}
