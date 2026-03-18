@@ -230,9 +230,27 @@ const Checkout = () => {
 
                   <h2 className="font-display text-xl text-foreground pt-4">Endereço de entrega</h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <Label>CEP</Label>
+                      <div className="flex gap-2 mt-1 items-center">
+                        <Input
+                          placeholder="00000-000"
+                          value={cep}
+                          onChange={(e) => handleCepChange(e.target.value)}
+                        />
+                        {loadingCep && <Loader2 size={18} className="animate-spin text-muted-foreground" />}
+                      </div>
+                      {cepError && <p className="text-xs text-destructive mt-1">{cepError}</p>}
+                    </div>
+                    <div className="sm:col-span-1" />
                     <div className="sm:col-span-2">
                       <Label>Rua</Label>
-                      <Input placeholder="Rua, Avenida..." className="mt-1" />
+                      <Input
+                        placeholder="Rua, Avenida..."
+                        className="mt-1"
+                        value={endereco.rua}
+                        onChange={(e) => setEndereco((prev) => ({ ...prev, rua: e.target.value }))}
+                      />
                     </div>
                     <div>
                       <Label>Número</Label>
@@ -243,12 +261,31 @@ const Checkout = () => {
                       <Input placeholder="Apto, Bloco..." className="mt-1" />
                     </div>
                     <div>
+                      <Label>Bairro</Label>
+                      <Input
+                        placeholder="Bairro"
+                        className="mt-1"
+                        value={endereco.bairro}
+                        onChange={(e) => setEndereco((prev) => ({ ...prev, bairro: e.target.value }))}
+                      />
+                    </div>
+                    <div>
                       <Label>Cidade</Label>
-                      <Input placeholder="São Paulo" className="mt-1" />
+                      <Input
+                        placeholder="São Paulo"
+                        className="mt-1"
+                        value={endereco.cidade}
+                        onChange={(e) => setEndereco((prev) => ({ ...prev, cidade: e.target.value }))}
+                      />
                     </div>
                     <div>
                       <Label>Estado</Label>
-                      <Input placeholder="SP" className="mt-1" />
+                      <Input
+                        placeholder="SP"
+                        className="mt-1"
+                        value={endereco.estado}
+                        onChange={(e) => setEndereco((prev) => ({ ...prev, estado: e.target.value }))}
+                      />
                     </div>
                   </div>
 
