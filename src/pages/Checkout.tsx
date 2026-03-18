@@ -548,8 +548,8 @@ const Checkout = () => {
                     </span>
                   </div>
 
-                  <div className="flex items-center gap-2 text-xs text-muted-foreground font-body pt-2">
-                    <ShieldCheck size={14} className="text-primary" />
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground font-body pt-2">
+                    <ShieldCheck size={20} className="text-green-deep" />
                     Compra 100% segura
                   </div>
                 </div>
