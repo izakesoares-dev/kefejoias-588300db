@@ -1,3 +1,5 @@
+import { supabase } from "@/integrations/supabase/client";
+
 export interface ViaCepResponse {
   cep: string;
   logradouro: string;
@@ -6,6 +8,25 @@ export interface ViaCepResponse {
   localidade: string;
   uf: string;
   erro?: boolean;
+}
+
+export interface ShippingOption {
+  id: number;
+  name: string;
+  company: string;
+  price: number;
+  delivery_time: number;
+  currency: string;
+}
+
+export interface ShippingProduct {
+  id: string;
+  price: number;
+  quantity: number;
+  width?: number;
+  height?: number;
+  length?: number;
+  weight?: number;
 }
 
 export async function fetchAddress(cep: string): Promise<ViaCepResponse | null> {
@@ -21,34 +42,38 @@ export async function fetchAddress(cep: string): Promise<ViaCepResponse | null> 
   }
 }
 
+export async function calcularFreteMelhorEnvio(
+  cepDestino: string,
+  produtos: ShippingProduct[]
+): Promise<ShippingOption[]> {
+  const { data, error } = await supabase.functions.invoke("calcular-frete", {
+    body: {
+      cep_destino: cepDestino,
+      produtos: produtos.map((p) => ({
+        id: p.id,
+        price: p.price,
+        quantity: p.quantity,
+        width: p.width ?? 11,
+        height: p.height ?? 5,
+        length: p.length ?? 16,
+        weight: p.weight ?? 0.1,
+      })),
+    },
+  });
+
+  if (error) throw error;
+  return data?.opcoes ?? [];
+}
+
+// Fallback fixo caso a API falhe
 const FRETE_POR_ESTADO: Record<string, number> = {
-  SP: 12.90,
-  RJ: 15.90,
-  MG: 15.90,
-  ES: 15.90,
-  PR: 18.90,
-  SC: 18.90,
-  RS: 18.90,
-  MS: 22.90,
-  MT: 22.90,
-  GO: 22.90,
-  DF: 22.90,
-  BA: 25.90,
-  SE: 25.90,
-  AL: 25.90,
-  PE: 25.90,
-  PB: 25.90,
-  RN: 25.90,
-  CE: 25.90,
-  PI: 25.90,
-  MA: 25.90,
-  PA: 29.90,
-  AP: 29.90,
-  AM: 29.90,
-  RR: 29.90,
-  AC: 29.90,
-  RO: 29.90,
-  TO: 29.90,
+  SP: 12.90, RJ: 15.90, MG: 15.90, ES: 15.90,
+  PR: 18.90, SC: 18.90, RS: 18.90,
+  MS: 22.90, MT: 22.90, GO: 22.90, DF: 22.90,
+  BA: 25.90, SE: 25.90, AL: 25.90, PE: 25.90, PB: 25.90,
+  RN: 25.90, CE: 25.90, PI: 25.90, MA: 25.90,
+  PA: 29.90, AP: 29.90, AM: 29.90, RR: 29.90,
+  AC: 29.90, RO: 29.90, TO: 29.90,
 };
 
 export function calcularFrete(uf: string): number {
