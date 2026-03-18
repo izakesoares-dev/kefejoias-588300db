@@ -55,6 +55,18 @@ const Checkout = () => {
     complemento: "",
   });
   const [formErrors, setFormErrors] = useState<Record<string, string>>({});
+  const [processingPayment, setProcessingPayment] = useState(false);
+  const [paymentError, setPaymentError] = useState("");
+  const [pixData, setPixData] = useState<{ qr_code: string; qr_code_image?: string } | null>(null);
+  const [orderId, setOrderId] = useState("");
+  const [copiedPix, setCopiedPix] = useState(false);
+  const [cardData, setCardData] = useState({
+    number: "",
+    expiry: "",
+    cvv: "",
+    holder: "",
+  });
+  const [selectedInstallments, setSelectedInstallments] = useState(1);
 
   const validateInfoStep = (): boolean => {
     const errors: Record<string, string> = {};
