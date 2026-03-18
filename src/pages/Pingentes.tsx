@@ -9,8 +9,8 @@ import ProductCard from "@/components/ProductCard";
 import { products } from "@/data/products";
 
 const subcategories = [
-  { label: "Pingentes de Pedras", href: "/pingentes-pedras-naturais", description: "Pedras naturais lapidadas com cordão" },
-  { label: "Pingentes de Resina", href: "/pingentes-resina-natural", description: "Flores e sementes eternizadas em resina" },
+  { label: "Pedras Naturais", href: "/pingentes-pedras-naturais", icon: "💎" },
+  { label: "Resina Natural", href: "/pingentes-resina-natural", icon: "🌸" },
 ];
 
 const Pingentes = () => {
