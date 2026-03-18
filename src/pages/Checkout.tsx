@@ -282,24 +282,24 @@ const Checkout = () => {
 
       <section className="section-padding pt-20">
         <div className="max-w-4xl mx-auto">
-          <Link to="/produtos" className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-primary transition-colors font-body mb-3">
+          <Link to="/produtos" className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-primary transition-colors font-body mb-2">
             <ChevronLeft size={14} />
             Continuar comprando
           </Link>
 
-          <h1 className="font-display text-2xl text-foreground mb-4">Checkout</h1>
+          <h1 className="font-display text-2xl text-foreground mb-3">Checkout</h1>
 
           {/* Progress */}
-          <div className="flex items-center gap-1.5 mb-5">
+          <div className="flex items-center gap-1 mb-4">
             {["Carrinho", "Dados", "Pagamento"].map((label, i) => {
               const stepMap: CheckoutStep[] = ["cart", "info", "payment"];
               const isActive = stepMap.indexOf(step) >= i;
               return (
-                <div key={label} className="flex items-center gap-1.5 flex-1">
-                  <div className={`w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-body ${isActive ? "bg-primary text-primary-foreground" : "bg-secondary text-secondary-foreground"}`}>
+                <div key={label} className="flex items-center gap-1 flex-1">
+                  <div className={`w-5 h-5 rounded-full flex items-center justify-center text-[9px] font-body ${isActive ? "bg-primary text-primary-foreground" : "bg-secondary text-secondary-foreground"}`}>
                     {i + 1}
                   </div>
-                  <span className={`text-xs font-body ${isActive ? "text-foreground" : "text-muted-foreground"}`}>
+                  <span className={`text-[11px] font-body ${isActive ? "text-foreground" : "text-muted-foreground"}`}>
                     {label}
                   </span>
                   {i < 2 && <div className={`flex-1 h-px ${isActive ? "bg-primary/50" : "bg-border"}`} />}
@@ -308,23 +308,23 @@ const Checkout = () => {
             })}
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
             {/* Main content */}
-            <div className="lg:col-span-2 space-y-3">
+            <div className="lg:col-span-2 space-y-2">
               {step === "cart" && (
-                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-2">
+                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-1.5">
                   {items.map((item) => (
-                    <div key={`${item.product.id}-${item.size}`} className="flex gap-3 p-2.5 rounded-lg bg-card border border-border/50">
-                      <img src={item.product.images[0]} alt={item.product.name} className="w-16 h-16 rounded object-cover" />
-                      <div className="flex-1">
-                        <h3 className="font-display text-sm text-foreground leading-tight">{item.product.name}</h3>
-                        {item.size && <p className="text-[10px] text-muted-foreground">Tam. {item.size}</p>}
-                        <p className="text-xs text-primary font-display mt-0.5">{formatPrice(item.product.price)}</p>
-                        <div className="flex items-center gap-2 mt-1">
+                    <div key={`${item.product.id}-${item.size}`} className="flex gap-2 p-2 rounded-lg bg-card border border-border/50">
+                      <img src={item.product.images[0]} alt={item.product.name} className="w-14 h-14 rounded object-cover" />
+                      <div className="flex-1 min-w-0">
+                        <h3 className="font-display text-xs text-foreground leading-none truncate">{item.product.name}</h3>
+                        {item.size && <p className="text-[9px] text-muted-foreground mt-0.5">Tam. {item.size}</p>}
+                        <p className="text-[11px] text-primary font-display mt-0.5">{formatPrice(item.product.price)}</p>
+                        <div className="flex items-center gap-1.5 mt-0.5">
                           <select
                             value={item.quantity}
                             onChange={(e) => updateQuantity(item.product.id, Number(e.target.value), item.size)}
-                            className="bg-transparent text-foreground text-xs font-bold rounded px-1.5 py-0.5 border border-border/50 backdrop-blur-sm"
+                            className="bg-transparent text-foreground text-[10px] font-bold rounded px-1 py-0 border border-border/50"
                           >
                             {[1, 2, 3, 4, 5].map((q) => (
                               <option key={q} value={q}>{q}</option>
@@ -332,7 +332,7 @@ const Checkout = () => {
                           </select>
                           <button
                             onClick={() => removeItem(item.product.id, item.size)}
-                            className="text-[10px] text-muted-foreground hover:text-destructive transition-colors ml-auto"
+                            className="text-[9px] text-muted-foreground hover:text-destructive transition-colors ml-auto"
                           >
                             Remover
                           </button>
@@ -346,7 +346,7 @@ const Checkout = () => {
                   <Button
                     onClick={() => setStep("info")}
                     size="sm"
-                    className="w-full bg-gradient-gold text-primary-foreground font-body font-semibold"
+                    className="w-full bg-gradient-gold text-primary-foreground font-body font-semibold text-xs h-8"
                   >
                     Prosseguir
                   </Button>
@@ -354,98 +354,98 @@ const Checkout = () => {
               )}
 
               {step === "info" && (
-                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-1.5">
-                  <div className="p-2.5 rounded-lg bg-card border border-border/50 space-y-1.5">
+                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-1">
+                  <div className="p-2 rounded-lg bg-card border border-border/50 space-y-1">
                     <h2 className="font-display text-base font-bold text-foreground text-center">Dados pessoais</h2>
-                    <div className="grid grid-cols-2 gap-x-1.5 gap-y-1">
+                    <div className="grid grid-cols-2 gap-x-1.5 gap-y-0.5">
                       <div className="col-span-2 sm:col-span-1">
-                        <Label className="text-[11px] leading-tight">Nome completo</Label>
-                        <Input placeholder="Seu nome" className={`mt-0.5 h-8 text-xs ${formErrors.nome ? "border-destructive" : ""}`} value={dadosPessoais.nome} onChange={(e) => { setDadosPessoais(p => ({ ...p, nome: e.target.value })); setFormErrors(p => ({ ...p, nome: "" })); }} maxLength={100} />
-                        {formErrors.nome && <p className="text-[10px] text-destructive mt-0.5">{formErrors.nome}</p>}
+                        <Label className="text-[10px] leading-none text-muted-foreground">Nome completo</Label>
+                        <Input placeholder="Seu nome" className={`h-7 text-xs ${formErrors.nome ? "border-destructive" : ""}`} value={dadosPessoais.nome} onChange={(e) => { setDadosPessoais(p => ({ ...p, nome: e.target.value })); setFormErrors(p => ({ ...p, nome: "" })); }} maxLength={100} />
+                        {formErrors.nome && <p className="text-[9px] text-destructive">{formErrors.nome}</p>}
                       </div>
                       <div className="col-span-2 sm:col-span-1">
-                        <Label className="text-[11px] leading-tight">E-mail</Label>
-                        <Input type="email" placeholder="seu@email.com" className={`mt-0.5 h-8 text-xs ${formErrors.email ? "border-destructive" : ""}`} value={dadosPessoais.email} onChange={(e) => { setDadosPessoais(p => ({ ...p, email: e.target.value })); setFormErrors(p => ({ ...p, email: "" })); }} maxLength={255} />
-                        {formErrors.email && <p className="text-[10px] text-destructive mt-0.5">{formErrors.email}</p>}
+                        <Label className="text-[10px] leading-none text-muted-foreground">E-mail</Label>
+                        <Input type="email" placeholder="seu@email.com" className={`h-7 text-xs ${formErrors.email ? "border-destructive" : ""}`} value={dadosPessoais.email} onChange={(e) => { setDadosPessoais(p => ({ ...p, email: e.target.value })); setFormErrors(p => ({ ...p, email: "" })); }} maxLength={255} />
+                        {formErrors.email && <p className="text-[9px] text-destructive">{formErrors.email}</p>}
                       </div>
                       <div>
-                        <Label className="text-[11px] leading-tight">CPF</Label>
-                        <Input placeholder="000.000.000-00" inputMode="numeric" className={`mt-0.5 h-8 text-xs ${formErrors.cpf ? "border-destructive" : ""}`} value={dadosPessoais.cpf} onChange={(e) => { setDadosPessoais(p => ({ ...p, cpf: maskCpf(e.target.value) })); setFormErrors(p => ({ ...p, cpf: "" })); }} maxLength={14} />
-                        {formErrors.cpf && <p className="text-[10px] text-destructive mt-0.5">{formErrors.cpf}</p>}
+                        <Label className="text-[10px] leading-none text-muted-foreground">CPF</Label>
+                        <Input placeholder="000.000.000-00" inputMode="numeric" className={`h-7 text-xs ${formErrors.cpf ? "border-destructive" : ""}`} value={dadosPessoais.cpf} onChange={(e) => { setDadosPessoais(p => ({ ...p, cpf: maskCpf(e.target.value) })); setFormErrors(p => ({ ...p, cpf: "" })); }} maxLength={14} />
+                        {formErrors.cpf && <p className="text-[9px] text-destructive">{formErrors.cpf}</p>}
                       </div>
                       <div>
-                        <Label className="text-[11px] leading-tight">Telefone</Label>
-                        <Input placeholder="(11) 99999-9999" inputMode="numeric" className={`mt-0.5 h-8 text-xs ${formErrors.telefone ? "border-destructive" : ""}`} value={dadosPessoais.telefone} onChange={(e) => { setDadosPessoais(p => ({ ...p, telefone: maskPhone(e.target.value) })); setFormErrors(p => ({ ...p, telefone: "" })); }} maxLength={15} />
-                        {formErrors.telefone && <p className="text-[10px] text-destructive mt-0.5">{formErrors.telefone}</p>}
+                        <Label className="text-[10px] leading-none text-muted-foreground">Telefone</Label>
+                        <Input placeholder="(11) 99999-9999" inputMode="numeric" className={`h-7 text-xs ${formErrors.telefone ? "border-destructive" : ""}`} value={dadosPessoais.telefone} onChange={(e) => { setDadosPessoais(p => ({ ...p, telefone: maskPhone(e.target.value) })); setFormErrors(p => ({ ...p, telefone: "" })); }} maxLength={15} />
+                        {formErrors.telefone && <p className="text-[9px] text-destructive">{formErrors.telefone}</p>}
                       </div>
                     </div>
                   </div>
 
-                  <div className="p-2.5 rounded-lg bg-card border border-border/50 space-y-1.5">
+                  <div className="p-2 rounded-lg bg-card border border-border/50 space-y-1">
                     <h2 className="font-display text-base font-bold text-foreground text-center">Endereço de entrega</h2>
-                    <div className="grid grid-cols-6 gap-x-1.5 gap-y-1">
+                    <div className="grid grid-cols-6 gap-x-1.5 gap-y-0.5">
                       <div className="col-span-3 sm:col-span-2">
-                        <Label className="text-[11px] leading-tight">CEP</Label>
-                        <div className="flex gap-1.5 mt-0.5 items-center">
+                        <Label className="text-[10px] leading-none text-muted-foreground">CEP</Label>
+                        <div className="flex gap-1 items-center">
                           <Input
                             placeholder="00000-000"
                             value={cep}
                             onChange={(e) => { handleCepChange(e.target.value); setFormErrors(p => ({ ...p, cep: "" })); }}
-                            className={`h-8 text-xs ${formErrors.cep ? "border-destructive" : ""}`}
+                            className={`h-7 text-xs ${formErrors.cep ? "border-destructive" : ""}`}
                           />
-                          {loadingCep && <Loader2 size={14} className="animate-spin text-muted-foreground shrink-0" />}
+                          {loadingCep && <Loader2 size={12} className="animate-spin text-muted-foreground shrink-0" />}
                         </div>
-                        {(cepError || formErrors.cep) && <p className="text-[10px] text-destructive mt-0.5">{cepError || formErrors.cep}</p>}
+                        {(cepError || formErrors.cep) && <p className="text-[9px] text-destructive">{cepError || formErrors.cep}</p>}
                       </div>
                       <div className="col-span-3 sm:col-span-4">
-                        <Label className="text-[11px] leading-tight">Rua</Label>
+                        <Label className="text-[10px] leading-none text-muted-foreground">Rua</Label>
                         <Input
                           placeholder="Rua, Avenida..."
-                          className={`mt-0.5 h-8 text-xs ${formErrors.rua ? "border-destructive" : ""}`}
+                          className={`h-7 text-xs ${formErrors.rua ? "border-destructive" : ""}`}
                           value={endereco.rua}
                           onChange={(e) => { setEndereco((prev) => ({ ...prev, rua: e.target.value })); setFormErrors(p => ({ ...p, rua: "" })); }}
                         />
-                        {formErrors.rua && <p className="text-[10px] text-destructive mt-0.5">{formErrors.rua}</p>}
+                        {formErrors.rua && <p className="text-[9px] text-destructive">{formErrors.rua}</p>}
                       </div>
                       <div className="col-span-2">
-                        <Label className="text-[11px] leading-tight">Número</Label>
-                        <Input placeholder="123" className={`mt-0.5 h-8 text-xs ${formErrors.numero ? "border-destructive" : ""}`} value={dadosPessoais.numero} onChange={(e) => { setDadosPessoais(p => ({ ...p, numero: e.target.value })); setFormErrors(p => ({ ...p, numero: "" })); }} maxLength={10} />
-                        {formErrors.numero && <p className="text-[10px] text-destructive mt-0.5">{formErrors.numero}</p>}
+                        <Label className="text-[10px] leading-none text-muted-foreground">Número</Label>
+                        <Input placeholder="123" className={`h-7 text-xs ${formErrors.numero ? "border-destructive" : ""}`} value={dadosPessoais.numero} onChange={(e) => { setDadosPessoais(p => ({ ...p, numero: e.target.value })); setFormErrors(p => ({ ...p, numero: "" })); }} maxLength={10} />
+                        {formErrors.numero && <p className="text-[9px] text-destructive">{formErrors.numero}</p>}
                       </div>
                       <div className="col-span-4 sm:col-span-2">
-                        <Label className="text-[11px] leading-tight">Complemento</Label>
-                        <Input placeholder="Apto, Bloco..." className="mt-0.5 h-8 text-xs" value={dadosPessoais.complemento} onChange={(e) => setDadosPessoais(p => ({ ...p, complemento: e.target.value }))} maxLength={100} />
+                        <Label className="text-[10px] leading-none text-muted-foreground">Complemento</Label>
+                        <Input placeholder="Apto, Bloco..." className="h-7 text-xs" value={dadosPessoais.complemento} onChange={(e) => setDadosPessoais(p => ({ ...p, complemento: e.target.value }))} maxLength={100} />
                       </div>
                       <div className="col-span-3 sm:col-span-2">
-                        <Label className="text-[11px] leading-tight">Bairro</Label>
+                        <Label className="text-[10px] leading-none text-muted-foreground">Bairro</Label>
                         <Input
                           placeholder="Bairro"
-                          className={`mt-0.5 h-8 text-xs ${formErrors.bairro ? "border-destructive" : ""}`}
+                          className={`h-7 text-xs ${formErrors.bairro ? "border-destructive" : ""}`}
                           value={endereco.bairro}
                           onChange={(e) => { setEndereco((prev) => ({ ...prev, bairro: e.target.value })); setFormErrors(p => ({ ...p, bairro: "" })); }}
                         />
-                        {formErrors.bairro && <p className="text-[10px] text-destructive mt-0.5">{formErrors.bairro}</p>}
+                        {formErrors.bairro && <p className="text-[9px] text-destructive">{formErrors.bairro}</p>}
                       </div>
                       <div className="col-span-4 sm:col-span-3">
-                        <Label className="text-[11px] leading-tight">Cidade</Label>
+                        <Label className="text-[10px] leading-none text-muted-foreground">Cidade</Label>
                         <Input
                           placeholder="São Paulo"
-                          className={`mt-0.5 h-8 text-xs ${formErrors.cidade ? "border-destructive" : ""}`}
+                          className={`h-7 text-xs ${formErrors.cidade ? "border-destructive" : ""}`}
                           value={endereco.cidade}
                           onChange={(e) => { setEndereco((prev) => ({ ...prev, cidade: e.target.value })); setFormErrors(p => ({ ...p, cidade: "" })); }}
                         />
-                        {formErrors.cidade && <p className="text-[10px] text-destructive mt-0.5">{formErrors.cidade}</p>}
+                        {formErrors.cidade && <p className="text-[9px] text-destructive">{formErrors.cidade}</p>}
                       </div>
                       <div className="col-span-2 sm:col-span-1">
-                        <Label className="text-[11px] leading-tight">UF</Label>
+                        <Label className="text-[10px] leading-none text-muted-foreground">UF</Label>
                         <Input
                           placeholder="SP"
-                          className={`mt-0.5 h-8 text-xs ${formErrors.estado ? "border-destructive" : ""}`}
+                          className={`h-7 text-xs ${formErrors.estado ? "border-destructive" : ""}`}
                           maxLength={2}
                           value={endereco.estado}
                           onChange={(e) => { setEndereco((prev) => ({ ...prev, estado: e.target.value })); setFormErrors(p => ({ ...p, estado: "" })); }}
                         />
-                        {formErrors.estado && <p className="text-[10px] text-destructive mt-0.5">{formErrors.estado}</p>}
+                        {formErrors.estado && <p className="text-[9px] text-destructive">{formErrors.estado}</p>}
                       </div>
                     </div>
 
@@ -591,14 +591,14 @@ const Checkout = () => {
             {/* Order summary sidebar */}
             {(step as string) !== "done" && (
               <div className="lg:col-span-1">
-                <div className="sticky top-20 p-3 rounded-lg bg-card border border-border/50 space-y-1.5">
-                  <div className="flex items-center gap-1.5 pb-0.5">
-                    <Package size={18} className="text-whatsapp-green" />
-                    <h3 className="font-body text-base font-bold text-whatsapp-green">Resumo do pedido</h3>
+                <div className="sticky top-20 p-2.5 rounded-lg bg-card border border-border/50 space-y-1">
+                  <div className="flex items-center gap-1.5">
+                    <Package size={14} className="text-whatsapp-green" />
+                    <h3 className="font-body text-sm font-bold text-whatsapp-green">Resumo do pedido</h3>
                   </div>
-                  <div className="space-y-0.5">
+                  <div className="space-y-0">
                     {items.map((item) => (
-                      <div key={`${item.product.id}-${item.size}`} className="flex justify-between text-xs font-body leading-tight py-0.5">
+                      <div key={`${item.product.id}-${item.size}`} className="flex justify-between text-[11px] font-body leading-tight py-px">
                         <span className="text-muted-foreground truncate mr-2">
                           {item.quantity}x {item.product.name}
                           {item.size ? ` (${item.size})` : ""}
@@ -607,39 +607,39 @@ const Checkout = () => {
                       </div>
                     ))}
                   </div>
-                  <div className="border-t border-border pt-1.5 space-y-0.5">
-                    <div className="flex justify-between items-center text-xs font-body leading-tight">
-                      <span className="flex items-center gap-1.5 text-muted-foreground">
-                        <Wallet size={13} className="text-whatsapp-green" />
+                  <div className="border-t border-border pt-1 space-y-0">
+                    <div className="flex justify-between items-center text-[11px] font-body leading-tight">
+                      <span className="flex items-center gap-1 text-muted-foreground">
+                        <Wallet size={11} className="text-whatsapp-green" />
                         Subtotal
                       </span>
                       <span className="text-foreground font-medium">{formatPrice(subtotal)}</span>
                     </div>
-                    <div className="flex justify-between items-center text-xs font-body leading-tight">
-                      <span className="flex items-center gap-1.5 text-muted-foreground">
-                        <Truck size={13} className="text-whatsapp-green" />
+                    <div className="flex justify-between items-center text-[11px] font-body leading-tight">
+                      <span className="flex items-center gap-1 text-muted-foreground">
+                        <Truck size={11} className="text-whatsapp-green" />
                         Frete
                       </span>
                       <span className="text-foreground font-medium">{frete ? formatPrice(frete) : "A calcular"}</span>
                     </div>
                     {paymentMethod === "pix" && (
-                      <div className="flex justify-between items-center text-xs font-body leading-tight">
-                        <span className="flex items-center gap-1.5 text-whatsapp-green font-bold">
-                          <BadgePercent size={13} className="text-whatsapp-green" />
+                      <div className="flex justify-between items-center text-[11px] font-body leading-tight">
+                        <span className="flex items-center gap-1 text-whatsapp-green font-bold">
+                          <BadgePercent size={11} className="text-whatsapp-green" />
                           Desconto Pix (5%)
                         </span>
                         <span className="text-whatsapp-green font-bold">-{formatPrice(total * 0.05)}</span>
                       </div>
                     )}
                   </div>
-                  <div className="border-t border-border pt-1.5 flex justify-between items-center">
-                    <span className="font-body text-whatsapp-green font-bold text-base">Total</span>
-                    <span className="font-body text-whatsapp-green text-xl font-bold">
+                  <div className="border-t border-border pt-1 flex justify-between items-center">
+                    <span className="font-body text-whatsapp-green font-bold text-sm">Total</span>
+                    <span className="font-body text-whatsapp-green text-lg font-bold">
                       {formatPrice(paymentMethod === "pix" ? total * 0.95 : total)}
                     </span>
                   </div>
-                  <div className="flex items-center gap-1.5 text-xs text-whatsapp-green font-body font-medium">
-                    <Lock size={14} className="text-whatsapp-green" />
+                  <div className="flex items-center gap-1 text-[10px] text-whatsapp-green font-body font-medium">
+                    <Lock size={11} className="text-whatsapp-green" />
                     Compra 100% segura
                   </div>
                 </div>
