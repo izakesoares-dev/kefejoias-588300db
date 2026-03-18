@@ -81,13 +81,13 @@ const CartDrawer = () => {
                 <span className="text-muted-foreground">Subtotal</span>
                 <span className="text-foreground font-semibold">{formatPrice(subtotal)}</span>
               </div>
-              <p className="text-xs text-muted-foreground">Frete calculado no checkout</p>
+              <p className="text-sm text-muted-foreground">Frete calculado na finalização de compra</p>
               <Button
                 className="w-full bg-gradient-gold text-primary-foreground font-body font-semibold"
                 asChild
                 onClick={() => setIsCartOpen(false)}
               >
-                <Link to="/checkout">Seguir para checkout</Link>
+                <Link to="/checkout">Seguir para finalização de compra</Link>
               </Button>
               <Button
                 variant="outline"
