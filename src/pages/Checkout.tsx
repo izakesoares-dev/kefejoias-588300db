@@ -567,10 +567,11 @@ const Checkout = () => {
                     </div>
                   )}
 
-                  <div className="flex gap-3">
+                  <div className="flex gap-3 items-center">
                     <Button onClick={() => setStep("info")} size="sm" className="bg-gradient-gold text-primary-foreground font-body font-semibold">Voltar</Button>
                     <Button
                       onClick={() => { clearCart(); setStep("done"); }}
+                      size="sm"
                       className="flex-1 bg-gradient-gold text-primary-foreground font-body font-semibold gap-2"
                     >
                       <ShieldCheck size={18} />
