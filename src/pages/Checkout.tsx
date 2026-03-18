@@ -190,46 +190,44 @@ const Checkout = () => {
   }
 
   const shippingCalculatorJSX = (
-    <div className="p-4 rounded-lg bg-card border border-border/50">
-      <Label className="text-sm font-body text-foreground">Calcular frete</Label>
-      <div className="flex gap-2 mt-2 items-center">
+    <div className="p-2 rounded-lg bg-card border border-border/50">
+      <Label className="text-[10px] font-body text-muted-foreground">Calcular frete</Label>
+      <div className="flex gap-1.5 items-center">
         <Input
           placeholder="00000-000"
           value={cep}
           onChange={(e) => handleCepChange(e.target.value)}
-          className="max-w-[180px]"
+          className="max-w-[160px] h-7 text-xs"
           maxLength={9}
           inputMode="numeric"
         />
-        {loadingCep && <Loader2 size={18} className="animate-spin text-muted-foreground" />}
+        {loadingCep && <Loader2 size={12} className="animate-spin text-muted-foreground" />}
       </div>
       {cepError && (
-        <div className="mt-3 p-3 rounded-lg border border-destructive/30 bg-destructive/5 space-y-3">
-          <p className="text-sm text-destructive font-body font-medium flex items-center gap-1.5">
-            <MapPin size={14} />
+        <div className="mt-1.5 p-2 rounded-md border border-destructive/30 bg-destructive/5 space-y-1.5">
+          <p className="text-[10px] text-destructive font-body font-medium flex items-center gap-1">
+            <MapPin size={10} />
             {cepError}
           </p>
-          <div className="space-y-2">
+          <div className="space-y-1">
             <button
               onClick={() => { setCepError(""); setManualAddress(true); }}
-              className="w-full flex items-center gap-2.5 p-2.5 rounded-lg border border-border/50 bg-background hover:border-whatsapp-green/40 transition-all text-left text-sm"
+              className="w-full flex items-center gap-2 p-1.5 rounded-md border border-border/50 bg-background hover:border-whatsapp-green/40 transition-all text-left"
             >
-              <PenLine size={15} className="text-whatsapp-green shrink-0" />
+              <PenLine size={11} className="text-whatsapp-green shrink-0" />
               <div>
-                <p className="font-body font-medium text-foreground text-xs">Preencher endereço manualmente</p>
-                <p className="font-body text-[11px] text-muted-foreground">Digite seu endereço completo sem depender do CEP</p>
+                <p className="font-body font-medium text-foreground text-[10px]">Preencher manualmente</p>
               </div>
             </button>
             <a
               href="https://buscacepinter.correios.com.br/app/endereco/index.php"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full flex items-center gap-2.5 p-2.5 rounded-lg border border-border/50 bg-background hover:border-whatsapp-green/40 transition-all text-left text-sm"
+              className="w-full flex items-center gap-2 p-1.5 rounded-md border border-border/50 bg-background hover:border-whatsapp-green/40 transition-all text-left"
             >
-              <ExternalLink size={15} className="text-whatsapp-green shrink-0" />
+              <ExternalLink size={11} className="text-whatsapp-green shrink-0" />
               <div>
-                <p className="font-body font-medium text-foreground text-xs">Buscar CEP nos Correios</p>
-                <p className="font-body text-[11px] text-muted-foreground">Descubra seu CEP correto no site oficial</p>
+                <p className="font-body font-medium text-foreground text-[10px]">Buscar CEP nos Correios</p>
               </div>
             </a>
           </div>
@@ -238,27 +236,22 @@ const Checkout = () => {
 
       {/* Melhor Envio options */}
       {shippingOptions.length > 0 && (
-        <div className="mt-3 space-y-2">
+        <div className="mt-1.5 space-y-0.5">
           {shippingOptions.map((opt, i) => (
             <button
               key={opt.id}
               onClick={() => handleSelectShipping(i)}
-              className={`w-full flex items-center gap-3 p-3 rounded-lg border text-left transition-all text-sm ${
+              className={`w-full flex items-center gap-1.5 px-2 py-1 rounded-md border text-left transition-all ${
                 selectedShipping === i
                   ? "border-whatsapp-green bg-whatsapp-green/10"
                   : "border-border/50 bg-background hover:border-whatsapp-green/30"
               }`}
             >
-              <Truck size={16} className={selectedShipping === i ? "text-whatsapp-green" : "text-muted-foreground"} />
-              <div className="flex-1 min-w-0">
-                <p className={`font-body font-medium ${selectedShipping === i ? "text-foreground" : "text-muted-foreground"}`}>
-                  {opt.company} — {opt.name}
-                </p>
-                <p className="text-xs text-muted-foreground">
-                  {opt.delivery_time} dias úteis
-                </p>
-              </div>
-              <span className={`font-body font-semibold shrink-0 ${selectedShipping === i ? "text-whatsapp-green" : "text-foreground"}`}>
+              <Truck size={11} className={selectedShipping === i ? "text-whatsapp-green" : "text-muted-foreground"} />
+              <span className={`font-body text-[10px] flex-1 min-w-0 ${selectedShipping === i ? "text-foreground" : "text-muted-foreground"}`}>
+                {opt.company} — {opt.name} ({opt.delivery_time} dias úteis)
+              </span>
+              <span className={`font-body text-[10px] font-semibold shrink-0 ${selectedShipping === i ? "text-whatsapp-green" : "text-foreground"}`}>
                 {formatPrice(opt.price)}
               </span>
             </button>
@@ -268,8 +261,8 @@ const Checkout = () => {
 
       {/* Fallback display */}
       {shippingOptions.length === 0 && frete !== null && prazo && (
-        <p className="text-sm text-muted-foreground mt-2 font-body">
-          Frete: {formatPrice(frete)} — Entrega em {prazo}
+        <p className="text-[10px] text-muted-foreground mt-1 font-body">
+          Frete: {formatPrice(frete)} — {prazo}
         </p>
       )}
     </div>
