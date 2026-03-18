@@ -499,7 +499,7 @@ const Checkout = () => {
                         paymentMethod === "pix" ? "border-primary bg-primary/10" : "border-border bg-card"
                       }`}
                     >
-                      <QrCode size={24} className={paymentMethod === "pix" ? "text-primary mx-auto" : "text-muted-foreground mx-auto"} />
+                      <QrCode size={24} className="text-whatsapp-green mx-auto" />
                       <p className={`text-sm font-body mt-2 ${paymentMethod === "pix" ? "text-primary" : "text-muted-foreground"}`}>
                         Pix
                       </p>
@@ -511,7 +511,7 @@ const Checkout = () => {
                         paymentMethod === "card" ? "border-primary bg-primary/10" : "border-border bg-card"
                       }`}
                     >
-                      <CreditCard size={24} className={paymentMethod === "card" ? "text-primary mx-auto" : "text-muted-foreground mx-auto"} />
+                      <CreditCard size={24} className="text-whatsapp-green mx-auto" />
                       <p className={`text-sm font-body mt-2 ${paymentMethod === "card" ? "text-primary" : "text-muted-foreground"}`}>
                         Cartão
                       </p>
