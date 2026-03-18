@@ -81,91 +81,95 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
       transition={{ delay: index * 0.08, duration: 0.5 }}
     >
       <Link to={`/produto/${product.slug}`} className="block">
-        <div className="rounded-2xl overflow-hidden border border-gold/25 shadow-elegant hover:shadow-gold transition-all duration-500 bg-card group">
+        <div className="rounded-2xl overflow-hidden border border-border/50 shadow-lg hover:shadow-gold transition-shadow duration-500 bg-card group">
           {/* ===== Main image ===== */}
-          <div className="relative">
-            <img
-              src={product.images[0]}
-              alt={product.name}
-              className="w-full aspect-square object-cover"
-              loading="lazy"
-              decoding="async"
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/40" />
+          <Link to={`/produto/${product.slug}`} className="block">
+            <div className="relative">
+              <img
+                src={product.images[0]}
+                alt={product.name}
+                className="w-full aspect-square object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/50" />
 
-            {product.badge && (
-              <span className="absolute top-3 left-3 z-10 px-3 py-0.5 text-xs font-body font-semibold bg-secondary text-secondary-foreground rounded-full">
-                {product.badge}
-              </span>
-            )}
+              {product.badge && (
+                <span className="absolute top-3 left-3 z-10 px-3 py-0.5 text-xs font-body font-semibold bg-primary text-primary-foreground rounded-full">
+                  {product.badge}
+                </span>
+              )}
 
-            {showPreview && (
-              <div className="absolute inset-0 z-10 bg-black/80 flex items-center justify-center p-4">
-                <div className="w-full h-full rounded-lg overflow-hidden">
-                  {renderPreview()}
+              {showPreview && (
+                <div className="absolute inset-0 z-10 bg-black/80 flex items-center justify-center p-4">
+                  <div className="w-full h-full rounded-lg overflow-hidden">
+                    {renderPreview()}
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
 
-            {/* Thumbnail strip */}
-            <div className="absolute bottom-3 left-3 z-20 flex items-center gap-2">
-              {displayImages.map((img, i) => (
+              {/* Thumbnail strip */}
+              <div className="absolute bottom-3 left-3 z-20 flex items-center gap-2">
+                {displayImages.map((img, i) => (
+                  <button
+                    key={i}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      setActiveThumb(activeThumb === i ? "img" : i);
+                    }}
+                    className={`w-11 h-11 rounded-lg overflow-hidden border-2 transition-all flex-shrink-0 shadow-md ${
+                      activeThumb === i ? "border-primary shadow-gold" : "border-white/50 hover:border-primary/60"
+                    }`}
+                  >
+                    <img src={img} alt={`Ângulo ${i + 1}`} className="w-full h-full object-cover" />
+                  </button>
+                ))}
                 <button
-                  key={i}
                   onClick={(e) => {
                     e.preventDefault();
                     e.stopPropagation();
-                    setActiveThumb(activeThumb === i ? "img" : i);
+                    setActiveThumb(activeThumb === "video" ? "img" : "video");
                   }}
-                  className={`w-11 h-11 rounded-lg overflow-hidden border-2 transition-all flex-shrink-0 shadow-md ${
-                    activeThumb === i ? "border-primary shadow-gold" : "border-white/70 hover:border-primary/60"
+                  className={`w-11 h-11 rounded-lg border-2 transition-all flex-shrink-0 overflow-hidden relative shadow-md ${
+                    activeThumb === "video" ? "border-primary shadow-gold" : "border-white/50 hover:border-primary/60"
                   }`}
                 >
-                  <img src={img} alt={`Ângulo ${i + 1}`} className="w-full h-full object-cover" />
+                  <img src={product.images[0]} alt="Vídeo" className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/30">
+                    <Play size={14} className="text-white fill-white" />
+                  </div>
                 </button>
-              ))}
-              <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  setActiveThumb(activeThumb === "video" ? "img" : "video");
-                }}
-                className={`w-11 h-11 rounded-lg border-2 transition-all flex-shrink-0 overflow-hidden relative shadow-md ${
-                  activeThumb === "video" ? "border-primary shadow-gold" : "border-white/70 hover:border-primary/60"
-                }`}
-              >
-                <img src={product.images[0]} alt="Vídeo" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 flex items-center justify-center bg-black/30">
-                  <Play size={14} className="text-white fill-white" />
-                </div>
-              </button>
+              </div>
             </div>
-          </div>
+          </Link>
 
           {/* ===== Product info ===== */}
-          <div className="px-4 py-3 space-y-2">
-            <div>
-              <h3 className="font-display text-base leading-tight truncate">{product.name}</h3>
-              <p className="text-xs text-muted-foreground font-body truncate">{product.significance}</p>
-            </div>
+          <div className="px-2 pt-0 pb-1.5 space-y-0">
+            <Link to={`/produto/${product.slug}`} className="block">
+              <h3 className="font-display text-sm text-foreground leading-tight truncate">{product.name}</h3>
+              <p className="text-[11px] text-muted-foreground font-body truncate">{product.significance}</p>
+            </Link>
 
-            <div className="flex items-center justify-between">
+            {/* Preço + Pagamento */}
+            <div className="flex items-center justify-between mt-0.5">
               <span className="whitespace-nowrap">
-                <span className="text-xl font-display font-bold text-green-deep">{formatPrice(product.price)}</span>
-                <span className="text-[11px] text-muted-foreground ml-1.5">ou 3x {formatPrice(product.price / 3)}</span>
+                <span className="text-lg font-display font-bold text-green-deep">{formatPrice(product.price)}</span>
+                <span className="text-[10px] text-muted-foreground ml-1">ou 3x {formatPrice(product.price / 3)}</span>
               </span>
-              <div className="flex items-center gap-2 text-foreground text-sm font-bold whitespace-nowrap shrink-0">
-                <span className="flex items-center gap-1"><CreditCard size={15} className="text-whatsapp-green" />Cartão</span>
-                <span className="flex items-center gap-1"><QrCode size={15} className="text-whatsapp-green" />Pix</span>
+              <div className="flex items-center gap-1.5 text-foreground text-xs font-bold whitespace-nowrap shrink-0">
+                <span className="flex items-center gap-0.5"><CreditCard size={13} className="text-whatsapp-green" />Cartão</span>
+                <span className="flex items-center gap-0.5"><QrCode size={13} className="text-whatsapp-green" />Pix</span>
               </div>
             </div>
 
-            <div className="flex items-center gap-2">
+            {/* Comprar */}
+            <div className="flex items-center mt-1">
               <Button
                 onClick={handleBuy}
-                className="flex-1 h-10 gap-1.5 font-body font-extrabold rounded-xl text-[15px] bg-primary text-secondary hover:bg-gold-dark hover:text-white transition-colors shadow-gold-sm"
+                className="flex-1 h-9 gap-1.5 font-body font-extrabold rounded-xl text-sm bg-primary text-secondary hover:bg-gold-dark hover:text-white transition-colors shadow-gold-sm"
               >
-                <ShoppingBag size={14} />
+                <ShoppingBag size={13} />
                 {product.sizes ? "Ver tamanhos" : "Comprar"}
               </Button>
             </div>
