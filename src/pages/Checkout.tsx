@@ -280,7 +280,7 @@ const Checkout = () => {
             Continuar comprando
           </Link>
 
-          <h1 className="font-display text-2xl text-foreground mb-3">Checkout</h1>
+          <h1 className="font-display text-2xl text-foreground mb-3">Finalização de compra</h1>
 
           {/* Progress */}
           <div className="flex items-center gap-1 mb-4">
