@@ -587,11 +587,11 @@ const Checkout = () => {
                 <div className="sticky top-20 p-2.5 rounded-lg bg-card border border-border/50 space-y-1">
                   <div className="flex items-center gap-1.5">
                     <Package size={14} className="text-whatsapp-green" />
-                    <h3 className="font-body text-sm font-bold text-whatsapp-green">Resumo do pedido</h3>
+                    <h3 className="font-body text-base font-bold text-whatsapp-green">Resumo do pedido</h3>
                   </div>
                   <div className="space-y-0">
                     {items.map((item) => (
-                      <div key={`${item.product.id}-${item.size}`} className="flex justify-between text-[11px] font-body leading-tight py-px">
+                      <div key={`${item.product.id}-${item.size}`} className="flex justify-between text-sm font-body leading-tight py-px">
                         <span className="text-muted-foreground truncate mr-2">
                           {item.quantity}x {item.product.name}
                           {item.size ? ` (${item.size})` : ""}
@@ -601,29 +601,29 @@ const Checkout = () => {
                     ))}
                   </div>
                   <div className="border-t border-border pt-1 space-y-0">
-                    <div className="flex justify-between items-center text-[11px] font-body leading-tight">
+                    <div className="flex justify-between items-center text-sm font-body leading-tight">
                       <span className="flex items-center gap-1 text-muted-foreground">
-                        <Wallet size={11} className="text-whatsapp-green" />
+                        <Wallet size={14} className="text-whatsapp-green" />
                         Subtotal
                       </span>
                       <span className="text-foreground font-medium">{formatPrice(subtotal)}</span>
                     </div>
-                    <div className="flex justify-between items-center text-[11px] font-body leading-tight">
+                    <div className="flex justify-between items-center text-sm font-body leading-tight">
                       <span className="flex items-center gap-1 text-muted-foreground">
-                        <Truck size={11} className="text-whatsapp-green" />
+                        <Truck size={14} className="text-whatsapp-green" />
                         Frete
                       </span>
                       <span className="text-foreground font-medium">{frete ? formatPrice(frete) : "A calcular"}</span>
                     </div>
                   </div>
                   <div className="border-t border-border pt-1 flex justify-between items-center">
-                    <span className="font-body text-whatsapp-green font-bold text-sm">Total</span>
-                    <span className="font-body text-whatsapp-green text-lg font-bold">
+                    <span className="font-body text-whatsapp-green font-bold text-base">Total</span>
+                    <span className="font-body text-whatsapp-green text-xl font-bold">
                       {formatPrice(total)}
                     </span>
                   </div>
-                  <div className="flex items-center gap-1 text-[10px] text-whatsapp-green font-body font-medium">
-                    <Lock size={11} className="text-whatsapp-green" />
+                  <div className="flex items-center gap-1 text-sm text-whatsapp-green font-body font-medium">
+                    <Lock size={14} className="text-whatsapp-green" />
                     Compra 100% segura
                   </div>
                 </div>
