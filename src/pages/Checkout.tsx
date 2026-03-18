@@ -369,9 +369,9 @@ const Checkout = () => {
                     </div>
                   </div>
 
-                  <div className="p-3 rounded-lg bg-card border border-border/50 space-y-2">
+                  <div className="p-2.5 rounded-lg bg-card border border-border/50 space-y-1.5">
                     <h2 className="font-display text-base font-bold text-foreground text-center">Endereço de entrega</h2>
-                    <div className="grid grid-cols-6 gap-x-2 gap-y-1.5">
+                    <div className="grid grid-cols-6 gap-x-1.5 gap-y-1">
                       <div className="col-span-3 sm:col-span-2">
                         <Label className="text-[11px] leading-tight">CEP</Label>
                         <div className="flex gap-1.5 mt-0.5 items-center">
