@@ -63,7 +63,7 @@ const KitsPresente = () => {
 
       {/* Highlights */}
       <section className="py-3 px-4 border-y border-border/50 bg-card/50">
-        <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
           {[
             { icon: "🎁", title: "Embalagem Premium", desc: "Caixa de presente luxuosa" },
             { icon: "💎", title: "Pedras Naturais", desc: "Cristais autênticos selecionados" },
