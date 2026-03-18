@@ -134,7 +134,7 @@ const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, 
             </button>
           </div>
 
-          {!minimized && showGuide && (
+          {showGuide && (
             <div className="space-y-3 animate-in fade-in slide-in-from-top-2 duration-200">
               <Accordion type="multiple" className="w-full">
                 <AccordionItem value="method1" className="border-primary/20">
