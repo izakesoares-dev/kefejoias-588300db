@@ -48,12 +48,10 @@ const KitsPresente = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      {/* Hero */}
-      <section className="pt-24 pb-0 px-6 bg-gradient-to-b from-secondary/50 to-background">
+      <section className="pt-24 pb-0 px-4 bg-gradient-to-b from-secondary/50 to-background">
         <div className="max-w-7xl mx-auto">
-          
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center">
-            <h1 className="font-display text-4xl md:text-5xl text-foreground mb-2">
+            <h1 className="font-display text-3xl md:text-4xl text-foreground mb-1">
               Kits <span className="text-gradient-gold">Presente</span>
             </h1>
             <p className="text-sm text-muted-foreground font-body max-w-2xl mx-auto">
@@ -64,8 +62,8 @@ const KitsPresente = () => {
       </section>
 
       {/* Highlights */}
-      <section className="py-4 px-6 border-y border-border/50 bg-card/50">
-        <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      <section className="py-3 px-4 border-y border-border/50 bg-card/50">
+        <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
           {[
             { icon: "🎁", title: "Embalagem Premium", desc: "Caixa de presente luxuosa" },
             { icon: "💎", title: "Pedras Naturais", desc: "Cristais autênticos selecionados" },
@@ -82,7 +80,7 @@ const KitsPresente = () => {
       </section>
 
       {/* Filters */}
-      <section className="px-6 pt-2 pb-2">
+      <section className="px-4 pt-2 pb-2">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-wrap gap-2 justify-center">
             {filters.map((f) => {
@@ -106,13 +104,12 @@ const KitsPresente = () => {
         </div>
       </section>
 
-      {/* Products */}
-      <section className="px-6 pb-16">
+      <section className="px-4 pb-12">
         <div className="max-w-7xl mx-auto">
           {filtered.length === 0 ? (
             <p className="text-center text-muted-foreground font-body py-12">Nenhum kit encontrado para este filtro.</p>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
               {filtered.map((product, i) => (
                 <ProductCard key={product.id} product={product} index={i} />
               ))}
