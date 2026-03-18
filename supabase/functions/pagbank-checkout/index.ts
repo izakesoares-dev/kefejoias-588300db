@@ -5,7 +5,6 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version',
 };
 
-// API de Produção
 const PAGBANK_API = "https://api.pagseguro.com";
 
 serve(async (req) => {
@@ -18,9 +17,8 @@ serve(async (req) => {
     if (!rawToken) {
       throw new Error('PAGBANK_TOKEN não configurado');
     }
-    // Remove espaços, quebras de linha e prefixo "Bearer " se o usuário colou junto
     const token = rawToken.replace(/^Bearer\s+/i, '').trim();
-    console.log('Token length:', token.length, '| First 8 chars:', token.substring(0, 8), '| Last 4 chars:', token.substring(token.length - 4));
+    console.log('Token length:', token.length, '| First 8 chars:', token.substring(0, 8));
 
     const body = await req.json();
     const { payment_method, customer, items, shipping, installments } = body;
@@ -34,11 +32,9 @@ serve(async (req) => {
 
     const referenceId = `KEFE-${Date.now()}-${Math.random().toString(36).substring(2, 8).toUpperCase()}`;
 
-    // Calculate total in centavos
     const itemsTotal = items.reduce((sum: number, item: any) => sum + (item.unit_amount * item.quantity), 0);
     const shippingAmount = shipping?.amount || 0;
 
-    // Build order payload
     const orderPayload: any = {
       reference_id: referenceId,
       customer: {
@@ -56,7 +52,7 @@ serve(async (req) => {
         reference_id: item.id,
         name: item.name,
         quantity: item.quantity,
-        unit_amount: item.unit_amount, // centavos
+        unit_amount: item.unit_amount,
       })),
       shipping: {
         address: {
@@ -74,7 +70,6 @@ serve(async (req) => {
     };
 
     if (payment_method === 'pix') {
-      // QR Code Pix
       orderPayload.qr_codes = [{
         amount: {
           value: itemsTotal + shippingAmount,
@@ -82,9 +77,7 @@ serve(async (req) => {
         expiration_date: new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString(),
       }];
     } else if (payment_method === 'card') {
-      // Credit card charge
       const totalAmount = itemsTotal + shippingAmount;
-      
       orderPayload.charges = [{
         reference_id: referenceId,
         description: `Pedido Kefe Joias ${referenceId}`,
@@ -151,7 +144,6 @@ serve(async (req) => {
       });
     }
 
-    // Build response based on payment method
     const result: any = {
       order_id: data.id,
       reference_id: referenceId,
