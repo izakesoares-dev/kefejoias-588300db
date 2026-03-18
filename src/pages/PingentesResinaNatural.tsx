@@ -85,22 +85,22 @@ const PingentesResinaNatural = () => {
             viewport={{ once: true }}
             className="mt-10 grid md:grid-cols-3 gap-4"
           >
-            <div className="text-center p-6 rounded-xl bg-card border border-border/50">
-              <span className="text-4xl mb-4 block">🌶️</span>
+            <div className="text-center p-4 rounded-xl bg-card border border-border/50">
+              <span className="text-3xl mb-2 block">🌶️</span>
               <h3 className="font-display text-lg text-foreground mb-2">Pimentas</h3>
               <p className="font-body text-sm text-muted-foreground">
                 Proteção contra energias negativas, mau-olhado e inveja. Força vital e coragem.
               </p>
             </div>
-            <div className="text-center p-6 rounded-xl bg-card border border-border/50">
-              <span className="text-4xl mb-4 block">🌹</span>
+            <div className="text-center p-4 rounded-xl bg-card border border-border/50">
+              <span className="text-3xl mb-2 block">🌹</span>
               <h3 className="font-display text-lg text-foreground mb-2">Flores</h3>
               <p className="font-body text-sm text-muted-foreground">
                 Amor, beleza, pureza e novos começos. Cada flor carrega um significado único e especial.
               </p>
             </div>
-            <div className="text-center p-6 rounded-xl bg-card border border-border/50">
-              <span className="text-4xl mb-4 block">🌻</span>
+            <div className="text-center p-4 rounded-xl bg-card border border-border/50">
+              <span className="text-3xl mb-2 block">🌻</span>
               <h3 className="font-display text-lg text-foreground mb-2">Sementes</h3>
               <p className="font-body text-sm text-muted-foreground">
                 Prosperidade, fé e novos começos. Símbolos de potencial infinito e crescimento.
