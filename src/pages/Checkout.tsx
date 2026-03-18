@@ -527,7 +527,7 @@ const Checkout = () => {
                       <p className="text-sm text-muted-foreground font-body">
                         O QR Code será gerado após a confirmação do pedido
                       </p>
-                      <p className="text-lg font-display text-whatsapp-green font-semibold">
+                      <p className="text-xl font-body text-whatsapp-green font-bold">
                         Total com Pix: {formatPrice(total * 0.95)}
                       </p>
                     </div>
