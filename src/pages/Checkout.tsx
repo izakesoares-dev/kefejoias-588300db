@@ -377,57 +377,62 @@ const Checkout = () => {
                           <Input
                             placeholder="00000-000"
                             value={cep}
-                            onChange={(e) => handleCepChange(e.target.value)}
-                            className="h-8 text-xs"
+                            onChange={(e) => { handleCepChange(e.target.value); setFormErrors(p => ({ ...p, cep: "" })); }}
+                            className={`h-8 text-xs ${formErrors.cep ? "border-destructive" : ""}`}
                           />
                           {loadingCep && <Loader2 size={14} className="animate-spin text-muted-foreground shrink-0" />}
                         </div>
-                        {cepError && <p className="text-[11px] text-destructive mt-0.5">{cepError}</p>}
+                        {(cepError || formErrors.cep) && <p className="text-[10px] text-destructive mt-0.5">{cepError || formErrors.cep}</p>}
                       </div>
                       <div className="col-span-3 sm:col-span-4">
                         <Label className="text-[11px] leading-tight">Rua</Label>
                         <Input
                           placeholder="Rua, Avenida..."
-                          className="mt-0.5 h-8 text-xs"
+                          className={`mt-0.5 h-8 text-xs ${formErrors.rua ? "border-destructive" : ""}`}
                           value={endereco.rua}
-                          onChange={(e) => setEndereco((prev) => ({ ...prev, rua: e.target.value }))}
+                          onChange={(e) => { setEndereco((prev) => ({ ...prev, rua: e.target.value })); setFormErrors(p => ({ ...p, rua: "" })); }}
                         />
+                        {formErrors.rua && <p className="text-[10px] text-destructive mt-0.5">{formErrors.rua}</p>}
                       </div>
                       <div className="col-span-2">
                         <Label className="text-[11px] leading-tight">Número</Label>
-                        <Input placeholder="123" className="mt-0.5 h-8 text-xs" />
+                        <Input placeholder="123" className={`mt-0.5 h-8 text-xs ${formErrors.numero ? "border-destructive" : ""}`} value={dadosPessoais.numero} onChange={(e) => { setDadosPessoais(p => ({ ...p, numero: e.target.value })); setFormErrors(p => ({ ...p, numero: "" })); }} maxLength={10} />
+                        {formErrors.numero && <p className="text-[10px] text-destructive mt-0.5">{formErrors.numero}</p>}
                       </div>
                       <div className="col-span-4 sm:col-span-2">
                         <Label className="text-[11px] leading-tight">Complemento</Label>
-                        <Input placeholder="Apto, Bloco..." className="mt-0.5 h-8 text-xs" />
+                        <Input placeholder="Apto, Bloco..." className="mt-0.5 h-8 text-xs" value={dadosPessoais.complemento} onChange={(e) => setDadosPessoais(p => ({ ...p, complemento: e.target.value }))} maxLength={100} />
                       </div>
                       <div className="col-span-3 sm:col-span-2">
                         <Label className="text-[11px] leading-tight">Bairro</Label>
                         <Input
                           placeholder="Bairro"
-                          className="mt-0.5 h-8 text-xs"
+                          className={`mt-0.5 h-8 text-xs ${formErrors.bairro ? "border-destructive" : ""}`}
                           value={endereco.bairro}
-                          onChange={(e) => setEndereco((prev) => ({ ...prev, bairro: e.target.value }))}
+                          onChange={(e) => { setEndereco((prev) => ({ ...prev, bairro: e.target.value })); setFormErrors(p => ({ ...p, bairro: "" })); }}
                         />
+                        {formErrors.bairro && <p className="text-[10px] text-destructive mt-0.5">{formErrors.bairro}</p>}
                       </div>
                       <div className="col-span-4 sm:col-span-3">
                         <Label className="text-[11px] leading-tight">Cidade</Label>
                         <Input
                           placeholder="São Paulo"
-                          className="mt-0.5 h-8 text-xs"
+                          className={`mt-0.5 h-8 text-xs ${formErrors.cidade ? "border-destructive" : ""}`}
                           value={endereco.cidade}
-                          onChange={(e) => setEndereco((prev) => ({ ...prev, cidade: e.target.value }))}
+                          onChange={(e) => { setEndereco((prev) => ({ ...prev, cidade: e.target.value })); setFormErrors(p => ({ ...p, cidade: "" })); }}
                         />
+                        {formErrors.cidade && <p className="text-[10px] text-destructive mt-0.5">{formErrors.cidade}</p>}
                       </div>
                       <div className="col-span-2 sm:col-span-1">
                         <Label className="text-[11px] leading-tight">UF</Label>
                         <Input
                           placeholder="SP"
-                          className="mt-0.5 h-8 text-xs"
+                          className={`mt-0.5 h-8 text-xs ${formErrors.estado ? "border-destructive" : ""}`}
                           maxLength={2}
                           value={endereco.estado}
-                          onChange={(e) => setEndereco((prev) => ({ ...prev, estado: e.target.value }))}
+                          onChange={(e) => { setEndereco((prev) => ({ ...prev, estado: e.target.value })); setFormErrors(p => ({ ...p, estado: "" })); }}
                         />
+                        {formErrors.estado && <p className="text-[10px] text-destructive mt-0.5">{formErrors.estado}</p>}
                       </div>
                     </div>
 
