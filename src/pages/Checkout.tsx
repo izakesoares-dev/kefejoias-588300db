@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ChevronLeft, CreditCard, QrCode, ShieldCheck, CheckCircle } from "lucide-react";
+import { ChevronLeft, CreditCard, QrCode, ShieldCheck, CheckCircle, Loader2 } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
 import { formatPrice } from "@/data/products";
 import { Button } from "@/components/ui/button";
@@ -10,6 +10,7 @@ import { Label } from "@/components/ui/label";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
+import { fetchAddress, calcularFrete, estimarPrazo } from "@/utils/shipping";
 
 type PaymentMethod = "pix" | "card";
 type CheckoutStep = "cart" | "info" | "payment" | "done";
@@ -20,10 +21,46 @@ const Checkout = () => {
   const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>("pix");
   const [cep, setCep] = useState("");
   const [frete, setFrete] = useState<number | null>(null);
+  const [prazo, setPrazo] = useState<string>("");
+  const [loadingCep, setLoadingCep] = useState(false);
+  const [cepError, setCepError] = useState("");
+  const [endereco, setEndereco] = useState({
+    rua: "",
+    bairro: "",
+    cidade: "",
+    estado: "",
+  });
 
-  const calcFrete = () => {
-    if (cep.length >= 8) setFrete(15.90);
-  };
+  const handleCepChange = useCallback(async (value: string) => {
+    const clean = value.replace(/\D/g, "").slice(0, 8);
+    setCep(clean);
+    setCepError("");
+
+    if (clean.length === 8) {
+      setLoadingCep(true);
+      const data = await fetchAddress(clean);
+      setLoadingCep(false);
+
+      if (data) {
+        setEndereco({
+          rua: data.logradouro || "",
+          bairro: data.bairro || "",
+          cidade: data.localidade || "",
+          estado: data.uf || "",
+        });
+        setFrete(calcularFrete(data.uf));
+        setPrazo(estimarPrazo(data.uf));
+        setCepError("");
+      } else {
+        setCepError("CEP não encontrado");
+        setFrete(null);
+        setPrazo("");
+      }
+    } else {
+      setFrete(null);
+      setPrazo("");
+    }
+  }, []);
 
   const total = subtotal + (frete ?? 0);
 
@@ -141,18 +178,21 @@ const Checkout = () => {
                   {/* CEP */}
                   <div className="p-4 rounded-lg bg-card border border-border/50">
                     <Label className="text-sm font-body text-foreground">Calcular frete</Label>
-                    <div className="flex gap-2 mt-2">
+                    <div className="flex gap-2 mt-2 items-center">
                       <Input
                         placeholder="00000-000"
                         value={cep}
-                        onChange={(e) => setCep(e.target.value.replace(/\D/g, "").slice(0, 8))}
+                        onChange={(e) => handleCepChange(e.target.value)}
                         className="max-w-[180px]"
                       />
-                      <Button variant="outline" onClick={calcFrete} disabled={cep.length < 8}>Calcular</Button>
+                      {loadingCep && <Loader2 size={18} className="animate-spin text-muted-foreground" />}
                     </div>
-                    {frete !== null && (
+                    {cepError && (
+                      <p className="text-sm text-destructive mt-2 font-body">{cepError}</p>
+                    )}
+                    {frete !== null && prazo && (
                       <p className="text-sm text-muted-foreground mt-2 font-body">
-                        Frete: {formatPrice(frete)} — Entrega em 5-8 dias úteis
+                        Frete: {formatPrice(frete)} — Entrega em {prazo}
                       </p>
                     )}
                   </div>
@@ -190,9 +230,27 @@ const Checkout = () => {
 
                   <h2 className="font-display text-xl text-foreground pt-4">Endereço de entrega</h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <Label>CEP</Label>
+                      <div className="flex gap-2 mt-1 items-center">
+                        <Input
+                          placeholder="00000-000"
+                          value={cep}
+                          onChange={(e) => handleCepChange(e.target.value)}
+                        />
+                        {loadingCep && <Loader2 size={18} className="animate-spin text-muted-foreground" />}
+                      </div>
+                      {cepError && <p className="text-xs text-destructive mt-1">{cepError}</p>}
+                    </div>
+                    <div className="sm:col-span-1" />
                     <div className="sm:col-span-2">
                       <Label>Rua</Label>
-                      <Input placeholder="Rua, Avenida..." className="mt-1" />
+                      <Input
+                        placeholder="Rua, Avenida..."
+                        className="mt-1"
+                        value={endereco.rua}
+                        onChange={(e) => setEndereco((prev) => ({ ...prev, rua: e.target.value }))}
+                      />
                     </div>
                     <div>
                       <Label>Número</Label>
@@ -203,12 +261,31 @@ const Checkout = () => {
                       <Input placeholder="Apto, Bloco..." className="mt-1" />
                     </div>
                     <div>
+                      <Label>Bairro</Label>
+                      <Input
+                        placeholder="Bairro"
+                        className="mt-1"
+                        value={endereco.bairro}
+                        onChange={(e) => setEndereco((prev) => ({ ...prev, bairro: e.target.value }))}
+                      />
+                    </div>
+                    <div>
                       <Label>Cidade</Label>
-                      <Input placeholder="São Paulo" className="mt-1" />
+                      <Input
+                        placeholder="São Paulo"
+                        className="mt-1"
+                        value={endereco.cidade}
+                        onChange={(e) => setEndereco((prev) => ({ ...prev, cidade: e.target.value }))}
+                      />
                     </div>
                     <div>
                       <Label>Estado</Label>
-                      <Input placeholder="SP" className="mt-1" />
+                      <Input
+                        placeholder="SP"
+                        className="mt-1"
+                        value={endereco.estado}
+                        onChange={(e) => setEndereco((prev) => ({ ...prev, estado: e.target.value }))}
+                      />
                     </div>
                   </div>
 
