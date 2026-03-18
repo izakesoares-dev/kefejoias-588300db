@@ -18,6 +18,7 @@ const subcategories = [
 ];
 
 const AcoInox = () => {
+  const [globalSize, setGlobalSize] = useState("");
   const allSteel = products.filter((p) => p.id.includes("aco"));
 
   return (
