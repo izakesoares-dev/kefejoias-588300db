@@ -80,7 +80,11 @@ const AcoInox = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.03 }}
               >
-                <ProductCard product={product} />
+                {product.category === "anel" ? (
+                  <RingProductCard product={product} index={i} globalSize={globalSize} />
+                ) : (
+                  <ProductCard product={product} />
+                )}
               </motion.div>
             ))}
           </div>
