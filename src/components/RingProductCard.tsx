@@ -145,7 +145,13 @@ const RingProductCard = ({ product, index = 0, globalSize }: RingProductCardProp
           <p className="text-[11px] text-muted-foreground font-body truncate">{product.significance}</p>
         </Link>
 
-        <ArtisanBadge selectedSize={selectedSize} onSizeChange={setLocalSize} collapsed={badgeCollapsed} hideArtisanNote={product.id.includes("aco")} artisanType={product.subcategory === "flores" ? "flor" : "pedra"} />
+        <ArtisanBadge selectedSize={selectedSize} onSizeChange={setLocalSize} collapsed={badgeCollapsed} hideArtisanNote={product.id.includes("aco")} artisanType={(() => {
+          const elements = product.elements.map(e => e.name.toLowerCase()).join(" ") + " " + product.name.toLowerCase();
+          if (elements.includes("pimenta")) return "pimenta";
+          if (elements.includes("semente")) return "semente";
+          if (product.subcategory === "flores" || elements.includes("flor") || elements.includes("rosa") || elements.includes("lavanda") || elements.includes("girassol") || elements.includes("margarida") || elements.includes("jasmin") || elements.includes("sempre-viva") || elements.includes("sempre viva")) return "flor";
+          return "pedra";
+        })()} />
 
         {showSizeWarning && (
           <p className="text-[11px] text-red-500 font-body font-semibold animate-pulse">
