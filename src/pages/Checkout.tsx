@@ -207,92 +207,98 @@ const Checkout = () => {
               )}
 
               {step === "info" && (
-                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-4">
-                  <h2 className="font-display text-xl text-foreground">Dados pessoais</h2>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <Label>Nome completo</Label>
-                      <Input placeholder="Seu nome" className="mt-1" />
-                    </div>
-                    <div>
-                      <Label>E-mail</Label>
-                      <Input type="email" placeholder="seu@email.com" className="mt-1" />
-                    </div>
-                    <div>
-                      <Label>CPF</Label>
-                      <Input placeholder="000.000.000-00" className="mt-1" />
-                    </div>
-                    <div>
-                      <Label>Telefone</Label>
-                      <Input placeholder="(11) 99999-9999" className="mt-1" />
-                    </div>
-                  </div>
-
-                  <h2 className="font-display text-xl text-foreground pt-4">Endereço de entrega</h2>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <Label>CEP</Label>
-                      <div className="flex gap-2 mt-1 items-center">
-                        <Input
-                          placeholder="00000-000"
-                          value={cep}
-                          onChange={(e) => handleCepChange(e.target.value)}
-                        />
-                        {loadingCep && <Loader2 size={18} className="animate-spin text-muted-foreground" />}
+                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-3">
+                  <div className="p-4 rounded-lg bg-card border border-border/50 space-y-3">
+                    <h2 className="font-display text-base text-foreground">Dados pessoais</h2>
+                    <div className="grid grid-cols-2 gap-x-3 gap-y-2">
+                      <div className="col-span-2 sm:col-span-1">
+                        <Label className="text-xs">Nome completo</Label>
+                        <Input placeholder="Seu nome" className="mt-0.5 h-9 text-sm" />
                       </div>
-                      {cepError && <p className="text-xs text-destructive mt-1">{cepError}</p>}
-                    </div>
-                    <div className="sm:col-span-1" />
-                    <div className="sm:col-span-2">
-                      <Label>Rua</Label>
-                      <Input
-                        placeholder="Rua, Avenida..."
-                        className="mt-1"
-                        value={endereco.rua}
-                        onChange={(e) => setEndereco((prev) => ({ ...prev, rua: e.target.value }))}
-                      />
-                    </div>
-                    <div>
-                      <Label>Número</Label>
-                      <Input placeholder="123" className="mt-1" />
-                    </div>
-                    <div>
-                      <Label>Complemento</Label>
-                      <Input placeholder="Apto, Bloco..." className="mt-1" />
-                    </div>
-                    <div>
-                      <Label>Bairro</Label>
-                      <Input
-                        placeholder="Bairro"
-                        className="mt-1"
-                        value={endereco.bairro}
-                        onChange={(e) => setEndereco((prev) => ({ ...prev, bairro: e.target.value }))}
-                      />
-                    </div>
-                    <div>
-                      <Label>Cidade</Label>
-                      <Input
-                        placeholder="São Paulo"
-                        className="mt-1"
-                        value={endereco.cidade}
-                        onChange={(e) => setEndereco((prev) => ({ ...prev, cidade: e.target.value }))}
-                      />
-                    </div>
-                    <div>
-                      <Label>Estado</Label>
-                      <Input
-                        placeholder="SP"
-                        className="mt-1"
-                        value={endereco.estado}
-                        onChange={(e) => setEndereco((prev) => ({ ...prev, estado: e.target.value }))}
-                      />
+                      <div className="col-span-2 sm:col-span-1">
+                        <Label className="text-xs">E-mail</Label>
+                        <Input type="email" placeholder="seu@email.com" className="mt-0.5 h-9 text-sm" />
+                      </div>
+                      <div>
+                        <Label className="text-xs">CPF</Label>
+                        <Input placeholder="000.000.000-00" className="mt-0.5 h-9 text-sm" />
+                      </div>
+                      <div>
+                        <Label className="text-xs">Telefone</Label>
+                        <Input placeholder="(11) 99999-9999" className="mt-0.5 h-9 text-sm" />
+                      </div>
                     </div>
                   </div>
 
-                  <div className="flex gap-3 pt-4">
-                    <Button variant="outline" onClick={() => setStep("cart")}>Voltar</Button>
+                  <div className="p-4 rounded-lg bg-card border border-border/50 space-y-3">
+                    <h2 className="font-display text-base text-foreground">Endereço de entrega</h2>
+                    <div className="grid grid-cols-6 gap-x-3 gap-y-2">
+                      <div className="col-span-3 sm:col-span-2">
+                        <Label className="text-xs">CEP</Label>
+                        <div className="flex gap-1.5 mt-0.5 items-center">
+                          <Input
+                            placeholder="00000-000"
+                            value={cep}
+                            onChange={(e) => handleCepChange(e.target.value)}
+                            className="h-9 text-sm"
+                          />
+                          {loadingCep && <Loader2 size={16} className="animate-spin text-muted-foreground shrink-0" />}
+                        </div>
+                        {cepError && <p className="text-xs text-destructive mt-0.5">{cepError}</p>}
+                      </div>
+                      <div className="col-span-3 sm:col-span-4">
+                        <Label className="text-xs">Rua</Label>
+                        <Input
+                          placeholder="Rua, Avenida..."
+                          className="mt-0.5 h-9 text-sm"
+                          value={endereco.rua}
+                          onChange={(e) => setEndereco((prev) => ({ ...prev, rua: e.target.value }))}
+                        />
+                      </div>
+                      <div className="col-span-2">
+                        <Label className="text-xs">Número</Label>
+                        <Input placeholder="123" className="mt-0.5 h-9 text-sm" />
+                      </div>
+                      <div className="col-span-4 sm:col-span-2">
+                        <Label className="text-xs">Complemento</Label>
+                        <Input placeholder="Apto, Bloco..." className="mt-0.5 h-9 text-sm" />
+                      </div>
+                      <div className="col-span-3 sm:col-span-2">
+                        <Label className="text-xs">Bairro</Label>
+                        <Input
+                          placeholder="Bairro"
+                          className="mt-0.5 h-9 text-sm"
+                          value={endereco.bairro}
+                          onChange={(e) => setEndereco((prev) => ({ ...prev, bairro: e.target.value }))}
+                        />
+                      </div>
+                      <div className="col-span-4 sm:col-span-3">
+                        <Label className="text-xs">Cidade</Label>
+                        <Input
+                          placeholder="São Paulo"
+                          className="mt-0.5 h-9 text-sm"
+                          value={endereco.cidade}
+                          onChange={(e) => setEndereco((prev) => ({ ...prev, cidade: e.target.value }))}
+                        />
+                      </div>
+                      <div className="col-span-2 sm:col-span-1">
+                        <Label className="text-xs">UF</Label>
+                        <Input
+                          placeholder="SP"
+                          className="mt-0.5 h-9 text-sm"
+                          maxLength={2}
+                          value={endereco.estado}
+                          onChange={(e) => setEndereco((prev) => ({ ...prev, estado: e.target.value }))}
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-3 pt-2">
+                    <Button variant="outline" size="sm" onClick={() => setStep("cart")}>Voltar</Button>
                     <Button
                       onClick={() => setStep("payment")}
+                      size="sm"
                       className="flex-1 bg-gradient-gold text-primary-foreground font-body font-semibold"
                     >
                       Ir para pagamento
