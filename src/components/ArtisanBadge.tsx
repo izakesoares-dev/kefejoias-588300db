@@ -32,9 +32,10 @@ interface ArtisanBadgeProps {
   selectedSize?: string;
   onSizeChange?: (size: string) => void;
   collapsed?: boolean;
+  hideArtisanNote?: boolean;
 }
 
-const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed }: ArtisanBadgeProps) => {
+const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote }: ArtisanBadgeProps) => {
   const [showGuide, setShowGuide] = useState(false);
 
   useEffect(() => {
@@ -183,12 +184,14 @@ const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed }: ArtisanBadgePro
             </div>
           )}
 
-          <div className="mt-1 space-y-0">
-            <p className="text-[11px] font-display font-bold text-foreground text-center">✨ Peça Única Artesanal</p>
-            <p className="text-[10px] text-muted-foreground font-body italic leading-snug">
-              Cada anel é produzido manualmente, com carinho e dedicação. A flor que você receberá será muito semelhante à da foto, mas com variações naturais que tornam cada peça especial.
-            </p>
-          </div>
+          {!hideArtisanNote && (
+            <div className="mt-1 space-y-0">
+              <p className="text-[11px] font-display font-bold text-foreground text-center">✨ Peça Única Artesanal</p>
+              <p className="text-[10px] text-muted-foreground font-body italic leading-snug">
+                Cada anel é produzido manualmente, com carinho e dedicação. A flor que você receberá será muito semelhante à da foto, mas com variações naturais que tornam cada peça especial.
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </div>
