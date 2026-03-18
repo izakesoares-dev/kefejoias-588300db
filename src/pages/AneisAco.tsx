@@ -40,11 +40,8 @@ const AneisAco = () => {
             transition={{ delay: 0.1 }}
             className="text-sm text-muted-foreground font-body max-w-2xl mx-auto"
           >
-            Anéis elegantes em aço inoxidável com pedras naturais — resistentes, hipoalergênicos e com brilho duradouro.
+            Anéis elegantes em aço inoxidável — resistentes, hipoalergênicos e com brilho duradouro.
           </motion.p>
-          <div className="flex justify-center mt-4">
-            <RingSizeSelector value={globalSize} onChange={setGlobalSize} />
-          </div>
         </div>
       </section>
 
