@@ -51,8 +51,10 @@ const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, 
     if (collapsed) {
       setShowGuide(false);
       setMinimized(true);
+    } else if (!selectedSize) {
+      setMinimized(false);
     }
-  }, [collapsed]);
+  }, [collapsed, selectedSize]);
 
   const handleSizeChange = (val: string) => {
     const nextSize = val === "none" ? "" : val;
