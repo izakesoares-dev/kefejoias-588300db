@@ -216,7 +216,7 @@ const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, 
             </div>
           )}
 
-          {!minimized && !hideArtisanNote && (
+          {!hideArtisanNote && (
             <div className="mt-1 space-y-0">
               <p className="text-[11px] font-display font-bold text-foreground text-center">✨ Peça Única Artesanal</p>
               <p className="text-[11px] text-muted-foreground font-body italic leading-snug">
