@@ -247,11 +247,11 @@ const Checkout = () => {
                   : "border-border/50 bg-background hover:border-whatsapp-green/30"
               }`}
             >
-              <Truck size={13} className={selectedShipping === i ? "text-whatsapp-green" : "text-muted-foreground"} />
-              <span className={`font-body text-xs flex-1 min-w-0 ${selectedShipping === i ? "text-foreground" : "text-muted-foreground"}`}>
+              <Truck size={15} className={selectedShipping === i ? "text-whatsapp-green" : "text-muted-foreground"} />
+              <span className={`font-body text-sm flex-1 min-w-0 ${selectedShipping === i ? "text-foreground" : "text-muted-foreground"}`}>
                 {opt.company} — {opt.name} ({opt.delivery_time} dias úteis)
               </span>
-              <span className={`font-body text-xs font-semibold shrink-0 ${selectedShipping === i ? "text-whatsapp-green" : "text-foreground"}`}>
+              <span className={`font-body text-sm font-semibold shrink-0 ${selectedShipping === i ? "text-whatsapp-green" : "text-foreground"}`}>
                 {formatPrice(opt.price)}
               </span>
             </button>
