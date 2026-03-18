@@ -149,7 +149,7 @@ const Checkout = () => {
     );
   }
 
-  const ShippingCalculator = () => (
+  const shippingCalculatorJSX = (
     <div className="p-4 rounded-lg bg-card border border-border/50">
       <Label className="text-sm font-body text-foreground">Calcular frete</Label>
       <div className="flex gap-2 mt-2 items-center">
@@ -158,6 +158,8 @@ const Checkout = () => {
           value={cep}
           onChange={(e) => handleCepChange(e.target.value)}
           className="max-w-[180px]"
+          maxLength={9}
+          inputMode="numeric"
         />
         {loadingCep && <Loader2 size={18} className="animate-spin text-muted-foreground" />}
       </div>
@@ -270,7 +272,7 @@ const Checkout = () => {
                     </div>
                   ))}
 
-                  <ShippingCalculator />
+                  {shippingCalculatorJSX}
 
                   <Button
                     onClick={() => setStep("info")}
