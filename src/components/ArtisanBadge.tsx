@@ -127,7 +127,7 @@ const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, 
                 </button>
 
                 {sizeDropdownOpen && (
-                  <div className="absolute right-0 top-full z-50 mt-1 w-[60px] min-w-[60px] max-h-[260px] overflow-y-auto rounded-md border border-primary bg-background/95 p-1 shadow-gold-sm backdrop-blur-sm">
+                  <div className="absolute right-0 bottom-full z-50 mb-1 w-[60px] min-w-[60px] max-h-[260px] overflow-y-auto rounded-md border border-primary bg-background p-1 shadow-gold-sm backdrop-blur-sm">
                     <button
                       type="button"
                       onClick={(e) => {
