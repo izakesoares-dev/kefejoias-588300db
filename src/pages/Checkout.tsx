@@ -189,9 +189,36 @@ const Checkout = () => {
             <p className="text-muted-foreground font-body">
               Obrigada por comprar na Kefe! Você receberá um e-mail de confirmação em breve.
             </p>
-            <p className="text-sm text-muted-foreground font-body">
-              Pedido #{Math.random().toString(36).substring(2, 8).toUpperCase()}
-            </p>
+            {orderId && (
+              <p className="text-sm text-muted-foreground font-body">
+                Pedido #{orderId}
+              </p>
+            )}
+
+            {/* Show Pix QR code and copy code on done step */}
+            {pixData && (
+              <div className="p-4 rounded-lg border border-border/50 space-y-3 bg-card">
+                {pixData.qr_code_image && (
+                  <img src={pixData.qr_code_image} alt="QR Code Pix" className="w-48 h-48 mx-auto" />
+                )}
+                <p className="text-sm text-muted-foreground font-body">Escaneie o QR Code ou copie o código Pix abaixo:</p>
+                <div className="flex items-center gap-2">
+                  <Input value={pixData.qr_code} readOnly className="text-xs" />
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    onClick={() => {
+                      navigator.clipboard.writeText(pixData.qr_code);
+                      setCopiedPix(true);
+                      setTimeout(() => setCopiedPix(false), 2000);
+                    }}
+                  >
+                    {copiedPix ? <Check size={14} /> : <Copy size={14} />}
+                  </Button>
+                </div>
+              </div>
+            )}
+
             <Button asChild className="bg-gradient-gold text-primary-foreground">
               <Link to="/">Voltar à loja</Link>
             </Button>
