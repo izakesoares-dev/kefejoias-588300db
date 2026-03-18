@@ -579,8 +579,8 @@ const Checkout = () => {
             {/* Order summary sidebar */}
             {(step as string) !== "done" && (
               <div className="lg:col-span-1">
-                <div className="sticky top-24 p-4 rounded-lg bg-card border border-border/50 space-y-2">
-                  <div className="flex items-center gap-2 pb-1">
+                <div className="sticky top-20 p-3 rounded-lg bg-card border border-border/50 space-y-1.5">
+                  <div className="flex items-center gap-1.5 pb-0.5">
                     <Package size={18} className="text-whatsapp-green" />
                     <h3 className="font-body text-base font-bold text-whatsapp-green">Resumo do pedido</h3>
                   </div>
