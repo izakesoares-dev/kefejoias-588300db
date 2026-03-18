@@ -557,10 +557,10 @@ const Checkout = () => {
                         <Label>Parcelas</Label>
                         <select className="w-full bg-background border border-input rounded-md px-3 py-2 text-sm text-foreground">
                           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((n) => {
-                            if (n <= 3) {
+                            if (n === 1) {
                               return (
                                 <option key={n}>
-                                  {n}x de {formatPrice(total / n)} (sem juros)
+                                  1x de {formatPrice(total)} (sem juros)
                                 </option>
                               );
                             }
