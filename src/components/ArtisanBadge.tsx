@@ -64,6 +64,7 @@ const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, 
                 <span className="font-display text-sm font-bold text-foreground whitespace-nowrap">📏 Seu tamanho</span>
                 <Select value={selectedSize || "none"} onValueChange={(val) => {
                   onSizeChange?.(val === "none" ? "" : val);
+                  if (val !== "none") setShowGuide(false);
                 }}>
                   <SelectTrigger
                     className="w-[52px] h-7 rounded-md font-display font-bold text-sm px-2 gap-0.5
