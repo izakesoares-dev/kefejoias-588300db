@@ -11,8 +11,8 @@ import RingSizeSelector from "@/components/RingSizeSelector";
 import { products } from "@/data/products";
 
 const subcategories = [
-  { label: "Anéis com Pedras", href: "/aneis-pedras-naturais", description: "Pedras naturais em base de resina cristalina" },
-  { label: "Anéis com Flores", href: "/aneis-flores", description: "Flores reais eternizadas em resina" },
+  { label: "Pedras Naturais", href: "/aneis-pedras-naturais", icon: "💎" },
+  { label: "Flores", href: "/aneis-flores", icon: "🌸" },
 ];
 
 const Aneis = () => {
@@ -48,6 +48,23 @@ const Aneis = () => {
           >
             Anéis artesanais com pedras naturais e flores eternizadas em resina cristalina.
           </motion.p>
+        </div>
+      </section>
+
+      <section className="px-4 py-1">
+        <div className="max-w-xs mx-auto grid grid-cols-2 gap-2">
+          {subcategories.map((sub) => (
+            <Link
+              key={sub.href}
+              to={sub.href}
+              className="flex flex-col items-center bg-card border border-border/50 rounded-md px-2 py-2.5 hover:border-primary/40 transition-all group"
+            >
+              <span className="text-xl mb-1">{sub.icon}</span>
+              <span className="text-[11px] font-display text-foreground group-hover:text-primary transition-colors leading-tight text-center">
+                {sub.label}
+              </span>
+            </Link>
+          ))}
         </div>
       </section>
 

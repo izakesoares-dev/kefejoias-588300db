@@ -9,10 +9,10 @@ import ProductCard from "@/components/ProductCard";
 import { products } from "@/data/products";
 
 const subcategories = [
-  { label: "Pulseiras de Pedras", href: "/pulseiras-pedras", description: "Pedras naturais em elástico resistente" },
-  { label: "Pulseiras de Resina com Macramê", href: "/pulseiras-macrame", description: "Flores eternizadas com acabamento macramê" },
-  { label: "Pulseiras de Aço", href: "/pulseiras-aco", description: "Base em aço inoxidável com pedras naturais" },
-  { label: "Pulseiras Minimalistas", href: "/pulseiras-minimalistas", description: "Mini pedras naturais em fio delicado" },
+  { label: "Pedras", href: "/pulseiras-pedras", icon: "💎" },
+  { label: "Macramê", href: "/pulseiras-macrame", icon: "🌸" },
+  { label: "Aço", href: "/pulseiras-aco", icon: "⚙️" },
+  { label: "Minimalistas", href: "/pulseiras-minimalistas", icon: "✨" },
 ];
 
 const Pulseiras = () => {
@@ -50,18 +50,18 @@ const Pulseiras = () => {
         </div>
       </section>
 
-      <section className="px-4 py-2">
-        <div className="max-w-3xl mx-auto grid grid-cols-2 gap-3">
+      <section className="px-4 py-1">
+        <div className="max-w-sm mx-auto grid grid-cols-4 gap-2">
           {subcategories.map((sub) => (
             <Link
               key={sub.href}
               to={sub.href}
-              className="bg-card border-2 border-green-deep/30 rounded-lg px-4 py-3 hover:border-green-deep transition-all text-center group shadow-sm"
+              className="flex flex-col items-center bg-card border border-border/50 rounded-md px-2 py-2.5 hover:border-primary/40 transition-all group"
             >
-              <span className="text-sm font-body font-medium text-foreground group-hover:text-primary transition-colors">
+              <span className="text-xl mb-1">{sub.icon}</span>
+              <span className="text-[11px] font-display text-foreground group-hover:text-primary transition-colors leading-tight text-center">
                 {sub.label}
               </span>
-              <p className="text-xs text-muted-foreground mt-0.5">{sub.description}</p>
             </Link>
           ))}
         </div>
