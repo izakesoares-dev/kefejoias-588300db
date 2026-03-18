@@ -33,8 +33,15 @@ interface ArtisanBadgeProps {
   onSizeChange?: (size: string) => void;
   collapsed?: boolean;
   hideArtisanNote?: boolean;
-  artisanType?: "flor" | "pedra";
+  artisanType?: "flor" | "pedra" | "pimenta" | "semente";
 }
+
+const artisanLabels: Record<string, string> = {
+  flor: "A flor que você receberá será muito semelhante à da foto, mas com variações naturais que tornam cada peça especial.",
+  pedra: "A pedra que você receberá será muito semelhante à da foto, mas com variações naturais que tornam cada peça especial.",
+  pimenta: "A pimenta que você receberá será muito semelhante à da foto, mas com variações naturais que tornam cada peça especial.",
+  semente: "A semente que você receberá será muito semelhante à da foto, mas com variações naturais que tornam cada peça especial.",
+};
 
 const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, artisanType = "flor" }: ArtisanBadgeProps) => {
   const [showGuide, setShowGuide] = useState(false);
