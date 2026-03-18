@@ -43,24 +43,24 @@ const Especiais = () => {
         </div>
       </section>
 
-      <section className="px-4 pb-12 pt-2">
-        <div className="max-w-4xl mx-auto grid sm:grid-cols-2 gap-4">
+      <section className="px-4 pb-8 pt-2">
+        <div className="max-w-2xl mx-auto grid grid-cols-2 sm:grid-cols-3 gap-3">
           {subcategories.map((sub, i) => (
             <motion.div
               key={sub.href}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.05 }}
+              transition={{ delay: i * 0.03 }}
             >
               <Link
                 to={sub.href}
-                className="block bg-card border-2 border-green-deep/30 rounded-lg p-6 hover:border-green-deep transition-all group shadow-sm"
+                className="flex flex-col items-center text-center bg-card border border-border/50 rounded-lg px-3 py-4 hover:border-primary/40 transition-all group shadow-sm"
               >
-                <span className="text-3xl mb-3 block">{sub.icon}</span>
-                <h2 className="text-lg font-display text-foreground group-hover:text-primary transition-colors mb-1">
+                <span className="text-2xl mb-1.5">{sub.icon}</span>
+                <h2 className="text-sm font-display text-foreground group-hover:text-primary transition-colors leading-tight mb-0.5">
                   {sub.label}
                 </h2>
-                <p className="text-sm text-muted-foreground font-body">{sub.description}</p>
+                <p className="text-[11px] text-muted-foreground font-body leading-snug">{sub.description}</p>
               </Link>
             </motion.div>
           ))}
