@@ -60,9 +60,13 @@ const Products = () => {
 
           {/* Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {filtered.map((product, index) => (
-              <ProductCard key={product.id} product={product} index={index} />
-            ))}
+            {filtered.map((product, index) =>
+              product.category === "anel" ? (
+                <RingProductCard key={product.id} product={product} index={index} />
+              ) : (
+                <ProductCard key={product.id} product={product} index={index} />
+              )
+            )}
           </div>
 
           {filtered.length === 0 && (
