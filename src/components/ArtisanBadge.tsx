@@ -116,23 +116,22 @@ const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, 
               </div>
             </div>
 
-            {!minimized && (
-              <button
-                type="button"
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  setShowGuide(!showGuide);
-                }}
-                onMouseDown={(e) => {
-                  e.stopPropagation();
-                }}
-                className="flex items-center gap-1 font-display text-xs font-bold text-foreground hover:text-foreground/80 transition-all whitespace-nowrap"
-              >
-                Como descobrir seu tamanho?
-                <ChevronDown size={12} className={`transition-transform duration-200 ${showGuide ? "rotate-180" : ""}`} />
-              </button>
-            )}
+            <button
+              type="button"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                setShowGuide(!showGuide);
+                if (!showGuide) setMinimized(false);
+              }}
+              onMouseDown={(e) => {
+                e.stopPropagation();
+              }}
+              className="flex items-center gap-1 font-display text-xs font-bold text-foreground hover:text-foreground/80 transition-all whitespace-nowrap"
+            >
+              Como descobrir seu tamanho?
+              <ChevronDown size={12} className={`transition-transform duration-200 ${showGuide ? "rotate-180" : ""}`} />
+            </button>
           </div>
 
           {!minimized && showGuide && (
