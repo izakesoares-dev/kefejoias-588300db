@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { ChevronDown } from "lucide-react";
 import {
   Select,
@@ -45,16 +45,41 @@ const artisanLabels: Record<string, string> = {
 
 const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, artisanType = "flor" }: ArtisanBadgeProps) => {
   const [showGuide, setShowGuide] = useState(false);
+  const [sizeSelectOpen, setSizeSelectOpen] = useState(false);
+  const closeSelectTimerRef = useRef<number | null>(null);
 
-  // Fechar guia ao sair do card (collapsed pulse) ou ao selecionar tamanho
+  const clearCloseSelectTimer = () => {
+    if (closeSelectTimerRef.current !== null) {
+      window.clearTimeout(closeSelectTimerRef.current);
+      closeSelectTimerRef.current = null;
+    }
+  };
+
+  const scheduleCloseSelect = () => {
+    clearCloseSelectTimer();
+    closeSelectTimerRef.current = window.setTimeout(() => {
+      setSizeSelectOpen(false);
+    }, 3000);
+  };
+
   useEffect(() => {
-    if (collapsed) setShowGuide(false);
+    if (collapsed) {
+      setShowGuide(false);
+      setSizeSelectOpen(false);
+      clearCloseSelectTimer();
+    }
   }, [collapsed]);
+
+  useEffect(() => {
+    return () => clearCloseSelectTimer();
+  }, []);
 
   const handleSizeChange = (val: string) => {
     const nextSize = val === "none" ? "" : val;
     onSizeChange?.(nextSize);
     setShowGuide(false);
+    setSizeSelectOpen(false);
+    clearCloseSelectTimer();
   };
 
   return (
@@ -70,9 +95,23 @@ const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, 
               <p className="font-display text-sm font-bold text-foreground whitespace-nowrap">
                 14 ao 22 disponíveis
               </p>
-              <div className="flex items-center gap-1">
+              <div
+                className="flex items-center gap-1"
+                onMouseEnter={clearCloseSelectTimer}
+                onMouseLeave={() => {
+                  if (sizeSelectOpen) scheduleCloseSelect();
+                }}
+              >
                 <span className="font-display text-sm font-bold text-foreground whitespace-nowrap">📏 Seu tamanho</span>
-                <Select value={selectedSize || "none"} onValueChange={handleSizeChange}>
+                <Select
+                  value={selectedSize || "none"}
+                  open={sizeSelectOpen}
+                  onOpenChange={(open) => {
+                    clearCloseSelectTimer();
+                    setSizeSelectOpen(open);
+                  }}
+                  onValueChange={handleSizeChange}
+                >
                   <SelectTrigger
                     className="w-[52px] h-7 rounded-md font-display font-bold text-sm px-2 gap-0.5
                       bg-transparent border border-primary text-green-deep
@@ -81,6 +120,8 @@ const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, 
                     <SelectValue placeholder="Nº" />
                   </SelectTrigger>
                   <SelectContent
+                    onMouseEnter={clearCloseSelectTimer}
+                    onMouseLeave={scheduleCloseSelect}
                     className="w-[60px] min-w-[60px] bg-background/95 backdrop-blur-sm border border-primary rounded-md p-0 shadow-gold-sm"
                   >
                     <SelectItem
