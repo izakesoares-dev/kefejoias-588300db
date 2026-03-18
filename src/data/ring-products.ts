@@ -30,7 +30,7 @@ export const stoneRings: Product[] = [
     slug: "anel-olho-tigre",
     category: "anel",
     subcategory: "pedras-naturais",
-    price: 89.90,
+    price: 10,
     description: "Leve no dedo a energia de coragem e blindagem contra inveja. O Olho de Tigre é conhecido por afastar más vibrações e atrair oportunidades. Cada peça é artesanalmente produzida em resina cristalina com base em aço inoxidável hipoalergênico.",
     shortDescription: "Proteção e prosperidade no seu dia a dia",
     images: [ringOlhoTigre, ringOlhoTigre, ringOlhoTigre],
