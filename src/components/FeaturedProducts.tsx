@@ -38,9 +38,13 @@ const FeaturedProducts = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {featured.map((product, i) => (
-            <ProductCard key={product.id} product={product} index={i} />
-          ))}
+          {featured.map((product, i) =>
+            product.category === "anel" ? (
+              <RingProductCard key={product.id} product={product} index={i} />
+            ) : (
+              <ProductCard key={product.id} product={product} index={i} />
+            )
+          )}
         </div>
 
         <motion.div
