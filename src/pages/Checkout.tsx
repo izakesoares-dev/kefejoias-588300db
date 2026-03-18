@@ -33,6 +33,34 @@ const Checkout = () => {
     estado: "",
   });
   const [manualAddress, setManualAddress] = useState(false);
+  const [dadosPessoais, setDadosPessoais] = useState({
+    nome: "",
+    email: "",
+    cpf: "",
+    telefone: "",
+    numero: "",
+    complemento: "",
+  });
+  const [formErrors, setFormErrors] = useState<Record<string, string>>({});
+
+  const validateInfoStep = (): boolean => {
+    const errors: Record<string, string> = {};
+    if (!dadosPessoais.nome.trim()) errors.nome = "Obrigatório";
+    if (!dadosPessoais.email.trim()) errors.email = "Obrigatório";
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(dadosPessoais.email.trim())) errors.email = "E-mail inválido";
+    if (!dadosPessoais.cpf.trim()) errors.cpf = "Obrigatório";
+    else if (dadosPessoais.cpf.replace(/\D/g, "").length !== 11) errors.cpf = "CPF inválido";
+    if (!dadosPessoais.telefone.trim()) errors.telefone = "Obrigatório";
+    if (!cep || cep.length < 8) errors.cep = "CEP obrigatório";
+    if (!endereco.rua.trim()) errors.rua = "Obrigatório";
+    if (!dadosPessoais.numero.trim()) errors.numero = "Obrigatório";
+    if (!endereco.bairro.trim()) errors.bairro = "Obrigatório";
+    if (!endereco.cidade.trim()) errors.cidade = "Obrigatório";
+    if (!endereco.estado.trim()) errors.estado = "Obrigatório";
+    if (frete === null) errors.frete = "Calcule o frete";
+    setFormErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
   const handleCepChange = useCallback(async (value: string) => {
     const clean = value.replace(/\D/g, "").slice(0, 8);
     setCep(clean);
@@ -319,19 +347,23 @@ const Checkout = () => {
                     <div className="grid grid-cols-2 gap-x-2 gap-y-1.5">
                       <div className="col-span-2 sm:col-span-1">
                         <Label className="text-[11px] leading-tight">Nome completo</Label>
-                        <Input placeholder="Seu nome" className="mt-0.5 h-8 text-xs" />
+                        <Input placeholder="Seu nome" className={`mt-0.5 h-8 text-xs ${formErrors.nome ? "border-destructive" : ""}`} value={dadosPessoais.nome} onChange={(e) => { setDadosPessoais(p => ({ ...p, nome: e.target.value })); setFormErrors(p => ({ ...p, nome: "" })); }} maxLength={100} />
+                        {formErrors.nome && <p className="text-[10px] text-destructive mt-0.5">{formErrors.nome}</p>}
                       </div>
                       <div className="col-span-2 sm:col-span-1">
                         <Label className="text-[11px] leading-tight">E-mail</Label>
-                        <Input type="email" placeholder="seu@email.com" className="mt-0.5 h-8 text-xs" />
+                        <Input type="email" placeholder="seu@email.com" className={`mt-0.5 h-8 text-xs ${formErrors.email ? "border-destructive" : ""}`} value={dadosPessoais.email} onChange={(e) => { setDadosPessoais(p => ({ ...p, email: e.target.value })); setFormErrors(p => ({ ...p, email: "" })); }} maxLength={255} />
+                        {formErrors.email && <p className="text-[10px] text-destructive mt-0.5">{formErrors.email}</p>}
                       </div>
                       <div>
                         <Label className="text-[11px] leading-tight">CPF</Label>
-                        <Input placeholder="000.000.000-00" className="mt-0.5 h-8 text-xs" />
+                        <Input placeholder="000.000.000-00" className={`mt-0.5 h-8 text-xs ${formErrors.cpf ? "border-destructive" : ""}`} value={dadosPessoais.cpf} onChange={(e) => { setDadosPessoais(p => ({ ...p, cpf: e.target.value })); setFormErrors(p => ({ ...p, cpf: "" })); }} maxLength={14} />
+                        {formErrors.cpf && <p className="text-[10px] text-destructive mt-0.5">{formErrors.cpf}</p>}
                       </div>
                       <div>
                         <Label className="text-[11px] leading-tight">Telefone</Label>
-                        <Input placeholder="(11) 99999-9999" className="mt-0.5 h-8 text-xs" />
+                        <Input placeholder="(11) 99999-9999" className={`mt-0.5 h-8 text-xs ${formErrors.telefone ? "border-destructive" : ""}`} value={dadosPessoais.telefone} onChange={(e) => { setDadosPessoais(p => ({ ...p, telefone: e.target.value })); setFormErrors(p => ({ ...p, telefone: "" })); }} maxLength={15} />
+                        {formErrors.telefone && <p className="text-[10px] text-destructive mt-0.5">{formErrors.telefone}</p>}
                       </div>
                     </div>
                   </div>
@@ -345,57 +377,62 @@ const Checkout = () => {
                           <Input
                             placeholder="00000-000"
                             value={cep}
-                            onChange={(e) => handleCepChange(e.target.value)}
-                            className="h-8 text-xs"
+                            onChange={(e) => { handleCepChange(e.target.value); setFormErrors(p => ({ ...p, cep: "" })); }}
+                            className={`h-8 text-xs ${formErrors.cep ? "border-destructive" : ""}`}
                           />
                           {loadingCep && <Loader2 size={14} className="animate-spin text-muted-foreground shrink-0" />}
                         </div>
-                        {cepError && <p className="text-[11px] text-destructive mt-0.5">{cepError}</p>}
+                        {(cepError || formErrors.cep) && <p className="text-[10px] text-destructive mt-0.5">{cepError || formErrors.cep}</p>}
                       </div>
                       <div className="col-span-3 sm:col-span-4">
                         <Label className="text-[11px] leading-tight">Rua</Label>
                         <Input
                           placeholder="Rua, Avenida..."
-                          className="mt-0.5 h-8 text-xs"
+                          className={`mt-0.5 h-8 text-xs ${formErrors.rua ? "border-destructive" : ""}`}
                           value={endereco.rua}
-                          onChange={(e) => setEndereco((prev) => ({ ...prev, rua: e.target.value }))}
+                          onChange={(e) => { setEndereco((prev) => ({ ...prev, rua: e.target.value })); setFormErrors(p => ({ ...p, rua: "" })); }}
                         />
+                        {formErrors.rua && <p className="text-[10px] text-destructive mt-0.5">{formErrors.rua}</p>}
                       </div>
                       <div className="col-span-2">
                         <Label className="text-[11px] leading-tight">Número</Label>
-                        <Input placeholder="123" className="mt-0.5 h-8 text-xs" />
+                        <Input placeholder="123" className={`mt-0.5 h-8 text-xs ${formErrors.numero ? "border-destructive" : ""}`} value={dadosPessoais.numero} onChange={(e) => { setDadosPessoais(p => ({ ...p, numero: e.target.value })); setFormErrors(p => ({ ...p, numero: "" })); }} maxLength={10} />
+                        {formErrors.numero && <p className="text-[10px] text-destructive mt-0.5">{formErrors.numero}</p>}
                       </div>
                       <div className="col-span-4 sm:col-span-2">
                         <Label className="text-[11px] leading-tight">Complemento</Label>
-                        <Input placeholder="Apto, Bloco..." className="mt-0.5 h-8 text-xs" />
+                        <Input placeholder="Apto, Bloco..." className="mt-0.5 h-8 text-xs" value={dadosPessoais.complemento} onChange={(e) => setDadosPessoais(p => ({ ...p, complemento: e.target.value }))} maxLength={100} />
                       </div>
                       <div className="col-span-3 sm:col-span-2">
                         <Label className="text-[11px] leading-tight">Bairro</Label>
                         <Input
                           placeholder="Bairro"
-                          className="mt-0.5 h-8 text-xs"
+                          className={`mt-0.5 h-8 text-xs ${formErrors.bairro ? "border-destructive" : ""}`}
                           value={endereco.bairro}
-                          onChange={(e) => setEndereco((prev) => ({ ...prev, bairro: e.target.value }))}
+                          onChange={(e) => { setEndereco((prev) => ({ ...prev, bairro: e.target.value })); setFormErrors(p => ({ ...p, bairro: "" })); }}
                         />
+                        {formErrors.bairro && <p className="text-[10px] text-destructive mt-0.5">{formErrors.bairro}</p>}
                       </div>
                       <div className="col-span-4 sm:col-span-3">
                         <Label className="text-[11px] leading-tight">Cidade</Label>
                         <Input
                           placeholder="São Paulo"
-                          className="mt-0.5 h-8 text-xs"
+                          className={`mt-0.5 h-8 text-xs ${formErrors.cidade ? "border-destructive" : ""}`}
                           value={endereco.cidade}
-                          onChange={(e) => setEndereco((prev) => ({ ...prev, cidade: e.target.value }))}
+                          onChange={(e) => { setEndereco((prev) => ({ ...prev, cidade: e.target.value })); setFormErrors(p => ({ ...p, cidade: "" })); }}
                         />
+                        {formErrors.cidade && <p className="text-[10px] text-destructive mt-0.5">{formErrors.cidade}</p>}
                       </div>
                       <div className="col-span-2 sm:col-span-1">
                         <Label className="text-[11px] leading-tight">UF</Label>
                         <Input
                           placeholder="SP"
-                          className="mt-0.5 h-8 text-xs"
+                          className={`mt-0.5 h-8 text-xs ${formErrors.estado ? "border-destructive" : ""}`}
                           maxLength={2}
                           value={endereco.estado}
-                          onChange={(e) => setEndereco((prev) => ({ ...prev, estado: e.target.value }))}
+                          onChange={(e) => { setEndereco((prev) => ({ ...prev, estado: e.target.value })); setFormErrors(p => ({ ...p, estado: "" })); }}
                         />
+                        {formErrors.estado && <p className="text-[10px] text-destructive mt-0.5">{formErrors.estado}</p>}
                       </div>
                     </div>
 
@@ -435,7 +472,7 @@ const Checkout = () => {
                   <div className="flex gap-3 pt-1">
                     <Button variant="outline" size="sm" onClick={() => setStep("cart")}>Voltar</Button>
                     <Button
-                      onClick={() => setStep("payment")}
+                      onClick={() => { if (validateInfoStep()) setStep("payment"); }}
                       size="sm"
                       className="flex-1 bg-gradient-gold text-primary-foreground font-body font-semibold"
                     >
