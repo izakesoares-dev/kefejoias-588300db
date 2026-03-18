@@ -33,9 +33,10 @@ interface ArtisanBadgeProps {
   onSizeChange?: (size: string) => void;
   collapsed?: boolean;
   hideArtisanNote?: boolean;
+  artisanType?: "flor" | "pedra";
 }
 
-const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote }: ArtisanBadgeProps) => {
+const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, artisanType = "flor" }: ArtisanBadgeProps) => {
   const [showGuide, setShowGuide] = useState(false);
 
   useEffect(() => {
