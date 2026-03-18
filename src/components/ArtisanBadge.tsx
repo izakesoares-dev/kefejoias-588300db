@@ -148,7 +148,7 @@ const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, 
                           e.stopPropagation();
                           handleSizeChange(String(size));
                         }}
-                        className={`flex w-full items-center justify-center rounded-sm px-1 py-[2px] text-xs font-display font-bold transition-colors hover:bg-primary/15 ${selectedSize === String(size) ? "bg-primary/20 text-foreground" : "text-green-deep"}`}
+                        className={`flex w-full items-center justify-center rounded-sm px-1 py-[2px] text-sm font-display font-bold transition-colors hover:bg-primary/15 ${selectedSize === String(size) ? "bg-primary/20 text-foreground" : "text-green-deep"}`}
                       >
                         {size}
                       </button>
