@@ -313,85 +313,85 @@ const Checkout = () => {
               )}
 
               {step === "info" && (
-                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-3">
-                  <div className="p-4 rounded-lg bg-card border border-border/50 space-y-3">
-                    <h2 className="font-display text-base text-foreground">Dados pessoais</h2>
-                    <div className="grid grid-cols-2 gap-x-3 gap-y-2">
+                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-2">
+                  <div className="p-3 rounded-lg bg-card border border-border/50 space-y-2">
+                    <h2 className="font-display text-sm text-foreground">Dados pessoais</h2>
+                    <div className="grid grid-cols-2 gap-x-2 gap-y-1.5">
                       <div className="col-span-2 sm:col-span-1">
-                        <Label className="text-xs">Nome completo</Label>
-                        <Input placeholder="Seu nome" className="mt-0.5 h-9 text-sm" />
+                        <Label className="text-[11px] leading-tight">Nome completo</Label>
+                        <Input placeholder="Seu nome" className="mt-0.5 h-8 text-xs" />
                       </div>
                       <div className="col-span-2 sm:col-span-1">
-                        <Label className="text-xs">E-mail</Label>
-                        <Input type="email" placeholder="seu@email.com" className="mt-0.5 h-9 text-sm" />
+                        <Label className="text-[11px] leading-tight">E-mail</Label>
+                        <Input type="email" placeholder="seu@email.com" className="mt-0.5 h-8 text-xs" />
                       </div>
                       <div>
-                        <Label className="text-xs">CPF</Label>
-                        <Input placeholder="000.000.000-00" className="mt-0.5 h-9 text-sm" />
+                        <Label className="text-[11px] leading-tight">CPF</Label>
+                        <Input placeholder="000.000.000-00" className="mt-0.5 h-8 text-xs" />
                       </div>
                       <div>
-                        <Label className="text-xs">Telefone</Label>
-                        <Input placeholder="(11) 99999-9999" className="mt-0.5 h-9 text-sm" />
+                        <Label className="text-[11px] leading-tight">Telefone</Label>
+                        <Input placeholder="(11) 99999-9999" className="mt-0.5 h-8 text-xs" />
                       </div>
                     </div>
                   </div>
 
-                  <div className="p-4 rounded-lg bg-card border border-border/50 space-y-3">
-                    <h2 className="font-display text-base text-foreground">Endereço de entrega</h2>
-                    <div className="grid grid-cols-6 gap-x-3 gap-y-2">
+                  <div className="p-3 rounded-lg bg-card border border-border/50 space-y-2">
+                    <h2 className="font-display text-sm text-foreground">Endereço de entrega</h2>
+                    <div className="grid grid-cols-6 gap-x-2 gap-y-1.5">
                       <div className="col-span-3 sm:col-span-2">
-                        <Label className="text-xs">CEP</Label>
+                        <Label className="text-[11px] leading-tight">CEP</Label>
                         <div className="flex gap-1.5 mt-0.5 items-center">
                           <Input
                             placeholder="00000-000"
                             value={cep}
                             onChange={(e) => handleCepChange(e.target.value)}
-                            className="h-9 text-sm"
+                            className="h-8 text-xs"
                           />
-                          {loadingCep && <Loader2 size={16} className="animate-spin text-muted-foreground shrink-0" />}
+                          {loadingCep && <Loader2 size={14} className="animate-spin text-muted-foreground shrink-0" />}
                         </div>
-                        {cepError && <p className="text-xs text-destructive mt-0.5">{cepError}</p>}
+                        {cepError && <p className="text-[11px] text-destructive mt-0.5">{cepError}</p>}
                       </div>
                       <div className="col-span-3 sm:col-span-4">
-                        <Label className="text-xs">Rua</Label>
+                        <Label className="text-[11px] leading-tight">Rua</Label>
                         <Input
                           placeholder="Rua, Avenida..."
-                          className="mt-0.5 h-9 text-sm"
+                          className="mt-0.5 h-8 text-xs"
                           value={endereco.rua}
                           onChange={(e) => setEndereco((prev) => ({ ...prev, rua: e.target.value }))}
                         />
                       </div>
                       <div className="col-span-2">
-                        <Label className="text-xs">Número</Label>
-                        <Input placeholder="123" className="mt-0.5 h-9 text-sm" />
+                        <Label className="text-[11px] leading-tight">Número</Label>
+                        <Input placeholder="123" className="mt-0.5 h-8 text-xs" />
                       </div>
                       <div className="col-span-4 sm:col-span-2">
-                        <Label className="text-xs">Complemento</Label>
-                        <Input placeholder="Apto, Bloco..." className="mt-0.5 h-9 text-sm" />
+                        <Label className="text-[11px] leading-tight">Complemento</Label>
+                        <Input placeholder="Apto, Bloco..." className="mt-0.5 h-8 text-xs" />
                       </div>
                       <div className="col-span-3 sm:col-span-2">
-                        <Label className="text-xs">Bairro</Label>
+                        <Label className="text-[11px] leading-tight">Bairro</Label>
                         <Input
                           placeholder="Bairro"
-                          className="mt-0.5 h-9 text-sm"
+                          className="mt-0.5 h-8 text-xs"
                           value={endereco.bairro}
                           onChange={(e) => setEndereco((prev) => ({ ...prev, bairro: e.target.value }))}
                         />
                       </div>
                       <div className="col-span-4 sm:col-span-3">
-                        <Label className="text-xs">Cidade</Label>
+                        <Label className="text-[11px] leading-tight">Cidade</Label>
                         <Input
                           placeholder="São Paulo"
-                          className="mt-0.5 h-9 text-sm"
+                          className="mt-0.5 h-8 text-xs"
                           value={endereco.cidade}
                           onChange={(e) => setEndereco((prev) => ({ ...prev, cidade: e.target.value }))}
                         />
                       </div>
                       <div className="col-span-2 sm:col-span-1">
-                        <Label className="text-xs">UF</Label>
+                        <Label className="text-[11px] leading-tight">UF</Label>
                         <Input
                           placeholder="SP"
-                          className="mt-0.5 h-9 text-sm"
+                          className="mt-0.5 h-8 text-xs"
                           maxLength={2}
                           value={endereco.estado}
                           onChange={(e) => setEndereco((prev) => ({ ...prev, estado: e.target.value }))}
@@ -401,25 +401,23 @@ const Checkout = () => {
 
                     {/* Shipping options in address section */}
                     {shippingOptions.length > 0 && (
-                      <div className="pt-2 space-y-2">
-                        <Label className="text-xs text-muted-foreground">Opção de envio</Label>
+                      <div className="pt-1 space-y-1">
+                        <Label className="text-[11px] text-muted-foreground">Opção de envio</Label>
                         {shippingOptions.map((opt, i) => (
                           <button
                             key={opt.id}
                             onClick={() => handleSelectShipping(i)}
-                            className={`w-full flex items-center gap-3 p-2.5 rounded-lg border text-left transition-all text-sm ${
+                            className={`w-full flex items-center gap-2 px-2.5 py-1.5 rounded-md border text-left transition-all ${
                               selectedShipping === i
                                 ? "border-whatsapp-green bg-whatsapp-green/10"
                                 : "border-border/50 bg-background hover:border-whatsapp-green/30"
                             }`}
                           >
-                            <Truck size={14} className={selectedShipping === i ? "text-whatsapp-green" : "text-muted-foreground"} />
-                            <div className="flex-1 min-w-0">
-                              <span className={`font-body text-xs ${selectedShipping === i ? "text-foreground" : "text-muted-foreground"}`}>
-                                {opt.company} — {opt.name} ({opt.delivery_time} dias úteis)
-                              </span>
-                            </div>
-                            <span className={`font-body text-xs font-semibold shrink-0 ${selectedShipping === i ? "text-whatsapp-green" : "text-foreground"}`}>
+                            <Truck size={12} className={selectedShipping === i ? "text-whatsapp-green" : "text-muted-foreground"} />
+                            <span className={`font-body text-[11px] flex-1 min-w-0 ${selectedShipping === i ? "text-foreground" : "text-muted-foreground"}`}>
+                              {opt.company} — {opt.name} ({opt.delivery_time} dias úteis)
+                            </span>
+                            <span className={`font-body text-[11px] font-semibold shrink-0 ${selectedShipping === i ? "text-whatsapp-green" : "text-foreground"}`}>
                               {formatPrice(opt.price)}
                             </span>
                           </button>
@@ -428,13 +426,13 @@ const Checkout = () => {
                     )}
 
                     {shippingOptions.length === 0 && frete !== null && prazo && (
-                      <p className="text-xs text-muted-foreground pt-1">
+                      <p className="text-[11px] text-muted-foreground pt-0.5">
                         Frete: {formatPrice(frete)} — {prazo}
                       </p>
                     )}
                   </div>
 
-                  <div className="flex gap-3 pt-2">
+                  <div className="flex gap-3 pt-1">
                     <Button variant="outline" size="sm" onClick={() => setStep("cart")}>Voltar</Button>
                     <Button
                       onClick={() => setStep("payment")}
