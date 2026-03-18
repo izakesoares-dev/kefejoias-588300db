@@ -59,7 +59,7 @@ const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, 
     clearCloseSelectTimer();
     closeSelectTimerRef.current = window.setTimeout(() => {
       setSizeSelectOpen(false);
-    }, 3000);
+    }, 1000);
   };
 
   useEffect(() => {
@@ -88,7 +88,7 @@ const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, 
         <div
           className="max-h-[420px] overflow-y-auto scrollbar-none"
           style={{ scrollbarWidth: "none" }}
-          onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}
+          onClick={(e) => { e.stopPropagation(); }}
         >
           <div className="space-y-1 mb-2">
             <div className="flex items-center justify-between w-full">
