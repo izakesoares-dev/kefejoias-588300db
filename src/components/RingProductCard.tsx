@@ -24,6 +24,7 @@ const RingProductCard = ({ product, index = 0, globalSize }: RingProductCardProp
   const [activeThumb, setActiveThumb] = useState<"img" | number | "video1">("img");
   const [showSizeWarning, setShowSizeWarning] = useState(false);
   const [showMeasureModal, setShowMeasureModal] = useState(false);
+  const [badgeCollapsed, setBadgeCollapsed] = useState(false);
 
   const selectedSize = globalSize || localSize;
 
