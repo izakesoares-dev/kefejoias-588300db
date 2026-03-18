@@ -312,19 +312,19 @@ const Checkout = () => {
             {/* Main content */}
             <div className="lg:col-span-2 space-y-2">
               {step === "cart" && (
-                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-2">
+                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-1.5">
                   {items.map((item) => (
-                    <div key={`${item.product.id}-${item.size}`} className="flex gap-3 p-2.5 rounded-lg bg-card border border-border/50">
-                      <img src={item.product.images[0]} alt={item.product.name} className="w-16 h-16 rounded object-cover" />
-                      <div className="flex-1">
-                        <h3 className="font-display text-sm text-foreground leading-tight">{item.product.name}</h3>
-                        {item.size && <p className="text-[10px] text-muted-foreground">Tam. {item.size}</p>}
-                        <p className="text-xs text-primary font-display mt-0.5">{formatPrice(item.product.price)}</p>
-                        <div className="flex items-center gap-2 mt-1">
+                    <div key={`${item.product.id}-${item.size}`} className="flex gap-2 p-2 rounded-lg bg-card border border-border/50">
+                      <img src={item.product.images[0]} alt={item.product.name} className="w-14 h-14 rounded object-cover" />
+                      <div className="flex-1 min-w-0">
+                        <h3 className="font-display text-xs text-foreground leading-none truncate">{item.product.name}</h3>
+                        {item.size && <p className="text-[9px] text-muted-foreground mt-0.5">Tam. {item.size}</p>}
+                        <p className="text-[11px] text-primary font-display mt-0.5">{formatPrice(item.product.price)}</p>
+                        <div className="flex items-center gap-1.5 mt-0.5">
                           <select
                             value={item.quantity}
                             onChange={(e) => updateQuantity(item.product.id, Number(e.target.value), item.size)}
-                            className="bg-transparent text-foreground text-xs font-bold rounded px-1.5 py-0.5 border border-border/50 backdrop-blur-sm"
+                            className="bg-transparent text-foreground text-[10px] font-bold rounded px-1 py-0 border border-border/50"
                           >
                             {[1, 2, 3, 4, 5].map((q) => (
                               <option key={q} value={q}>{q}</option>
@@ -332,7 +332,7 @@ const Checkout = () => {
                           </select>
                           <button
                             onClick={() => removeItem(item.product.id, item.size)}
-                            className="text-[10px] text-muted-foreground hover:text-destructive transition-colors ml-auto"
+                            className="text-[9px] text-muted-foreground hover:text-destructive transition-colors ml-auto"
                           >
                             Remover
                           </button>
@@ -346,7 +346,7 @@ const Checkout = () => {
                   <Button
                     onClick={() => setStep("info")}
                     size="sm"
-                    className="w-full bg-gradient-gold text-primary-foreground font-body font-semibold"
+                    className="w-full bg-gradient-gold text-primary-foreground font-body font-semibold text-xs h-8"
                   >
                     Prosseguir
                   </Button>
@@ -354,7 +354,7 @@ const Checkout = () => {
               )}
 
               {step === "info" && (
-                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-1.5">
+                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-1">
                   <div className="p-2.5 rounded-lg bg-card border border-border/50 space-y-1.5">
                     <h2 className="font-display text-base font-bold text-foreground text-center">Dados pessoais</h2>
                     <div className="grid grid-cols-2 gap-x-1.5 gap-y-1">
