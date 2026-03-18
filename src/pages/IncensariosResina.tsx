@@ -42,59 +42,26 @@ const IncensariosResina = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      <section className="pt-24 pb-0 px-4 bg-gradient-to-b from-secondary/50 to-background">
-        <div className="max-w-7xl mx-auto">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center">
+      <section className="pt-24 pb-1 px-4">
+        <div className="max-w-7xl mx-auto text-center">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <h1 className="font-display text-3xl md:text-4xl text-foreground mb-1">
               Incensários de <span className="text-gradient-gold">Resina</span>
             </h1>
             <p className="font-body text-sm text-muted-foreground max-w-2xl mx-auto">
-              Suportes artesanais com flores e pedras encapsuladas em resina cristalina.
+              Suportes artesanais com flores e pedras em resina cristalina.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Specs */}
-      <section className="section-padding py-6 border-y border-border/50 bg-card/50">
+      <section className="px-4 py-2 border-y border-border/50 bg-card/50">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-12 text-sm">
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <span>🌸 Flores ou pedras naturais</span>
-            </div>
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <span>💎 Resina cristalina premium</span>
-            </div>
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <span>🕯️ Suporte para vareta e cone</span>
-            </div>
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <span>✨ 100% artesanal</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* How it works */}
-      <section className="section-padding py-10 bg-primary/5">
-        <div className="max-w-7xl mx-auto">
-          <h3 className="font-display text-center text-lg text-foreground mb-6">A arte dos incensários de resina</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="flex flex-col items-center text-center bg-card rounded-xl p-6 border border-border/50">
-              <span className="text-3xl mb-3">🌿</span>
-              <h4 className="font-body font-semibold text-foreground text-sm mb-2">Natureza Preservada</h4>
-              <p className="font-body text-xs text-muted-foreground">Flores secas ou cascalhos de pedras naturais são eternizados em resina cristalina de alta qualidade, preservando sua beleza e energia para sempre.</p>
-            </div>
-            <div className="flex flex-col items-center text-center bg-card rounded-xl p-6 border border-border/50">
-              <span className="text-3xl mb-3">🕯️</span>
-              <h4 className="font-body font-semibold text-foreground text-sm mb-2">Ritual Elevado</h4>
-              <p className="font-body text-xs text-muted-foreground">Durante a queima do incenso, a energia da pedra ou flor encapsulada se ativa e potencializa a intenção do ritual, criando uma experiência única.</p>
-            </div>
-            <div className="flex flex-col items-center text-center bg-card rounded-xl p-6 border border-border/50">
-              <span className="text-3xl mb-3">🏡</span>
-              <h4 className="font-body font-semibold text-foreground text-sm mb-2">Decoração & Energia</h4>
-              <p className="font-body text-xs text-muted-foreground">Além de funcional, o incensário é uma peça decorativa que embeleza altares, mesas e ambientes — mesmo quando não está em uso.</p>
-            </div>
+          <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8 text-xs text-muted-foreground">
+            <span>🌸 Flores ou pedras</span>
+            <span>💎 Resina cristalina</span>
+            <span>🕯️ Vareta e cone</span>
+            <span>✨ 100% artesanal</span>
           </div>
         </div>
       </section>
