@@ -178,18 +178,21 @@ const Checkout = () => {
                   {/* CEP */}
                   <div className="p-4 rounded-lg bg-card border border-border/50">
                     <Label className="text-sm font-body text-foreground">Calcular frete</Label>
-                    <div className="flex gap-2 mt-2">
+                    <div className="flex gap-2 mt-2 items-center">
                       <Input
                         placeholder="00000-000"
                         value={cep}
-                        onChange={(e) => setCep(e.target.value.replace(/\D/g, "").slice(0, 8))}
+                        onChange={(e) => handleCepChange(e.target.value)}
                         className="max-w-[180px]"
                       />
-                      <Button variant="outline" onClick={calcFrete} disabled={cep.length < 8}>Calcular</Button>
+                      {loadingCep && <Loader2 size={18} className="animate-spin text-muted-foreground" />}
                     </div>
-                    {frete !== null && (
+                    {cepError && (
+                      <p className="text-sm text-destructive mt-2 font-body">{cepError}</p>
+                    )}
+                    {frete !== null && prazo && (
                       <p className="text-sm text-muted-foreground mt-2 font-body">
-                        Frete: {formatPrice(frete)} — Entrega em 5-8 dias úteis
+                        Frete: {formatPrice(frete)} — Entrega em {prazo}
                       </p>
                     )}
                   </div>
