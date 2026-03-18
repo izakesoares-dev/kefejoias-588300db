@@ -272,7 +272,7 @@ const Checkout = () => {
                     </div>
                   ))}
 
-                  <ShippingCalculator />
+                  {shippingCalculatorJSX}
 
                   <Button
                     onClick={() => setStep("info")}
