@@ -35,15 +35,14 @@ const AneisFlores = () => {
       />
       <Navbar />
 
-      <section className="pt-28 pb-0 px-6 bg-gradient-to-b from-secondary/50 to-background">
+      <section className="pt-24 pb-0 px-4 bg-gradient-to-b from-secondary/50 to-background">
         <div className="max-w-7xl mx-auto">
-          
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-center"
           >
-            <h1 className="font-display text-4xl md:text-5xl text-foreground mb-2">
+            <h1 className="font-display text-3xl md:text-4xl text-foreground mb-1">
               Anéis com <span className="text-gradient-gold">Flores Eternizadas</span>
             </h1>
             <p className="font-body text-sm text-muted-foreground max-w-2xl mx-auto">
@@ -53,9 +52,9 @@ const AneisFlores = () => {
         </div>
       </section>
 
-      <section className="px-6 pt-2 pb-4">
+      <section className="px-4 pt-2 pb-4">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
             {displayRings.map((product, index) => (
               <RingProductCard key={product.id} product={product} index={index} globalSize={globalSize} />
             ))}
