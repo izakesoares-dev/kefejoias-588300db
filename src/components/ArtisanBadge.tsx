@@ -46,28 +46,21 @@ const artisanLabels: Record<string, string> = {
 const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, artisanType = "flor" }: ArtisanBadgeProps) => {
   const [showGuide, setShowGuide] = useState(false);
   const [minimized, setMinimized] = useState(false);
-  const [sizeSelectOpen, setSizeSelectOpen] = useState(false);
 
   useEffect(() => {
     if (collapsed) {
       setShowGuide(false);
       setMinimized(true);
-      setSizeSelectOpen(false);
-    }
-  }, [collapsed]);
-
-  useEffect(() => {
-    if (!selectedSize) {
+    } else if (!selectedSize) {
       setMinimized(false);
     }
-  }, [selectedSize]);
+  }, [collapsed, selectedSize]);
 
   const handleSizeChange = (val: string) => {
     const nextSize = val === "none" ? "" : val;
     onSizeChange?.(nextSize);
     setShowGuide(false);
-    setSizeSelectOpen(false);
-    setMinimized(Boolean(nextSize));
+    setMinimized(true);
   };
 
   return (

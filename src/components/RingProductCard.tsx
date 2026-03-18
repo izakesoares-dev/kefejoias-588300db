@@ -60,7 +60,7 @@ const RingProductCard = ({ product, index = 0, globalSize }: RingProductCardProp
     >
       <div
         className="rounded-2xl overflow-hidden border border-border/50 shadow-lg hover:shadow-gold transition-shadow duration-500 bg-card"
-        onMouseLeave={() => { setBadgeCollapsed(true); setTimeout(() => setBadgeCollapsed(false), 100); }}
+        onMouseLeave={() => setBadgeCollapsed(true)}
       >
 
       {/* ===== Foto principal + mídias sobrepostas (Link apenas aqui) ===== */}
