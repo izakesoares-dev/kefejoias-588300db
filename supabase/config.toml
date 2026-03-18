@@ -5,3 +5,6 @@ verify_jwt = false
 
 [functions.pagbank-checkout]
 verify_jwt = false
+
+[functions.pagbank-webhook]
+verify_jwt = false
