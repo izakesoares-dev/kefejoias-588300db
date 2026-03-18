@@ -111,8 +111,10 @@ serve(async (req) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'Accept': 'application/json',
         'Authorization': `Bearer ${token}`,
         'x-idempotency-key': referenceId,
+        'User-Agent': 'KefeJoias/1.0',
       },
       body: JSON.stringify(orderPayload),
     });
