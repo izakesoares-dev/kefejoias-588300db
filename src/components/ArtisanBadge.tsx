@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
 import {
   Select,
@@ -54,45 +54,30 @@ const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, 
     }
   }, [collapsed]);
 
-  // Minimizar ao selecionar tamanho
-  const handleSizeChange = (val: string) => {
-    onSizeChange?.(val === "none" ? "" : val);
-    if (val !== "none") {
-      setShowGuide(false);
-      setMinimized(true);
+  useEffect(() => {
+    if (!selectedSize) {
+      setMinimized(false);
     }
-  };
+  }, [selectedSize]);
 
-  if (minimized && selectedSize) {
-    return (
-      <div className="space-y-0" onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}>
-        <button
-          type="button"
-          onClick={(e) => { e.preventDefault(); e.stopPropagation(); setMinimized(false); }}
-          className="flex items-center justify-between w-full py-0.5"
-        >
-          <span className="font-display text-sm font-bold text-foreground">📏 Tamanho: {selectedSize}</span>
-          <span className="text-xs text-muted-foreground font-body hover:text-foreground transition-colors flex items-center gap-0.5">
-            Alterar <ChevronDown size={10} />
-          </span>
-        </button>
-        {!hideArtisanNote && (
-          <div className="mt-0.5">
-            <p className="text-[11px] font-display font-bold text-foreground text-center">✨ Peça Única Artesanal</p>
-            <p className="text-[11px] text-muted-foreground font-body italic leading-snug">
-              Cada anel é produzido manualmente, com carinho e dedicação. {artisanLabels[artisanType] || artisanLabels.pedra}
-            </p>
-          </div>
-        )}
-      </div>
-    );
-  }
+  const handleSizeChange = (val: string) => {
+    const nextSize = val === "none" ? "" : val;
+    onSizeChange?.(nextSize);
+    setShowGuide(false);
+    setMinimized(Boolean(nextSize));
+  };
 
   return (
     <div className="space-y-0">
       <div className="space-y-1">
-        <div className="max-h-[420px] overflow-y-auto scrollbar-none" style={{ scrollbarWidth: 'none' }} onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}>
-          {/* Tamanhos disponíveis */}
+        <div
+          className="max-h-[420px] overflow-y-auto scrollbar-none"
+          style={{ scrollbarWidth: "none" }}
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+          }}
+        >
           <div className="space-y-1 mb-2">
             <div className="flex items-center justify-between w-full">
               <p className="font-display text-sm font-bold text-foreground whitespace-nowrap">
@@ -131,20 +116,26 @@ const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, 
               </div>
             </div>
 
-            <button
-              type="button"
-              onClick={(e) => { e.preventDefault(); e.stopPropagation(); setShowGuide(!showGuide); }}
-              onMouseDown={(e) => { e.stopPropagation(); }}
-              className="flex items-center gap-1 font-display text-xs font-bold
-                text-foreground hover:text-foreground/80 transition-all whitespace-nowrap"
-            >
-              Como descobrir seu tamanho?
-              <ChevronDown size={12} className={`transition-transform duration-200 ${showGuide ? "rotate-180" : ""}`} />
-            </button>
+            {!minimized && (
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  setShowGuide(!showGuide);
+                }}
+                onMouseDown={(e) => {
+                  e.stopPropagation();
+                }}
+                className="flex items-center gap-1 font-display text-xs font-bold text-foreground hover:text-foreground/80 transition-all whitespace-nowrap"
+              >
+                Como descobrir seu tamanho?
+                <ChevronDown size={12} className={`transition-transform duration-200 ${showGuide ? "rotate-180" : ""}`} />
+              </button>
+            )}
           </div>
 
-          {/* Guia inline */}
-          {showGuide && (
+          {!minimized && showGuide && (
             <div className="space-y-3 animate-in fade-in slide-in-from-top-2 duration-200">
               <Accordion type="multiple" className="w-full">
                 <AccordionItem value="method1" className="border-primary/20">
@@ -179,6 +170,7 @@ const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, 
                     <p>• É o método mais preciso e rápido</p>
                   </AccordionContent>
                 </AccordionItem>
+
                 <AccordionItem value="method4" className="border-primary/20">
                   <AccordionTrigger className="font-display text-xs text-foreground hover:no-underline py-2.5">
                     ▶️ Método 4: Assista ao vídeo explicativo
@@ -225,7 +217,7 @@ const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, 
             </div>
           )}
 
-          {!hideArtisanNote && (
+          {!minimized && !hideArtisanNote && (
             <div className="mt-1 space-y-0">
               <p className="text-[11px] font-display font-bold text-foreground text-center">✨ Peça Única Artesanal</p>
               <p className="text-[11px] text-muted-foreground font-body italic leading-snug">
