@@ -23,7 +23,7 @@ serve(async (req) => {
     const body = await req.json();
     const { payment_method, customer, items, shipping } = body;
 
-    if (!payment_method || !customer || !items) {
+    if (!customer || !items) {
       return new Response(JSON.stringify({ error: 'Dados obrigatórios não fornecidos' }), {
         status: 400,
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
@@ -32,62 +32,44 @@ serve(async (req) => {
 
     const referenceId = `KEFE-${Date.now()}-${Math.random().toString(36).substring(2, 8).toUpperCase()}`;
 
-    // Build XML payload for legacy PagSeguro API v2
-    const itemsXml = items.map((item: any, i: number) => `
-      <item>
-        <id>${i + 1}</id>
-        <description>${escapeXml(item.name)}</description>
-        <amount>${(item.unit_amount / 100).toFixed(2)}</amount>
-        <quantity>${item.quantity}</quantity>
-      </item>
-    `).join('');
+    // Build form-urlencoded payload for PagSeguro v2/checkout
+    const params = new URLSearchParams();
+    params.set('currency', 'BRL');
+    params.set('reference', referenceId);
 
-    const shippingAmount = shipping?.amount ? (shipping.amount / 100).toFixed(2) : '0.00';
-
-    // Map state abbreviation to PagSeguro shipping address
+    // Sender info
+    params.set('senderName', customer.name);
+    params.set('senderEmail', customer.email);
     const senderPhone = customer.phone.replace(/\D/g, '');
-    const senderAreaCode = senderPhone.substring(0, 2);
-    const senderNumber = senderPhone.substring(2);
-    const senderCpf = customer.cpf.replace(/\D/g, '');
-    const postalCode = shipping?.postal_code?.replace(/\D/g, '') || '';
+    params.set('senderAreaCode', senderPhone.substring(0, 2));
+    params.set('senderPhone', senderPhone.substring(2));
+    params.set('senderCPF', customer.cpf.replace(/\D/g, ''));
 
-    const xmlPayload = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<checkout>
-  <currency>BRL</currency>
-  <reference>${referenceId}</reference>
-  <sender>
-    <name>${escapeXml(customer.name)}</name>
-    <email>${escapeXml(customer.email)}</email>
-    <phone>
-      <areaCode>${senderAreaCode}</areaCode>
-      <number>${senderNumber}</number>
-    </phone>
-    <documents>
-      <document>
-        <type>CPF</type>
-        <value>${senderCpf}</value>
-      </document>
-    </documents>
-  </sender>
-  <items>${itemsXml}</items>
-  <shipping>
-    <addressRequired>true</addressRequired>
-    <type>3</type>
-    <cost>${shippingAmount}</cost>
-    <address>
-      <street>${escapeXml(shipping?.street || '')}</street>
-      <number>${escapeXml(shipping?.number || 'S/N')}</number>
-      <complement>${escapeXml(shipping?.complement || '')}</complement>
-      <district>${escapeXml(shipping?.neighborhood || '')}</district>
-      <city>${escapeXml(shipping?.city || '')}</city>
-      <state>${escapeXml(shipping?.state || '')}</state>
-      <country>BRA</country>
-      <postalCode>${postalCode}</postalCode>
-    </address>
-  </shipping>
-  <redirectURL>https://kefejoias.lovable.app/checkout</redirectURL>
-  <notificationURL>https://kefejoias.lovable.app</notificationURL>
-</checkout>`;
+    // Items
+    items.forEach((item: any, i: number) => {
+      const idx = i + 1;
+      params.set(`itemId${idx}`, String(item.id || idx));
+      params.set(`itemDescription${idx}`, item.name);
+      params.set(`itemAmount${idx}`, (item.unit_amount / 100).toFixed(2));
+      params.set(`itemQuantity${idx}`, String(item.quantity));
+    });
+
+    // Shipping
+    if (shipping) {
+      params.set('shippingType', '3'); // Not specified
+      params.set('shippingCost', shipping.amount ? (shipping.amount / 100).toFixed(2) : '0.00');
+      params.set('shippingAddressStreet', shipping.street || '');
+      params.set('shippingAddressNumber', shipping.number || 'S/N');
+      params.set('shippingAddressComplement', shipping.complement || '');
+      params.set('shippingAddressDistrict', shipping.neighborhood || '');
+      params.set('shippingAddressCity', shipping.city || '');
+      params.set('shippingAddressState', shipping.state || '');
+      params.set('shippingAddressCountry', 'BRA');
+      params.set('shippingAddressPostalCode', (shipping.postal_code || '').replace(/\D/g, ''));
+    }
+
+    // Redirect and notification URLs
+    params.set('redirectURL', 'https://kefejoias.lovable.app/checkout');
 
     console.log('Creating PagSeguro checkout:', { reference: referenceId, payment_method });
 
@@ -96,10 +78,9 @@ serve(async (req) => {
     const response = await fetch(url, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/xml; charset=UTF-8',
-        'Accept': 'application/xml',
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
       },
-      body: xmlPayload,
+      body: params.toString(),
     });
 
     const responseText = await response.text();
@@ -107,12 +88,11 @@ serve(async (req) => {
     console.log('PagSeguro response (first 500):', responseText.substring(0, 500));
 
     if (!response.ok) {
-      // Try to parse error from XML
-      const errorMatch = responseText.match(/<message>(.*?)<\/message>/);
-      const errorMsg = errorMatch ? errorMatch[1] : 'Erro na API PagSeguro';
+      const errorMatch = responseText.match(/<message>(.*?)<\/message>/g);
+      const errors = errorMatch ? errorMatch.map(m => m.replace(/<\/?message>/g, '')).join('; ') : 'Erro na API PagSeguro';
       console.error('PagSeguro error:', responseText);
       return new Response(JSON.stringify({ 
-        error: errorMsg,
+        error: errors,
         details: responseText.substring(0, 500),
       }), {
         status: response.status,
@@ -122,7 +102,6 @@ serve(async (req) => {
 
     // Parse checkout code from XML response
     const codeMatch = responseText.match(/<code>(.*?)<\/code>/);
-    const dateMatch = responseText.match(/<date>(.*?)<\/date>/);
 
     if (!codeMatch) {
       throw new Error('Código de checkout não encontrado na resposta');
@@ -131,19 +110,12 @@ serve(async (req) => {
     const checkoutCode = codeMatch[1];
     const checkoutUrl = `https://pagseguro.uol.com.br/v2/checkout/payment.html?code=${checkoutCode}`;
 
-    const result: any = {
+    const result = {
       order_id: checkoutCode,
       reference_id: referenceId,
       status: 'CREATED',
       checkout_url: checkoutUrl,
     };
-
-    // For Pix, PagSeguro legacy checkout handles it on their page
-    // The user will be redirected to PagSeguro to choose payment method
-    if (payment_method === 'pix') {
-      result.redirect = true;
-      result.message = 'Você será redirecionado para o PagSeguro para concluir o pagamento via Pix.';
-    }
 
     return new Response(JSON.stringify(result), {
       status: 200,
@@ -159,12 +131,3 @@ serve(async (req) => {
     });
   }
 });
-
-function escapeXml(str: string): string {
-  return str
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&apos;');
-}
