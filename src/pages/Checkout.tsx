@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ChevronLeft, CreditCard, QrCode, ShieldCheck, CheckCircle } from "lucide-react";
+import { ChevronLeft, CreditCard, QrCode, ShieldCheck, CheckCircle, Loader2 } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
 import { formatPrice } from "@/data/products";
 import { Button } from "@/components/ui/button";
@@ -10,6 +10,7 @@ import { Label } from "@/components/ui/label";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
+import { fetchAddress, calcularFrete, estimarPrazo } from "@/utils/shipping";
 
 type PaymentMethod = "pix" | "card";
 type CheckoutStep = "cart" | "info" | "payment" | "done";
