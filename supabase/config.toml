@@ -1,1 +1,7 @@
 project_id = "mhsxbmugaoqfuqqiqbta"
+
+[functions.calcular-frete]
+verify_jwt = false
+
+[functions.pagbank-checkout]
+verify_jwt = false
