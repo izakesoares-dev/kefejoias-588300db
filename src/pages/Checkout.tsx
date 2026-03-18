@@ -356,7 +356,7 @@ const Checkout = () => {
               {step === "info" && (
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-1.5">
                   <div className="p-2.5 rounded-lg bg-card border border-border/50 space-y-1.5">
-                    <h2 className="font-display text-xs font-semibold text-foreground">Dados pessoais</h2>
+                    <h2 className="font-display text-base font-bold text-foreground text-center">Dados pessoais</h2>
                     <div className="grid grid-cols-2 gap-x-1.5 gap-y-1">
                       <div className="col-span-2 sm:col-span-1">
                         <Label className="text-[11px] leading-tight">Nome completo</Label>
