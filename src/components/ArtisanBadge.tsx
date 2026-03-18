@@ -45,10 +45,48 @@ const artisanLabels: Record<string, string> = {
 
 const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, artisanType = "flor" }: ArtisanBadgeProps) => {
   const [showGuide, setShowGuide] = useState(false);
+  const [minimized, setMinimized] = useState(false);
 
   useEffect(() => {
-    if (collapsed) setShowGuide(false);
+    if (collapsed) {
+      setShowGuide(false);
+      setMinimized(true);
+    }
   }, [collapsed]);
+
+  // Minimizar ao selecionar tamanho
+  const handleSizeChange = (val: string) => {
+    onSizeChange?.(val === "none" ? "" : val);
+    if (val !== "none") {
+      setShowGuide(false);
+      setMinimized(true);
+    }
+  };
+
+  if (minimized && selectedSize) {
+    return (
+      <div className="space-y-0" onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}>
+        <button
+          type="button"
+          onClick={(e) => { e.preventDefault(); e.stopPropagation(); setMinimized(false); }}
+          className="flex items-center justify-between w-full py-0.5"
+        >
+          <span className="font-display text-sm font-bold text-foreground">📏 Tamanho: {selectedSize}</span>
+          <span className="text-xs text-muted-foreground font-body hover:text-foreground transition-colors flex items-center gap-0.5">
+            Alterar <ChevronDown size={10} />
+          </span>
+        </button>
+        {!hideArtisanNote && (
+          <div className="mt-0.5">
+            <p className="text-[11px] font-display font-bold text-foreground text-center">✨ Peça Única Artesanal</p>
+            <p className="text-[11px] text-muted-foreground font-body italic leading-snug">
+              Cada anel é produzido manualmente, com carinho e dedicação. {artisanLabels[artisanType] || artisanLabels.pedra}
+            </p>
+          </div>
+        )}
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-0">
@@ -62,10 +100,7 @@ const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, 
               </p>
               <div className="flex items-center gap-1">
                 <span className="font-display text-sm font-bold text-foreground whitespace-nowrap">📏 Seu tamanho</span>
-                <Select value={selectedSize || "none"} onValueChange={(val) => {
-                  onSizeChange?.(val === "none" ? "" : val);
-                  if (val !== "none") setShowGuide(false);
-                }}>
+                <Select value={selectedSize || "none"} onValueChange={handleSizeChange}>
                   <SelectTrigger
                     className="w-[52px] h-7 rounded-md font-display font-bold text-sm px-2 gap-0.5
                       bg-transparent border border-primary text-green-deep
@@ -111,7 +146,6 @@ const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, 
           {/* Guia inline */}
           {showGuide && (
             <div className="space-y-3 animate-in fade-in slide-in-from-top-2 duration-200">
-              {/* Accordion métodos */}
               <Accordion type="multiple" className="w-full">
                 <AccordionItem value="method1" className="border-primary/20">
                   <AccordionTrigger className="font-display text-xs text-foreground hover:no-underline py-2.5">
@@ -161,7 +195,6 @@ const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, 
                 </AccordionItem>
               </Accordion>
 
-              {/* Tabela */}
               <div className="rounded-lg border border-primary/20 overflow-hidden">
                 <table className="w-full text-xs font-body">
                   <thead>
@@ -183,7 +216,6 @@ const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, 
                 </table>
               </div>
 
-              {/* Dicas */}
               <div className="rounded-lg bg-primary/5 border border-primary/20 p-3 space-y-1">
                 <p className="font-display text-xs font-bold text-foreground">💡 Dicas:</p>
                 <p className="text-xs font-body text-muted-foreground">• Meça no final do dia</p>
