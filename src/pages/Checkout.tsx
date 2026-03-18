@@ -559,9 +559,15 @@ const Checkout = () => {
                           <option>1x de {formatPrice(total)} (sem juros)</option>
                           <option>2x de {formatPrice(total / 2)} (sem juros)</option>
                           <option>3x de {formatPrice(total / 3)} (sem juros)</option>
-                          <option>4x de {formatPrice(total / 4 * 1.02)} (com juros)</option>
-                          <option>5x de {formatPrice(total / 5 * 1.03)} (com juros)</option>
-                          <option>6x de {formatPrice(total / 6 * 1.04)} (com juros)</option>
+                          <option>4x de {formatPrice(total / 4 * 1.0299)} — Total: {formatPrice(total * 1.0299)} (2,99% a.m.)</option>
+                          <option>5x de {formatPrice(total / 5 * 1.0599)} — Total: {formatPrice(total * 1.0599)} (2,99% a.m.)</option>
+                          <option>6x de {formatPrice(total / 6 * 1.0899)} — Total: {formatPrice(total * 1.0899)} (2,99% a.m.)</option>
+                          <option>7x de {formatPrice(total / 7 * 1.1199)} — Total: {formatPrice(total * 1.1199)} (2,99% a.m.)</option>
+                          <option>8x de {formatPrice(total / 8 * 1.1499)} — Total: {formatPrice(total * 1.1499)} (2,99% a.m.)</option>
+                          <option>9x de {formatPrice(total / 9 * 1.1799)} — Total: {formatPrice(total * 1.1799)} (2,99% a.m.)</option>
+                          <option>10x de {formatPrice(total / 10 * 1.2099)} — Total: {formatPrice(total * 1.2099)} (2,99% a.m.)</option>
+                          <option>11x de {formatPrice(total / 11 * 1.2399)} — Total: {formatPrice(total * 1.2399)} (2,99% a.m.)</option>
+                          <option>12x de {formatPrice(total / 12 * 1.2699)} — Total: {formatPrice(total * 1.2699)} (2,99% a.m.)</option>
                         </select>
                       </div>
                     </div>
