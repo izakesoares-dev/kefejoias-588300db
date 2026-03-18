@@ -1,7 +1,7 @@
 import { useState, useCallback } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ChevronLeft, CreditCard, QrCode, ShieldCheck, CheckCircle, Loader2 } from "lucide-react";
+import { ChevronLeft, CreditCard, QrCode, ShieldCheck, CheckCircle, Loader2, Truck } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
 import { formatPrice } from "@/data/products";
 import { Button } from "@/components/ui/button";
@@ -10,7 +10,7 @@ import { Label } from "@/components/ui/label";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
-import { fetchAddress, calcularFrete, estimarPrazo } from "@/utils/shipping";
+import { fetchAddress, calcularFreteMelhorEnvio, calcularFrete, estimarPrazo, type ShippingOption } from "@/utils/shipping";
 
 type PaymentMethod = "pix" | "card";
 type CheckoutStep = "cart" | "info" | "payment" | "done";
@@ -24,6 +24,8 @@ const Checkout = () => {
   const [prazo, setPrazo] = useState<string>("");
   const [loadingCep, setLoadingCep] = useState(false);
   const [cepError, setCepError] = useState("");
+  const [shippingOptions, setShippingOptions] = useState<ShippingOption[]>([]);
+  const [selectedShipping, setSelectedShipping] = useState<number | null>(null);
   const [endereco, setEndereco] = useState({
     rua: "",
     bairro: "",
@@ -38,9 +40,11 @@ const Checkout = () => {
 
     if (clean.length === 8) {
       setLoadingCep(true);
-      const data = await fetchAddress(clean);
-      setLoadingCep(false);
+      setShippingOptions([]);
+      setSelectedShipping(null);
 
+      // Fetch address
+      const data = await fetchAddress(clean);
       if (data) {
         setEndereco({
           rua: data.logradouro || "",
@@ -48,19 +52,55 @@ const Checkout = () => {
           cidade: data.localidade || "",
           estado: data.uf || "",
         });
-        setFrete(calcularFrete(data.uf));
-        setPrazo(estimarPrazo(data.uf));
-        setCepError("");
       } else {
         setCepError("CEP não encontrado");
         setFrete(null);
         setPrazo("");
+        setLoadingCep(false);
+        return;
       }
+
+      // Try Melhor Envio API
+      try {
+        const produtos = items.map((item) => ({
+          id: item.product.id,
+          price: item.product.price,
+          quantity: item.quantity,
+        }));
+        const opcoes = await calcularFreteMelhorEnvio(clean, produtos);
+
+        if (opcoes.length > 0) {
+          setShippingOptions(opcoes);
+          setSelectedShipping(0);
+          setFrete(opcoes[0].price);
+          setPrazo(`${opcoes[0].delivery_time} dias úteis`);
+        } else {
+          // Fallback to fixed rate
+          setFrete(calcularFrete(data.uf));
+          setPrazo(estimarPrazo(data.uf));
+        }
+      } catch (err) {
+        console.warn("Melhor Envio indisponível, usando frete fixo:", err);
+        setFrete(calcularFrete(data.uf));
+        setPrazo(estimarPrazo(data.uf));
+      }
+
+      setLoadingCep(false);
+      setCepError("");
     } else {
       setFrete(null);
       setPrazo("");
+      setShippingOptions([]);
+      setSelectedShipping(null);
     }
-  }, []);
+  }, [items]);
+
+  const handleSelectShipping = (index: number) => {
+    setSelectedShipping(index);
+    const opt = shippingOptions[index];
+    setFrete(opt.price);
+    setPrazo(`${opt.delivery_time} dias úteis`);
+  };
 
   const total = subtotal + (frete ?? 0);
 
@@ -108,6 +148,61 @@ const Checkout = () => {
       </div>
     );
   }
+
+  const ShippingCalculator = () => (
+    <div className="p-4 rounded-lg bg-card border border-border/50">
+      <Label className="text-sm font-body text-foreground">Calcular frete</Label>
+      <div className="flex gap-2 mt-2 items-center">
+        <Input
+          placeholder="00000-000"
+          value={cep}
+          onChange={(e) => handleCepChange(e.target.value)}
+          className="max-w-[180px]"
+        />
+        {loadingCep && <Loader2 size={18} className="animate-spin text-muted-foreground" />}
+      </div>
+      {cepError && (
+        <p className="text-sm text-destructive mt-2 font-body">{cepError}</p>
+      )}
+
+      {/* Melhor Envio options */}
+      {shippingOptions.length > 0 && (
+        <div className="mt-3 space-y-2">
+          {shippingOptions.map((opt, i) => (
+            <button
+              key={opt.id}
+              onClick={() => handleSelectShipping(i)}
+              className={`w-full flex items-center gap-3 p-3 rounded-lg border text-left transition-all text-sm ${
+                selectedShipping === i
+                  ? "border-primary bg-primary/10"
+                  : "border-border/50 bg-background hover:border-primary/30"
+              }`}
+            >
+              <Truck size={16} className={selectedShipping === i ? "text-primary" : "text-muted-foreground"} />
+              <div className="flex-1 min-w-0">
+                <p className={`font-body font-medium ${selectedShipping === i ? "text-foreground" : "text-muted-foreground"}`}>
+                  {opt.company} — {opt.name}
+                </p>
+                <p className="text-xs text-muted-foreground">
+                  {opt.delivery_time} dias úteis
+                </p>
+              </div>
+              <span className={`font-display font-semibold shrink-0 ${selectedShipping === i ? "text-primary" : "text-foreground"}`}>
+                {formatPrice(opt.price)}
+              </span>
+            </button>
+          ))}
+        </div>
+      )}
+
+      {/* Fallback display */}
+      {shippingOptions.length === 0 && frete !== null && prazo && (
+        <p className="text-sm text-muted-foreground mt-2 font-body">
+          Frete: {formatPrice(frete)} — Entrega em {prazo}
+        </p>
+      )}
+    </div>
+  );
 
   return (
     <div className="min-h-screen bg-background">
@@ -175,27 +270,7 @@ const Checkout = () => {
                     </div>
                   ))}
 
-                  {/* CEP */}
-                  <div className="p-4 rounded-lg bg-card border border-border/50">
-                    <Label className="text-sm font-body text-foreground">Calcular frete</Label>
-                    <div className="flex gap-2 mt-2 items-center">
-                      <Input
-                        placeholder="00000-000"
-                        value={cep}
-                        onChange={(e) => handleCepChange(e.target.value)}
-                        className="max-w-[180px]"
-                      />
-                      {loadingCep && <Loader2 size={18} className="animate-spin text-muted-foreground" />}
-                    </div>
-                    {cepError && (
-                      <p className="text-sm text-destructive mt-2 font-body">{cepError}</p>
-                    )}
-                    {frete !== null && prazo && (
-                      <p className="text-sm text-muted-foreground mt-2 font-body">
-                        Frete: {formatPrice(frete)} — Entrega em {prazo}
-                      </p>
-                    )}
-                  </div>
+                  <ShippingCalculator />
 
                   <Button
                     onClick={() => setStep("info")}
@@ -292,6 +367,40 @@ const Checkout = () => {
                         />
                       </div>
                     </div>
+
+                    {/* Shipping options in address section */}
+                    {shippingOptions.length > 0 && (
+                      <div className="pt-2 space-y-2">
+                        <Label className="text-xs text-muted-foreground">Opção de envio</Label>
+                        {shippingOptions.map((opt, i) => (
+                          <button
+                            key={opt.id}
+                            onClick={() => handleSelectShipping(i)}
+                            className={`w-full flex items-center gap-3 p-2.5 rounded-lg border text-left transition-all text-sm ${
+                              selectedShipping === i
+                                ? "border-primary bg-primary/10"
+                                : "border-border/50 bg-background hover:border-primary/30"
+                            }`}
+                          >
+                            <Truck size={14} className={selectedShipping === i ? "text-primary" : "text-muted-foreground"} />
+                            <div className="flex-1 min-w-0">
+                              <span className={`font-body text-xs ${selectedShipping === i ? "text-foreground" : "text-muted-foreground"}`}>
+                                {opt.company} — {opt.name} ({opt.delivery_time} dias úteis)
+                              </span>
+                            </div>
+                            <span className={`font-display text-xs font-semibold shrink-0 ${selectedShipping === i ? "text-primary" : "text-foreground"}`}>
+                              {formatPrice(opt.price)}
+                            </span>
+                          </button>
+                        ))}
+                      </div>
+                    )}
+
+                    {shippingOptions.length === 0 && frete !== null && prazo && (
+                      <p className="text-xs text-muted-foreground pt-1">
+                        Frete: {formatPrice(frete)} — {prazo}
+                      </p>
+                    )}
                   </div>
 
                   <div className="flex gap-3 pt-2">
