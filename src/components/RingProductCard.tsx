@@ -60,7 +60,6 @@ const RingProductCard = ({ product, index = 0, globalSize }: RingProductCardProp
     >
       <div
         className="rounded-2xl overflow-hidden border border-border/50 shadow-lg hover:shadow-gold transition-shadow duration-500 bg-card"
-        onMouseEnter={() => setBadgeCollapsed(false)}
         onMouseLeave={() => setBadgeCollapsed(true)}
       >
 
