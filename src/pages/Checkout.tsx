@@ -619,7 +619,7 @@ const Checkout = () => {
                   <div className="border-t border-border pt-1 flex justify-between items-center">
                     <span className="font-body text-whatsapp-green font-bold text-sm">Total</span>
                     <span className="font-body text-whatsapp-green text-lg font-bold">
-                      {formatPrice(paymentMethod === "pix" ? total * 0.95 : total)}
+                      {formatPrice(total)}
                     </span>
                   </div>
                   <div className="flex items-center gap-1 text-[10px] text-whatsapp-green font-body font-medium">
