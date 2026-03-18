@@ -145,7 +145,7 @@ const RingProductCard = ({ product, index = 0, globalSize }: RingProductCardProp
           <p className="text-[11px] text-muted-foreground font-body truncate">{product.significance}</p>
         </Link>
 
-        <ArtisanBadge selectedSize={selectedSize} onSizeChange={setLocalSize} />
+        <ArtisanBadge selectedSize={selectedSize} onSizeChange={setLocalSize} collapsed={badgeCollapsed} />
 
         {showSizeWarning && (
           <p className="text-[11px] text-red-500 font-body font-semibold animate-pulse">
