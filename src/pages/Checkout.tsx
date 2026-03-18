@@ -470,7 +470,7 @@ const Checkout = () => {
                     )}
                   </div>
 
-                  <div className="flex gap-3 pt-1">
+                  <div className="flex gap-2 pt-0.5">
                     <Button variant="outline" size="sm" onClick={() => setStep("cart")}>Voltar</Button>
                     <Button
                       onClick={() => { if (validateInfoStep()) setStep("payment"); }}
