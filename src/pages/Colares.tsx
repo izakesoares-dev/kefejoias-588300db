@@ -67,10 +67,10 @@ const Colares = () => {
 
       <section className="px-4 pb-12 pt-2">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl font-display text-foreground mb-6">
+          <h2 className="text-xl font-display text-foreground mb-4">
             Todos os Colares ({allNecklaces.length})
           </h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             {allNecklaces.map((product, i) => (
               <motion.div
                 key={product.id}
