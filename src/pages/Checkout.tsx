@@ -270,7 +270,7 @@ const Checkout = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <SEOHead title="Checkout" description="Finalize sua compra na Kefe Joias." noindex />
+      <SEOHead title="Finalização de compra" description="Finalize sua compra na Kefe Joias." noindex />
       <Navbar />
 
       <section className="section-padding pt-20">
