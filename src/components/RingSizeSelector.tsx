@@ -19,9 +19,10 @@ const RingSizeSelector = ({ value, onChange }: RingSizeSelectorProps) => {
     <div className="flex items-center gap-3">
       <Select value={value} onValueChange={onChange}>
         <SelectTrigger
-          className="w-[100px] h-10 rounded-lg font-body font-semibold text-sm
+          className="w-[110px] h-11 rounded-lg font-body font-bold text-base
             bg-secondary border-2 border-primary text-green-deep
-            shadow-sm hover:shadow-gold-sm focus:ring-primary/40 transition-all"
+            shadow-sm hover:shadow-gold-sm focus:ring-primary/40 transition-all
+            [&>svg]:w-5 [&>svg]:h-5 [&>svg]:stroke-[3]"
         >
           <SelectValue placeholder="Tam." />
         </SelectTrigger>
