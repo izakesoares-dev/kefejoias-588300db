@@ -42,12 +42,10 @@ const IncensariosResina = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      {/* Hero */}
-      <section className="pt-24 pb-0 px-6 bg-gradient-to-b from-secondary/50 to-background">
+      <section className="pt-24 pb-0 px-4 bg-gradient-to-b from-secondary/50 to-background">
         <div className="max-w-7xl mx-auto">
-          
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center">
-            <h1 className="font-display text-4xl md:text-5xl text-foreground mb-2">
+            <h1 className="font-display text-3xl md:text-4xl text-foreground mb-1">
               Incensários de <span className="text-gradient-gold">Resina</span>
             </h1>
             <p className="font-body text-sm text-muted-foreground max-w-2xl mx-auto">
