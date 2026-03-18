@@ -15,6 +15,18 @@ import { fetchAddress, calcularFreteMelhorEnvio, calcularFrete, estimarPrazo, ty
 type PaymentMethod = "pix" | "card";
 type CheckoutStep = "cart" | "info" | "payment" | "done";
 
+const maskCpf = (v: string) => {
+  const d = v.replace(/\D/g, "").slice(0, 11);
+  return d.replace(/(\d{3})(\d)/, "$1.$2").replace(/(\d{3})(\d)/, "$1.$2").replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+};
+
+const maskPhone = (v: string) => {
+  const d = v.replace(/\D/g, "").slice(0, 11);
+  if (d.length <= 2) return d.length ? `(${d}` : "";
+  if (d.length <= 7) return `(${d.slice(0, 2)}) ${d.slice(2)}`;
+  return `(${d.slice(0, 2)}) ${d.slice(2, 7)}-${d.slice(7)}`;
+};
+
 const Checkout = () => {
   const { items, subtotal, removeItem, updateQuantity, clearCart } = useCart();
   const [step, setStep] = useState<CheckoutStep>("cart");
@@ -358,12 +370,12 @@ const Checkout = () => {
                       </div>
                       <div>
                         <Label className="text-[11px] leading-tight">CPF</Label>
-                        <Input placeholder="000.000.000-00" className={`mt-0.5 h-8 text-xs ${formErrors.cpf ? "border-destructive" : ""}`} value={dadosPessoais.cpf} onChange={(e) => { setDadosPessoais(p => ({ ...p, cpf: e.target.value })); setFormErrors(p => ({ ...p, cpf: "" })); }} maxLength={14} />
+                        <Input placeholder="000.000.000-00" inputMode="numeric" className={`mt-0.5 h-8 text-xs ${formErrors.cpf ? "border-destructive" : ""}`} value={dadosPessoais.cpf} onChange={(e) => { setDadosPessoais(p => ({ ...p, cpf: maskCpf(e.target.value) })); setFormErrors(p => ({ ...p, cpf: "" })); }} maxLength={14} />
                         {formErrors.cpf && <p className="text-[10px] text-destructive mt-0.5">{formErrors.cpf}</p>}
                       </div>
                       <div>
                         <Label className="text-[11px] leading-tight">Telefone</Label>
-                        <Input placeholder="(11) 99999-9999" className={`mt-0.5 h-8 text-xs ${formErrors.telefone ? "border-destructive" : ""}`} value={dadosPessoais.telefone} onChange={(e) => { setDadosPessoais(p => ({ ...p, telefone: e.target.value })); setFormErrors(p => ({ ...p, telefone: "" })); }} maxLength={15} />
+                        <Input placeholder="(11) 99999-9999" inputMode="numeric" className={`mt-0.5 h-8 text-xs ${formErrors.telefone ? "border-destructive" : ""}`} value={dadosPessoais.telefone} onChange={(e) => { setDadosPessoais(p => ({ ...p, telefone: maskPhone(e.target.value) })); setFormErrors(p => ({ ...p, telefone: "" })); }} maxLength={15} />
                         {formErrors.telefone && <p className="text-[10px] text-destructive mt-0.5">{formErrors.telefone}</p>}
                       </div>
                     </div>
