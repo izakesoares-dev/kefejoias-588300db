@@ -268,26 +268,26 @@ const Checkout = () => {
       <SEOHead title="Checkout" description="Finalize sua compra na Kefe Joias." noindex />
       <Navbar />
 
-      <section className="section-padding pt-24">
+      <section className="section-padding pt-20">
         <div className="max-w-4xl mx-auto">
-          <Link to="/produtos" className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition-colors font-body mb-6">
-            <ChevronLeft size={16} />
+          <Link to="/produtos" className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-primary transition-colors font-body mb-3">
+            <ChevronLeft size={14} />
             Continuar comprando
           </Link>
 
-          <h1 className="font-display text-3xl text-foreground mb-8">Checkout</h1>
+          <h1 className="font-display text-2xl text-foreground mb-4">Checkout</h1>
 
           {/* Progress */}
-          <div className="flex items-center gap-2 mb-10">
+          <div className="flex items-center gap-1.5 mb-5">
             {["Carrinho", "Dados", "Pagamento"].map((label, i) => {
               const stepMap: CheckoutStep[] = ["cart", "info", "payment"];
               const isActive = stepMap.indexOf(step) >= i;
               return (
-                <div key={label} className="flex items-center gap-2 flex-1">
-                  <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-body ${isActive ? "bg-primary text-primary-foreground" : "bg-secondary text-secondary-foreground"}`}>
+                <div key={label} className="flex items-center gap-1.5 flex-1">
+                  <div className={`w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-body ${isActive ? "bg-primary text-primary-foreground" : "bg-secondary text-secondary-foreground"}`}>
                     {i + 1}
                   </div>
-                  <span className={`text-sm font-body ${isActive ? "text-foreground" : "text-muted-foreground"}`}>
+                  <span className={`text-xs font-body ${isActive ? "text-foreground" : "text-muted-foreground"}`}>
                     {label}
                   </span>
                   {i < 2 && <div className={`flex-1 h-px ${isActive ? "bg-primary/50" : "bg-border"}`} />}
@@ -296,23 +296,23 @@ const Checkout = () => {
             })}
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
             {/* Main content */}
-            <div className="lg:col-span-2 space-y-6">
+            <div className="lg:col-span-2 space-y-3">
               {step === "cart" && (
-                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-4">
+                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-2">
                   {items.map((item) => (
-                    <div key={`${item.product.id}-${item.size}`} className="flex gap-4 p-4 rounded-lg bg-card border border-border/50">
-                      <img src={item.product.images[0]} alt={item.product.name} className="w-20 h-20 rounded object-cover" />
+                    <div key={`${item.product.id}-${item.size}`} className="flex gap-3 p-2.5 rounded-lg bg-card border border-border/50">
+                      <img src={item.product.images[0]} alt={item.product.name} className="w-16 h-16 rounded object-cover" />
                       <div className="flex-1">
-                        <h3 className="font-display text-foreground">{item.product.name}</h3>
-                        {item.size && <p className="text-xs text-muted-foreground">Tam. {item.size}</p>}
-                        <p className="text-sm text-primary font-display mt-1">{formatPrice(item.product.price)}</p>
-                        <div className="flex items-center gap-2 mt-2">
+                        <h3 className="font-display text-sm text-foreground leading-tight">{item.product.name}</h3>
+                        {item.size && <p className="text-[10px] text-muted-foreground">Tam. {item.size}</p>}
+                        <p className="text-xs text-primary font-display mt-0.5">{formatPrice(item.product.price)}</p>
+                        <div className="flex items-center gap-2 mt-1">
                           <select
                             value={item.quantity}
                             onChange={(e) => updateQuantity(item.product.id, Number(e.target.value), item.size)}
-                            className="bg-transparent text-foreground text-sm font-bold rounded px-2 py-1 border border-border/50 backdrop-blur-sm"
+                            className="bg-transparent text-foreground text-xs font-bold rounded px-1.5 py-0.5 border border-border/50 backdrop-blur-sm"
                           >
                             {[1, 2, 3, 4, 5].map((q) => (
                               <option key={q} value={q}>{q}</option>
@@ -320,7 +320,7 @@ const Checkout = () => {
                           </select>
                           <button
                             onClick={() => removeItem(item.product.id, item.size)}
-                            className="text-xs text-muted-foreground hover:text-destructive transition-colors ml-auto"
+                            className="text-[10px] text-muted-foreground hover:text-destructive transition-colors ml-auto"
                           >
                             Remover
                           </button>
@@ -333,6 +333,7 @@ const Checkout = () => {
 
                   <Button
                     onClick={() => setStep("info")}
+                    size="sm"
                     className="w-full bg-gradient-gold text-primary-foreground font-body font-semibold"
                   >
                     Prosseguir
@@ -341,10 +342,10 @@ const Checkout = () => {
               )}
 
               {step === "info" && (
-                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-2">
-                  <div className="p-3 rounded-lg bg-card border border-border/50 space-y-2">
-                    <h2 className="font-display text-sm text-foreground">Dados pessoais</h2>
-                    <div className="grid grid-cols-2 gap-x-2 gap-y-1.5">
+                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-1.5">
+                  <div className="p-2.5 rounded-lg bg-card border border-border/50 space-y-1.5">
+                    <h2 className="font-display text-xs font-semibold text-foreground">Dados pessoais</h2>
+                    <div className="grid grid-cols-2 gap-x-1.5 gap-y-1">
                       <div className="col-span-2 sm:col-span-1">
                         <Label className="text-[11px] leading-tight">Nome completo</Label>
                         <Input placeholder="Seu nome" className={`mt-0.5 h-8 text-xs ${formErrors.nome ? "border-destructive" : ""}`} value={dadosPessoais.nome} onChange={(e) => { setDadosPessoais(p => ({ ...p, nome: e.target.value })); setFormErrors(p => ({ ...p, nome: "" })); }} maxLength={100} />
@@ -368,9 +369,9 @@ const Checkout = () => {
                     </div>
                   </div>
 
-                  <div className="p-3 rounded-lg bg-card border border-border/50 space-y-2">
+                  <div className="p-2.5 rounded-lg bg-card border border-border/50 space-y-1.5">
                     <h2 className="font-display text-base font-bold text-foreground text-center">Endereço de entrega</h2>
-                    <div className="grid grid-cols-6 gap-x-2 gap-y-1.5">
+                    <div className="grid grid-cols-6 gap-x-1.5 gap-y-1">
                       <div className="col-span-3 sm:col-span-2">
                         <Label className="text-[11px] leading-tight">CEP</Label>
                         <div className="flex gap-1.5 mt-0.5 items-center">
@@ -438,13 +439,13 @@ const Checkout = () => {
 
                     {/* Shipping options in address section */}
                     {shippingOptions.length > 0 && (
-                      <div className="pt-1 space-y-1">
+                      <div className="pt-0.5 space-y-0.5">
                         <Label className="text-[11px] text-muted-foreground">Opção de envio</Label>
                         {shippingOptions.map((opt, i) => (
                           <button
                             key={opt.id}
                             onClick={() => handleSelectShipping(i)}
-                            className={`w-full flex items-center gap-2 px-2.5 py-1.5 rounded-md border text-left transition-all ${
+                            className={`w-full flex items-center gap-1.5 px-2 py-1 rounded-md border text-left transition-all ${
                               selectedShipping === i
                                 ? "border-whatsapp-green bg-whatsapp-green/10"
                                 : "border-border/50 bg-background hover:border-whatsapp-green/30"
@@ -469,7 +470,7 @@ const Checkout = () => {
                     )}
                   </div>
 
-                  <div className="flex gap-3 pt-1">
+                  <div className="flex gap-2 pt-0.5">
                     <Button variant="outline" size="sm" onClick={() => setStep("cart")}>Voltar</Button>
                     <Button
                       onClick={() => { if (validateInfoStep()) setStep("payment"); }}
@@ -578,8 +579,8 @@ const Checkout = () => {
             {/* Order summary sidebar */}
             {(step as string) !== "done" && (
               <div className="lg:col-span-1">
-                <div className="sticky top-24 p-4 rounded-lg bg-card border border-border/50 space-y-2">
-                  <div className="flex items-center gap-2 pb-1">
+                <div className="sticky top-20 p-3 rounded-lg bg-card border border-border/50 space-y-1.5">
+                  <div className="flex items-center gap-1.5 pb-0.5">
                     <Package size={18} className="text-whatsapp-green" />
                     <h3 className="font-body text-base font-bold text-whatsapp-green">Resumo do pedido</h3>
                   </div>
