@@ -536,8 +536,8 @@ const Checkout = () => {
                     </div>
                     {paymentMethod === "pix" && (
                       <div className="flex justify-between text-sm font-body">
-                        <span className="text-primary">Desconto Pix (5%)</span>
-                        <span className="text-primary">-{formatPrice(total * 0.05)}</span>
+                        <span className="text-green-deep font-bold">Desconto Pix (5%)</span>
+                        <span className="text-green-deep font-bold">-{formatPrice(total * 0.05)}</span>
                       </div>
                     )}
                   </div>
