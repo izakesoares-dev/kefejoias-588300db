@@ -36,59 +36,27 @@ const PiramidesQuanticas = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      <section className="pt-24 pb-0 px-4 bg-gradient-to-b from-secondary/50 to-background">
-        <div className="max-w-7xl mx-auto">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center">
+      <section className="pt-24 pb-1 px-4">
+        <div className="max-w-7xl mx-auto text-center">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <h1 className="font-display text-3xl md:text-4xl text-foreground mb-1">
               Pirâmides <span className="text-gradient-gold">Quânticas</span>
             </h1>
             <p className="font-body text-sm text-muted-foreground max-w-2xl mx-auto">
-              Geometria sagrada e energia cristalina para meditação e harmonização de ambientes.
+              Geometria sagrada e energia cristalina para meditação e harmonização.
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* Specs */}
-      <section className="section-padding py-6 border-y border-border/50 bg-card/50">
+      <section className="px-4 py-2 border-y border-border/50 bg-card/50">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-12 text-sm">
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <span>📐 Base: 5cm x 5cm</span>
-            </div>
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <span>💎 Pedra natural encapsulada</span>
-            </div>
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <span>🔺 Geometria sagrada</span>
-            </div>
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <span>✨ Resina cristalina premium</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* How it works */}
-      <section className="section-padding py-10 bg-primary/5">
-        <div className="max-w-7xl mx-auto">
-          <h3 className="font-display text-center text-lg text-foreground mb-6">Como funciona a energia piramidal</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="flex flex-col items-center text-center bg-card rounded-xl p-6 border border-border/50">
-              <span className="text-3xl mb-3">🔺</span>
-              <h4 className="font-body font-semibold text-foreground text-sm mb-2">Geometria Sagrada</h4>
-              <p className="font-body text-xs text-muted-foreground">A forma piramidal concentra e amplifica energias, criando um campo vibratório poderoso.</p>
-            </div>
-            <div className="flex flex-col items-center text-center bg-card rounded-xl p-6 border border-border/50">
-              <span className="text-3xl mb-3">💎</span>
-              <h4 className="font-body font-semibold text-foreground text-sm mb-2">Pedra Encapsulada</h4>
-              <p className="font-body text-xs text-muted-foreground">A pedra natural no centro irradia suas propriedades energéticas, amplificadas pela resina e geometria.</p>
-            </div>
-            <div className="flex flex-col items-center text-center bg-card rounded-xl p-6 border border-border/50">
-              <span className="text-3xl mb-3">🧘</span>
-              <h4 className="font-body font-semibold text-foreground text-sm mb-2">Harmonização</h4>
-              <p className="font-body text-xs text-muted-foreground">Coloque no altar, mesa de trabalho ou quarto para purificar e harmonizar o ambiente.</p>
-            </div>
+          <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8 text-xs text-muted-foreground">
+            <span>📐 Base: 5x5cm</span>
+            <span>💎 Pedra natural</span>
+            <span>🔺 Geometria sagrada</span>
+            <span>✨ Resina cristalina</span>
           </div>
         </div>
       </section>
