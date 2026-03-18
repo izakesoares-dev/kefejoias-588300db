@@ -309,6 +309,7 @@ const Checkout = () => {
           onChange={(e) => handleCepChange(e.target.value)}
           className="max-w-[160px] h-8 text-sm"
           maxLength={9}
+          autoFocus
           inputMode="numeric"
         />
         {loadingCep && <Loader2 size={12} className="animate-spin text-muted-foreground" />}
