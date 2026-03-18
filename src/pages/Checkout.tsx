@@ -345,7 +345,7 @@ const Checkout = () => {
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-1.5">
                   <div className="p-2.5 rounded-lg bg-card border border-border/50 space-y-1.5">
                     <h2 className="font-display text-xs font-semibold text-foreground">Dados pessoais</h2>
-                    <div className="grid grid-cols-2 gap-x-2 gap-y-1.5">
+                    <div className="grid grid-cols-2 gap-x-1.5 gap-y-1">
                       <div className="col-span-2 sm:col-span-1">
                         <Label className="text-[11px] leading-tight">Nome completo</Label>
                         <Input placeholder="Seu nome" className={`mt-0.5 h-8 text-xs ${formErrors.nome ? "border-destructive" : ""}`} value={dadosPessoais.nome} onChange={(e) => { setDadosPessoais(p => ({ ...p, nome: e.target.value })); setFormErrors(p => ({ ...p, nome: "" })); }} maxLength={100} />
