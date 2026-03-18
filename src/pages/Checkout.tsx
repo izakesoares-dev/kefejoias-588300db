@@ -21,10 +21,46 @@ const Checkout = () => {
   const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>("pix");
   const [cep, setCep] = useState("");
   const [frete, setFrete] = useState<number | null>(null);
+  const [prazo, setPrazo] = useState<string>("");
+  const [loadingCep, setLoadingCep] = useState(false);
+  const [cepError, setCepError] = useState("");
+  const [endereco, setEndereco] = useState({
+    rua: "",
+    bairro: "",
+    cidade: "",
+    estado: "",
+  });
 
-  const calcFrete = () => {
-    if (cep.length >= 8) setFrete(15.90);
-  };
+  const handleCepChange = useCallback(async (value: string) => {
+    const clean = value.replace(/\D/g, "").slice(0, 8);
+    setCep(clean);
+    setCepError("");
+
+    if (clean.length === 8) {
+      setLoadingCep(true);
+      const data = await fetchAddress(clean);
+      setLoadingCep(false);
+
+      if (data) {
+        setEndereco({
+          rua: data.logradouro || "",
+          bairro: data.bairro || "",
+          cidade: data.localidade || "",
+          estado: data.uf || "",
+        });
+        setFrete(calcularFrete(data.uf));
+        setPrazo(estimarPrazo(data.uf));
+        setCepError("");
+      } else {
+        setCepError("CEP não encontrado");
+        setFrete(null);
+        setPrazo("");
+      }
+    } else {
+      setFrete(null);
+      setPrazo("");
+    }
+  }, []);
 
   const total = subtotal + (frete ?? 0);
 
