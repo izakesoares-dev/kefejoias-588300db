@@ -20,19 +20,18 @@ const Products = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      <section className="section-padding pt-28">
+      <section className="pt-28 pb-0 px-6 bg-gradient-to-b from-secondary/50 to-background">
         <div className="max-w-7xl mx-auto">
           
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-center mb-12"
+            className="text-center"
           >
-            <div className="gold-line mx-auto mb-4" />
-            <h1 className="font-display text-4xl md:text-5xl text-foreground mb-4">
+            <h1 className="font-display text-4xl md:text-5xl text-foreground mb-2">
               Nossas <span className="text-gradient-gold">Joias</span>
             </h1>
-            <p className="font-body text-muted-foreground max-w-2xl mx-auto">
+            <p className="font-body text-sm text-muted-foreground max-w-2xl mx-auto">
               Cada peça conta uma história. Encontre a joia que ressoa com sua energia.
             </p>
           </motion.div>
