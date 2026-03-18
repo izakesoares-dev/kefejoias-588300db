@@ -58,7 +58,10 @@ const RingProductCard = ({ product, index = 0, globalSize }: RingProductCardProp
       viewport={{ once: true }}
       transition={{ delay: index * 0.08, duration: 0.5 }}
     >
-      <div className="rounded-2xl overflow-hidden border border-border/50 shadow-lg hover:shadow-gold transition-shadow duration-500 bg-card">
+      <div
+        className="rounded-2xl overflow-hidden border border-border/50 shadow-lg hover:shadow-gold transition-shadow duration-500 bg-card"
+        onMouseLeave={() => { setBadgeCollapsed(true); setTimeout(() => setBadgeCollapsed(false), 100); }}
+      >
 
       {/* ===== Foto principal + mídias sobrepostas (Link apenas aqui) ===== */}
       <Link to={`/produto/${product.slug}`} className="block">
