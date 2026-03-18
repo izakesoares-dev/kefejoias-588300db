@@ -60,23 +60,21 @@ const Footer = () => {
   return (
     <footer id="contato" className="px-6 py-6 md:px-12 lg:px-20 bg-gradient-footer border-t border-gold/20">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-5">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-6 gap-y-5 mb-5">
           {/* Brand */}
-          <div className="col-span-2 md:col-span-1 space-y-3">
-            <div>
-              <h3 className="text-lg font-display font-medium text-primary mb-1.5">Kefe</h3>
-              <p className="text-xs text-white/60 font-body leading-relaxed">
-                Joias afetivas feitas à mão com pedras naturais, flores desidratadas, sementes e pimentas encapsuladas em resina — cada peça carrega significado e eterniza uma história.
-              </p>
-            </div>
-            <div className="flex flex-col gap-1.5">
-              <a href="mailto:contato@kefe.joias@gmail.com" className="flex items-center gap-1.5 text-xs text-white/50 hover:text-primary transition-colors font-body">
+          <div className="col-span-2 md:col-span-1">
+            <h4 className="font-display text-[11px] uppercase tracking-wider text-primary mb-2">Kefe</h4>
+            <p className="text-[11px] text-white/60 font-body leading-relaxed mb-2">
+              Joias afetivas feitas à mão com pedras naturais, flores desidratadas, sementes e pimentas encapsuladas em resina.
+            </p>
+            <div className="flex flex-col gap-1">
+              <a href="mailto:contato@kefejoias@gmail.com" className="flex items-center gap-1.5 text-[11px] text-white/50 hover:text-primary transition-colors font-body">
                 <Mail size={12} className="text-primary/80" /> contato@kefe.joias
               </a>
-              <a href="https://wa.me/5511996470414" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs text-white/50 hover:text-primary transition-colors font-body">
+              <a href="https://wa.me/5511996470414" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-[11px] text-white/50 hover:text-primary transition-colors font-body">
                 📱 (11) 99647-0414
               </a>
-              <span className="flex items-center gap-1.5 text-xs text-white/50 font-body">
+              <span className="flex items-center gap-1.5 text-[11px] text-white/50 font-body">
                 <MapPin size={12} className="text-primary/80" /> São Paulo, SP
               </span>
             </div>
@@ -85,8 +83,8 @@ const Footer = () => {
           {/* Links */}
           {Object.entries(footerLinks).map(([key, section]) => (
             <div key={key}>
-              <h4 className="font-display text-[11px] uppercase tracking-wider text-primary mb-1.5">{section.title}</h4>
-              <div className="flex flex-col gap-0.5">
+              <h4 className="font-display text-[11px] uppercase tracking-wider text-primary mb-2">{section.title}</h4>
+              <div className="flex flex-col gap-1">
                 {section.links.map((link) => (
                   <Link key={link.label} to={link.href} className="text-[11px] text-white/50 hover:text-primary transition-colors font-body">
                     {link.label}
@@ -98,8 +96,8 @@ const Footer = () => {
 
           {/* Newsletter + Social */}
           <div>
-            <h4 className="font-display text-[11px] uppercase tracking-wider text-primary mb-1.5">Newsletter</h4>
-            <p className="text-[11px] text-white/50 font-body mb-1.5">🎁 10% off na 1ª compra</p>
+            <h4 className="font-display text-[11px] uppercase tracking-wider text-primary mb-2">Newsletter</h4>
+            <p className="text-[11px] text-white/50 font-body mb-2">🎁 10% off na 1ª compra</p>
             <form onSubmit={handleNewsletterSubmit} className="flex gap-1 mb-3">
               <Input
                 type="email"
@@ -113,7 +111,7 @@ const Footer = () => {
                 Assinar
               </Button>
             </form>
-            <h4 className="font-display text-[11px] uppercase tracking-wider text-primary mb-1.5">Redes Sociais</h4>
+            <h4 className="font-display text-[11px] uppercase tracking-wider text-primary mb-2">Redes Sociais</h4>
             <div className="flex gap-1.5">
               {socialLinks.map((social) => (
                 <a key={social.label} href={social.href} target="_blank" rel="noopener noreferrer" className="w-7 h-7 rounded-full border border-gold/30 flex items-center justify-center text-primary/60 hover:text-primary hover:border-primary transition-all" title={social.label}>
