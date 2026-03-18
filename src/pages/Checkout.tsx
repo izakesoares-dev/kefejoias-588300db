@@ -556,18 +556,23 @@ const Checkout = () => {
                       <div>
                         <Label>Parcelas</Label>
                         <select className="w-full bg-background border border-input rounded-md px-3 py-2 text-sm text-foreground">
-                          <option>1x de {formatPrice(total)} (sem juros)</option>
-                          <option>2x de {formatPrice(total / 2)} (sem juros)</option>
-                          <option>3x de {formatPrice(total / 3)} (sem juros)</option>
-                          <option>4x de {formatPrice(total / 4 * 1.0299)} — Total: {formatPrice(total * 1.0299)} (2,99% a.m.)</option>
-                          <option>5x de {formatPrice(total / 5 * 1.0599)} — Total: {formatPrice(total * 1.0599)} (2,99% a.m.)</option>
-                          <option>6x de {formatPrice(total / 6 * 1.0899)} — Total: {formatPrice(total * 1.0899)} (2,99% a.m.)</option>
-                          <option>7x de {formatPrice(total / 7 * 1.1199)} — Total: {formatPrice(total * 1.1199)} (2,99% a.m.)</option>
-                          <option>8x de {formatPrice(total / 8 * 1.1499)} — Total: {formatPrice(total * 1.1499)} (2,99% a.m.)</option>
-                          <option>9x de {formatPrice(total / 9 * 1.1799)} — Total: {formatPrice(total * 1.1799)} (2,99% a.m.)</option>
-                          <option>10x de {formatPrice(total / 10 * 1.2099)} — Total: {formatPrice(total * 1.2099)} (2,99% a.m.)</option>
-                          <option>11x de {formatPrice(total / 11 * 1.2399)} — Total: {formatPrice(total * 1.2399)} (2,99% a.m.)</option>
-                          <option>12x de {formatPrice(total / 12 * 1.2699)} — Total: {formatPrice(total * 1.2699)} (2,99% a.m.)</option>
+                          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((n) => {
+                            if (n <= 3) {
+                              return (
+                                <option key={n}>
+                                  {n}x de {formatPrice(total / n)} (sem juros)
+                                </option>
+                              );
+                            }
+                            const rate = 0.0299;
+                            const installment = total * (rate * Math.pow(1 + rate, n)) / (Math.pow(1 + rate, n) - 1);
+                            const totalWithInterest = installment * n;
+                            return (
+                              <option key={n}>
+                                {n}x de {formatPrice(installment)} — Total: {formatPrice(totalWithInterest)} (2,99% a.m.)
+                              </option>
+                            );
+                          })}
                         </select>
                       </div>
                     </div>
