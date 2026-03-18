@@ -1,12 +1,5 @@
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ChevronDown } from "lucide-react";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import {
   Accordion,
   AccordionContent,
@@ -45,41 +38,52 @@ const artisanLabels: Record<string, string> = {
 
 const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, artisanType = "flor" }: ArtisanBadgeProps) => {
   const [showGuide, setShowGuide] = useState(false);
-  const [sizeSelectOpen, setSizeSelectOpen] = useState(false);
-  const closeSelectTimerRef = useRef<number | null>(null);
+  const [sizeDropdownOpen, setSizeDropdownOpen] = useState(false);
+  const closeTimerRef = useRef<number | null>(null);
+  const sizeDropdownRef = useRef<HTMLDivElement | null>(null);
 
-  const clearCloseSelectTimer = () => {
-    if (closeSelectTimerRef.current !== null) {
-      window.clearTimeout(closeSelectTimerRef.current);
-      closeSelectTimerRef.current = null;
+  const clearCloseTimer = () => {
+    if (closeTimerRef.current !== null) {
+      window.clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
     }
   };
 
-  const scheduleCloseSelect = () => {
-    clearCloseSelectTimer();
-    closeSelectTimerRef.current = window.setTimeout(() => {
-      setSizeSelectOpen(false);
+  const scheduleCloseTimer = () => {
+    clearCloseTimer();
+    closeTimerRef.current = window.setTimeout(() => {
+      setSizeDropdownOpen(false);
     }, 1000);
   };
 
   useEffect(() => {
     if (collapsed) {
       setShowGuide(false);
-      setSizeSelectOpen(false);
-      clearCloseSelectTimer();
+      setSizeDropdownOpen(false);
+      clearCloseTimer();
     }
   }, [collapsed]);
 
   useEffect(() => {
-    return () => clearCloseSelectTimer();
+    const handlePointerDown = (event: MouseEvent) => {
+      if (!sizeDropdownRef.current?.contains(event.target as Node)) {
+        setSizeDropdownOpen(false);
+        clearCloseTimer();
+      }
+    };
+
+    document.addEventListener("mousedown", handlePointerDown);
+    return () => {
+      document.removeEventListener("mousedown", handlePointerDown);
+      clearCloseTimer();
+    };
   }, []);
 
-  const handleSizeChange = (val: string) => {
-    const nextSize = val === "none" ? "" : val;
-    onSizeChange?.(nextSize);
+  const handleSizeChange = (size: string) => {
+    onSizeChange?.(size);
+    setSizeDropdownOpen(false);
     setShowGuide(false);
-    setSizeSelectOpen(false);
-    clearCloseSelectTimer();
+    clearCloseTimer();
   };
 
   return (
@@ -88,67 +92,83 @@ const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, 
         <div
           className="max-h-[420px] overflow-y-auto scrollbar-none"
           style={{ scrollbarWidth: "none" }}
-          onClick={(e) => { e.stopPropagation(); }}
+          onClick={(e) => {
+            e.stopPropagation();
+          }}
         >
           <div className="space-y-1 mb-2">
             <div className="flex items-center justify-between w-full">
               <p className="font-display text-sm font-bold text-foreground whitespace-nowrap">
                 14 ao 22 disponíveis
               </p>
+
               <div
-                className="flex items-center gap-1"
-                onMouseEnter={clearCloseSelectTimer}
+                ref={sizeDropdownRef}
+                className="relative flex items-center gap-1"
+                onMouseEnter={clearCloseTimer}
                 onMouseLeave={() => {
-                  if (sizeSelectOpen) scheduleCloseSelect();
+                  if (sizeDropdownOpen) scheduleCloseTimer();
                 }}
               >
                 <span className="font-display text-sm font-bold text-foreground whitespace-nowrap">📏 Seu tamanho</span>
-                <Select
-                  value={selectedSize || "none"}
-                  open={sizeSelectOpen}
-                  onOpenChange={(open) => {
-                    clearCloseSelectTimer();
-                    setSizeSelectOpen(open);
+
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    clearCloseTimer();
+                    setSizeDropdownOpen((prev) => !prev);
                   }}
-                  onValueChange={handleSizeChange}
+                  className="flex h-7 w-[52px] items-center justify-between rounded-md border border-primary bg-transparent px-2 text-sm font-display font-bold text-green-deep transition-all hover:shadow-gold-sm"
                 >
-                  <SelectTrigger
-                    className="w-[52px] h-7 rounded-md font-display font-bold text-sm px-2 gap-0.5
-                      bg-transparent border border-primary text-green-deep
-                      hover:shadow-gold-sm focus:ring-primary/40 transition-all [&>svg]:h-3.5 [&>svg]:w-3.5"
-                  >
-                    <SelectValue placeholder="Nº" />
-                  </SelectTrigger>
-                  <SelectContent
-                    onMouseEnter={clearCloseSelectTimer}
-                    onMouseLeave={scheduleCloseSelect}
-                    className="w-[60px] min-w-[60px] bg-background/95 backdrop-blur-sm border border-primary rounded-md p-0 shadow-gold-sm"
-                  >
-                    <SelectItem
-                      value="none"
-                      className="font-body text-xs text-muted-foreground cursor-pointer justify-center px-2 py-1 focus:bg-primary/15"
+                  <span>{selectedSize || "Nº"}</span>
+                  <ChevronDown size={14} className={`transition-transform duration-200 ${sizeDropdownOpen ? "rotate-180" : ""}`} />
+                </button>
+
+                {sizeDropdownOpen && (
+                  <div className="absolute right-0 top-full z-30 mt-1 w-[60px] min-w-[60px] rounded-md border border-primary bg-background/95 p-1 shadow-gold-sm backdrop-blur-sm">
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        handleSizeChange("");
+                      }}
+                      className="flex w-full items-center justify-center rounded-sm px-2 py-1 text-xs font-body text-muted-foreground transition-colors hover:bg-primary/15"
                     >
                       —
-                    </SelectItem>
+                    </button>
                     {SIZES.map((size) => (
-                      <SelectItem
+                      <button
                         key={size}
-                        value={String(size)}
-                        className="font-body text-sm font-semibold text-green-deep cursor-pointer justify-center px-2 py-1.5 focus:bg-primary/15 focus:text-green-deep"
+                        type="button"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          handleSizeChange(String(size));
+                        }}
+                        className="flex w-full items-center justify-center rounded-sm px-2 py-1.5 text-sm font-body font-semibold text-green-deep transition-colors hover:bg-primary/15"
                       >
                         {size}
-                      </SelectItem>
+                      </button>
                     ))}
-                  </SelectContent>
-                </Select>
+                  </div>
+                )}
               </div>
             </div>
 
             <button
               type="button"
-              onClick={(e) => { e.preventDefault(); e.stopPropagation(); setShowGuide(!showGuide); }}
-              onMouseDown={(e) => { e.stopPropagation(); }}
-              className="flex items-center gap-1 font-display text-xs font-bold text-foreground hover:text-foreground/80 transition-all whitespace-nowrap"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                setShowGuide(!showGuide);
+              }}
+              onMouseDown={(e) => {
+                e.stopPropagation();
+              }}
+              className="flex items-center gap-1 font-display text-xs font-bold text-foreground transition-all hover:text-foreground/80 whitespace-nowrap"
             >
               Como descobrir seu tamanho?
               <ChevronDown size={12} className={`transition-transform duration-200 ${showGuide ? "rotate-180" : ""}`} />
@@ -159,10 +179,10 @@ const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, 
             <div className="space-y-3 animate-in fade-in slide-in-from-top-2 duration-200">
               <Accordion type="multiple" className="w-full">
                 <AccordionItem value="method1" className="border-primary/20">
-                  <AccordionTrigger className="font-display text-xs text-foreground hover:no-underline py-2.5">
+                  <AccordionTrigger className="font-display text-xs text-foreground py-2.5 hover:no-underline">
                     ▶️ Método 1: Com um anel que você já tem
                   </AccordionTrigger>
-                  <AccordionContent className="text-sm font-body text-muted-foreground space-y-1.5 pb-3">
+                  <AccordionContent className="space-y-1.5 pb-3 text-sm font-body text-muted-foreground">
                     <p>• Pegue um anel que sirva bem no dedo desejado</p>
                     <p>• Coloque sobre uma régua e meça o <strong className="text-foreground">diâmetro interno</strong></p>
                     <p>• Compare com a tabela abaixo</p>
@@ -170,10 +190,10 @@ const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, 
                 </AccordionItem>
 
                 <AccordionItem value="method2" className="border-primary/20">
-                  <AccordionTrigger className="font-display text-xs text-foreground hover:no-underline py-2.5">
+                  <AccordionTrigger className="font-display text-xs text-foreground py-2.5 hover:no-underline">
                     ▶️ Método 2: Com barbante ou fita
                   </AccordionTrigger>
-                  <AccordionContent className="text-sm font-body text-muted-foreground space-y-1.5 pb-3">
+                  <AccordionContent className="space-y-1.5 pb-3 text-sm font-body text-muted-foreground">
                     <p>• Enrole um barbante na base do dedo (sem apertar)</p>
                     <p>• Marque o ponto de encontro</p>
                     <p>• Estique sobre uma régua e veja em milímetros</p>
@@ -182,17 +202,17 @@ const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, 
                 </AccordionItem>
 
                 <AccordionItem value="method3" className="border-primary/20">
-                  <AccordionTrigger className="font-display text-xs text-foreground hover:no-underline py-2.5">
+                  <AccordionTrigger className="font-display text-xs text-foreground py-2.5 hover:no-underline">
                     ▶️ Método 3: Com aneleira profissional
                   </AccordionTrigger>
-                  <AccordionContent className="text-sm font-body text-muted-foreground space-y-1.5 pb-3">
+                  <AccordionContent className="space-y-1.5 pb-3 text-sm font-body text-muted-foreground">
                     <p>• Visite uma joalheria e peça para medir seu dedo</p>
                     <p>• É o método mais preciso e rápido</p>
                   </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem value="method4" className="border-primary/20">
-                  <AccordionTrigger className="font-display text-xs text-foreground hover:no-underline py-2.5">
+                  <AccordionTrigger className="font-display text-xs text-foreground py-2.5 hover:no-underline">
                     ▶️ Método 4: Assista ao vídeo explicativo
                   </AccordionTrigger>
                   <AccordionContent className="pb-3">
@@ -207,28 +227,28 @@ const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, 
                 </AccordionItem>
               </Accordion>
 
-              <div className="rounded-lg border border-primary/20 overflow-hidden">
+              <div className="overflow-hidden rounded-lg border border-primary/20">
                 <table className="w-full text-xs font-body">
                   <thead>
                     <tr className="bg-primary/10">
-                      <th className="py-1.5 px-3 text-left font-display text-foreground">Tamanho</th>
-                      <th className="py-1.5 px-3 text-center font-display text-foreground">Diâmetro</th>
-                      <th className="py-1.5 px-3 text-center font-display text-foreground">Circunf.</th>
+                      <th className="px-3 py-1.5 text-left font-display text-foreground">Tamanho</th>
+                      <th className="px-3 py-1.5 text-center font-display text-foreground">Diâmetro</th>
+                      <th className="px-3 py-1.5 text-center font-display text-foreground">Circunf.</th>
                     </tr>
                   </thead>
                   <tbody>
                     {sizeTable.map((row, i) => (
                       <tr key={row.size} className={i % 2 === 0 ? "bg-secondary/30" : "bg-background"}>
-                        <td className="py-1 px-3 font-semibold text-foreground">{row.size}</td>
-                        <td className="py-1 px-3 text-center text-muted-foreground">{row.diameter} mm</td>
-                        <td className="py-1 px-3 text-center text-muted-foreground">{row.circ} cm</td>
+                        <td className="px-3 py-1 font-semibold text-foreground">{row.size}</td>
+                        <td className="px-3 py-1 text-center text-muted-foreground">{row.diameter} mm</td>
+                        <td className="px-3 py-1 text-center text-muted-foreground">{row.circ} cm</td>
                       </tr>
                     ))}
                   </tbody>
                 </table>
               </div>
 
-              <div className="rounded-lg bg-primary/5 border border-primary/20 p-3 space-y-1">
+              <div className="space-y-1 rounded-lg border border-primary/20 bg-primary/5 p-3">
                 <p className="font-display text-xs font-bold text-foreground">💡 Dicas:</p>
                 <p className="text-xs font-body text-muted-foreground">• Meça no final do dia</p>
                 <p className="text-xs font-body text-muted-foreground">• Entre dois números, escolha o maior</p>
@@ -239,8 +259,8 @@ const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, 
 
           {!hideArtisanNote && (
             <div className="mt-1 space-y-0">
-              <p className="text-[11px] font-display font-bold text-foreground text-center">✨ Peça Única Artesanal</p>
-              <p className="text-[11px] text-muted-foreground font-body italic leading-snug">
+              <p className="text-[11px] text-center font-display font-bold text-foreground">✨ Peça Única Artesanal</p>
+              <p className="text-[11px] font-body italic leading-snug text-muted-foreground">
                 Cada anel é produzido manualmente, com carinho e dedicação. {artisanLabels[artisanType] || artisanLabels.pedra}
               </p>
             </div>
