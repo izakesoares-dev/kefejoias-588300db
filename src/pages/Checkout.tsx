@@ -1,7 +1,7 @@
 import { useState, useCallback } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ChevronLeft, CreditCard, QrCode, ShieldCheck, CheckCircle, Loader2, Truck, Package, BadgePercent, Wallet, Lock } from "lucide-react";
+import { ChevronLeft, CreditCard, QrCode, ShieldCheck, CheckCircle, Loader2, Truck, Package, BadgePercent, Wallet, Lock, ExternalLink, PenLine, MapPin } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
 import { formatPrice } from "@/data/products";
 import { Button } from "@/components/ui/button";
