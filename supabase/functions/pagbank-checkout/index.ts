@@ -16,6 +16,10 @@ serve(async (req) => {
     const email = Deno.env.get('PAGSEGURO_EMAIL');
     const token = Deno.env.get('PAGSEGURO_TOKEN');
 
+    console.log('Email set:', !!email, '| Token set:', !!token);
+    console.log('Email value:', email?.substring(0, 5) + '...');
+    console.log('Token length:', token?.length);
+
     if (!email || !token) {
       throw new Error('PAGSEGURO_EMAIL ou PAGSEGURO_TOKEN não configurados');
     }
