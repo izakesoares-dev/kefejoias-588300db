@@ -53,14 +53,14 @@ const CartDrawer = () => {
                     <div className="flex items-center gap-2 mt-2">
                       <button
                         onClick={() => updateQuantity(item.product.id, item.quantity - 1, item.size)}
-                        className="w-6 h-6 rounded bg-secondary flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
+                        className="w-6 h-6 rounded bg-transparent border border-border flex items-center justify-center text-foreground hover:border-primary hover:text-primary transition-colors"
                       >
                         <Minus size={12} />
                       </button>
                       <span className="text-sm font-body text-foreground w-6 text-center">{item.quantity}</span>
                       <button
                         onClick={() => updateQuantity(item.product.id, item.quantity + 1, item.size)}
-                        className="w-6 h-6 rounded bg-secondary flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
+                        className="w-6 h-6 rounded bg-transparent border border-border flex items-center justify-center text-foreground hover:border-primary hover:text-primary transition-colors"
                       >
                         <Plus size={12} />
                       </button>
