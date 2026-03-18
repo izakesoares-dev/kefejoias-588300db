@@ -439,7 +439,7 @@ const Checkout = () => {
 
                     {/* Shipping options in address section */}
                     {shippingOptions.length > 0 && (
-                      <div className="pt-1 space-y-1">
+                      <div className="pt-0.5 space-y-0.5">
                         <Label className="text-[11px] text-muted-foreground">Opção de envio</Label>
                         {shippingOptions.map((opt, i) => (
                           <button
