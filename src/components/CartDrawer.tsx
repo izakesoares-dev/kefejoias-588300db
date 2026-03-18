@@ -87,7 +87,7 @@ const CartDrawer = () => {
                 asChild
                 onClick={() => setIsCartOpen(false)}
               >
-                <Link to="/checkout">Seguir para checkout</Link>
+                <Link to="/checkout">Seguir para finalização de compra</Link>
               </Button>
               <Button
                 variant="outline"
