@@ -270,7 +270,7 @@ const Checkout = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <SEOHead title="Checkout" description="Finalize sua compra na Kefe Joias." noindex />
+      <SEOHead title="Finalização de compra" description="Finalize sua compra na Kefe Joias." noindex />
       <Navbar />
 
       <section className="section-padding pt-20">
@@ -280,7 +280,7 @@ const Checkout = () => {
             Continuar comprando
           </Link>
 
-          <h1 className="font-display text-2xl text-foreground mb-3">Checkout</h1>
+          <h1 className="font-display text-2xl text-foreground mb-3">Finalização de compra</h1>
 
           {/* Progress */}
           <div className="flex items-center gap-1 mb-4">
