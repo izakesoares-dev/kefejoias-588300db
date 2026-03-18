@@ -132,7 +132,7 @@ const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, 
                   <AccordionTrigger className="font-display text-xs text-foreground hover:no-underline py-2.5">
                     ▶️ Método 3: Com aneleira profissional
                   </AccordionTrigger>
-                  <AccordionContent className="text-xs font-body text-muted-foreground space-y-1.5 pb-3">
+                  <AccordionContent className="text-sm font-body text-muted-foreground space-y-1.5 pb-3">
                     <p>• Visite uma joalheria e peça para medir seu dedo</p>
                     <p>• É o método mais preciso e rápido</p>
                   </AccordionContent>
