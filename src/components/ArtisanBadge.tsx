@@ -45,22 +45,16 @@ const artisanLabels: Record<string, string> = {
 
 const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, artisanType = "flor" }: ArtisanBadgeProps) => {
   const [showGuide, setShowGuide] = useState(false);
-  const [minimized, setMinimized] = useState(false);
 
+  // Fechar guia ao sair do card (collapsed pulse) ou ao selecionar tamanho
   useEffect(() => {
-    if (collapsed) {
-      setShowGuide(false);
-      setMinimized(true);
-    } else if (!selectedSize) {
-      setMinimized(false);
-    }
-  }, [collapsed, selectedSize]);
+    if (collapsed) setShowGuide(false);
+  }, [collapsed]);
 
   const handleSizeChange = (val: string) => {
     const nextSize = val === "none" ? "" : val;
     onSizeChange?.(nextSize);
     setShowGuide(false);
-    setMinimized(true);
   };
 
   return (
@@ -69,10 +63,7 @@ const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, 
         <div
           className="max-h-[420px] overflow-y-auto scrollbar-none"
           style={{ scrollbarWidth: "none" }}
-          onClick={(e) => {
-            e.preventDefault();
-            e.stopPropagation();
-          }}
+          onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}
         >
           <div className="space-y-1 mb-2">
             <div className="flex items-center justify-between w-full">
@@ -94,8 +85,7 @@ const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, 
                   >
                     <SelectItem
                       value="none"
-                      className="font-body text-xs text-muted-foreground cursor-pointer justify-center px-2 py-1
-                        focus:bg-primary/15"
+                      className="font-body text-xs text-muted-foreground cursor-pointer justify-center px-2 py-1 focus:bg-primary/15"
                     >
                       —
                     </SelectItem>
@@ -103,8 +93,7 @@ const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, 
                       <SelectItem
                         key={size}
                         value={String(size)}
-                        className="font-body text-sm font-semibold text-green-deep cursor-pointer justify-center px-2 py-1.5
-                          focus:bg-primary/15 focus:text-green-deep"
+                        className="font-body text-sm font-semibold text-green-deep cursor-pointer justify-center px-2 py-1.5 focus:bg-primary/15 focus:text-green-deep"
                       >
                         {size}
                       </SelectItem>
@@ -116,15 +105,8 @@ const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, 
 
             <button
               type="button"
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                setShowGuide(!showGuide);
-                if (!showGuide) setMinimized(false);
-              }}
-              onMouseDown={(e) => {
-                e.stopPropagation();
-              }}
+              onClick={(e) => { e.preventDefault(); e.stopPropagation(); setShowGuide(!showGuide); }}
+              onMouseDown={(e) => { e.stopPropagation(); }}
               className="flex items-center gap-1 font-display text-xs font-bold text-foreground hover:text-foreground/80 transition-all whitespace-nowrap"
             >
               Como descobrir seu tamanho?
