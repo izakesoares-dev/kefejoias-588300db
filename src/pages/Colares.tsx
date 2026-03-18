@@ -52,7 +52,7 @@ const Colares = () => {
       </section>
 
       <section className="px-6 pb-4">
-        <div className="max-w-7xl mx-auto flex flex-wrap justify-center gap-4">
+        <div className="max-w-7xl mx-auto grid grid-cols-2 gap-4 max-w-2xl mx-auto">
           {subcategories.map((sub) => (
             <Link
               key={sub.href}
