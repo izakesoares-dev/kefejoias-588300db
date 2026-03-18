@@ -31,10 +31,15 @@ const sizeTable = [
 interface ArtisanBadgeProps {
   selectedSize?: string;
   onSizeChange?: (size: string) => void;
+  collapsed?: boolean;
 }
 
-const ArtisanBadge = ({ selectedSize, onSizeChange }: ArtisanBadgeProps) => {
+const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed }: ArtisanBadgeProps) => {
   const [showGuide, setShowGuide] = useState(false);
+
+  useEffect(() => {
+    if (collapsed) setShowGuide(false);
+  }, [collapsed]);
 
   return (
     <div className="space-y-0">
