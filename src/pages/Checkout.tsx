@@ -615,15 +615,6 @@ const Checkout = () => {
                       </span>
                       <span className="text-foreground font-medium">{frete ? formatPrice(frete) : "A calcular"}</span>
                     </div>
-                    {paymentMethod === "pix" && (
-                      <div className="flex justify-between items-center text-[11px] font-body leading-tight">
-                        <span className="flex items-center gap-1 text-whatsapp-green font-bold">
-                          <BadgePercent size={11} className="text-whatsapp-green" />
-                          Desconto Pix (5%)
-                        </span>
-                        <span className="text-whatsapp-green font-bold">-{formatPrice(total * 0.05)}</span>
-                      </div>
-                    )}
                   </div>
                   <div className="border-t border-border pt-1 flex justify-between items-center">
                     <span className="font-body text-whatsapp-green font-bold text-sm">Total</span>
