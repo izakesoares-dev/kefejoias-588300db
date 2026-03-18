@@ -34,10 +34,13 @@ const Products = () => {
             <p className="font-body text-sm text-muted-foreground max-w-2xl mx-auto">
               Cada peça conta uma história. Encontre a joia que ressoa com sua energia.
             </p>
-          </motion.div>
+        </div>
+      </section>
 
+      <section className="px-6 pt-4 pb-4">
+        <div className="max-w-7xl mx-auto">
           {/* Filters */}
-          <div className="flex flex-wrap justify-center gap-2 mb-10">
+          <div className="flex flex-wrap justify-center gap-2 mb-6">
             {categories.map((cat) => (
               <button
                 key={cat}
