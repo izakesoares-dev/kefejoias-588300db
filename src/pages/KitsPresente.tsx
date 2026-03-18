@@ -48,102 +48,74 @@ const KitsPresente = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      <section className="pt-24 pb-0 px-4 bg-gradient-to-b from-secondary/50 to-background">
-        <div className="max-w-7xl mx-auto">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center">
+      <section className="pt-24 pb-1 px-4">
+        <div className="max-w-7xl mx-auto text-center">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <h1 className="font-display text-3xl md:text-4xl text-foreground mb-1">
               Kits <span className="text-gradient-gold">Presente</span>
             </h1>
             <p className="text-sm text-muted-foreground font-body max-w-2xl mx-auto">
-              Coleções exclusivas que combinam joias, acessórios e peças decorativas artesanais.
+              Coleções exclusivas com joias, acessórios e peças decorativas artesanais.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Highlights */}
-      <section className="py-3 px-4 border-y border-border/50 bg-card/50">
-        <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-          {[
-            { icon: "🎁", title: "Embalagem Premium", desc: "Caixa de presente luxuosa" },
-            { icon: "💎", title: "Pedras Naturais", desc: "Cristais autênticos selecionados" },
-            { icon: "🌹", title: "Flores Eternizadas", desc: "Preservadas em resina cristalina" },
-            { icon: "✨", title: "Feito à Mão", desc: "Cada kit é único e artesanal" },
-          ].map((h) => (
-            <motion.div key={h.title} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="space-y-1">
-              <span className="text-2xl">{h.icon}</span>
-              <p className="font-display text-sm text-foreground">{h.title}</p>
-              <p className="text-xs text-muted-foreground font-body">{h.desc}</p>
-            </motion.div>
-          ))}
+      <section className="px-4 py-2 border-y border-border/50 bg-card/50">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8 text-xs text-muted-foreground">
+            <span>🎁 Embalagem premium</span>
+            <span>💎 Pedras naturais</span>
+            <span>🌹 Flores eternizadas</span>
+            <span>✨ Feito à mão</span>
+          </div>
         </div>
       </section>
 
-      {/* Filters */}
-      <section className="px-4 pt-2 pb-2">
+      <section className="px-4 pt-1 pb-6">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-wrap gap-2 justify-center">
+          <div className="flex flex-wrap gap-1.5 justify-center mb-3">
             {filters.map((f) => {
               const Icon = f.icon;
               return (
                 <button
                   key={f.id}
                   onClick={() => setActiveFilter(f.id)}
-                  className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-body transition-all duration-300 ${
+                  className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-body transition-all duration-300 ${
                     activeFilter === f.id
                       ? "bg-primary text-primary-foreground shadow-gold"
-                      : "bg-card border border-border/50 text-muted-foreground hover:border-primary/30 hover:text-foreground"
+                      : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
                   }`}
                 >
-                  <Icon size={14} />
+                  <Icon size={12} />
                   {f.label}
                 </button>
               );
             })}
           </div>
-        </div>
-      </section>
 
-      <section className="px-4 pb-12">
-        <div className="max-w-7xl mx-auto">
           {filtered.length === 0 ? (
-            <p className="text-center text-muted-foreground font-body py-12">Nenhum kit encontrado para este filtro.</p>
+            <p className="text-center text-muted-foreground font-body py-8 text-sm">Nenhum kit encontrado para este filtro.</p>
           ) : (
-            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
               {filtered.map((product, i) => (
                 <ProductCard key={product.id} product={product} index={i} />
               ))}
             </div>
           )}
-        </div>
-      </section>
 
-      {/* Info Section */}
-      <section className="py-16 section-padding bg-card/50 border-t border-border/50">
-        <div className="max-w-4xl mx-auto text-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h2 className="font-display text-3xl text-foreground mb-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mt-6 text-center bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 rounded-xl p-4 md:p-6"
+          >
+            <h2 className="font-display text-xl md:text-2xl text-foreground mb-2">
               A arte de <span className="text-gradient-gold">presentear</span>
             </h2>
-            <p className="text-muted-foreground font-body leading-relaxed mb-8">
-              Cada kit Kefe é cuidadosamente montado para criar uma experiência completa de bem-estar e intenção. 
-              Combinamos joias artesanais, peças decorativas e acessórios energéticos — todos feitos à mão com resina 
-              cristalina, pedras naturais autênticas e flores reais eternizadas. Uma forma única de presentear com significado, 
-              beleza e energia.
+            <p className="font-body text-sm text-muted-foreground mb-3 max-w-xl mx-auto">
+              Cada kit combina joias, peças decorativas e acessórios energéticos — feitos à mão com resina, pedras e flores reais.
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
-              {[
-                { emoji: "1️⃣", title: "Escolha a Intenção", desc: "Proteção, amor, prosperidade, paz… cada kit é pensado para uma energia específica." },
-                { emoji: "2️⃣", title: "Peças Combinadas", desc: "Anel, colar, pulseira, pirâmide, mandala, incensário e santinha — tudo harmonizado." },
-                { emoji: "3️⃣", title: "Entrega Especial", desc: "Embalagem premium com cartão de intenções e guia energético de cada peça." },
-              ].map((step) => (
-                <div key={step.title} className="p-4 rounded-lg bg-background border border-border/50">
-                  <span className="text-xl">{step.emoji}</span>
-                  <h3 className="font-display text-foreground mt-2 mb-1">{step.title}</h3>
-                  <p className="text-sm text-muted-foreground font-body">{step.desc}</p>
-                </div>
-              ))}
-            </div>
           </motion.div>
         </div>
       </section>

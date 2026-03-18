@@ -42,93 +42,60 @@ const IncensariosResina = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      <section className="pt-24 pb-0 px-4 bg-gradient-to-b from-secondary/50 to-background">
-        <div className="max-w-7xl mx-auto">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center">
+      <section className="pt-24 pb-1 px-4">
+        <div className="max-w-7xl mx-auto text-center">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <h1 className="font-display text-3xl md:text-4xl text-foreground mb-1">
               Incensários de <span className="text-gradient-gold">Resina</span>
             </h1>
             <p className="font-body text-sm text-muted-foreground max-w-2xl mx-auto">
-              Suportes artesanais com flores e pedras encapsuladas em resina cristalina.
+              Suportes artesanais com flores e pedras em resina cristalina.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Specs */}
-      <section className="section-padding py-6 border-y border-border/50 bg-card/50">
+      <section className="px-4 py-2 border-y border-border/50 bg-card/50">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-12 text-sm">
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <span>🌸 Flores ou pedras naturais</span>
-            </div>
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <span>💎 Resina cristalina premium</span>
-            </div>
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <span>🕯️ Suporte para vareta e cone</span>
-            </div>
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <span>✨ 100% artesanal</span>
-            </div>
+          <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8 text-xs text-muted-foreground">
+            <span>🌸 Flores ou pedras</span>
+            <span>💎 Resina cristalina</span>
+            <span>🕯️ Vareta e cone</span>
+            <span>✨ 100% artesanal</span>
           </div>
         </div>
       </section>
 
-      {/* How it works */}
-      <section className="section-padding py-10 bg-primary/5">
+      <section className="px-4 pt-1 pb-6">
         <div className="max-w-7xl mx-auto">
-          <h3 className="font-display text-center text-lg text-foreground mb-6">A arte dos incensários de resina</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="flex flex-col items-center text-center bg-card rounded-xl p-6 border border-border/50">
-              <span className="text-3xl mb-3">🌿</span>
-              <h4 className="font-body font-semibold text-foreground text-sm mb-2">Natureza Preservada</h4>
-              <p className="font-body text-xs text-muted-foreground">Flores secas ou cascalhos de pedras naturais são eternizados em resina cristalina de alta qualidade, preservando sua beleza e energia para sempre.</p>
-            </div>
-            <div className="flex flex-col items-center text-center bg-card rounded-xl p-6 border border-border/50">
-              <span className="text-3xl mb-3">🕯️</span>
-              <h4 className="font-body font-semibold text-foreground text-sm mb-2">Ritual Elevado</h4>
-              <p className="font-body text-xs text-muted-foreground">Durante a queima do incenso, a energia da pedra ou flor encapsulada se ativa e potencializa a intenção do ritual, criando uma experiência única.</p>
-            </div>
-            <div className="flex flex-col items-center text-center bg-card rounded-xl p-6 border border-border/50">
-              <span className="text-3xl mb-3">🏡</span>
-              <h4 className="font-body font-semibold text-foreground text-sm mb-2">Decoração & Energia</h4>
-              <p className="font-body text-xs text-muted-foreground">Além de funcional, o incensário é uma peça decorativa que embeleza altares, mesas e ambientes — mesmo quando não está em uso.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="px-4 pt-2 pb-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-wrap justify-center gap-2 mb-3">
+          <div className="flex flex-wrap justify-center gap-1.5 mb-3">
             {filters.map((filter) => {
               const Icon = filter.icon;
               return (
                 <button
                   key={filter.id}
                   onClick={() => setActiveFilter(filter.id)}
-                  className={`flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-body transition-all duration-300 ${
+                  className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-body transition-all duration-300 ${
                     activeFilter === filter.id
                       ? "bg-primary text-primary-foreground shadow-gold"
                       : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
                   }`}
                 >
-                  <Icon size={14} />
+                  <Icon size={12} />
                   {filter.label}
                 </button>
               );
             })}
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
             {filtered.map((product, index) => (
               <ProductCard key={product.id} product={product} index={index} />
             ))}
           </div>
 
           {filtered.length === 0 && (
-            <p className="text-center text-muted-foreground font-body py-12">
+            <p className="text-center text-muted-foreground font-body py-8 text-sm">
               Nenhum incensário encontrado com esse filtro.
             </p>
           )}
@@ -137,19 +104,19 @@ const IncensariosResina = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mt-10 text-center bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 rounded-2xl p-6 md:p-8"
+            className="mt-6 text-center bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 rounded-xl p-4 md:p-6"
           >
-            <h2 className="font-display text-2xl md:text-3xl text-foreground mb-4">
+            <h2 className="font-display text-xl md:text-2xl text-foreground mb-2">
               Quer um incensário personalizado?
             </h2>
-            <p className="font-body text-muted-foreground mb-6 max-w-xl mx-auto">
-              Criamos incensários com as flores ou pedras que você escolher. Uma peça funcional e energética exclusiva para seu ritual.
+            <p className="font-body text-sm text-muted-foreground mb-4 max-w-xl mx-auto">
+              Criamos incensários com as flores ou pedras que você escolher.
             </p>
             <a
               href="https://wa.me/5511996470414?text=Olá! Gostaria de encomendar um incensário de resina personalizado."
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-3 bg-primary text-primary-foreground rounded-full font-body font-medium hover:bg-primary/90 transition-all shadow-gold"
+              className="inline-flex items-center gap-2 px-6 py-2.5 bg-primary text-primary-foreground rounded-full font-body text-sm font-medium hover:bg-primary/90 transition-all shadow-gold"
             >
               👉 Comprar incensário
             </a>
