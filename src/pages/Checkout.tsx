@@ -339,7 +339,7 @@ const Checkout = () => {
                   <Button
                     onClick={() => setStep("info")}
                     size="sm"
-                    className="w-full bg-gradient-gold text-primary-foreground font-body font-semibold text-xs h-8"
+                    className="w-full bg-gradient-gold text-primary-foreground font-body font-semibold text-lg h-12"
                   >
                     Prosseguir
                   </Button>
