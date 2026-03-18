@@ -370,7 +370,7 @@ const Checkout = () => {
                       </div>
                       <div>
                         <Label className="text-[11px] leading-tight">CPF</Label>
-                        <Input placeholder="000.000.000-00" className={`mt-0.5 h-8 text-xs ${formErrors.cpf ? "border-destructive" : ""}`} value={dadosPessoais.cpf} onChange={(e) => { setDadosPessoais(p => ({ ...p, cpf: e.target.value })); setFormErrors(p => ({ ...p, cpf: "" })); }} maxLength={14} />
+                        <Input placeholder="000.000.000-00" inputMode="numeric" className={`mt-0.5 h-8 text-xs ${formErrors.cpf ? "border-destructive" : ""}`} value={dadosPessoais.cpf} onChange={(e) => { setDadosPessoais(p => ({ ...p, cpf: maskCpf(e.target.value) })); setFormErrors(p => ({ ...p, cpf: "" })); }} maxLength={14} />
                         {formErrors.cpf && <p className="text-[10px] text-destructive mt-0.5">{formErrors.cpf}</p>}
                       </div>
                       <div>
