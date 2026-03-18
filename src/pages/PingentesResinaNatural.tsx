@@ -79,12 +79,11 @@ const PingentesResinaNatural = () => {
             </p>
           )}
 
-          {/* Symbolism Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mt-16 grid md:grid-cols-3 gap-8"
+            className="mt-10 grid md:grid-cols-3 gap-4"
           >
             <div className="text-center p-6 rounded-xl bg-card border border-border/50">
               <span className="text-4xl mb-4 block">🌶️</span>
