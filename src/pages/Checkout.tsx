@@ -476,7 +476,7 @@ const Checkout = () => {
                   </div>
 
                   <div className="flex gap-2 pt-0.5">
-                    <Button onClick={() => setStep("cart")} className="text-lg h-12 bg-gradient-gold text-primary-foreground font-body font-semibold">Voltar</Button>
+                    <Button onClick={() => setStep("cart")} size="sm" className="bg-gradient-gold text-primary-foreground font-body font-semibold">Voltar</Button>
                     <Button
                       onClick={() => { if (validateInfoStep()) setStep("payment"); }}
                       size="sm"
@@ -568,7 +568,7 @@ const Checkout = () => {
                   )}
 
                   <div className="flex gap-3">
-                    <Button onClick={() => setStep("info")} className="text-lg h-12 bg-gradient-gold text-primary-foreground font-body font-semibold">Voltar</Button>
+                    <Button onClick={() => setStep("info")} size="sm" className="bg-gradient-gold text-primary-foreground font-body font-semibold">Voltar</Button>
                     <Button
                       onClick={() => { clearCart(); setStep("done"); }}
                       className="flex-1 bg-gradient-gold text-primary-foreground font-body font-semibold gap-2"
