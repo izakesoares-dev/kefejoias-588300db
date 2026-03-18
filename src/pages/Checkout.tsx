@@ -164,7 +164,36 @@ const Checkout = () => {
         {loadingCep && <Loader2 size={18} className="animate-spin text-muted-foreground" />}
       </div>
       {cepError && (
-        <p className="text-sm text-destructive mt-2 font-body">{cepError}</p>
+        <div className="mt-3 p-3 rounded-lg border border-destructive/30 bg-destructive/5 space-y-3">
+          <p className="text-sm text-destructive font-body font-medium flex items-center gap-1.5">
+            <MapPin size={14} />
+            {cepError}
+          </p>
+          <div className="space-y-2">
+            <button
+              onClick={() => { setCepError(""); setManualAddress(true); }}
+              className="w-full flex items-center gap-2.5 p-2.5 rounded-lg border border-border/50 bg-background hover:border-whatsapp-green/40 transition-all text-left text-sm"
+            >
+              <PenLine size={15} className="text-whatsapp-green shrink-0" />
+              <div>
+                <p className="font-body font-medium text-foreground text-xs">Preencher endereço manualmente</p>
+                <p className="font-body text-[11px] text-muted-foreground">Digite seu endereço completo sem depender do CEP</p>
+              </div>
+            </button>
+            <a
+              href="https://buscacepinter.correios.com.br/app/endereco/index.php"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full flex items-center gap-2.5 p-2.5 rounded-lg border border-border/50 bg-background hover:border-whatsapp-green/40 transition-all text-left text-sm"
+            >
+              <ExternalLink size={15} className="text-whatsapp-green shrink-0" />
+              <div>
+                <p className="font-body font-medium text-foreground text-xs">Buscar CEP nos Correios</p>
+                <p className="font-body text-[11px] text-muted-foreground">Descubra seu CEP correto no site oficial</p>
+              </div>
+            </a>
+          </div>
+        </div>
       )}
 
       {/* Melhor Envio options */}
