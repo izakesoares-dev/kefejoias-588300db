@@ -515,7 +515,7 @@ const Checkout = () => {
                       <p className={`text-sm font-body mt-1 ${paymentMethod === "card" ? "text-primary" : "text-muted-foreground"}`}>
                         Cartão
                       </p>
-                      <p className="text-xs text-muted-foreground">Até 3x sem juros</p>
+                      <p className="text-xs text-muted-foreground">Até 12x (juros a partir de 2x)</p>
                     </button>
                   </div>
 
