@@ -14,10 +14,13 @@ serve(async (req) => {
   }
 
   try {
-    const token = Deno.env.get('PAGBANK_TOKEN');
-    if (!token) {
+    const rawToken = Deno.env.get('PAGBANK_TOKEN');
+    if (!rawToken) {
       throw new Error('PAGBANK_TOKEN não configurado');
     }
+    // Remove espaços, quebras de linha e prefixo "Bearer " se o usuário colou junto
+    const token = rawToken.replace(/^Bearer\s+/i, '').trim();
+    console.log('Token length:', token.length, '| First 8 chars:', token.substring(0, 8), '| Last 4 chars:', token.substring(token.length - 4));
 
     const body = await req.json();
     const { payment_method, customer, items, shipping, installments } = body;
