@@ -196,7 +196,7 @@ const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, 
             <div className="mt-1 space-y-0">
               <p className="text-[11px] font-display font-bold text-foreground text-center">✨ Peça Única Artesanal</p>
               <p className="text-[11px] text-muted-foreground font-body italic leading-snug">
-                Cada anel é produzido manualmente, com carinho e dedicação. A {artisanType} que você receberá será muito semelhante à da foto, mas com variações naturais que tornam cada peça especial.
+                Cada anel é produzido manualmente, com carinho e dedicação. {artisanLabels[artisanType] || artisanLabels.pedra}
               </p>
             </div>
           )}
