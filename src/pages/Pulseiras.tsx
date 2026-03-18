@@ -9,10 +9,10 @@ import ProductCard from "@/components/ProductCard";
 import { products } from "@/data/products";
 
 const subcategories = [
-  { label: "Pulseiras de Pedras", href: "/pulseiras-pedras", description: "Pedras naturais em elástico resistente" },
-  { label: "Pulseiras de Resina com Macramê", href: "/pulseiras-macrame", description: "Flores eternizadas com acabamento macramê" },
-  { label: "Pulseiras de Aço", href: "/pulseiras-aco", description: "Base em aço inoxidável com pedras naturais" },
-  { label: "Pulseiras Minimalistas", href: "/pulseiras-minimalistas", description: "Mini pedras naturais em fio delicado" },
+  { label: "Pedras", href: "/pulseiras-pedras", icon: "💎" },
+  { label: "Macramê", href: "/pulseiras-macrame", icon: "🌸" },
+  { label: "Aço", href: "/pulseiras-aco", icon: "⚙️" },
+  { label: "Minimalistas", href: "/pulseiras-minimalistas", icon: "✨" },
 ];
 
 const Pulseiras = () => {
