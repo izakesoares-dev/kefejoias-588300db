@@ -24,6 +24,7 @@ const RingProductCard = ({ product, index = 0, globalSize }: RingProductCardProp
   const [activeThumb, setActiveThumb] = useState<"img" | number | "video1">("img");
   const [showSizeWarning, setShowSizeWarning] = useState(false);
   const [showMeasureModal, setShowMeasureModal] = useState(false);
+  const [badgeCollapsed, setBadgeCollapsed] = useState(false);
 
   const selectedSize = globalSize || localSize;
 
@@ -57,7 +58,10 @@ const RingProductCard = ({ product, index = 0, globalSize }: RingProductCardProp
       viewport={{ once: true }}
       transition={{ delay: index * 0.08, duration: 0.5 }}
     >
-      <div className="rounded-2xl overflow-hidden border border-border/50 shadow-lg hover:shadow-gold transition-shadow duration-500 bg-card">
+      <div
+        className="rounded-2xl overflow-hidden border border-border/50 shadow-lg hover:shadow-gold transition-shadow duration-500 bg-card"
+        onMouseLeave={() => { setBadgeCollapsed(true); setTimeout(() => setBadgeCollapsed(false), 100); }}
+      >
 
       {/* ===== Foto principal + mídias sobrepostas (Link apenas aqui) ===== */}
       <Link to={`/produto/${product.slug}`} className="block">
@@ -141,7 +145,7 @@ const RingProductCard = ({ product, index = 0, globalSize }: RingProductCardProp
           <p className="text-[11px] text-muted-foreground font-body truncate">{product.significance}</p>
         </Link>
 
-        <ArtisanBadge selectedSize={selectedSize} onSizeChange={setLocalSize} />
+        <ArtisanBadge selectedSize={selectedSize} onSizeChange={setLocalSize} collapsed={badgeCollapsed} />
 
         {showSizeWarning && (
           <p className="text-[11px] text-red-500 font-body font-semibold animate-pulse">
