@@ -521,8 +521,8 @@ const Checkout = () => {
 
                   {paymentMethod === "pix" && (
                     <div className="p-6 rounded-lg border border-border/50 text-center space-y-3">
-                      <div className="w-40 h-40 mx-auto bg-secondary rounded-lg flex items-center justify-center">
-                        <QrCode size={80} className="text-muted-foreground/30" />
+                      <div className="w-40 h-40 mx-auto flex items-center justify-center">
+                        <QrCode size={80} className="text-whatsapp-green" />
                       </div>
                       <p className="text-sm text-muted-foreground font-body">
                         O QR Code será gerado após a confirmação do pedido
