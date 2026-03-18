@@ -104,13 +104,12 @@ const KitsPresente = () => {
         </div>
       </section>
 
-      {/* Products */}
-      <section className="px-6 pb-16">
+      <section className="px-4 pb-12">
         <div className="max-w-7xl mx-auto">
           {filtered.length === 0 ? (
             <p className="text-center text-muted-foreground font-body py-12">Nenhum kit encontrado para este filtro.</p>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
               {filtered.map((product, i) => (
                 <ProductCard key={product.id} product={product} index={i} />
               ))}
