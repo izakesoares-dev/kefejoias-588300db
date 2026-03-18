@@ -192,7 +192,7 @@ const Checkout = () => {
   const shippingCalculatorJSX = (
     <div className="p-2 rounded-lg bg-card border border-border/50">
       <div className="flex items-center gap-2">
-        <Label className="text-xs font-body font-semibold text-foreground whitespace-nowrap">Calcular frete</Label>
+        <Label className="text-sm font-body font-bold text-foreground whitespace-nowrap">Calcular frete</Label>
         <Input
           placeholder="00000-000"
           value={cep}
@@ -247,11 +247,11 @@ const Checkout = () => {
                   : "border-border/50 bg-background hover:border-whatsapp-green/30"
               }`}
             >
-              <Truck size={12} className={selectedShipping === i ? "text-whatsapp-green" : "text-muted-foreground"} />
-              <span className={`font-body text-[11px] flex-1 min-w-0 ${selectedShipping === i ? "text-foreground" : "text-muted-foreground"}`}>
+              <Truck size={13} className={selectedShipping === i ? "text-whatsapp-green" : "text-muted-foreground"} />
+              <span className={`font-body text-xs flex-1 min-w-0 ${selectedShipping === i ? "text-foreground" : "text-muted-foreground"}`}>
                 {opt.company} — {opt.name} ({opt.delivery_time} dias úteis)
               </span>
-              <span className={`font-body text-[11px] font-semibold shrink-0 ${selectedShipping === i ? "text-whatsapp-green" : "text-foreground"}`}>
+              <span className={`font-body text-xs font-semibold shrink-0 ${selectedShipping === i ? "text-whatsapp-green" : "text-foreground"}`}>
                 {formatPrice(opt.price)}
               </span>
             </button>
