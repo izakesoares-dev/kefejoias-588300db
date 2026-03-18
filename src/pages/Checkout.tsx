@@ -202,7 +202,7 @@ const Checkout = () => {
 
       setOrderId(data.reference_id || data.order_id);
 
-      // PagSeguro legacy API returns a checkout URL for redirect
+      // PagBank v4: redirect to checkout for card payments
       if (data.checkout_url) {
         clearCart();
         setStep("done");
