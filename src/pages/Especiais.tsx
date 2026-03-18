@@ -23,14 +23,12 @@ const Especiais = () => {
       />
       <Navbar />
 
-      <section className="pt-24 pb-2 px-6">
-        <div className="max-w-7xl mx-auto">
-          
-          <div className="text-center">
+      <section className="pt-24 pb-1 px-4">
+        <div className="max-w-7xl mx-auto text-center">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-5xl font-display font-medium text-gradient-gold mb-2"
+            className="text-3xl md:text-4xl font-display font-medium text-gradient-gold mb-1"
           >
             Especiais
           </motion.h1>
@@ -42,12 +40,11 @@ const Especiais = () => {
           >
             Peças especiais e exclusivas: pirâmides, santinhas, mandalas, incensários e kits presente.
           </motion.p>
-          </div>
         </div>
       </section>
 
-      <section className="px-6 pb-16 pt-4">
-        <div className="max-w-4xl mx-auto grid sm:grid-cols-2 gap-6">
+      <section className="px-4 pb-12 pt-2">
+        <div className="max-w-4xl mx-auto grid sm:grid-cols-2 gap-4">
           {subcategories.map((sub, i) => (
             <motion.div
               key={sub.href}
