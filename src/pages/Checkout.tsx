@@ -347,19 +347,23 @@ const Checkout = () => {
                     <div className="grid grid-cols-2 gap-x-2 gap-y-1.5">
                       <div className="col-span-2 sm:col-span-1">
                         <Label className="text-[11px] leading-tight">Nome completo</Label>
-                        <Input placeholder="Seu nome" className="mt-0.5 h-8 text-xs" />
+                        <Input placeholder="Seu nome" className={`mt-0.5 h-8 text-xs ${formErrors.nome ? "border-destructive" : ""}`} value={dadosPessoais.nome} onChange={(e) => { setDadosPessoais(p => ({ ...p, nome: e.target.value })); setFormErrors(p => ({ ...p, nome: "" })); }} maxLength={100} />
+                        {formErrors.nome && <p className="text-[10px] text-destructive mt-0.5">{formErrors.nome}</p>}
                       </div>
                       <div className="col-span-2 sm:col-span-1">
                         <Label className="text-[11px] leading-tight">E-mail</Label>
-                        <Input type="email" placeholder="seu@email.com" className="mt-0.5 h-8 text-xs" />
+                        <Input type="email" placeholder="seu@email.com" className={`mt-0.5 h-8 text-xs ${formErrors.email ? "border-destructive" : ""}`} value={dadosPessoais.email} onChange={(e) => { setDadosPessoais(p => ({ ...p, email: e.target.value })); setFormErrors(p => ({ ...p, email: "" })); }} maxLength={255} />
+                        {formErrors.email && <p className="text-[10px] text-destructive mt-0.5">{formErrors.email}</p>}
                       </div>
                       <div>
                         <Label className="text-[11px] leading-tight">CPF</Label>
-                        <Input placeholder="000.000.000-00" className="mt-0.5 h-8 text-xs" />
+                        <Input placeholder="000.000.000-00" className={`mt-0.5 h-8 text-xs ${formErrors.cpf ? "border-destructive" : ""}`} value={dadosPessoais.cpf} onChange={(e) => { setDadosPessoais(p => ({ ...p, cpf: e.target.value })); setFormErrors(p => ({ ...p, cpf: "" })); }} maxLength={14} />
+                        {formErrors.cpf && <p className="text-[10px] text-destructive mt-0.5">{formErrors.cpf}</p>}
                       </div>
                       <div>
                         <Label className="text-[11px] leading-tight">Telefone</Label>
-                        <Input placeholder="(11) 99999-9999" className="mt-0.5 h-8 text-xs" />
+                        <Input placeholder="(11) 99999-9999" className={`mt-0.5 h-8 text-xs ${formErrors.telefone ? "border-destructive" : ""}`} value={dadosPessoais.telefone} onChange={(e) => { setDadosPessoais(p => ({ ...p, telefone: e.target.value })); setFormErrors(p => ({ ...p, telefone: "" })); }} maxLength={15} />
+                        {formErrors.telefone && <p className="text-[10px] text-destructive mt-0.5">{formErrors.telefone}</p>}
                       </div>
                     </div>
                   </div>
