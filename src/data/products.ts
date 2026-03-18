@@ -7,6 +7,7 @@ import productAnelNoivado from "@/assets/product-anel-noivado.jpg";
 import { stoneRings } from "./ring-products";
 import { flowerRings } from "./flower-ring-products";
 import { steelRings } from "./steel-ring-products";
+import { steelBandRings } from "./steel-band-ring-products";
 import { stonePendants, resinPendants } from "./pendant-products";
 import { stoneNecklaces, resinNecklaces } from "./necklace-products";
 import { macrameBracelets, stoneBracelets, steelBracelets, minimalistBracelets } from "./bracelet-products";
