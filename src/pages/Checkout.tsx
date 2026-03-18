@@ -32,7 +32,7 @@ const Checkout = () => {
     cidade: "",
     estado: "",
   });
-
+  const [manualAddress, setManualAddress] = useState(false);
   const handleCepChange = useCallback(async (value: string) => {
     const clean = value.replace(/\D/g, "").slice(0, 8);
     setCep(clean);
