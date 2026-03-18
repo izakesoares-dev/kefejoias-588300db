@@ -282,24 +282,24 @@ const Checkout = () => {
 
       <section className="section-padding pt-20">
         <div className="max-w-4xl mx-auto">
-          <Link to="/produtos" className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-primary transition-colors font-body mb-3">
+          <Link to="/produtos" className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-primary transition-colors font-body mb-2">
             <ChevronLeft size={14} />
             Continuar comprando
           </Link>
 
-          <h1 className="font-display text-2xl text-foreground mb-4">Checkout</h1>
+          <h1 className="font-display text-2xl text-foreground mb-3">Checkout</h1>
 
           {/* Progress */}
-          <div className="flex items-center gap-1.5 mb-5">
+          <div className="flex items-center gap-1 mb-4">
             {["Carrinho", "Dados", "Pagamento"].map((label, i) => {
               const stepMap: CheckoutStep[] = ["cart", "info", "payment"];
               const isActive = stepMap.indexOf(step) >= i;
               return (
-                <div key={label} className="flex items-center gap-1.5 flex-1">
-                  <div className={`w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-body ${isActive ? "bg-primary text-primary-foreground" : "bg-secondary text-secondary-foreground"}`}>
+                <div key={label} className="flex items-center gap-1 flex-1">
+                  <div className={`w-5 h-5 rounded-full flex items-center justify-center text-[9px] font-body ${isActive ? "bg-primary text-primary-foreground" : "bg-secondary text-secondary-foreground"}`}>
                     {i + 1}
                   </div>
-                  <span className={`text-xs font-body ${isActive ? "text-foreground" : "text-muted-foreground"}`}>
+                  <span className={`text-[11px] font-body ${isActive ? "text-foreground" : "text-muted-foreground"}`}>
                     {label}
                   </span>
                   {i < 2 && <div className={`flex-1 h-px ${isActive ? "bg-primary/50" : "bg-border"}`} />}
@@ -308,9 +308,9 @@ const Checkout = () => {
             })}
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
             {/* Main content */}
-            <div className="lg:col-span-2 space-y-3">
+            <div className="lg:col-span-2 space-y-2">
               {step === "cart" && (
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-2">
                   {items.map((item) => (
