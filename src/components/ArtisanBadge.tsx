@@ -127,7 +127,7 @@ const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, 
                 </button>
 
                 {sizeDropdownOpen && (
-                  <div className="absolute right-0 bottom-full z-50 mb-1 w-[60px] min-w-[60px] max-h-[260px] overflow-y-auto rounded-md border border-primary bg-background p-1 shadow-gold-sm backdrop-blur-sm">
+                  <div className="absolute right-0 bottom-full z-50 mb-1 w-[56px] min-w-[56px] rounded-md border border-primary bg-background py-0.5 px-0.5 shadow-gold-sm backdrop-blur-sm">
                     <button
                       type="button"
                       onClick={(e) => {
@@ -135,7 +135,7 @@ const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, 
                         e.stopPropagation();
                         handleSizeChange("");
                       }}
-                      className="flex w-full items-center justify-center rounded-sm px-2 py-1 text-xs font-body text-muted-foreground transition-colors hover:bg-primary/15"
+                      className="flex w-full items-center justify-center rounded-sm px-1 py-0.5 text-[11px] font-body text-muted-foreground transition-colors hover:bg-primary/15"
                     >
                       —
                     </button>
@@ -148,7 +148,7 @@ const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, 
                           e.stopPropagation();
                           handleSizeChange(String(size));
                         }}
-                        className="flex w-full items-center justify-center rounded-sm px-2 py-1.5 text-sm font-body font-semibold text-green-deep transition-colors hover:bg-primary/15"
+                        className={`flex w-full items-center justify-center rounded-sm px-1 py-[3px] text-xs font-display font-bold transition-colors hover:bg-primary/15 ${selectedSize === String(size) ? "bg-primary/20 text-foreground" : "text-green-deep"}`}
                       >
                         {size}
                       </button>
