@@ -111,7 +111,7 @@ serve(async (req) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': token,
+        'Authorization': `Bearer ${token}`,
         'x-idempotency-key': referenceId,
       },
       body: JSON.stringify(orderPayload),
