@@ -11,10 +11,10 @@ import RingSizeSelector from "@/components/RingSizeSelector";
 import { products } from "@/data/products";
 
 const subcategories = [
-  { label: "Anéis de Aço Inox", href: "/aneis-aco", description: "Anéis elegantes em aço inoxidável" },
-  { label: "Colares de Aço Inox", href: "/colares-aco", description: "Colares sofisticados em aço" },
-  { label: "Pulseiras de Aço Inox", href: "/pulseiras-aco", description: "Pulseiras resistentes em aço" },
-  { label: "Pingentes de Aço Inox", href: "/pingentes-aco", description: "Pingentes delicados em aço" },
+  { label: "Anéis", href: "/aneis-aco", icon: "💍" },
+  { label: "Colares", href: "/colares-aco", icon: "📿" },
+  { label: "Pulseiras", href: "/pulseiras-aco", icon: "⚙️" },
+  { label: "Pingentes", href: "/pingentes-aco", icon: "✨" },
 ];
 
 const AcoInox = () => {
