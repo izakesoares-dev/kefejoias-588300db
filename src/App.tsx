@@ -13,6 +13,7 @@ import AcoInox from "./pages/AcoInox";
 import Aneis from "./pages/Aneis";
 import AneisPedrasNaturais from "./pages/AneisPedrasNaturais";
 import AneisFlores from "./pages/AneisFlores";
+import AneisAco from "./pages/AneisAco";
 import Pingentes from "./pages/Pingentes";
 import PingentesPedrasNaturais from "./pages/PingentesPedrasNaturais";
 import PingentesResinaNatural from "./pages/PingentesResinaNatural";
