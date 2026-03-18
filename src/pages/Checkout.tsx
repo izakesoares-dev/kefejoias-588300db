@@ -192,12 +192,12 @@ const Checkout = () => {
   const shippingCalculatorJSX = (
     <div className="p-2 rounded-lg bg-card border border-border/50">
       <div className="flex items-center gap-2">
-        <Label className="text-sm font-body font-bold text-foreground whitespace-nowrap">Calcular frete — CEP</Label>
+        <Label className="text-base font-body font-bold text-foreground whitespace-nowrap">Calcular frete — CEP</Label>
         <Input
           placeholder="00000-000"
           value={cep}
           onChange={(e) => handleCepChange(e.target.value)}
-          className="max-w-[140px] h-7 text-xs"
+          className="max-w-[160px] h-8 text-sm"
           maxLength={9}
           inputMode="numeric"
         />
