@@ -33,6 +33,34 @@ const Checkout = () => {
     estado: "",
   });
   const [manualAddress, setManualAddress] = useState(false);
+  const [dadosPessoais, setDadosPessoais] = useState({
+    nome: "",
+    email: "",
+    cpf: "",
+    telefone: "",
+    numero: "",
+    complemento: "",
+  });
+  const [formErrors, setFormErrors] = useState<Record<string, string>>({});
+
+  const validateInfoStep = (): boolean => {
+    const errors: Record<string, string> = {};
+    if (!dadosPessoais.nome.trim()) errors.nome = "Obrigatório";
+    if (!dadosPessoais.email.trim()) errors.email = "Obrigatório";
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(dadosPessoais.email.trim())) errors.email = "E-mail inválido";
+    if (!dadosPessoais.cpf.trim()) errors.cpf = "Obrigatório";
+    else if (dadosPessoais.cpf.replace(/\D/g, "").length !== 11) errors.cpf = "CPF inválido";
+    if (!dadosPessoais.telefone.trim()) errors.telefone = "Obrigatório";
+    if (!cep || cep.length < 8) errors.cep = "CEP obrigatório";
+    if (!endereco.rua.trim()) errors.rua = "Obrigatório";
+    if (!dadosPessoais.numero.trim()) errors.numero = "Obrigatório";
+    if (!endereco.bairro.trim()) errors.bairro = "Obrigatório";
+    if (!endereco.cidade.trim()) errors.cidade = "Obrigatório";
+    if (!endereco.estado.trim()) errors.estado = "Obrigatório";
+    if (frete === null) errors.frete = "Calcule o frete";
+    setFormErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
   const handleCepChange = useCallback(async (value: string) => {
     const clean = value.replace(/\D/g, "").slice(0, 8);
     setCep(clean);
