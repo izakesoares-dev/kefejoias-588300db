@@ -109,7 +109,7 @@ const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, 
                   <AccordionTrigger className="font-display text-xs text-foreground hover:no-underline py-2.5">
                     ▶️ Método 1: Com um anel que você já tem
                   </AccordionTrigger>
-                  <AccordionContent className="text-xs font-body text-muted-foreground space-y-1.5 pb-3">
+                  <AccordionContent className="text-sm font-body text-muted-foreground space-y-1.5 pb-3">
                     <p>• Pegue um anel que sirva bem no dedo desejado</p>
                     <p>• Coloque sobre uma régua e meça o <strong className="text-foreground">diâmetro interno</strong></p>
                     <p>• Compare com a tabela abaixo</p>
