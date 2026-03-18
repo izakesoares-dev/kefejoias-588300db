@@ -105,7 +105,7 @@ const AneisPedrasNaturais = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mt-16 text-center bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 rounded-2xl p-8 md:p-12"
+            className="mt-10 text-center bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 rounded-2xl p-6 md:p-8"
           >
             <h2 className="font-display text-2xl md:text-3xl text-foreground mb-4">
               Não encontrou a pedra perfeita?
