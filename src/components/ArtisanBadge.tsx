@@ -90,7 +90,7 @@ const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, 
     <div className="space-y-0">
       <div className="space-y-1">
         <div
-          className="max-h-[420px] overflow-y-auto scrollbar-none"
+          className="scrollbar-none"
           style={{ scrollbarWidth: "none" }}
           onClick={(e) => {
             e.stopPropagation();
