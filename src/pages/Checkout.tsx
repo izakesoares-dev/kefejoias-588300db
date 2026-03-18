@@ -511,7 +511,7 @@ const Checkout = () => {
                         paymentMethod === "card" ? "border-primary bg-primary/10" : "border-border bg-card"
                       }`}
                     >
-                      <CreditCard size={24} className={paymentMethod === "card" ? "text-primary mx-auto" : "text-muted-foreground mx-auto"} />
+                      <CreditCard size={24} className="text-whatsapp-green mx-auto" />
                       <p className={`text-sm font-body mt-2 ${paymentMethod === "card" ? "text-primary" : "text-muted-foreground"}`}>
                         Cartão
                       </p>
