@@ -67,7 +67,7 @@ const Pingentes = () => {
 
       <section className="px-4 pb-12 pt-2">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-xl font-display text-foreground mb-4">
+          <h2 className="text-xl font-display text-foreground mb-4 text-center">
             Todos os Pingentes ({allPendants.length})
           </h2>
           <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
