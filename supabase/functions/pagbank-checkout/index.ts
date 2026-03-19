@@ -26,7 +26,7 @@ serve(async (req) => {
     const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
     const body = await req.json();
-    const { payment_method, customer, items, shipping, shipping_option } = body;
+    const { customer, items, shipping, shipping_option, redirect_url } = body;
 
     if (!customer || !items) {
       return new Response(JSON.stringify({ error: 'Dados obrigatórios não fornecidos' }), {
@@ -37,7 +37,6 @@ serve(async (req) => {
 
     const referenceId = `KEFE-${Date.now()}-${Math.random().toString(36).substring(2, 8).toUpperCase()}`;
 
-    const phone = customer.phone.replace(/\D/g, '');
     const cpf = customer.cpf.replace(/\D/g, '');
     const postalCode = (shipping?.postal_code || '').replace(/\D/g, '');
 
@@ -46,19 +45,13 @@ serve(async (req) => {
     const shippingAmount = shipping?.amount || 0;
     const totalAmount = itemsTotal + shippingAmount;
 
-    // Build Orders v4 payload
-    const orderPayload: any = {
+    // Build Checkout API payload
+    const checkoutPayload: any = {
       reference_id: referenceId,
       customer: {
         name: customer.name,
         email: customer.email,
         tax_id: cpf,
-        phones: [{
-          country: "55",
-          area: phone.substring(0, 2),
-          number: phone.substring(2),
-          type: "MOBILE",
-        }],
       },
       items: items.map((item: any, i: number) => ({
         reference_id: String(item.id || i + 1),
@@ -66,7 +59,24 @@ serve(async (req) => {
         quantity: item.quantity,
         unit_amount: item.unit_amount,
       })),
-      shipping: {
+      payment_methods: [
+        { type: "CREDIT_CARD" },
+        { type: "DEBIT_CARD" },
+        { type: "PIX" },
+      ],
+      soft_descriptor: "KefeJoias",
+      redirect_url: redirect_url || "https://kefejoias.lovable.app",
+      notification_urls: [
+        `${supabaseUrl}/functions/v1/pagbank-webhook`,
+      ],
+      expiration_date: new Date(Date.now() + 48 * 60 * 60 * 1000).toISOString(),
+    };
+
+    // Add shipping as an additional item if present
+    if (shippingAmount > 0) {
+      checkoutPayload.shipping = {
+        type: "FIXED",
+        amount: shippingAmount,
         address: {
           street: shipping?.street || '',
           number: shipping?.number || 'S/N',
@@ -77,37 +87,18 @@ serve(async (req) => {
           country: 'BRA',
           postal_code: postalCode,
         },
-      },
-      notification_urls: [
-        `https://mhsxbmugaoqfuqqiqbta.supabase.co/functions/v1/pagbank-webhook`,
-      ],
-    };
-
-    // Add charges based on payment method
-    if (payment_method === 'pix') {
-      orderPayload.qr_codes = [{
-        amount: { value: totalAmount },
-        expiration_date: new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString(),
-      }];
-    } else {
-      orderPayload.charges = [{
-        reference_id: referenceId,
-        description: `Pedido Kefe Joias ${referenceId}`,
-        amount: { value: totalAmount, currency: 'BRL' },
-        payment_method: { type: 'CREDIT_CARD', installments: body.installments || 1, capture: true },
-      }];
+      };
     }
 
-    console.log('Creating PagBank order (v4):', { reference: referenceId, payment_method, totalAmount });
+    console.log('Creating PagBank checkout:', { reference: referenceId, totalAmount });
 
-    const response = await fetch(`${PAGBANK_API}/orders`, {
+    const response = await fetch(`${PAGBANK_API}/checkouts`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`,
-        'x-idempotency-key': referenceId,
       },
-      body: JSON.stringify(orderPayload),
+      body: JSON.stringify(checkoutPayload),
     });
 
     const responseData = await response.json();
@@ -129,12 +120,12 @@ serve(async (req) => {
     const orderRecord = {
       reference_id: referenceId,
       pagbank_order_id: responseData.id,
-      status: responseData.charges?.[0]?.status || responseData.status || 'CREATED',
-      payment_method: payment_method,
+      status: responseData.status || 'ACTIVE',
+      payment_method: 'checkout', // PagBank handles the method choice
       customer_name: customer.name,
       customer_email: customer.email,
       customer_cpf: cpf,
-      customer_phone: phone,
+      customer_phone: (customer.phone || '').replace(/\D/g, ''),
       shipping_street: shipping?.street || '',
       shipping_number: shipping?.number || 'S/N',
       shipping_complement: shipping?.complement || '',
@@ -156,32 +147,19 @@ serve(async (req) => {
     const { error: insertError } = await supabase.from('orders').insert(orderRecord);
     if (insertError) {
       console.error('Error saving order to DB:', insertError);
-      // Don't fail the checkout if DB insert fails — the PagBank order was already created
     } else {
       console.log(`Order ${referenceId} saved to database`);
     }
 
-    // Build result
-    const result: any = {
+    // Extract PAY link from response
+    const payLink = responseData.links?.find((l: any) => l.rel === 'PAY');
+
+    const result = {
       order_id: responseData.id,
       reference_id: referenceId,
-      status: responseData.charges?.[0]?.status || responseData.status || 'CREATED',
+      status: responseData.status || 'ACTIVE',
+      checkout_url: payLink?.href || '',
     };
-
-    if (responseData.qr_codes && responseData.qr_codes.length > 0) {
-      const qr = responseData.qr_codes[0];
-      result.pix = {
-        qr_code: qr.text || '',
-        qr_code_image: qr.links?.find((l: any) => l.media === 'image/png')?.href || '',
-      };
-    }
-
-    if (responseData.links) {
-      const payLink = responseData.links.find((l: any) => l.rel === 'PAY');
-      if (payLink) {
-        result.checkout_url = payLink.href;
-      }
-    }
 
     return new Response(JSON.stringify(result), {
       status: 200,
