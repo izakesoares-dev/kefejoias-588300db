@@ -520,108 +520,137 @@ const Checkout = () => {
               )}
 
               {step === "info" && (
-                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-1">
-                  <div className="p-2 rounded-lg bg-card border border-border/50 space-y-1">
-                    <h2 className="font-display text-base font-bold text-foreground text-center">Dados pessoais</h2>
-                    <div className="grid grid-cols-2 gap-x-1.5 gap-y-0.5">
-                      <div className="col-span-2 sm:col-span-1">
-                        <Label className="text-[10px] leading-none text-muted-foreground">Nome completo</Label>
-                        <Input placeholder="Seu nome" className={`h-7 text-xs ${formErrors.nome ? "border-destructive" : ""}`} value={dadosPessoais.nome} onChange={(e) => { setDadosPessoais(p => ({ ...p, nome: e.target.value })); setFormErrors(p => ({ ...p, nome: "" })); }} maxLength={100} />
-                        {formErrors.nome && <p className="text-[9px] text-destructive">{formErrors.nome}</p>}
+                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-1.5">
+                  <div className="p-3 rounded-lg bg-card border border-border/50 space-y-2.5">
+                    {/* Dados pessoais */}
+                    <div className="flex items-center gap-2 pb-1 border-b border-border/40">
+                      <div className="w-5 h-5 rounded-full bg-primary/15 flex items-center justify-center">
+                        <PenLine size={11} className="text-primary-foreground" />
                       </div>
-                      <div className="col-span-2 sm:col-span-1">
-                        <Label className="text-[10px] leading-none text-muted-foreground">E-mail</Label>
-                        <Input type="email" placeholder="seu@email.com" className={`h-7 text-xs ${formErrors.email ? "border-destructive" : ""}`} value={dadosPessoais.email} onChange={(e) => { setDadosPessoais(p => ({ ...p, email: e.target.value })); setFormErrors(p => ({ ...p, email: "" })); }} maxLength={255} />
-                        {formErrors.email && <p className="text-[9px] text-destructive">{formErrors.email}</p>}
+                      <h2 className="font-display text-sm font-bold text-foreground">Dados pessoais</h2>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-2 gap-y-1.5">
+                      <div>
+                        <Label className="text-[10px] leading-none text-muted-foreground mb-0.5 block">Nome completo *</Label>
+                        <Input placeholder="Seu nome" className={`h-8 text-xs ${formErrors.nome ? "border-destructive" : ""}`} value={dadosPessoais.nome} onChange={(e) => { setDadosPessoais(p => ({ ...p, nome: e.target.value })); setFormErrors(p => ({ ...p, nome: "" })); }} maxLength={100} />
+                        {formErrors.nome && <p className="text-[9px] text-destructive mt-0.5">{formErrors.nome}</p>}
                       </div>
                       <div>
-                        <Label className="text-[10px] leading-none text-muted-foreground">CPF</Label>
-                        <Input placeholder="000.000.000-00" inputMode="numeric" className={`h-7 text-xs ${formErrors.cpf ? "border-destructive" : ""}`} value={dadosPessoais.cpf} onChange={(e) => { setDadosPessoais(p => ({ ...p, cpf: maskCpf(e.target.value) })); setFormErrors(p => ({ ...p, cpf: "" })); }} maxLength={14} />
-                        {formErrors.cpf && <p className="text-[9px] text-destructive">{formErrors.cpf}</p>}
+                        <Label className="text-[10px] leading-none text-muted-foreground mb-0.5 block">E-mail *</Label>
+                        <Input type="email" placeholder="seu@email.com" className={`h-8 text-xs ${formErrors.email ? "border-destructive" : ""}`} value={dadosPessoais.email} onChange={(e) => { setDadosPessoais(p => ({ ...p, email: e.target.value })); setFormErrors(p => ({ ...p, email: "" })); }} maxLength={255} />
+                        {formErrors.email && <p className="text-[9px] text-destructive mt-0.5">{formErrors.email}</p>}
                       </div>
                       <div>
-                        <Label className="text-[10px] leading-none text-muted-foreground">Telefone</Label>
-                        <Input placeholder="(11) 99999-9999" inputMode="numeric" className={`h-7 text-xs ${formErrors.telefone ? "border-destructive" : ""}`} value={dadosPessoais.telefone} onChange={(e) => { setDadosPessoais(p => ({ ...p, telefone: maskPhone(e.target.value) })); setFormErrors(p => ({ ...p, telefone: "" })); }} maxLength={15} />
-                        {formErrors.telefone && <p className="text-[9px] text-destructive">{formErrors.telefone}</p>}
+                        <Label className="text-[10px] leading-none text-muted-foreground mb-0.5 block">CPF *</Label>
+                        <Input placeholder="000.000.000-00" inputMode="numeric" className={`h-8 text-xs ${formErrors.cpf ? "border-destructive" : ""}`} value={dadosPessoais.cpf} onChange={(e) => { setDadosPessoais(p => ({ ...p, cpf: maskCpf(e.target.value) })); setFormErrors(p => ({ ...p, cpf: "" })); }} maxLength={14} />
+                        {formErrors.cpf && <p className="text-[9px] text-destructive mt-0.5">{formErrors.cpf}</p>}
+                      </div>
+                      <div>
+                        <Label className="text-[10px] leading-none text-muted-foreground mb-0.5 block">Telefone *</Label>
+                        <Input placeholder="(11) 99999-9999" inputMode="numeric" className={`h-8 text-xs ${formErrors.telefone ? "border-destructive" : ""}`} value={dadosPessoais.telefone} onChange={(e) => { setDadosPessoais(p => ({ ...p, telefone: maskPhone(e.target.value) })); setFormErrors(p => ({ ...p, telefone: "" })); }} maxLength={15} />
+                        {formErrors.telefone && <p className="text-[9px] text-destructive mt-0.5">{formErrors.telefone}</p>}
                       </div>
                     </div>
-                  </div>
 
-                  <div className="p-2 rounded-lg bg-card border border-border/50 space-y-1">
-                    <h2 className="font-display text-base font-bold text-foreground text-center">Endereço de entrega</h2>
-                    <div className="grid grid-cols-6 gap-x-1.5 gap-y-0.5">
-                      <div className="col-span-3 sm:col-span-2">
-                        <Label className="text-[10px] leading-none text-muted-foreground">CEP</Label>
+                    {/* Divider */}
+                    <div className="border-t border-border/40" />
+
+                    {/* Endereço */}
+                    <div className="flex items-center gap-2 pb-1">
+                      <div className="w-5 h-5 rounded-full bg-primary/15 flex items-center justify-center">
+                        <MapPin size={11} className="text-primary-foreground" />
+                      </div>
+                      <h2 className="font-display text-sm font-bold text-foreground">Endereço de entrega</h2>
+                    </div>
+
+                    {/* CEP + Rua */}
+                    <div className="grid grid-cols-5 gap-x-2 gap-y-1.5">
+                      <div className="col-span-2">
+                        <Label className="text-[10px] leading-none text-muted-foreground mb-0.5 block">CEP *</Label>
                         <div className="flex gap-1 items-center">
                           <Input
                             placeholder="00000-000"
+                            inputMode="numeric"
                             value={cep}
                             onChange={(e) => { handleCepChange(e.target.value); setFormErrors(p => ({ ...p, cep: "" })); }}
-                            className={`h-7 text-xs ${formErrors.cep ? "border-destructive" : ""}`}
+                            className={`h-8 text-xs ${formErrors.cep ? "border-destructive" : ""}`}
                           />
                           {loadingCep && <Loader2 size={12} className="animate-spin text-muted-foreground shrink-0" />}
                         </div>
-                        {(cepError || formErrors.cep) && <p className="text-[9px] text-destructive">{cepError || formErrors.cep}</p>}
+                        {(cepError || formErrors.cep) && <p className="text-[9px] text-destructive mt-0.5">{cepError || formErrors.cep}</p>}
                       </div>
-                      <div className="col-span-3 sm:col-span-4">
-                        <Label className="text-[10px] leading-none text-muted-foreground">Rua</Label>
+                      <div className="col-span-3">
+                        <Label className="text-[10px] leading-none text-muted-foreground mb-0.5 block">Rua *</Label>
                         <Input
                           placeholder="Rua, Avenida..."
-                          className={`h-7 text-xs ${formErrors.rua ? "border-destructive" : ""}`}
+                          className={`h-8 text-xs ${formErrors.rua ? "border-destructive" : ""}`}
                           value={endereco.rua}
                           onChange={(e) => { setEndereco((prev) => ({ ...prev, rua: e.target.value })); setFormErrors(p => ({ ...p, rua: "" })); }}
                         />
-                        {formErrors.rua && <p className="text-[9px] text-destructive">{formErrors.rua}</p>}
-                      </div>
-                      <div className="col-span-2">
-                        <Label className="text-[10px] leading-none text-muted-foreground">Número</Label>
-                        <Input placeholder="123" className={`h-7 text-xs ${formErrors.numero ? "border-destructive" : ""}`} value={dadosPessoais.numero} onChange={(e) => { setDadosPessoais(p => ({ ...p, numero: e.target.value })); setFormErrors(p => ({ ...p, numero: "" })); }} maxLength={10} />
-                        {formErrors.numero && <p className="text-[9px] text-destructive">{formErrors.numero}</p>}
-                      </div>
-                      <div className="col-span-4 sm:col-span-2">
-                        <Label className="text-[10px] leading-none text-muted-foreground">Complemento</Label>
-                        <Input placeholder="Apto, Bloco..." className="h-7 text-xs" value={dadosPessoais.complemento} onChange={(e) => setDadosPessoais(p => ({ ...p, complemento: e.target.value }))} maxLength={100} />
-                      </div>
-                      <div className="col-span-3 sm:col-span-2">
-                        <Label className="text-[10px] leading-none text-muted-foreground">Bairro</Label>
-                        <Input
-                          placeholder="Bairro"
-                          className={`h-7 text-xs ${formErrors.bairro ? "border-destructive" : ""}`}
-                          value={endereco.bairro}
-                          onChange={(e) => { setEndereco((prev) => ({ ...prev, bairro: e.target.value })); setFormErrors(p => ({ ...p, bairro: "" })); }}
-                        />
-                        {formErrors.bairro && <p className="text-[9px] text-destructive">{formErrors.bairro}</p>}
-                      </div>
-                      <div className="col-span-4 sm:col-span-3">
-                        <Label className="text-[10px] leading-none text-muted-foreground">Cidade</Label>
-                        <Input
-                          placeholder="São Paulo"
-                          className={`h-7 text-xs ${formErrors.cidade ? "border-destructive" : ""}`}
-                          value={endereco.cidade}
-                          onChange={(e) => { setEndereco((prev) => ({ ...prev, cidade: e.target.value })); setFormErrors(p => ({ ...p, cidade: "" })); }}
-                        />
-                        {formErrors.cidade && <p className="text-[9px] text-destructive">{formErrors.cidade}</p>}
-                      </div>
-                      <div className="col-span-2 sm:col-span-1">
-                        <Label className="text-[10px] leading-none text-muted-foreground">UF</Label>
-                        <Input
-                          placeholder="SP"
-                          className={`h-7 text-xs ${formErrors.estado ? "border-destructive" : ""}`}
-                          maxLength={2}
-                          value={endereco.estado}
-                          onChange={(e) => { setEndereco((prev) => ({ ...prev, estado: e.target.value })); setFormErrors(p => ({ ...p, estado: "" })); }}
-                        />
-                        {formErrors.estado && <p className="text-[9px] text-destructive">{formErrors.estado}</p>}
+                        {formErrors.rua && <p className="text-[9px] text-destructive mt-0.5">{formErrors.rua}</p>}
                       </div>
                     </div>
 
+                    {/* Número + Complemento + Bairro */}
+                    <div className="grid grid-cols-6 gap-x-2 gap-y-1.5">
+                      <div className="col-span-2">
+                        <Label className="text-[10px] leading-none text-muted-foreground mb-0.5 block">Número *</Label>
+                        <Input placeholder="123" className={`h-8 text-xs ${formErrors.numero ? "border-destructive" : ""}`} value={dadosPessoais.numero} onChange={(e) => { setDadosPessoais(p => ({ ...p, numero: e.target.value })); setFormErrors(p => ({ ...p, numero: "" })); }} maxLength={10} />
+                        {formErrors.numero && <p className="text-[9px] text-destructive mt-0.5">{formErrors.numero}</p>}
+                      </div>
+                      <div className="col-span-2">
+                        <Label className="text-[10px] leading-none text-muted-foreground mb-0.5 block">Complemento</Label>
+                        <Input placeholder="Apto, Bloco..." className="h-8 text-xs" value={dadosPessoais.complemento} onChange={(e) => setDadosPessoais(p => ({ ...p, complemento: e.target.value }))} maxLength={100} />
+                      </div>
+                      <div className="col-span-2">
+                        <Label className="text-[10px] leading-none text-muted-foreground mb-0.5 block">Bairro *</Label>
+                        <Input
+                          placeholder="Bairro"
+                          className={`h-8 text-xs ${formErrors.bairro ? "border-destructive" : ""}`}
+                          value={endereco.bairro}
+                          onChange={(e) => { setEndereco((prev) => ({ ...prev, bairro: e.target.value })); setFormErrors(p => ({ ...p, bairro: "" })); }}
+                        />
+                        {formErrors.bairro && <p className="text-[9px] text-destructive mt-0.5">{formErrors.bairro}</p>}
+                      </div>
+                    </div>
+
+                    {/* Cidade + UF */}
+                    <div className="grid grid-cols-5 gap-x-2 gap-y-1.5">
+                      <div className="col-span-4">
+                        <Label className="text-[10px] leading-none text-muted-foreground mb-0.5 block">Cidade *</Label>
+                        <Input
+                          placeholder="São Paulo"
+                          className={`h-8 text-xs ${formErrors.cidade ? "border-destructive" : ""}`}
+                          value={endereco.cidade}
+                          onChange={(e) => { setEndereco((prev) => ({ ...prev, cidade: e.target.value })); setFormErrors(p => ({ ...p, cidade: "" })); }}
+                        />
+                        {formErrors.cidade && <p className="text-[9px] text-destructive mt-0.5">{formErrors.cidade}</p>}
+                      </div>
+                      <div className="col-span-1">
+                        <Label className="text-[10px] leading-none text-muted-foreground mb-0.5 block">UF *</Label>
+                        <Input
+                          placeholder="SP"
+                          className={`h-8 text-xs ${formErrors.estado ? "border-destructive" : ""}`}
+                          maxLength={2}
+                          value={endereco.estado}
+                          onChange={(e) => { setEndereco((prev) => ({ ...prev, estado: e.target.value.toUpperCase() })); setFormErrors(p => ({ ...p, estado: "" })); }}
+                        />
+                        {formErrors.estado && <p className="text-[9px] text-destructive mt-0.5">{formErrors.estado}</p>}
+                      </div>
+                    </div>
+
+                    {/* Shipping options */}
                     {shippingOptions.length > 0 && (
-                      <div className="pt-0.5">
-                        <Label className="text-[11px] text-muted-foreground">Opção de envio</Label>
+                      <div className="pt-1 border-t border-border/40">
+                        <div className="flex items-center gap-2 mb-1">
+                          <Truck size={12} className="text-whatsapp-green" />
+                          <Label className="text-[10px] text-muted-foreground font-semibold">Opção de envio</Label>
+                        </div>
                         <select
                           value={selectedShipping ?? 0}
                           onChange={(e) => handleSelectShipping(Number(e.target.value))}
-                          className="w-full px-2 py-2 pr-8 mt-0.5 rounded-md border border-whatsapp-green bg-background text-foreground font-body text-[11px] cursor-pointer focus:outline-none focus:ring-1 focus:ring-whatsapp-green bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%2322c55e%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22m6%209%206%206%206-6%22%2F%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[right_0.5rem_center] appearance-none"
+                          className="w-full px-2 py-2 pr-8 rounded-md border border-whatsapp-green bg-background text-foreground font-body text-[11px] cursor-pointer focus:outline-none focus:ring-1 focus:ring-whatsapp-green bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%2322c55e%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22m6%209%206%206%206-6%22%2F%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[right_0.5rem_center] appearance-none"
                         >
                           {shippingOptions.map((opt, i) => (
                             <option key={opt.id} value={i}>
@@ -633,13 +662,16 @@ const Checkout = () => {
                     )}
 
                     {shippingOptions.length === 0 && frete !== null && prazo && (
-                      <p className="text-[11px] text-muted-foreground pt-0.5">
-                        Frete: {formatPrice(frete)} — {prazo}
-                      </p>
+                      <div className="flex items-center gap-2 pt-1 border-t border-border/40">
+                        <Truck size={12} className="text-whatsapp-green" />
+                        <p className="text-[11px] text-muted-foreground font-body">
+                          Frete: {formatPrice(frete)} — {prazo}
+                        </p>
+                      </div>
                     )}
                   </div>
 
-                  <div className="flex gap-2 pt-0.5">
+                  <div className="flex gap-2">
                     <Button onClick={() => setStep("cart")} size="sm" className="bg-gradient-gold text-primary-foreground font-body font-semibold">Voltar</Button>
                     <Button
                       onClick={() => { if (validateInfoStep()) setStep("payment"); }}
