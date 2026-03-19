@@ -17,6 +17,9 @@ import AneisAco from "./pages/AneisAco";
 import Pingentes from "./pages/Pingentes";
 import PingentesPedrasNaturais from "./pages/PingentesPedrasNaturais";
 import PingentesResinaNatural from "./pages/PingentesResinaNatural";
+import Brincos from "./pages/Brincos";
+import BrincosPedrasNaturais from "./pages/BrincosPedrasNaturais";
+import BrincosResinaNatural from "./pages/BrincosResinaNatural";
 import Colares from "./pages/Colares";
 import ColaresPedras from "./pages/ColaresPedras";
 import ColaresResina from "./pages/ColaresResina";
@@ -68,6 +71,10 @@ const App = () => (
             {/* Pingentes */}
             <Route path="/pingentes-pedras-naturais" element={<PingentesPedrasNaturais />} />
             <Route path="/pingentes-resina-natural" element={<PingentesResinaNatural />} />
+            {/* Brincos */}
+            <Route path="/brincos" element={<Brincos />} />
+            <Route path="/brincos-pedras-naturais" element={<BrincosPedrasNaturais />} />
+            <Route path="/brincos-resina-natural" element={<BrincosResinaNatural />} />
             {/* Colares */}
             <Route path="/colares-pedras" element={<ColaresPedras />} />
             <Route path="/colares-resina" element={<ColaresResina />} />

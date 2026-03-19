@@ -22,6 +22,14 @@ const categoryMenuData = {
       { label: "Pingentes de Resina", href: "/pingentes-resina-natural" },
     ],
   },
+  brincos: {
+    label: "Brincos",
+    href: "/brincos",
+    items: [
+      { label: "Brincos de Pedras", href: "/brincos-pedras-naturais" },
+      { label: "Brincos de Resina", href: "/brincos-resina-natural" },
+    ],
+  },
   colares: {
     label: "Colares",
     href: "/colares",
