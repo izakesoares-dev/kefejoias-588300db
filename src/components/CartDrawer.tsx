@@ -22,11 +22,44 @@ const CartDrawer = () => {
         </SheetHeader>
 
         {items.length === 0 ? (
-          <div className="flex-1 flex flex-col items-center justify-center gap-4">
-            <ShoppingCart size={48} className="text-muted-foreground/30" />
-            <p className="text-muted-foreground font-body text-sm">Nenhum item no carrinho</p>
-            <Button variant="outline" onClick={() => setIsCartOpen(false)} asChild>
-              <Link to="/produtos">Explorar produtos</Link>
+          <div className="flex-1 flex flex-col items-center justify-center gap-5 px-4">
+            <div className="w-16 h-16 rounded-full bg-muted/50 flex items-center justify-center">
+              <ShoppingCart size={32} className="text-muted-foreground/40" />
+            </div>
+            <div className="text-center space-y-1">
+              <p className="font-display text-base text-foreground">Seu carrinho está vazio</p>
+              <p className="text-sm text-muted-foreground font-body">Que tal explorar nossas coleções?</p>
+            </div>
+            <div className="w-full space-y-2">
+              {[
+                { to: "/pulseiras", icon: Sparkles, label: "Pulseiras", desc: "Macramê, pedras e aço" },
+                { to: "/aneis", icon: Gem, label: "Anéis", desc: "Pedras naturais e flores" },
+                { to: "/colares", icon: Flower2, label: "Colares", desc: "Resina, pedras e aço" },
+                { to: "/especiais", icon: Gift, label: "Especiais", desc: "Kits, pirâmides e mais" },
+              ].map((item) => (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  onClick={() => setIsCartOpen(false)}
+                  className="flex items-center gap-3 p-2.5 rounded-lg border border-border/50 bg-card hover:border-whatsapp-green/40 hover:bg-whatsapp-green/5 transition-all"
+                >
+                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+                    <item.icon size={16} className="text-green-deep" />
+                  </div>
+                  <div>
+                    <p className="font-body font-semibold text-sm text-foreground">{item.label}</p>
+                    <p className="text-xs text-muted-foreground">{item.desc}</p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+            <Button
+              size="sm"
+              className="w-full bg-gradient-gold text-primary-foreground font-body font-semibold"
+              asChild
+              onClick={() => setIsCartOpen(false)}
+            >
+              <Link to="/produtos">Ver todos os produtos</Link>
             </Button>
           </div>
         ) : (
