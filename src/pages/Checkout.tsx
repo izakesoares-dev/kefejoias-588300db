@@ -752,21 +752,21 @@ const Checkout = () => {
                         <p className="font-body text-sm text-muted-foreground">Total</p>
                         <p className="font-body font-bold text-foreground text-sm">{formatPrice(total)}</p>
                       </div>
-                      <div className="space-y-1.5">
+                      <div className="space-y-1">
                         <div>
-                          <Label className="text-[10px] text-muted-foreground">Nome no cartão</Label>
+                          <Label className="text-sm font-semibold text-foreground block">Nome no cartão *</Label>
                           <Input
                             placeholder="Como está no cartão"
-                            className="h-7 text-xs"
+                            className="h-9 text-sm"
                             value={cardData.holder}
                             onChange={(e) => setCardData(p => ({ ...p, holder: e.target.value.toUpperCase() }))}
                           />
                         </div>
                         <div>
-                          <Label className="text-[10px] text-muted-foreground">Número do cartão</Label>
+                          <Label className="text-sm font-semibold text-foreground block">Número do cartão *</Label>
                           <Input
                             placeholder="0000 0000 0000 0000"
-                            className="h-7 text-xs"
+                            className="h-9 text-sm"
                             inputMode="numeric"
                             value={cardData.number}
                             onChange={(e) => setCardData(p => ({ ...p, number: maskCardNumber(e.target.value) }))}
@@ -775,10 +775,10 @@ const Checkout = () => {
                         </div>
                         <div className="grid grid-cols-3 gap-1.5">
                           <div>
-                            <Label className="text-[10px] text-muted-foreground">Mês</Label>
+                            <Label className="text-sm font-semibold text-foreground block">Mês *</Label>
                             <Input
                               placeholder="MM"
-                              className="h-7 text-xs"
+                              className="h-9 text-sm"
                               inputMode="numeric"
                               maxLength={2}
                               value={cardData.expMonth}
@@ -786,10 +786,10 @@ const Checkout = () => {
                             />
                           </div>
                           <div>
-                            <Label className="text-[10px] text-muted-foreground">Ano</Label>
+                            <Label className="text-sm font-semibold text-foreground block">Ano *</Label>
                             <Input
                               placeholder="AAAA"
-                              className="h-7 text-xs"
+                              className="h-9 text-sm"
                               inputMode="numeric"
                               maxLength={4}
                               value={cardData.expYear}
@@ -797,10 +797,10 @@ const Checkout = () => {
                             />
                           </div>
                           <div>
-                            <Label className="text-[10px] text-muted-foreground">CVV</Label>
+                            <Label className="text-sm font-semibold text-foreground block">CVV *</Label>
                             <Input
                               placeholder="000"
-                              className="h-7 text-xs"
+                              className="h-9 text-sm"
                               inputMode="numeric"
                               maxLength={4}
                               type="password"
@@ -810,11 +810,11 @@ const Checkout = () => {
                           </div>
                         </div>
                         <div>
-                          <Label className="text-[10px] text-muted-foreground">Parcelas</Label>
+                          <Label className="text-sm font-semibold text-foreground block">Parcelas</Label>
                           <select
                             value={cardInstallments}
                             onChange={(e) => setCardInstallments(Number(e.target.value))}
-                            className="w-full px-2 py-1.5 rounded-md border border-border bg-background text-foreground font-body text-xs"
+                            className="w-full px-2 py-2 rounded-md border border-border bg-background text-foreground font-body text-sm"
                           >
                             {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((n) => (
                               <option key={n} value={n}>
