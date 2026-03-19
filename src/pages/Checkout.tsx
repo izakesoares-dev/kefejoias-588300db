@@ -131,10 +131,17 @@ const Checkout = () => {
         const opcoes = await calcularFreteMelhorEnvio(clean, produtos);
 
         if (opcoes.length > 0) {
-          setShippingOptions(opcoes);
+          // Sort: Correios first, then by price
+          const sorted = [...opcoes].sort((a, b) => {
+            const aCorreios = a.company.toLowerCase().includes("correios") ? 0 : 1;
+            const bCorreios = b.company.toLowerCase().includes("correios") ? 0 : 1;
+            if (aCorreios !== bCorreios) return aCorreios - bCorreios;
+            return a.price - b.price;
+          });
+          setShippingOptions(sorted);
           setSelectedShipping(0);
-          setFrete(opcoes[0].price);
-          setPrazo(`${opcoes[0].delivery_time} dias úteis`);
+          setFrete(sorted[0].price);
+          setPrazo(`${sorted[0].delivery_time} dias úteis`);
         } else {
           // Fallback to fixed rate
           setFrete(calcularFrete(data.uf));
