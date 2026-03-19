@@ -11,3 +11,6 @@ verify_jwt = false
 
 [functions.melhor-envio-enviar]
 verify_jwt = false
+
+[functions.admin-orders]
+verify_jwt = false

@@ -94,6 +94,8 @@ const App = () => (
             <Route path="/lancamentos" element={<Products />} />
             <Route path="/mais-vendidos" element={<Products />} />
             <Route path="/personalizar" element={<Contato />} />
+            <Route path="/admin/login" element={<AdminLogin />} />
+            <Route path="/admin" element={<Admin />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
