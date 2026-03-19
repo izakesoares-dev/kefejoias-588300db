@@ -66,10 +66,9 @@ const Checkout = () => {
   const [processingPayment, setProcessingPayment] = useState(false);
   const [paymentError, setPaymentError] = useState("");
   const [orderId, setOrderId] = useState("");
-  const [paymentMethodSelected, setPaymentMethodSelected] = useState<PaymentMethod>(null);
   const [pixData, setPixData] = useState<{ qr_code_text: string; qr_code_image: string } | null>(null);
   const [pixCopied, setPixCopied] = useState(false);
-  const [pollingStatus, setPollingStatus] = useState(false);
+  const pollingRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const pollingRef = useRef<NodeJS.Timeout | null>(null);
   const [cardData, setCardData] = useState({ holder: "", number: "", expMonth: "", expYear: "", cvv: "" });
   const [cardInstallments, setCardInstallments] = useState(1);
