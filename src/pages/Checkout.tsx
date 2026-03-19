@@ -356,7 +356,7 @@ const Checkout = () => {
             <CheckCircle size={64} className="text-primary mx-auto" />
             <h1 className="font-display text-3xl text-foreground">Pedido realizado!</h1>
             <p className="text-muted-foreground font-body">
-              Você será redirecionado para a página de pagamento do PagBank. Caso a página não abra automaticamente, clique no botão abaixo.
+              Seu pagamento foi confirmado! Você receberá os detalhes por e-mail em breve.
             </p>
             {orderId && (
               <p className="text-sm text-muted-foreground font-body">
