@@ -60,7 +60,6 @@ const Footer = () => {
   return (
     <footer id="contato" className="px-6 py-6 md:px-12 lg:px-20 bg-gradient-footer border-t border-gold/20">
       <div className="max-w-7xl mx-auto">
-      <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-6 gap-y-5 mb-5">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
