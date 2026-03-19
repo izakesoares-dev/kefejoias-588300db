@@ -37,6 +37,9 @@ import Flores from "./pages/Flores";
 import Sobre from "./pages/Sobre";
 import Contato from "./pages/Contato";
 import NotFound from "./pages/NotFound";
+import AdminLogin from "./pages/AdminLogin";
+import Admin from "./pages/Admin";
+import AdminSetup from "./pages/AdminSetup";
 
 const queryClient = new QueryClient();
 
@@ -92,6 +95,9 @@ const App = () => (
             <Route path="/lancamentos" element={<Products />} />
             <Route path="/mais-vendidos" element={<Products />} />
             <Route path="/personalizar" element={<Contato />} />
+            <Route path="/admin/login" element={<AdminLogin />} />
+            <Route path="/admin" element={<Admin />} />
+            <Route path="/admin/setup" element={<AdminSetup />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
