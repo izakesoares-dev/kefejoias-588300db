@@ -509,13 +509,22 @@ const Checkout = () => {
                     </div>
                   ))}
 
-                  <Button
-                    onClick={() => setStep("info")}
-                    size="sm"
-                    className="w-full bg-gradient-gold text-primary-foreground font-body font-semibold text-lg h-12"
-                  >
-                    Prosseguir
-                  </Button>
+                  <div className="flex gap-2">
+                    <Button
+                      asChild
+                      size="sm"
+                      className="bg-gradient-gold text-primary-foreground font-body font-semibold"
+                    >
+                      <Link to="/produtos">Voltar</Link>
+                    </Button>
+                    <Button
+                      onClick={() => setStep("info")}
+                      size="sm"
+                      className="flex-1 bg-gradient-gold text-primary-foreground font-body font-semibold"
+                    >
+                      Prosseguir
+                    </Button>
+                  </div>
                 </motion.div>
               )}
 
