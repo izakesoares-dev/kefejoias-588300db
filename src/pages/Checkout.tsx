@@ -653,30 +653,30 @@ const Checkout = () => {
                     <div className="grid grid-cols-2 gap-2">
                       <button
                         onClick={() => setPaymentMethod("pix")}
-                        className={`flex items-center gap-2 p-3 rounded-lg border-2 transition-all ${
+                        className={`flex items-center gap-2 p-2.5 rounded-lg border-2 transition-all ${
                           paymentMethod === "pix"
                             ? "border-whatsapp-green bg-whatsapp-green/10"
                             : "border-border/50 bg-card hover:border-whatsapp-green/30"
                         }`}
                       >
-                        <div className="w-8 h-8 rounded-full bg-whatsapp-green/20 flex items-center justify-center text-lg">📱</div>
+                        <div className="w-7 h-7 rounded-full bg-whatsapp-green/20 flex items-center justify-center text-base">📱</div>
                         <div className="text-left">
                           <p className="font-body font-bold text-foreground text-sm">Pix</p>
-                          <p className="text-[10px] text-whatsapp-green font-medium">5% desconto</p>
+                          <p className="text-xs text-whatsapp-green font-medium">5% desconto</p>
                         </div>
                       </button>
                       <button
                         onClick={() => setPaymentMethod("credit_card")}
-                        className={`flex items-center gap-2 p-3 rounded-lg border-2 transition-all ${
+                        className={`flex items-center gap-2 p-2.5 rounded-lg border-2 transition-all ${
                           paymentMethod === "credit_card"
                             ? "border-whatsapp-green bg-whatsapp-green/10"
                             : "border-border/50 bg-card hover:border-whatsapp-green/30"
                         }`}
                       >
-                        <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-lg">💳</div>
+                        <div className="w-7 h-7 rounded-full bg-primary/10 flex items-center justify-center text-base">💳</div>
                         <div className="text-left">
                           <p className="font-body font-bold text-foreground text-sm">Cartão</p>
-                          <p className="text-[10px] text-muted-foreground">Até 12x</p>
+                          <p className="text-xs text-muted-foreground">Até 12x</p>
                         </div>
                       </button>
                     </div>
