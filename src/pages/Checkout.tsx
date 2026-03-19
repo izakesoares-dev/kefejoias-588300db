@@ -829,30 +829,6 @@ const Checkout = () => {
                   </div>
                 </motion.div>
               )}
-
-                  <div className="flex gap-3 items-center">
-                    <Button onClick={() => setStep("info")} size="sm" className="bg-gradient-gold text-primary-foreground font-body font-semibold">Voltar</Button>
-                    <Button
-                      onClick={handleFinalizarPedido}
-                      disabled={processingPayment}
-                      size="sm"
-                      className="flex-1 bg-gradient-gold text-primary-foreground font-body font-semibold gap-2"
-                    >
-                      {processingPayment ? (
-                        <>
-                          <Loader2 size={18} className="animate-spin" />
-                          Processando...
-                        </>
-                      ) : (
-                        <>
-                          <ShieldCheck size={18} />
-                          Finalizar pedido
-                        </>
-                      )}
-                    </Button>
-                  </div>
-                </motion.div>
-              )}
             </div>
 
             {/* Order summary sidebar */}
