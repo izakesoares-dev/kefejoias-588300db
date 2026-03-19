@@ -6,7 +6,7 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version',
 };
 
-const MELHOR_ENVIO_API = "https://melhorenvio.com.br/api/v2/me";
+const MELHOR_ENVIO_API = "https://sandbox.melhorenvio.com.br/api/v2/me";
 const USER_AGENT = "Kefe Joias (contato@kefejoias.com.br)";
 
 // CEP de origem da loja
