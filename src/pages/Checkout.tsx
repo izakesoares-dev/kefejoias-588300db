@@ -807,18 +807,6 @@ const Checkout = () => {
                             ))}
                           </select>
                         </div>
-                        <Button
-                          onClick={handlePayCard}
-                          disabled={processingPayment}
-                          size="sm"
-                          className="w-full bg-gradient-gold text-primary-foreground font-body font-semibold gap-2 mt-1"
-                        >
-                          {processingPayment ? (
-                            <><Loader2 size={16} className="animate-spin" /> Processando...</>
-                          ) : (
-                            <><CreditCard size={16} /> Pagar {formatPrice(total)}</>
-                          )}
-                        </Button>
                       </div>
                     </div>
                   )}
