@@ -30,49 +30,49 @@ const ColaresResina = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      <section className="pt-24 pb-0 px-4 bg-gradient-to-b from-secondary/50 to-background">
-        <div className="max-w-7xl mx-auto">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center">
+      <section className="pt-24 pb-1 px-4">
+        <div className="max-w-7xl mx-auto text-center">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <h1 className="font-display text-3xl md:text-4xl text-foreground mb-1">
               Colares com <span className="text-gradient-gold">Elementos Naturais</span>
             </h1>
             <p className="font-body text-sm text-muted-foreground max-w-2xl mx-auto">
-              Flores, pimentas e sementes encapsuladas em resina cristalina.
+              Flores, pimentas e sementes em resina cristalina.
             </p>
           </motion.div>
         </div>
       </section>
 
-      <section className="px-4 pt-2 pb-4">
+      <section className="px-4 pt-1 pb-6">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-wrap justify-center gap-2 mb-3">
+          <div className="flex flex-wrap justify-center gap-1.5 mb-3">
             {filters.map((filter) => {
               const Icon = filter.icon;
               return (
                 <button
                   key={filter.id}
                   onClick={() => setActiveFilter(filter.id)}
-                  className={`flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-body transition-all duration-300 ${
+                  className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-body transition-all duration-300 ${
                     activeFilter === filter.id
                       ? "bg-primary text-primary-foreground shadow-gold"
                       : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
                   }`}
                 >
-                  <Icon size={14} />
+                  <Icon size={12} />
                   {filter.label}
                 </button>
               );
             })}
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
             {filtered.map((product, index) => (
               <ProductCard key={product.id} product={product} index={index} />
             ))}
           </div>
 
           {filtered.length === 0 && (
-            <p className="text-center text-muted-foreground font-body py-12">
+            <p className="text-center text-muted-foreground font-body py-8 text-sm">
               Nenhum colar encontrado com esse filtro.
             </p>
           )}
@@ -81,49 +81,19 @@ const ColaresResina = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mt-10 grid md:grid-cols-3 gap-4"
+            className="mt-6 text-center bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 rounded-xl p-4 md:p-6"
           >
-            <div className="text-center p-4 rounded-xl bg-card border border-border/50">
-              <span className="text-3xl mb-2 block">🌹</span>
-              <h3 className="font-display text-lg text-foreground mb-2">Flores</h3>
-              <p className="font-body text-sm text-muted-foreground">
-                Amor, beleza, pureza e novos começos. Cada flor carrega um significado único.
-              </p>
-            </div>
-            <div className="text-center p-4 rounded-xl bg-card border border-border/50">
-              <span className="text-3xl mb-2 block">🌶️</span>
-              <h3 className="font-display text-lg text-foreground mb-2">Pimentas</h3>
-              <p className="font-body text-sm text-muted-foreground">
-                Proteção contra energias negativas, mau-olhado e inveja. Força vital e coragem.
-              </p>
-            </div>
-            <div className="text-center p-4 rounded-xl bg-card border border-border/50">
-              <span className="text-3xl mb-2 block">🌻</span>
-              <h3 className="font-display text-lg text-foreground mb-2">Sementes</h3>
-              <p className="font-body text-sm text-muted-foreground">
-                Prosperidade, fé e novos começos. Símbolos de potencial infinito.
-              </p>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mt-8 text-center bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 rounded-2xl p-6 md:p-8"
-          >
-            <h2 className="font-display text-2xl md:text-3xl text-foreground mb-4">
+            <h2 className="font-display text-xl md:text-2xl text-foreground mb-2">
               Quer eternizar algo especial?
             </h2>
-            <p className="font-body text-muted-foreground mb-6 max-w-xl mx-auto">
-              Podemos criar colares personalizados com flores do seu jardim, 
-              buquê de casamento ou qualquer elemento natural especial.
+            <p className="font-body text-sm text-muted-foreground mb-4 max-w-xl mx-auto">
+              Criamos colares com flores do seu jardim ou buquê de casamento.
             </p>
             <a
               href="https://wa.me/5511996470414?text=Olá! Gostaria de encomendar um colar de resina personalizado."
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-3 bg-primary text-primary-foreground rounded-full font-body font-medium hover:bg-primary/90 transition-all shadow-gold"
+              className="inline-flex items-center gap-2 px-6 py-2.5 bg-primary text-primary-foreground rounded-full font-body text-sm font-medium hover:bg-primary/90 transition-all shadow-gold"
             >
               👉 Escolher colar natural
             </a>
