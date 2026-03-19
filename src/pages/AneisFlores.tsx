@@ -35,33 +35,29 @@ const AneisFlores = () => {
       />
       <Navbar />
 
-      <section className="pt-24 pb-0 px-4 bg-gradient-to-b from-secondary/50 to-background">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-center"
-          >
+      <section className="pt-24 pb-1 px-4">
+        <div className="max-w-7xl mx-auto text-center">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <h1 className="font-display text-3xl md:text-4xl text-foreground mb-1">
               Anéis com <span className="text-gradient-gold">Flores Eternizadas</span>
             </h1>
             <p className="font-body text-sm text-muted-foreground max-w-2xl mx-auto">
-              Flores reais eternizadas para sempre na resina cristalina — beleza eterna no seu dedo.
+              Flores reais eternizadas em resina cristalina — beleza eterna no seu dedo.
             </p>
           </motion.div>
         </div>
       </section>
 
-      <section className="px-4 pt-2 pb-4">
+      <section className="px-4 pt-1 pb-6">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3">
             {displayRings.map((product, index) => (
               <RingProductCard key={product.id} product={product} index={index} globalSize={globalSize} />
             ))}
           </div>
 
           {displayRings.length === 0 && (
-            <p className="text-center text-muted-foreground font-body py-12">
+            <p className="text-center text-muted-foreground font-body py-8 text-sm">
               Em breve novos anéis com flores.
             </p>
           )}
@@ -70,19 +66,19 @@ const AneisFlores = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mt-10 text-center bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 rounded-2xl p-6 md:p-8"
+            className="mt-6 text-center bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 rounded-xl p-4 md:p-6"
           >
-            <h2 className="font-display text-2xl md:text-3xl text-foreground mb-4">
+            <h2 className="font-display text-xl md:text-2xl text-foreground mb-2">
               Quer um anel com uma flor especial?
             </h2>
-            <p className="font-body text-muted-foreground mb-6 max-w-xl mx-auto">
+            <p className="font-body text-sm text-muted-foreground mb-4 max-w-xl mx-auto">
               Criamos anéis personalizados com a flor que você escolher.
             </p>
             <a
               href="https://wa.me/5511996470414?text=Olá! Gostaria de encomendar um anel com flores personalizado."
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-3 bg-primary text-primary-foreground rounded-full font-body font-medium hover:bg-primary/90 transition-all shadow-gold"
+              className="inline-flex items-center gap-2 px-6 py-2.5 bg-primary text-primary-foreground rounded-full font-body text-sm font-medium hover:bg-primary/90 transition-all shadow-gold"
             >
               👉 Encomendar anel personalizado
             </a>

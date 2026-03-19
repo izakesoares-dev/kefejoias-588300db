@@ -11,10 +11,10 @@ import RingSizeSelector from "@/components/RingSizeSelector";
 import { products } from "@/data/products";
 
 const subcategories = [
-  { label: "Anéis de Aço Inox", href: "/aneis-aco", description: "Anéis elegantes em aço inoxidável" },
-  { label: "Colares de Aço Inox", href: "/colares-aco", description: "Colares sofisticados em aço" },
-  { label: "Pulseiras de Aço Inox", href: "/pulseiras-aco", description: "Pulseiras resistentes em aço" },
-  { label: "Pingentes de Aço Inox", href: "/pingentes-aco", description: "Pingentes delicados em aço" },
+  { label: "Anéis", href: "/aneis-aco", icon: "💍" },
+  { label: "Colares", href: "/colares-aco", icon: "📿" },
+  { label: "Pulseiras", href: "/pulseiras-aco", icon: "⚙️" },
+  { label: "Pingentes", href: "/pingentes-aco", icon: "✨" },
 ];
 
 const AcoInox = () => {
@@ -45,18 +45,18 @@ const AcoInox = () => {
         </div>
       </section>
 
-      <section className="px-4 py-2">
-        <div className="max-w-3xl mx-auto grid grid-cols-2 gap-3">
+      <section className="px-4 py-1">
+        <div className="max-w-sm mx-auto grid grid-cols-4 gap-2">
           {subcategories.map((sub) => (
             <Link
               key={sub.href}
               to={sub.href}
-              className="bg-card border-2 border-green-deep/30 rounded-lg px-4 py-3 hover:border-green-deep transition-all text-center group shadow-sm"
+              className="flex flex-col items-center bg-card border border-border/50 rounded-md px-2 py-2.5 hover:border-primary/40 transition-all group"
             >
-              <span className="text-sm font-body font-medium text-foreground group-hover:text-primary transition-colors">
+              <span className="text-xl mb-1">{sub.icon}</span>
+              <span className="text-[11px] font-display text-foreground group-hover:text-primary transition-colors leading-tight text-center">
                 {sub.label}
               </span>
-              <p className="text-xs text-muted-foreground mt-0.5">{sub.description}</p>
             </Link>
           ))}
         </div>

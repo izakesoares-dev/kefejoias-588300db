@@ -47,78 +47,70 @@ const AneisPedrasNaturais = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      {/* Hero Section */}
-      <section className="pt-24 pb-0 px-4 bg-gradient-to-b from-secondary/50 to-background">
-        <div className="max-w-7xl mx-auto">
-          
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-center"
-          >
+      <section className="pt-24 pb-1 px-4">
+        <div className="max-w-7xl mx-auto text-center">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <h1 className="font-display text-3xl md:text-4xl text-foreground mb-1">
               Anéis com <span className="text-gradient-gold">Pedras Naturais</span>
             </h1>
             <p className="font-body text-sm text-muted-foreground max-w-2xl mx-auto">
-              Escolha a pedra que mais combina com sua intenção e use no dia a dia um amuleto de estilo.
+              Escolha a pedra que combina com sua intenção.
             </p>
           </motion.div>
         </div>
       </section>
 
-      <section className="px-4 pt-2 pb-4">
+      <section className="px-4 pt-1 pb-6">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-wrap justify-center gap-2 mb-3">
+          <div className="flex flex-wrap justify-center gap-1.5 mb-3">
             {stoneFilters.map((filter) => {
               const Icon = filter.icon;
               return (
                 <button
                   key={filter.id}
                   onClick={() => setActiveFilter(filter.id)}
-                  className={`flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-body transition-all duration-300 ${
+                  className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-body transition-all duration-300 ${
                     activeFilter === filter.id
                       ? "bg-primary text-primary-foreground shadow-gold"
                       : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
                   }`}
                 >
-                  <Icon size={14} />
+                  <Icon size={12} />
                   {filter.label}
                 </button>
               );
             })}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3">
             {filtered.map((product, index) => (
               <RingProductCard key={product.id} product={product} index={index} globalSize={globalSize} />
             ))}
           </div>
 
           {filtered.length === 0 && (
-            <p className="text-center text-muted-foreground font-body py-12">
+            <p className="text-center text-muted-foreground font-body py-8 text-sm">
               Nenhum anel encontrado com esse filtro.
             </p>
           )}
 
-          {/* CTA Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mt-10 text-center bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 rounded-2xl p-6 md:p-8"
+            className="mt-6 text-center bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 rounded-xl p-4 md:p-6"
           >
-            <h2 className="font-display text-2xl md:text-3xl text-foreground mb-4">
+            <h2 className="font-display text-xl md:text-2xl text-foreground mb-2">
               Não encontrou a pedra perfeita?
             </h2>
-            <p className="font-body text-muted-foreground mb-6 max-w-xl mx-auto">
-              Criamos anéis personalizados com a pedra que você escolher. 
-              Entre em contato e monte sua joia afetiva única.
+            <p className="font-body text-sm text-muted-foreground mb-4 max-w-xl mx-auto">
+              Criamos anéis personalizados com a pedra que você escolher.
             </p>
             <a
               href="https://wa.me/5511996470414?text=Olá! Gostaria de encomendar um anel personalizado com uma pedra específica."
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-3 bg-primary text-primary-foreground rounded-full font-body font-medium hover:bg-primary/90 transition-all shadow-gold"
+              className="inline-flex items-center gap-2 px-6 py-2.5 bg-primary text-primary-foreground rounded-full font-body text-sm font-medium hover:bg-primary/90 transition-all shadow-gold"
             >
               👉 Encomendar anel personalizado
             </a>
