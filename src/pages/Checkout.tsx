@@ -131,11 +131,18 @@ const Checkout = () => {
         const opcoes = await calcularFreteMelhorEnvio(clean, produtos);
 
         if (opcoes.length > 0) {
-          // Sort: Correios first, then by price
+          // Sort: Correios SEDEX first, then PAC, then rest by price
           const sorted = [...opcoes].sort((a, b) => {
-            const aCorreios = a.company.toLowerCase().includes("correios") ? 0 : 1;
-            const bCorreios = b.company.toLowerCase().includes("correios") ? 0 : 1;
-            if (aCorreios !== bCorreios) return aCorreios - bCorreios;
+            const getPriority = (opt: ShippingOption) => {
+              const name = opt.name.toLowerCase();
+              const company = opt.company.toLowerCase();
+              if (company.includes("correios") && name.includes("sedex")) return 0;
+              if (company.includes("correios") && name.includes("pac")) return 1;
+              if (company.includes("correios")) return 2;
+              return 3;
+            };
+            const pa = getPriority(a), pb = getPriority(b);
+            if (pa !== pb) return pa - pb;
             return a.price - b.price;
           });
           setShippingOptions(sorted);
@@ -366,7 +373,7 @@ const Checkout = () => {
           <select
             value={selectedShipping ?? 0}
             onChange={(e) => handleSelectShipping(Number(e.target.value))}
-            className="w-full px-2 py-2 rounded-md border border-whatsapp-green bg-background text-foreground font-body text-sm appearance-none cursor-pointer focus:outline-none focus:ring-1 focus:ring-whatsapp-green"
+            className="w-full px-2 py-2 pr-8 rounded-md border border-whatsapp-green bg-background text-foreground font-body text-sm cursor-pointer focus:outline-none focus:ring-1 focus:ring-whatsapp-green bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%2322c55e%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22m6%209%206%206%206-6%22%2F%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[right_0.5rem_center] appearance-none"
           >
             {shippingOptions.map((opt, i) => (
               <option key={opt.id} value={i}>
@@ -567,7 +574,7 @@ const Checkout = () => {
                         <select
                           value={selectedShipping ?? 0}
                           onChange={(e) => handleSelectShipping(Number(e.target.value))}
-                          className="w-full px-2 py-2 mt-0.5 rounded-md border border-whatsapp-green bg-background text-foreground font-body text-[11px] appearance-none cursor-pointer focus:outline-none focus:ring-1 focus:ring-whatsapp-green"
+                          className="w-full px-2 py-2 pr-8 mt-0.5 rounded-md border border-whatsapp-green bg-background text-foreground font-body text-[11px] cursor-pointer focus:outline-none focus:ring-1 focus:ring-whatsapp-green bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%2322c55e%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22m6%209%206%206%206-6%22%2F%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[right_0.5rem_center] appearance-none"
                         >
                           {shippingOptions.map((opt, i) => (
                             <option key={opt.id} value={i}>
