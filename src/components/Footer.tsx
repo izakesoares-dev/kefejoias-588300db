@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
+import CategoryShortcuts from "@/components/CategoryShortcuts";
 
 const Footer = () => {
   const { toast } = useToast();
@@ -58,7 +59,14 @@ const Footer = () => {
   ];
 
   return (
-    <footer id="contato" className="px-6 py-6 md:px-12 lg:px-20 bg-gradient-footer border-t border-gold/20">
+    <footer id="contato" className="bg-gradient-footer border-t border-gold/20">
+      <div className="px-6 py-3 md:px-12 lg:px-20 border-b border-gold/10">
+        <div className="max-w-7xl mx-auto text-center">
+          <p className="text-xs text-primary font-body font-semibold mb-1.5 uppercase tracking-wide">Explore mais</p>
+          <CategoryShortcuts />
+        </div>
+      </div>
+      <div className="px-6 py-6 md:px-12 lg:px-20">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-6 gap-y-5 mb-5">
           {/* Brand */}
@@ -132,6 +140,7 @@ const Footer = () => {
         <p className="text-center text-[10px] text-white/40 font-body">
           © {new Date().getFullYear()} Kefe Joias. Todos os direitos reservados.
         </p>
+      </div>
       </div>
     </footer>
   );

@@ -2,7 +2,7 @@ import { useState, useCallback, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ChevronLeft, CheckCircle, Loader2, Truck, Package, Wallet, Lock, ExternalLink, PenLine, MapPin, CreditCard, Copy, Check } from "lucide-react";
-import CategoryShortcuts from "@/components/CategoryShortcuts";
+
 import { useCart } from "@/contexts/CartContext";
 import { formatPrice } from "@/data/products";
 import { Button } from "@/components/ui/button";
@@ -894,10 +894,6 @@ const Checkout = () => {
                   <div className="flex items-center gap-1 text-sm text-whatsapp-green font-body font-medium">
                     <Lock size={14} className="text-whatsapp-green" />
                     Compra 100% segura
-                  </div>
-                  <div className="border-t border-border pt-0.5 mt-0">
-                    <p className="text-xs text-muted-foreground text-center mb-0.5 font-body font-semibold">Explore mais</p>
-                    <CategoryShortcuts />
                   </div>
                 </div>
               </div>
