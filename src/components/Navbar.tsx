@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Instagram, ShoppingBag, ChevronDown } from "lucide-react";
+import { Menu, X, Instagram, ShoppingCart, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import kefeLogo from "@/assets/kefe-logo-dark.png";
 import { useCart } from "@/contexts/CartContext";
@@ -150,7 +150,7 @@ const Navbar = () => {
             onClick={() => setIsCartOpen(true)}
             className="relative text-whatsapp-green hover:text-whatsapp-green/80 transition-colors"
           >
-            <ShoppingBag size={20} />
+            <ShoppingCart size={20} className="text-green-price" />
             {totalItems > 0 && (
               <span className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-secondary text-secondary-foreground text-[10px] font-body font-bold flex items-center justify-center">
                 {totalItems}
@@ -165,7 +165,7 @@ const Navbar = () => {
             onClick={() => setIsCartOpen(true)}
             className="relative text-whatsapp-green"
           >
-            <ShoppingBag size={22} />
+            <ShoppingCart size={22} className="text-green-price" />
             {totalItems > 0 && (
               <span className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-secondary text-secondary-foreground text-[10px] font-body font-bold flex items-center justify-center">
                 {totalItems}

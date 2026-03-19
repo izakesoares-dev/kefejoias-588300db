@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ShoppingBag, CreditCard, QrCode, Play } from "lucide-react";
+import { ShoppingCart, CreditCard, QrCode, Play } from "lucide-react";
 import { Product, formatPrice } from "@/data/products";
 import { useCart } from "@/contexts/CartContext";
 import { Button } from "@/components/ui/button";
@@ -169,7 +169,7 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
                 onClick={handleBuy}
                 className="flex-1 h-9 gap-1.5 font-body font-extrabold rounded-xl text-sm bg-primary text-secondary hover:bg-gold-dark hover:text-white transition-colors shadow-gold-sm"
               >
-                <ShoppingBag size={13} />
+                <ShoppingCart size={13} />
                 {product.sizes ? "Ver tamanhos" : "Comprar"}
               </Button>
             </div>

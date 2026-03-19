@@ -2,7 +2,7 @@ import { useCart } from "@/contexts/CartContext";
 import { formatPrice } from "@/data/products";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import { Minus, Plus, Trash2, ShoppingBag } from "lucide-react";
+import { Minus, Plus, Trash2, ShoppingCart } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const CartDrawer = () => {
@@ -13,7 +13,7 @@ const CartDrawer = () => {
       <SheetContent className="bg-background border-border flex flex-col">
         <SheetHeader>
           <SheetTitle className="font-display text-foreground flex items-center gap-2">
-            <ShoppingBag size={20} className="text-primary" />
+            <ShoppingCart size={20} className="text-green-price" />
             Carrinho ({totalItems})
           </SheetTitle>
           <SheetDescription className="text-muted-foreground font-body">
@@ -23,7 +23,7 @@ const CartDrawer = () => {
 
         {items.length === 0 ? (
           <div className="flex-1 flex flex-col items-center justify-center gap-4">
-            <ShoppingBag size={48} className="text-muted-foreground/30" />
+            <ShoppingCart size={48} className="text-muted-foreground/30" />
             <p className="text-muted-foreground font-body text-sm">Nenhum item no carrinho</p>
             <Button variant="outline" onClick={() => setIsCartOpen(false)} asChild>
               <Link to="/produtos">Explorar produtos</Link>
