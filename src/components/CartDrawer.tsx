@@ -81,21 +81,24 @@ const CartDrawer = () => {
                 <span className="text-muted-foreground">Subtotal</span>
                 <span className="text-foreground font-semibold">{formatPrice(subtotal)}</span>
               </div>
-              <p className="text-sm text-muted-foreground">Frete calculado na finalização de compra</p>
-              <Button
-                className="w-full bg-gradient-gold text-primary-foreground font-body font-semibold"
-                asChild
-                onClick={() => setIsCartOpen(false)}
-              >
-                <Link to="/checkout">Seguir para finalização de compra</Link>
-              </Button>
-              <Button
-                variant="outline"
-                className="w-full"
-                onClick={() => setIsCartOpen(false)}
-              >
-                Continuar comprando
-              </Button>
+              <div className="flex gap-2">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="font-body font-semibold"
+                  onClick={() => setIsCartOpen(false)}
+                >
+                  Voltar
+                </Button>
+                <Button
+                  className="flex-1 bg-gradient-gold text-primary-foreground font-body font-semibold"
+                  size="sm"
+                  asChild
+                  onClick={() => setIsCartOpen(false)}
+                >
+                  <Link to="/checkout">Finalizar compra</Link>
+                </Button>
+              </div>
             </div>
           </>
         )}
