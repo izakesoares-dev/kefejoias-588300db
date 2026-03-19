@@ -532,23 +532,23 @@ const Checkout = () => {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-2 gap-y-1">
                       <div>
-                        <Label className="text-xs font-medium text-muted-foreground block">Nome completo *</Label>
-                        <Input placeholder="Seu nome" className={`h-8 text-sm ${formErrors.nome ? "border-destructive" : ""}`} value={dadosPessoais.nome} onChange={(e) => { setDadosPessoais(p => ({ ...p, nome: e.target.value })); setFormErrors(p => ({ ...p, nome: "" })); }} maxLength={100} />
+                        <Label className="text-sm font-semibold text-foreground block">Nome completo *</Label>
+                        <Input placeholder="Seu nome" className={`h-9 text-sm ${formErrors.nome ? "border-destructive" : ""}`} value={dadosPessoais.nome} onChange={(e) => { setDadosPessoais(p => ({ ...p, nome: e.target.value })); setFormErrors(p => ({ ...p, nome: "" })); }} maxLength={100} />
                         {formErrors.nome && <p className="text-[9px] text-destructive">{formErrors.nome}</p>}
                       </div>
                       <div>
-                        <Label className="text-xs font-medium text-muted-foreground block">E-mail *</Label>
-                        <Input type="email" placeholder="seu@email.com" className={`h-8 text-sm ${formErrors.email ? "border-destructive" : ""}`} value={dadosPessoais.email} onChange={(e) => { setDadosPessoais(p => ({ ...p, email: e.target.value })); setFormErrors(p => ({ ...p, email: "" })); }} maxLength={255} />
+                        <Label className="text-sm font-semibold text-foreground block">E-mail *</Label>
+                        <Input type="email" placeholder="seu@email.com" className={`h-9 text-sm ${formErrors.email ? "border-destructive" : ""}`} value={dadosPessoais.email} onChange={(e) => { setDadosPessoais(p => ({ ...p, email: e.target.value })); setFormErrors(p => ({ ...p, email: "" })); }} maxLength={255} />
                         {formErrors.email && <p className="text-[9px] text-destructive">{formErrors.email}</p>}
                       </div>
                       <div>
-                        <Label className="text-xs font-medium text-muted-foreground block">CPF *</Label>
-                        <Input placeholder="000.000.000-00" inputMode="numeric" className={`h-8 text-sm ${formErrors.cpf ? "border-destructive" : ""}`} value={dadosPessoais.cpf} onChange={(e) => { setDadosPessoais(p => ({ ...p, cpf: maskCpf(e.target.value) })); setFormErrors(p => ({ ...p, cpf: "" })); }} maxLength={14} />
+                        <Label className="text-sm font-semibold text-foreground block">CPF *</Label>
+                        <Input placeholder="000.000.000-00" inputMode="numeric" className={`h-9 text-sm ${formErrors.cpf ? "border-destructive" : ""}`} value={dadosPessoais.cpf} onChange={(e) => { setDadosPessoais(p => ({ ...p, cpf: maskCpf(e.target.value) })); setFormErrors(p => ({ ...p, cpf: "" })); }} maxLength={14} />
                         {formErrors.cpf && <p className="text-[9px] text-destructive">{formErrors.cpf}</p>}
                       </div>
                       <div>
-                        <Label className="text-xs font-medium text-muted-foreground block">Telefone *</Label>
-                        <Input placeholder="(11) 99999-9999" inputMode="numeric" className={`h-8 text-sm ${formErrors.telefone ? "border-destructive" : ""}`} value={dadosPessoais.telefone} onChange={(e) => { setDadosPessoais(p => ({ ...p, telefone: maskPhone(e.target.value) })); setFormErrors(p => ({ ...p, telefone: "" })); }} maxLength={15} />
+                        <Label className="text-sm font-semibold text-foreground block">Telefone *</Label>
+                        <Input placeholder="(11) 99999-9999" inputMode="numeric" className={`h-9 text-sm ${formErrors.telefone ? "border-destructive" : ""}`} value={dadosPessoais.telefone} onChange={(e) => { setDadosPessoais(p => ({ ...p, telefone: maskPhone(e.target.value) })); setFormErrors(p => ({ ...p, telefone: "" })); }} maxLength={15} />
                         {formErrors.telefone && <p className="text-[9px] text-destructive">{formErrors.telefone}</p>}
                       </div>
                     </div>
@@ -564,46 +564,46 @@ const Checkout = () => {
 
                     <div className="grid grid-cols-5 gap-x-2 gap-y-1">
                       <div className="col-span-2">
-                        <Label className="text-xs font-medium text-muted-foreground block">CEP *</Label>
+                        <Label className="text-sm font-semibold text-foreground block">CEP *</Label>
                         <div className="flex gap-1 items-center">
-                          <Input placeholder="00000-000" inputMode="numeric" value={cep} onChange={(e) => { handleCepChange(e.target.value); setFormErrors(p => ({ ...p, cep: "" })); }} className={`h-8 text-sm ${formErrors.cep ? "border-destructive" : ""}`} />
+                          <Input placeholder="00000-000" inputMode="numeric" value={cep} onChange={(e) => { handleCepChange(e.target.value); setFormErrors(p => ({ ...p, cep: "" })); }} className={`h-9 text-sm ${formErrors.cep ? "border-destructive" : ""}`} />
                           {loadingCep && <Loader2 size={12} className="animate-spin text-muted-foreground shrink-0" />}
                         </div>
                         {(cepError || formErrors.cep) && <p className="text-[9px] text-destructive">{cepError || formErrors.cep}</p>}
                       </div>
                       <div className="col-span-3">
-                        <Label className="text-xs font-medium text-muted-foreground block">Rua *</Label>
-                        <Input placeholder="Rua, Avenida..." className={`h-8 text-sm ${formErrors.rua ? "border-destructive" : ""}`} value={endereco.rua} onChange={(e) => { setEndereco((prev) => ({ ...prev, rua: e.target.value })); setFormErrors(p => ({ ...p, rua: "" })); }} />
+                        <Label className="text-sm font-semibold text-foreground block">Rua *</Label>
+                        <Input placeholder="Rua, Avenida..." className={`h-9 text-sm ${formErrors.rua ? "border-destructive" : ""}`} value={endereco.rua} onChange={(e) => { setEndereco((prev) => ({ ...prev, rua: e.target.value })); setFormErrors(p => ({ ...p, rua: "" })); }} />
                         {formErrors.rua && <p className="text-[9px] text-destructive">{formErrors.rua}</p>}
                       </div>
                     </div>
 
                     <div className="grid grid-cols-6 gap-x-2 gap-y-1">
                       <div className="col-span-2">
-                        <Label className="text-xs font-medium text-muted-foreground block">Número *</Label>
-                        <Input placeholder="123" className={`h-8 text-sm ${formErrors.numero ? "border-destructive" : ""}`} value={dadosPessoais.numero} onChange={(e) => { setDadosPessoais(p => ({ ...p, numero: e.target.value })); setFormErrors(p => ({ ...p, numero: "" })); }} maxLength={10} />
+                        <Label className="text-sm font-semibold text-foreground block">Número *</Label>
+                        <Input placeholder="123" className={`h-9 text-sm ${formErrors.numero ? "border-destructive" : ""}`} value={dadosPessoais.numero} onChange={(e) => { setDadosPessoais(p => ({ ...p, numero: e.target.value })); setFormErrors(p => ({ ...p, numero: "" })); }} maxLength={10} />
                         {formErrors.numero && <p className="text-[9px] text-destructive">{formErrors.numero}</p>}
                       </div>
                       <div className="col-span-2">
-                        <Label className="text-xs font-medium text-muted-foreground block">Complemento</Label>
-                        <Input placeholder="Apto, Bloco..." className="h-8 text-sm" value={dadosPessoais.complemento} onChange={(e) => setDadosPessoais(p => ({ ...p, complemento: e.target.value }))} maxLength={100} />
+                        <Label className="text-sm font-semibold text-foreground block">Complemento</Label>
+                        <Input placeholder="Apto, Bloco..." className="h-9 text-sm" value={dadosPessoais.complemento} onChange={(e) => setDadosPessoais(p => ({ ...p, complemento: e.target.value }))} maxLength={100} />
                       </div>
                       <div className="col-span-2">
-                        <Label className="text-xs font-medium text-muted-foreground block">Bairro *</Label>
-                        <Input placeholder="Bairro" className={`h-8 text-sm ${formErrors.bairro ? "border-destructive" : ""}`} value={endereco.bairro} onChange={(e) => { setEndereco((prev) => ({ ...prev, bairro: e.target.value })); setFormErrors(p => ({ ...p, bairro: "" })); }} />
+                        <Label className="text-sm font-semibold text-foreground block">Bairro *</Label>
+                        <Input placeholder="Bairro" className={`h-9 text-sm ${formErrors.bairro ? "border-destructive" : ""}`} value={endereco.bairro} onChange={(e) => { setEndereco((prev) => ({ ...prev, bairro: e.target.value })); setFormErrors(p => ({ ...p, bairro: "" })); }} />
                         {formErrors.bairro && <p className="text-[9px] text-destructive">{formErrors.bairro}</p>}
                       </div>
                     </div>
 
                     <div className="grid grid-cols-5 gap-x-2 gap-y-1">
                       <div className="col-span-4">
-                        <Label className="text-xs font-medium text-muted-foreground block">Cidade *</Label>
-                        <Input placeholder="São Paulo" className={`h-8 text-sm ${formErrors.cidade ? "border-destructive" : ""}`} value={endereco.cidade} onChange={(e) => { setEndereco((prev) => ({ ...prev, cidade: e.target.value })); setFormErrors(p => ({ ...p, cidade: "" })); }} />
+                        <Label className="text-sm font-semibold text-foreground block">Cidade *</Label>
+                        <Input placeholder="São Paulo" className={`h-9 text-sm ${formErrors.cidade ? "border-destructive" : ""}`} value={endereco.cidade} onChange={(e) => { setEndereco((prev) => ({ ...prev, cidade: e.target.value })); setFormErrors(p => ({ ...p, cidade: "" })); }} />
                         {formErrors.cidade && <p className="text-[9px] text-destructive">{formErrors.cidade}</p>}
                       </div>
                       <div className="col-span-1">
-                        <Label className="text-xs font-medium text-muted-foreground block">UF *</Label>
-                        <Input placeholder="SP" className={`h-8 text-sm ${formErrors.estado ? "border-destructive" : ""}`} maxLength={2} value={endereco.estado} onChange={(e) => { setEndereco((prev) => ({ ...prev, estado: e.target.value.toUpperCase() })); setFormErrors(p => ({ ...p, estado: "" })); }} />
+                        <Label className="text-sm font-semibold text-foreground block">UF *</Label>
+                        <Input placeholder="SP" className={`h-9 text-sm ${formErrors.estado ? "border-destructive" : ""}`} maxLength={2} value={endereco.estado} onChange={(e) => { setEndereco((prev) => ({ ...prev, estado: e.target.value.toUpperCase() })); setFormErrors(p => ({ ...p, estado: "" })); }} />
                         {formErrors.estado && <p className="text-[9px] text-destructive">{formErrors.estado}</p>}
                       </div>
                     </div>
@@ -752,21 +752,21 @@ const Checkout = () => {
                         <p className="font-body text-sm text-muted-foreground">Total</p>
                         <p className="font-body font-bold text-foreground text-sm">{formatPrice(total)}</p>
                       </div>
-                      <div className="space-y-1.5">
+                      <div className="space-y-1">
                         <div>
-                          <Label className="text-[10px] text-muted-foreground">Nome no cartão</Label>
+                          <Label className="text-sm font-semibold text-foreground block">Nome no cartão *</Label>
                           <Input
                             placeholder="Como está no cartão"
-                            className="h-7 text-xs"
+                            className="h-9 text-sm"
                             value={cardData.holder}
                             onChange={(e) => setCardData(p => ({ ...p, holder: e.target.value.toUpperCase() }))}
                           />
                         </div>
                         <div>
-                          <Label className="text-[10px] text-muted-foreground">Número do cartão</Label>
+                          <Label className="text-sm font-semibold text-foreground block">Número do cartão *</Label>
                           <Input
                             placeholder="0000 0000 0000 0000"
-                            className="h-7 text-xs"
+                            className="h-9 text-sm"
                             inputMode="numeric"
                             value={cardData.number}
                             onChange={(e) => setCardData(p => ({ ...p, number: maskCardNumber(e.target.value) }))}
@@ -775,10 +775,10 @@ const Checkout = () => {
                         </div>
                         <div className="grid grid-cols-3 gap-1.5">
                           <div>
-                            <Label className="text-[10px] text-muted-foreground">Mês</Label>
+                            <Label className="text-sm font-semibold text-foreground block">Mês *</Label>
                             <Input
                               placeholder="MM"
-                              className="h-7 text-xs"
+                              className="h-9 text-sm"
                               inputMode="numeric"
                               maxLength={2}
                               value={cardData.expMonth}
@@ -786,10 +786,10 @@ const Checkout = () => {
                             />
                           </div>
                           <div>
-                            <Label className="text-[10px] text-muted-foreground">Ano</Label>
+                            <Label className="text-sm font-semibold text-foreground block">Ano *</Label>
                             <Input
                               placeholder="AAAA"
-                              className="h-7 text-xs"
+                              className="h-9 text-sm"
                               inputMode="numeric"
                               maxLength={4}
                               value={cardData.expYear}
@@ -797,10 +797,10 @@ const Checkout = () => {
                             />
                           </div>
                           <div>
-                            <Label className="text-[10px] text-muted-foreground">CVV</Label>
+                            <Label className="text-sm font-semibold text-foreground block">CVV *</Label>
                             <Input
                               placeholder="000"
-                              className="h-7 text-xs"
+                              className="h-9 text-sm"
                               inputMode="numeric"
                               maxLength={4}
                               type="password"
@@ -810,11 +810,11 @@ const Checkout = () => {
                           </div>
                         </div>
                         <div>
-                          <Label className="text-[10px] text-muted-foreground">Parcelas</Label>
+                          <Label className="text-sm font-semibold text-foreground block">Parcelas</Label>
                           <select
                             value={cardInstallments}
                             onChange={(e) => setCardInstallments(Number(e.target.value))}
-                            className="w-full px-2 py-1.5 rounded-md border border-border bg-background text-foreground font-body text-xs"
+                            className="w-full px-2 py-2 rounded-md border border-border bg-background text-foreground font-body text-sm"
                           >
                             {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((n) => (
                               <option key={n} value={n}>
