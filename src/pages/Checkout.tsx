@@ -453,10 +453,10 @@ const Checkout = () => {
             Continuar comprando
           </Link>
 
-          <h1 className="font-display text-2xl text-foreground mb-3 text-center">Finalização de compra</h1>
+          <h1 className="font-display text-2xl text-foreground mb-2 text-center">Finalização de compra</h1>
 
           {/* Progress */}
-          <div className="flex items-center gap-1 mb-4">
+          <div className="flex items-center gap-1 mb-2">
             {["Carrinho", "Dados", "Pagamento"].map((label, i) => {
               const stepMap: CheckoutStep[] = ["cart", "info", "payment"];
               const isActive = stepMap.indexOf(step) >= i;
