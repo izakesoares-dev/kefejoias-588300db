@@ -35,15 +35,18 @@ serve(async (req) => {
     }
 
     // Build payload for Melhor Envio
+    // Services: 1=PAC, 2=SEDEX, 3=Mini Envios (Correios)
+    // Also include other popular carriers
     const body = {
       from: { postal_code: "01001000" }, // CEP de origem da loja (São Paulo)
       to: { postal_code: cep_destino.replace(/\D/g, '') },
+      services: "1,2,3,4,7,9,10,11,12,17,22,23,27,28,29,30",
       products: produtos.map((p: any) => ({
         id: String(p.id || "1"),
         width: p.width || 11,
         height: p.height || 5,
         length: p.length || 16,
-        weight: p.weight || 0.1,
+        weight: p.weight || 0.3, // Mínimo 0.3kg para PAC
         insurance_value: p.price || 50,
         quantity: p.quantity || 1,
       })),
