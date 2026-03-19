@@ -71,6 +71,7 @@ const Checkout = () => {
   const pollingRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const [cardData, setCardData] = useState({ holder: "", number: "", expMonth: "", expYear: "", cvv: "" });
   const [cardInstallments, setCardInstallments] = useState(1);
+  const [paymentMethod, setPaymentMethod] = useState<"pix" | "credit_card">("pix");
 
   const validateInfoStep = (): boolean => {
     const errors: Record<string, string> = {};
