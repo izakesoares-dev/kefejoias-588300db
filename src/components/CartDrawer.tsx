@@ -23,28 +23,28 @@ const CartDrawer = () => {
 
         {items.length === 0 ? (
           <div className="flex-1 flex flex-col items-center justify-center gap-5 px-4">
-            <div className="w-16 h-16 rounded-full bg-muted/50 flex items-center justify-center">
-              <ShoppingCart size={32} className="text-muted-foreground/40" />
+            <div className="w-14 h-14 rounded-full bg-gradient-gold flex items-center justify-center">
+              <ShoppingCart size={26} className="text-primary-foreground" />
             </div>
             <div className="text-center space-y-1">
               <p className="font-display text-base text-foreground">Seu carrinho está vazio</p>
               <p className="text-sm text-muted-foreground font-body">Que tal explorar nossas coleções?</p>
             </div>
-            <div className="w-full space-y-2">
+            <div className="w-full space-y-1.5">
               {[
-                { to: "/pulseiras", icon: Sparkles, label: "Pulseiras", desc: "Macramê, pedras e aço" },
-                { to: "/aneis", icon: Gem, label: "Anéis", desc: "Pedras naturais e flores" },
-                { to: "/colares", icon: Flower2, label: "Colares", desc: "Resina, pedras e aço" },
-                { to: "/especiais", icon: Gift, label: "Especiais", desc: "Kits, pirâmides e mais" },
+                { to: "/pulseiras", icon: CircleDot, label: "Pulseiras", desc: "Macramê, pedras e aço" },
+                { to: "/aneis", icon: Hexagon, label: "Anéis", desc: "Pedras naturais e flores" },
+                { to: "/colares", icon: Link2, label: "Colares", desc: "Resina, pedras e aço" },
+                { to: "/especiais", icon: Star, label: "Especiais", desc: "Kits, pirâmides e mais" },
               ].map((item) => (
                 <Link
                   key={item.to}
                   to={item.to}
                   onClick={() => setIsCartOpen(false)}
-                  className="flex items-center gap-3 p-2.5 rounded-lg border border-border/50 bg-card hover:border-whatsapp-green/40 hover:bg-whatsapp-green/5 transition-all"
+                  className="flex items-center gap-3 p-2.5 rounded-lg border border-border/50 bg-card hover:border-primary/50 hover:shadow-gold-sm transition-all"
                 >
-                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
-                    <item.icon size={16} className="text-green-deep" />
+                  <div className="w-9 h-9 rounded-full bg-gradient-gold flex items-center justify-center shadow-gold-sm">
+                    <item.icon size={16} className="text-primary-foreground" strokeWidth={2.5} />
                   </div>
                   <div>
                     <p className="font-body font-semibold text-sm text-foreground">{item.label}</p>
