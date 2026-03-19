@@ -47,7 +47,7 @@ const CartDrawer = () => {
                     {item.size && (
                       <p className="text-xs text-muted-foreground">Tamanho: {item.size}</p>
                     )}
-                    <p className="text-sm font-display text-primary mt-1">
+                    <p className="text-sm font-display font-extrabold text-green-price mt-1">
                       {formatPrice(item.product.price)}
                     </p>
                     <div className="flex items-center gap-2 mt-2">
