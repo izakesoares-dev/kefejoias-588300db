@@ -223,7 +223,6 @@ const Checkout = () => {
         });
         if (data?.status === 'PAID') {
           if (pollingRef.current) clearInterval(pollingRef.current);
-          setPollingStatus(false);
           clearCart();
           setStep("done");
         }
