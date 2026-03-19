@@ -13,7 +13,7 @@ const CartDrawer = () => {
       <SheetContent className="bg-background border-border flex flex-col">
         <SheetHeader>
           <SheetTitle className="font-display text-foreground flex items-center gap-2">
-            <ShoppingBag size={20} className="text-primary" />
+            <ShoppingCart size={20} className="text-green-price" />
             Carrinho ({totalItems})
           </SheetTitle>
           <SheetDescription className="text-muted-foreground font-body">
