@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Instagram, Mail, MapPin, Facebook, Music2 } from "lucide-react";
 import { Link } from "react-router-dom";
+import CategoryShortcuts from "@/components/CategoryShortcuts";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
@@ -59,6 +60,9 @@ const Footer = () => {
 
   return (
     <footer id="contato" className="px-6 py-6 md:px-12 lg:px-20 bg-gradient-footer border-t border-gold/20">
+      <div className="mb-4">
+        <CategoryShortcuts />
+      </div>
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-6 gap-y-5 mb-5">
           {/* Brand */}
