@@ -171,7 +171,7 @@ const ArtisanBadge = ({ selectedSize, onSizeChange, collapsed, hideArtisanNote, 
               className="flex items-center gap-1 font-display text-sm font-bold text-foreground transition-all hover:text-foreground/80 whitespace-nowrap"
             >
               Como descobrir seu tamanho?
-              <ChevronDown size={12} className={`transition-transform duration-200 ${showGuide ? "rotate-180" : ""}`} />
+              <ChevronDown size={16} className={`transition-transform duration-200 ${showGuide ? "rotate-180" : ""}`} />
             </button>
           </div>
 
