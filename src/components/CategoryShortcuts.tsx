@@ -14,7 +14,7 @@ interface CategoryShortcutsProps {
 
 const CategoryShortcuts = ({ onNavigate }: CategoryShortcutsProps) => {
   return (
-    <div className="flex items-center justify-center gap-2 flex-wrap">
+    <div className="flex items-center justify-center gap-1.5 flex-nowrap overflow-x-auto">
       {categories.map((cat) => (
         <Link
           key={cat.to}
