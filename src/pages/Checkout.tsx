@@ -740,7 +740,10 @@ const Checkout = () => {
                   {/* Credit Card Content */}
                   {paymentMethod === "credit_card" && !pixData && (
                     <div className="p-3 rounded-lg bg-card border border-border/50 space-y-2">
-                      <div className="flex items-center justify-between mb-1">
+                      <div className="py-2 px-3 rounded-md bg-muted/60 text-center">
+                        <h2 className="font-display text-base font-bold text-foreground">Dados do cartão</h2>
+                      </div>
+                      <div className="flex items-center justify-between">
                         <p className="font-body text-sm text-muted-foreground">Total</p>
                         <p className="font-body font-bold text-foreground text-sm">{formatPrice(total)}</p>
                       </div>
