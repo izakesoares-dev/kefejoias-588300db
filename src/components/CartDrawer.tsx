@@ -83,9 +83,8 @@ const CartDrawer = () => {
               </div>
               <div className="flex gap-2">
                 <Button
-                  variant="outline"
                   size="sm"
-                  className="font-body font-semibold"
+                  className="bg-gradient-gold text-primary-foreground font-body font-semibold"
                   onClick={() => setIsCartOpen(false)}
                 >
                   Voltar
