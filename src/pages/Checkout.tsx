@@ -562,27 +562,19 @@ const Checkout = () => {
 
                     {/* Shipping options in address section */}
                     {shippingOptions.length > 0 && (
-                      <div className="pt-0.5 space-y-0.5">
+                      <div className="pt-0.5">
                         <Label className="text-[11px] text-muted-foreground">Opção de envio</Label>
-                        {shippingOptions.map((opt, i) => (
-                          <button
-                            key={opt.id}
-                            onClick={() => handleSelectShipping(i)}
-                            className={`w-full flex items-center gap-1.5 px-2 py-1 rounded-md border text-left transition-all ${
-                              selectedShipping === i
-                                ? "border-whatsapp-green bg-whatsapp-green/10"
-                                : "border-border/50 bg-background hover:border-whatsapp-green/30"
-                            }`}
-                          >
-                            <Truck size={12} className={selectedShipping === i ? "text-whatsapp-green" : "text-muted-foreground"} />
-                            <span className={`font-body text-[11px] flex-1 min-w-0 ${selectedShipping === i ? "text-foreground" : "text-muted-foreground"}`}>
-                              {opt.company} — {opt.name} ({opt.delivery_time} dias úteis)
-                            </span>
-                            <span className={`font-body text-[11px] font-semibold shrink-0 ${selectedShipping === i ? "text-whatsapp-green" : "text-foreground"}`}>
-                              {formatPrice(opt.price)}
-                            </span>
-                          </button>
-                        ))}
+                        <select
+                          value={selectedShipping ?? 0}
+                          onChange={(e) => handleSelectShipping(Number(e.target.value))}
+                          className="w-full px-2 py-2 mt-0.5 rounded-md border border-whatsapp-green bg-background text-foreground font-body text-[11px] appearance-none cursor-pointer focus:outline-none focus:ring-1 focus:ring-whatsapp-green"
+                        >
+                          {shippingOptions.map((opt, i) => (
+                            <option key={opt.id} value={i}>
+                              {opt.company} — {opt.name} ({opt.delivery_time} dias úteis) — {formatPrice(opt.price)}
+                            </option>
+                          ))}
+                        </select>
                       </div>
                     )}
 
