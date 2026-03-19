@@ -172,71 +172,160 @@ const Checkout = () => {
     setPrazo(`${opt.delivery_time} dias úteis`);
   };
 
-  const handleFinalizarPedido = async () => {
+  // Cleanup polling on unmount
+  useEffect(() => {
+    return () => {
+      if (pollingRef.current) clearInterval(pollingRef.current);
+    };
+  }, []);
+
+  const buildPayload = () => ({
+    customer: {
+      name: dadosPessoais.nome,
+      email: dadosPessoais.email,
+      cpf: dadosPessoais.cpf,
+      phone: dadosPessoais.telefone,
+    },
+    items: items.map((item) => ({
+      id: item.product.id,
+      name: item.product.name,
+      quantity: item.quantity,
+      unit_amount: Math.round(item.product.price * 100),
+    })),
+    shipping: {
+      street: endereco.rua,
+      number: dadosPessoais.numero,
+      complement: dadosPessoais.complemento,
+      neighborhood: endereco.bairro,
+      city: endereco.cidade,
+      state: endereco.estado,
+      postal_code: cep,
+      amount: frete ? Math.round(frete * 100) : 0,
+    },
+    shipping_option: selectedShipping !== null && shippingOptions[selectedShipping] ? {
+      id: shippingOptions[selectedShipping].id,
+      name: shippingOptions[selectedShipping].name,
+      company: shippingOptions[selectedShipping].company,
+      price: shippingOptions[selectedShipping].price,
+      delivery_time: shippingOptions[selectedShipping].delivery_time,
+    } : null,
+  });
+
+  const startPixPolling = (pagbankOrderId: string) => {
+    setPollingStatus(true);
+    let attempts = 0;
+    pollingRef.current = setInterval(async () => {
+      attempts++;
+      if (attempts > 120) { // 10 min max
+        if (pollingRef.current) clearInterval(pollingRef.current);
+        setPollingStatus(false);
+        return;
+      }
+      try {
+        const { data } = await supabase.functions.invoke('pagbank-order-status', {
+          body: { order_id: pagbankOrderId },
+        });
+        if (data?.status === 'PAID') {
+          if (pollingRef.current) clearInterval(pollingRef.current);
+          setPollingStatus(false);
+          clearCart();
+          setStep("done");
+        }
+      } catch (err) {
+        console.error('Polling error:', err);
+      }
+    }, 5000);
+  };
+
+  const handlePayPix = async () => {
     setProcessingPayment(true);
     setPaymentError("");
-
     try {
-      const payload: any = {
-        customer: {
-          name: dadosPessoais.nome,
-          email: dadosPessoais.email,
-          cpf: dadosPessoais.cpf,
-          phone: dadosPessoais.telefone,
-        },
-        items: items.map((item) => ({
-          id: item.product.id,
-          name: item.product.name,
-          quantity: item.quantity,
-          unit_amount: Math.round(item.product.price * 100),
-        })),
-        shipping: {
-          street: endereco.rua,
-          number: dadosPessoais.numero,
-          complement: dadosPessoais.complemento,
-          neighborhood: endereco.bairro,
-          city: endereco.cidade,
-          state: endereco.estado,
-          postal_code: cep,
-          amount: frete ? Math.round(frete * 100) : 0,
-        },
-        shipping_option: selectedShipping !== null && shippingOptions[selectedShipping] ? {
-          id: shippingOptions[selectedShipping].id,
-          name: shippingOptions[selectedShipping].name,
-          company: shippingOptions[selectedShipping].company,
-          price: shippingOptions[selectedShipping].price,
-          delivery_time: shippingOptions[selectedShipping].delivery_time,
-        } : null,
-        redirect_url: window.location.origin,
-      };
-
-      const { data, error } = await supabase.functions.invoke('pagbank-checkout', {
-        body: payload,
-      });
-
+      const payload = { ...buildPayload(), payment_method: "pix" };
+      const { data, error } = await supabase.functions.invoke('pagbank-order', { body: payload });
       if (error) throw new Error(error.message || 'Erro ao processar pagamento');
       if (data?.error) throw new Error(data.error);
 
       setOrderId(data.reference_id || data.order_id);
+      if (data.pix) {
+        setPixData(data.pix);
+        startPixPolling(data.order_id);
+      }
+    } catch (err: any) {
+      console.error('Pix error:', err);
+      setPaymentError(err.message || 'Erro ao gerar Pix. Tente novamente.');
+    } finally {
+      setProcessingPayment(false);
+    }
+  };
 
-      // Redirect to PagBank checkout page
-      if (data.checkout_url) {
-        clearCart();
-        setStep("done");
-        window.open(data.checkout_url, '_blank');
-        return;
+  const handlePayCard = async () => {
+    setProcessingPayment(true);
+    setPaymentError("");
+    try {
+      // Use PagBank JS SDK to encrypt card
+      const PagSeguro = (window as any).PagSeguro;
+      if (!PagSeguro) throw new Error('SDK de pagamento não carregado. Recarregue a página.');
+
+      const publicKey = (window as any).__PAGBANK_PUBLIC_KEY__;
+      if (!publicKey) throw new Error('Chave pública não configurada');
+
+      const cardEncrypted = PagSeguro.encryptCard({
+        publicKey,
+        holder: cardData.holder,
+        number: cardData.number.replace(/\s/g, ''),
+        expMonth: cardData.expMonth,
+        expYear: cardData.expYear,
+        securityCode: cardData.cvv,
+      });
+
+      if (cardEncrypted.hasErrors) {
+        const errors = cardEncrypted.errors;
+        const msgs = errors.map((e: any) => e.message || e.code).join('; ');
+        throw new Error(`Dados do cartão inválidos: ${msgs}`);
       }
 
-      clearCart();
-      setStep("done");
+      const payload = {
+        ...buildPayload(),
+        payment_method: "credit_card",
+        card_encrypted: cardEncrypted.encryptedCard,
+        installments: cardInstallments,
+      };
+
+      const { data, error } = await supabase.functions.invoke('pagbank-order', { body: payload });
+      if (error) throw new Error(error.message || 'Erro ao processar pagamento');
+      if (data?.error) throw new Error(data.error);
+
+      setOrderId(data.reference_id || data.order_id);
+      if (data.status === 'PAID') {
+        clearCart();
+        setStep("done");
+      } else if (data.status === 'DECLINED') {
+        throw new Error('Pagamento recusado. Verifique os dados do cartão.');
+      } else {
+        clearCart();
+        setStep("done");
+      }
     } catch (err: any) {
-      console.error('Payment error:', err);
+      console.error('Card error:', err);
       setPaymentError(err.message || 'Erro ao processar pagamento. Tente novamente.');
     } finally {
       setProcessingPayment(false);
     }
   };
 
+  const handleCopyPix = () => {
+    if (pixData?.qr_code_text) {
+      navigator.clipboard.writeText(pixData.qr_code_text);
+      setPixCopied(true);
+      setTimeout(() => setPixCopied(false), 3000);
+    }
+  };
+
+  const maskCardNumber = (v: string) => {
+    const d = v.replace(/\D/g, "").slice(0, 16);
+    return d.replace(/(\d{4})/g, "$1 ").trim();
+  };
   const total = subtotal + (frete ?? 0);
 
   if (items.length === 0 && step !== "done") {
