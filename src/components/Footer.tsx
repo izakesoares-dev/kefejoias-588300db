@@ -144,6 +144,7 @@ const Footer = () => {
           © {new Date().getFullYear()} Kefe Joias. Todos os direitos reservados.
         </p>
       </div>
+      </div>
     </footer>
   );
 };
