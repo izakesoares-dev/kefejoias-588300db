@@ -14,7 +14,7 @@ import { fetchAddress, calcularFreteMelhorEnvio, calcularFrete, estimarPrazo, ty
 import { supabase } from "@/integrations/supabase/client";
 
 type CheckoutStep = "cart" | "info" | "payment" | "done";
-type PaymentMethod = "pix" | "credit_card" | null;
+
 
 const maskCpf = (v: string) => {
   const d = v.replace(/\D/g, "").slice(0, 11);
