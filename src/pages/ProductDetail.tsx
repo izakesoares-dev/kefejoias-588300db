@@ -106,7 +106,7 @@ const ProductDetail = () => {
               </div>
 
               <div className="flex items-baseline gap-3">
-                <span className="font-display text-3xl font-extrabold text-green-price drop-shadow-sm">{formatPrice(product.price)}</span>
+                <span className="font-body text-3xl font-extrabold text-green-price drop-shadow-sm">{formatPrice(product.price)}</span>
                 <span className="text-sm text-muted-foreground font-body">
                   ou 3x de {formatPrice(product.price / 3)} sem juros
                 </span>
