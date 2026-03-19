@@ -14,18 +14,18 @@ interface CategoryShortcutsProps {
 
 const CategoryShortcuts = ({ onNavigate }: CategoryShortcutsProps) => {
   return (
-    <div className="flex items-center justify-center gap-1.5 flex-nowrap overflow-x-auto">
+    <div className="flex items-center justify-center gap-1 flex-nowrap">
       {categories.map((cat) => (
         <Link
           key={cat.to}
           to={cat.to}
           onClick={onNavigate}
-          className="flex items-center gap-1 px-2 py-1 rounded-full border border-border/50 bg-card hover:border-primary/50 hover:shadow-gold-sm transition-all whitespace-nowrap flex-shrink-0"
+          className="flex items-center gap-0.5 px-1.5 py-0.5 rounded-full border border-border/50 bg-card hover:border-primary/50 transition-all whitespace-nowrap flex-shrink-0"
         >
-          <div className="w-5 h-5 rounded-full bg-gradient-gold flex items-center justify-center">
-            <cat.icon size={11} className="text-primary-foreground" strokeWidth={2.5} />
+          <div className="w-4 h-4 rounded-full bg-gradient-gold flex items-center justify-center">
+            <cat.icon size={9} className="text-primary-foreground" strokeWidth={2.5} />
           </div>
-          <span className="font-body text-[11px] font-semibold text-foreground">{cat.label}</span>
+          <span className="font-body text-[10px] font-semibold text-foreground">{cat.label}</span>
         </Link>
       ))}
     </div>
