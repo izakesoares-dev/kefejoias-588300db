@@ -550,13 +550,8 @@ const Checkout = () => {
                       </div>
                     </div>
 
-                    <div className="border-t border-border/40" />
-
-                    <div className="flex items-center gap-2 pb-1">
-                      <div className="w-5 h-5 rounded-full bg-primary/15 flex items-center justify-center">
-                        <MapPin size={11} className="text-primary-foreground" />
-                      </div>
-                      <h2 className="font-display text-sm font-bold text-foreground">Endereço de entrega</h2>
+                    <div className="py-2 px-3 rounded-md bg-muted/60 text-center">
+                      <h2 className="font-display text-base font-bold text-foreground">Endereço de entrega</h2>
                     </div>
 
                     <div className="grid grid-cols-5 gap-x-2 gap-y-1">
