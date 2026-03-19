@@ -39,6 +39,7 @@ import Contato from "./pages/Contato";
 import NotFound from "./pages/NotFound";
 import AdminLogin from "./pages/AdminLogin";
 import Admin from "./pages/Admin";
+import AdminSetup from "./pages/AdminSetup";
 
 const queryClient = new QueryClient();
 
