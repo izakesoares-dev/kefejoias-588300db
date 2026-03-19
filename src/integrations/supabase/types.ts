@@ -14,7 +14,108 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      orders: {
+        Row: {
+          created_at: string
+          customer_cpf: string | null
+          customer_email: string
+          customer_name: string
+          customer_phone: string | null
+          id: string
+          items: Json
+          items_total: number
+          melhor_envio_label_url: string | null
+          melhor_envio_shipment_id: string | null
+          melhor_envio_status: string | null
+          melhor_envio_tracking: string | null
+          pagbank_order_id: string | null
+          payment_method: string | null
+          reference_id: string
+          shipping_amount: number
+          shipping_city: string | null
+          shipping_company: string | null
+          shipping_complement: string | null
+          shipping_delivery_time: number | null
+          shipping_neighborhood: string | null
+          shipping_number: string | null
+          shipping_postal_code: string | null
+          shipping_price: number | null
+          shipping_service_id: number | null
+          shipping_service_name: string | null
+          shipping_state: string | null
+          shipping_street: string | null
+          status: string
+          total_amount: number
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          customer_cpf?: string | null
+          customer_email: string
+          customer_name: string
+          customer_phone?: string | null
+          id?: string
+          items?: Json
+          items_total?: number
+          melhor_envio_label_url?: string | null
+          melhor_envio_shipment_id?: string | null
+          melhor_envio_status?: string | null
+          melhor_envio_tracking?: string | null
+          pagbank_order_id?: string | null
+          payment_method?: string | null
+          reference_id: string
+          shipping_amount?: number
+          shipping_city?: string | null
+          shipping_company?: string | null
+          shipping_complement?: string | null
+          shipping_delivery_time?: number | null
+          shipping_neighborhood?: string | null
+          shipping_number?: string | null
+          shipping_postal_code?: string | null
+          shipping_price?: number | null
+          shipping_service_id?: number | null
+          shipping_service_name?: string | null
+          shipping_state?: string | null
+          shipping_street?: string | null
+          status?: string
+          total_amount?: number
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          customer_cpf?: string | null
+          customer_email?: string
+          customer_name?: string
+          customer_phone?: string | null
+          id?: string
+          items?: Json
+          items_total?: number
+          melhor_envio_label_url?: string | null
+          melhor_envio_shipment_id?: string | null
+          melhor_envio_status?: string | null
+          melhor_envio_tracking?: string | null
+          pagbank_order_id?: string | null
+          payment_method?: string | null
+          reference_id?: string
+          shipping_amount?: number
+          shipping_city?: string | null
+          shipping_company?: string | null
+          shipping_complement?: string | null
+          shipping_delivery_time?: number | null
+          shipping_neighborhood?: string | null
+          shipping_number?: string | null
+          shipping_postal_code?: string | null
+          shipping_price?: number | null
+          shipping_service_id?: number | null
+          shipping_service_name?: string | null
+          shipping_state?: string | null
+          shipping_street?: string | null
+          status?: string
+          total_amount?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
