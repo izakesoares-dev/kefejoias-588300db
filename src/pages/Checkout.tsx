@@ -131,11 +131,18 @@ const Checkout = () => {
         const opcoes = await calcularFreteMelhorEnvio(clean, produtos);
 
         if (opcoes.length > 0) {
-          // Sort: Correios first, then by price
+          // Sort: Correios SEDEX first, then PAC, then rest by price
           const sorted = [...opcoes].sort((a, b) => {
-            const aCorreios = a.company.toLowerCase().includes("correios") ? 0 : 1;
-            const bCorreios = b.company.toLowerCase().includes("correios") ? 0 : 1;
-            if (aCorreios !== bCorreios) return aCorreios - bCorreios;
+            const getPriority = (opt: ShippingOption) => {
+              const name = opt.name.toLowerCase();
+              const company = opt.company.toLowerCase();
+              if (company.includes("correios") && name.includes("sedex")) return 0;
+              if (company.includes("correios") && name.includes("pac")) return 1;
+              if (company.includes("correios")) return 2;
+              return 3;
+            };
+            const pa = getPriority(a), pb = getPriority(b);
+            if (pa !== pb) return pa - pb;
             return a.price - b.price;
           });
           setShippingOptions(sorted);
