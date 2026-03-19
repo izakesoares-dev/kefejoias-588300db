@@ -131,10 +131,17 @@ const Checkout = () => {
         const opcoes = await calcularFreteMelhorEnvio(clean, produtos);
 
         if (opcoes.length > 0) {
-          setShippingOptions(opcoes);
+          // Sort: Correios first, then by price
+          const sorted = [...opcoes].sort((a, b) => {
+            const aCorreios = a.company.toLowerCase().includes("correios") ? 0 : 1;
+            const bCorreios = b.company.toLowerCase().includes("correios") ? 0 : 1;
+            if (aCorreios !== bCorreios) return aCorreios - bCorreios;
+            return a.price - b.price;
+          });
+          setShippingOptions(sorted);
           setSelectedShipping(0);
-          setFrete(opcoes[0].price);
-          setPrazo(`${opcoes[0].delivery_time} dias úteis`);
+          setFrete(sorted[0].price);
+          setPrazo(`${sorted[0].delivery_time} dias úteis`);
         } else {
           // Fallback to fixed rate
           setFrete(calcularFrete(data.uf));
@@ -355,26 +362,18 @@ const Checkout = () => {
 
       {/* Melhor Envio options */}
       {shippingOptions.length > 0 && (
-        <div className="mt-1.5 space-y-0.5">
-          {shippingOptions.map((opt, i) => (
-            <button
-              key={opt.id}
-              onClick={() => handleSelectShipping(i)}
-              className={`w-full flex items-center gap-1.5 px-2 py-1 rounded-md border text-left transition-all ${
-                selectedShipping === i
-                  ? "border-whatsapp-green bg-whatsapp-green/10"
-                  : "border-border/50 bg-background hover:border-whatsapp-green/30"
-              }`}
-            >
-              <Truck size={15} className={selectedShipping === i ? "text-whatsapp-green" : "text-muted-foreground"} />
-              <span className={`font-body text-sm flex-1 min-w-0 ${selectedShipping === i ? "text-foreground" : "text-muted-foreground"}`}>
-                {opt.company} — {opt.name} ({opt.delivery_time} dias úteis)
-              </span>
-              <span className={`font-body text-sm font-semibold shrink-0 ${selectedShipping === i ? "text-whatsapp-green" : "text-foreground"}`}>
-                {formatPrice(opt.price)}
-              </span>
-            </button>
-          ))}
+        <div className="mt-1.5">
+          <select
+            value={selectedShipping ?? 0}
+            onChange={(e) => handleSelectShipping(Number(e.target.value))}
+            className="w-full px-2 py-2 rounded-md border border-whatsapp-green bg-background text-foreground font-body text-sm appearance-none cursor-pointer focus:outline-none focus:ring-1 focus:ring-whatsapp-green"
+          >
+            {shippingOptions.map((opt, i) => (
+              <option key={opt.id} value={i}>
+                {opt.company} — {opt.name} ({opt.delivery_time} dias úteis) — {formatPrice(opt.price)}
+              </option>
+            ))}
+          </select>
         </div>
       )}
 
@@ -563,27 +562,19 @@ const Checkout = () => {
 
                     {/* Shipping options in address section */}
                     {shippingOptions.length > 0 && (
-                      <div className="pt-0.5 space-y-0.5">
+                      <div className="pt-0.5">
                         <Label className="text-[11px] text-muted-foreground">Opção de envio</Label>
-                        {shippingOptions.map((opt, i) => (
-                          <button
-                            key={opt.id}
-                            onClick={() => handleSelectShipping(i)}
-                            className={`w-full flex items-center gap-1.5 px-2 py-1 rounded-md border text-left transition-all ${
-                              selectedShipping === i
-                                ? "border-whatsapp-green bg-whatsapp-green/10"
-                                : "border-border/50 bg-background hover:border-whatsapp-green/30"
-                            }`}
-                          >
-                            <Truck size={12} className={selectedShipping === i ? "text-whatsapp-green" : "text-muted-foreground"} />
-                            <span className={`font-body text-[11px] flex-1 min-w-0 ${selectedShipping === i ? "text-foreground" : "text-muted-foreground"}`}>
-                              {opt.company} — {opt.name} ({opt.delivery_time} dias úteis)
-                            </span>
-                            <span className={`font-body text-[11px] font-semibold shrink-0 ${selectedShipping === i ? "text-whatsapp-green" : "text-foreground"}`}>
-                              {formatPrice(opt.price)}
-                            </span>
-                          </button>
-                        ))}
+                        <select
+                          value={selectedShipping ?? 0}
+                          onChange={(e) => handleSelectShipping(Number(e.target.value))}
+                          className="w-full px-2 py-2 mt-0.5 rounded-md border border-whatsapp-green bg-background text-foreground font-body text-[11px] appearance-none cursor-pointer focus:outline-none focus:ring-1 focus:ring-whatsapp-green"
+                        >
+                          {shippingOptions.map((opt, i) => (
+                            <option key={opt.id} value={i}>
+                              {opt.company} — {opt.name} ({opt.delivery_time} dias úteis) — {formatPrice(opt.price)}
+                            </option>
+                          ))}
+                        </select>
                       </div>
                     )}
 
