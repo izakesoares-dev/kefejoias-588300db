@@ -60,7 +60,7 @@ const Footer = () => {
 
   return (
     <>
-      <div className="px-6 py-1 md:px-12 lg:px-20">
+      <div className="px-6 py-0 md:px-12 lg:px-20">
         <div className="max-w-7xl mx-auto text-center">
           <p className="text-xs text-muted-foreground font-body font-semibold mb-1.5 uppercase tracking-wide">Explore mais</p>
           <CategoryShortcuts />
