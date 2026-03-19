@@ -587,7 +587,7 @@ const Checkout = () => {
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-5 gap-x-2 gap-y-1">
+                    <div className="grid grid-cols-5 gap-x-2 gap-y-0.5">
                       <div className="col-span-4">
                         <Label className="text-sm font-semibold text-foreground block">Cidade *</Label>
                         <Input placeholder="São Paulo" className={`h-9 text-sm ${formErrors.cidade ? "border-destructive" : ""}`} value={endereco.cidade} onChange={(e) => { setEndereco((prev) => ({ ...prev, cidade: e.target.value })); setFormErrors(p => ({ ...p, cidade: "" })); }} />
