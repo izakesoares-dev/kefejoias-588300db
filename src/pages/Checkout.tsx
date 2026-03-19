@@ -689,17 +689,6 @@ const Checkout = () => {
                         <p className="font-body text-sm text-muted-foreground">Total com Pix</p>
                         <p className="font-body font-bold text-whatsapp-green text-xl">{formatPrice(total * 0.95)}</p>
                       </div>
-                      <Button
-                        onClick={handlePayPix}
-                        disabled={processingPayment}
-                        className="w-full bg-whatsapp-green hover:bg-whatsapp-green/90 text-white font-body font-semibold gap-2"
-                      >
-                        {processingPayment ? (
-                          <><Loader2 size={16} className="animate-spin" /> Gerando Pix...</>
-                        ) : (
-                          <>📱 Pagar com Pix {formatPrice(total * 0.95)}</>
-                        )}
-                      </Button>
                     </div>
                   )}
 
@@ -818,18 +807,6 @@ const Checkout = () => {
                             ))}
                           </select>
                         </div>
-                        <Button
-                          onClick={handlePayCard}
-                          disabled={processingPayment}
-                          size="sm"
-                          className="w-full bg-gradient-gold text-primary-foreground font-body font-semibold gap-2 mt-1"
-                        >
-                          {processingPayment ? (
-                            <><Loader2 size={16} className="animate-spin" /> Processando...</>
-                          ) : (
-                            <><CreditCard size={16} /> Pagar {formatPrice(total)}</>
-                          )}
-                        </Button>
                       </div>
                     </div>
                   )}
@@ -842,10 +819,22 @@ const Checkout = () => {
 
                   <div className="flex gap-2 items-center">
                     <Button onClick={() => { setStep("info"); setPixData(null); setPaymentMethod("pix"); if (pollingRef.current) clearInterval(pollingRef.current); }} size="sm" className="bg-gradient-gold text-primary-foreground font-body font-semibold">Voltar</Button>
-                    <div className="flex items-center gap-1.5 text-sm text-whatsapp-green font-body font-medium ml-auto">
-                      <Lock size={14} />
-                      Pagamento 100% seguro
-                    </div>
+                    {!pixData && (
+                      <Button
+                        onClick={paymentMethod === "pix" ? handlePayPix : handlePayCard}
+                        disabled={processingPayment}
+                        size="sm"
+                        className={`flex-1 font-body font-semibold gap-2 ${paymentMethod === "pix" ? "bg-whatsapp-green hover:bg-whatsapp-green/90 text-white" : "bg-gradient-gold text-primary-foreground"}`}
+                      >
+                        {processingPayment ? (
+                          <><Loader2 size={16} className="animate-spin" /> Processando...</>
+                        ) : paymentMethod === "pix" ? (
+                          <>📱 Pagar com Pix {formatPrice(total * 0.95)}</>
+                        ) : (
+                          <><CreditCard size={16} /> Pagar {formatPrice(total)}</>
+                        )}
+                      </Button>
+                    )}
                   </div>
                 </motion.div>
               )}
