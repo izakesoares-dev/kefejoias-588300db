@@ -23,7 +23,7 @@ const CartDrawer = () => {
 
         {items.length === 0 ? (
           <div className="flex-1 flex flex-col items-center justify-center gap-4">
-            <ShoppingBag size={48} className="text-muted-foreground/30" />
+            <ShoppingCart size={48} className="text-muted-foreground/30" />
             <p className="text-muted-foreground font-body text-sm">Nenhum item no carrinho</p>
             <Button variant="outline" onClick={() => setIsCartOpen(false)} asChild>
               <Link to="/produtos">Explorar produtos</Link>

@@ -165,7 +165,7 @@ const Navbar = () => {
             onClick={() => setIsCartOpen(true)}
             className="relative text-whatsapp-green"
           >
-            <ShoppingBag size={22} />
+            <ShoppingCart size={22} className="text-green-price" />
             {totalItems > 0 && (
               <span className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-secondary text-secondary-foreground text-[10px] font-body font-bold flex items-center justify-center">
                 {totalItems}
