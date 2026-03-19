@@ -38,42 +38,10 @@ const Checkout = () => {
       cepRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
     }, 300);
   }, []);
-  const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>("pix");
-  const [cep, setCep] = useState("");
-  const [frete, setFrete] = useState<number | null>(null);
-  const [prazo, setPrazo] = useState<string>("");
-  const [loadingCep, setLoadingCep] = useState(false);
-  const [cepError, setCepError] = useState("");
-  const [shippingOptions, setShippingOptions] = useState<ShippingOption[]>([]);
-  const [selectedShipping, setSelectedShipping] = useState<number | null>(null);
-  const [endereco, setEndereco] = useState({
-    rua: "",
-    bairro: "",
-    cidade: "",
-    estado: "",
-  });
-  const [manualAddress, setManualAddress] = useState(false);
-  const [dadosPessoais, setDadosPessoais] = useState({
-    nome: "",
-    email: "",
-    cpf: "",
-    telefone: "",
-    numero: "",
-    complemento: "",
-  });
   const [formErrors, setFormErrors] = useState<Record<string, string>>({});
   const [processingPayment, setProcessingPayment] = useState(false);
   const [paymentError, setPaymentError] = useState("");
-  const [pixData, setPixData] = useState<{ qr_code: string; qr_code_image?: string } | null>(null);
   const [orderId, setOrderId] = useState("");
-  const [copiedPix, setCopiedPix] = useState(false);
-  const [cardData, setCardData] = useState({
-    number: "",
-    expiry: "",
-    cvv: "",
-    holder: "",
-  });
-  const [selectedInstallments, setSelectedInstallments] = useState(1);
 
   const validateInfoStep = (): boolean => {
     const errors: Record<string, string> = {};
