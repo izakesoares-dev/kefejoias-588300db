@@ -2,7 +2,6 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Instagram, Mail, MapPin, Facebook, Music2 } from "lucide-react";
 import { Link } from "react-router-dom";
-import CategoryShortcuts from "@/components/CategoryShortcuts";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
