@@ -71,6 +71,7 @@ const Checkout = () => {
   const pollingRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const [cardData, setCardData] = useState({ holder: "", number: "", expMonth: "", expYear: "", cvv: "" });
   const [cardInstallments, setCardInstallments] = useState(1);
+  const [paymentMethod, setPaymentMethod] = useState<"pix" | "credit_card">("pix");
 
   const validateInfoStep = (): boolean => {
     const errors: Record<string, string> = {};
@@ -655,24 +656,58 @@ const Checkout = () => {
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-3">
                   <h2 className="font-display text-xl text-foreground text-center">Escolha a forma de pagamento</h2>
 
-                  {/* PIX Option */}
+                  {/* Payment Method Selector */}
                   {!pixData && (
-                    <div className="p-3 rounded-lg bg-card border border-border/50 space-y-2">
+                    <div className="grid grid-cols-2 gap-2">
                       <button
+                        onClick={() => setPaymentMethod("pix")}
+                        className={`flex items-center gap-2 p-3 rounded-lg border-2 transition-all ${
+                          paymentMethod === "pix"
+                            ? "border-whatsapp-green bg-whatsapp-green/10"
+                            : "border-border/50 bg-card hover:border-whatsapp-green/30"
+                        }`}
+                      >
+                        <div className="w-8 h-8 rounded-full bg-whatsapp-green/20 flex items-center justify-center text-lg">📱</div>
+                        <div className="text-left">
+                          <p className="font-body font-bold text-foreground text-sm">Pix</p>
+                          <p className="text-[10px] text-whatsapp-green font-medium">5% desconto</p>
+                        </div>
+                      </button>
+                      <button
+                        onClick={() => setPaymentMethod("credit_card")}
+                        className={`flex items-center gap-2 p-3 rounded-lg border-2 transition-all ${
+                          paymentMethod === "credit_card"
+                            ? "border-whatsapp-green bg-whatsapp-green/10"
+                            : "border-border/50 bg-card hover:border-whatsapp-green/30"
+                        }`}
+                      >
+                        <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-lg">💳</div>
+                        <div className="text-left">
+                          <p className="font-body font-bold text-foreground text-sm">Cartão</p>
+                          <p className="text-[10px] text-muted-foreground">Até 12x</p>
+                        </div>
+                      </button>
+                    </div>
+                  )}
+
+                  {/* PIX Content */}
+                  {paymentMethod === "pix" && !pixData && (
+                    <div className="p-3 rounded-lg bg-card border border-border/50 space-y-2">
+                      <div className="flex items-center justify-between">
+                        <p className="font-body text-sm text-muted-foreground">Total com Pix</p>
+                        <p className="font-body font-bold text-whatsapp-green text-xl">{formatPrice(total * 0.95)}</p>
+                      </div>
+                      <Button
                         onClick={handlePayPix}
                         disabled={processingPayment}
-                        className="w-full flex items-center gap-3 p-3 rounded-lg border-2 border-whatsapp-green/50 hover:border-whatsapp-green bg-whatsapp-green/5 transition-all"
+                        className="w-full bg-whatsapp-green hover:bg-whatsapp-green/90 text-white font-body font-semibold gap-2"
                       >
-                        <div className="w-10 h-10 rounded-full bg-whatsapp-green/20 flex items-center justify-center text-xl">📱</div>
-                        <div className="text-left flex-1">
-                          <p className="font-body font-bold text-foreground text-sm">Pix</p>
-                          <p className="text-xs text-muted-foreground">Aprovação instantânea • 5% de desconto</p>
-                        </div>
-                        <div className="text-right">
-                          <p className="font-body font-bold text-whatsapp-green text-sm">{formatPrice(total * 0.95)}</p>
-                        </div>
-                        {processingPayment && <Loader2 size={16} className="animate-spin text-whatsapp-green" />}
-                      </button>
+                        {processingPayment ? (
+                          <><Loader2 size={16} className="animate-spin" /> Gerando Pix...</>
+                        ) : (
+                          <>📱 Pagar com Pix {formatPrice(total * 0.95)}</>
+                        )}
+                      </Button>
                     </div>
                   )}
 
@@ -710,18 +745,14 @@ const Checkout = () => {
                     </div>
                   )}
 
-                  {/* Credit Card Option */}
-                  {!pixData && (
+                  {/* Credit Card Content */}
+                  {paymentMethod === "credit_card" && !pixData && (
                     <div className="p-3 rounded-lg bg-card border border-border/50 space-y-2">
-                      <div className="flex items-center gap-3 p-2">
-                        <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-xl">💳</div>
-                        <div className="flex-1">
-                          <p className="font-body font-bold text-foreground text-sm">Cartão de Crédito</p>
-                          <p className="text-xs text-muted-foreground">Parcele em até 12x</p>
-                        </div>
+                      <div className="flex items-center justify-between mb-1">
+                        <p className="font-body text-sm text-muted-foreground">Total</p>
                         <p className="font-body font-bold text-foreground text-sm">{formatPrice(total)}</p>
                       </div>
-                      <div className="space-y-1.5 px-2">
+                      <div className="space-y-1.5">
                         <div>
                           <Label className="text-[10px] text-muted-foreground">Nome no cartão</Label>
                           <Input
@@ -815,7 +846,7 @@ const Checkout = () => {
                   )}
 
                   <div className="flex gap-2 items-center">
-                    <Button onClick={() => { setStep("info"); setPixData(null); if (pollingRef.current) clearInterval(pollingRef.current); }} size="sm" className="bg-gradient-gold text-primary-foreground font-body font-semibold">Voltar</Button>
+                    <Button onClick={() => { setStep("info"); setPixData(null); setPaymentMethod("pix"); if (pollingRef.current) clearInterval(pollingRef.current); }} size="sm" className="bg-gradient-gold text-primary-foreground font-body font-semibold">Voltar</Button>
                     <div className="flex items-center gap-1.5 text-sm text-whatsapp-green font-body font-medium ml-auto">
                       <Lock size={14} />
                       Pagamento 100% seguro
