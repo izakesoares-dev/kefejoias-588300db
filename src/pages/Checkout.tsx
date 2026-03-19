@@ -689,17 +689,6 @@ const Checkout = () => {
                         <p className="font-body text-sm text-muted-foreground">Total com Pix</p>
                         <p className="font-body font-bold text-whatsapp-green text-xl">{formatPrice(total * 0.95)}</p>
                       </div>
-                      <Button
-                        onClick={handlePayPix}
-                        disabled={processingPayment}
-                        className="w-full bg-whatsapp-green hover:bg-whatsapp-green/90 text-white font-body font-semibold gap-2"
-                      >
-                        {processingPayment ? (
-                          <><Loader2 size={16} className="animate-spin" /> Gerando Pix...</>
-                        ) : (
-                          <>📱 Pagar com Pix {formatPrice(total * 0.95)}</>
-                        )}
-                      </Button>
                     </div>
                   )}
 
