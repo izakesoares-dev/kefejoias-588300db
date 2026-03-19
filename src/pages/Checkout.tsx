@@ -210,13 +210,11 @@ const Checkout = () => {
   });
 
   const startPixPolling = (pagbankOrderId: string) => {
-    setPollingStatus(true);
     let attempts = 0;
     pollingRef.current = setInterval(async () => {
       attempts++;
-      if (attempts > 120) { // 10 min max
+      if (attempts > 120) {
         if (pollingRef.current) clearInterval(pollingRef.current);
-        setPollingStatus(false);
         return;
       }
       try {
