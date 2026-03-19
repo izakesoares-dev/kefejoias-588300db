@@ -1,4 +1,5 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -20,8 +21,12 @@ serve(async (req) => {
       throw new Error('PAGBANK_TOKEN não configurado');
     }
 
+    const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
+    const supabaseServiceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
+    const supabase = createClient(supabaseUrl, supabaseServiceKey);
+
     const body = await req.json();
-    const { payment_method, customer, items, shipping } = body;
+    const { payment_method, customer, items, shipping, shipping_option } = body;
 
     if (!customer || !items) {
       return new Response(JSON.stringify({ error: 'Dados obrigatórios não fornecidos' }), {
@@ -85,7 +90,6 @@ serve(async (req) => {
         expiration_date: new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString(),
       }];
     } else {
-      // For card: use checkout redirect (PagBank Checkout)
       orderPayload.charges = [{
         reference_id: referenceId,
         description: `Pedido Kefe Joias ${referenceId}`,
@@ -121,6 +125,42 @@ serve(async (req) => {
       });
     }
 
+    // Save order to database
+    const orderRecord = {
+      reference_id: referenceId,
+      pagbank_order_id: responseData.id,
+      status: responseData.charges?.[0]?.status || responseData.status || 'CREATED',
+      payment_method: payment_method,
+      customer_name: customer.name,
+      customer_email: customer.email,
+      customer_cpf: cpf,
+      customer_phone: phone,
+      shipping_street: shipping?.street || '',
+      shipping_number: shipping?.number || 'S/N',
+      shipping_complement: shipping?.complement || '',
+      shipping_neighborhood: shipping?.neighborhood || '',
+      shipping_city: shipping?.city || '',
+      shipping_state: shipping?.state || '',
+      shipping_postal_code: postalCode,
+      shipping_service_id: shipping_option?.id || null,
+      shipping_service_name: shipping_option?.name || null,
+      shipping_company: shipping_option?.company || null,
+      shipping_price: shipping_option?.price || 0,
+      shipping_delivery_time: shipping_option?.delivery_time || null,
+      items: items,
+      items_total: itemsTotal,
+      shipping_amount: shippingAmount,
+      total_amount: totalAmount,
+    };
+
+    const { error: insertError } = await supabase.from('orders').insert(orderRecord);
+    if (insertError) {
+      console.error('Error saving order to DB:', insertError);
+      // Don't fail the checkout if DB insert fails — the PagBank order was already created
+    } else {
+      console.log(`Order ${referenceId} saved to database`);
+    }
+
     // Build result
     const result: any = {
       order_id: responseData.id,
@@ -128,7 +168,6 @@ serve(async (req) => {
       status: responseData.charges?.[0]?.status || responseData.status || 'CREATED',
     };
 
-    // Extract PIX data if present
     if (responseData.qr_codes && responseData.qr_codes.length > 0) {
       const qr = responseData.qr_codes[0];
       result.pix = {
@@ -137,7 +176,6 @@ serve(async (req) => {
       };
     }
 
-    // Extract checkout link for card payments (if PagBank returns one)
     if (responseData.links) {
       const payLink = responseData.links.find((l: any) => l.rel === 'PAY');
       if (payLink) {
