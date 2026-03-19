@@ -162,7 +162,7 @@ const RingProductCard = ({ product, index = 0, globalSize }: RingProductCardProp
         {/* Preço + Pagamento */}
         <div className="flex items-center justify-between mt-0.5">
           <span className="whitespace-nowrap">
-            <span className="text-xl font-display font-extrabold text-green-price drop-shadow-sm">{formatPrice(product.price)}</span>
+            <span className="text-xl font-body font-extrabold text-green-price drop-shadow-sm">{formatPrice(product.price)}</span>
             <span className="text-[10px] text-muted-foreground ml-1">ou 3x {formatPrice(product.price / 3)}</span>
           </span>
           <div className="flex items-center gap-1.5 text-foreground text-xs font-bold whitespace-nowrap shrink-0">
