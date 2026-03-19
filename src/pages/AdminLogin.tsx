@@ -50,7 +50,7 @@ const AdminLogin = () => {
 
   return (
     <div className="min-h-screen bg-background flex items-center justify-center p-4">
-      <SEOHead title="Admin Login" noindex />
+      <SEOHead title="Admin Login" description="Login administrativo Kefe Joias" noindex />
       <div className="w-full max-w-sm space-y-6">
         <div className="text-center space-y-2">
           <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center mx-auto">

@@ -327,7 +327,7 @@ const Admin = () => {
                           size="sm"
                           className="h-7 text-xs"
                           onClick={() => handleResendLabel(order.id)}
-                          disabled={resendingLabel === order.id || !order.shipping_service_id}
+                          disabled={resendingLabel === order.id || !order.shipping_service_name}
                         >
                           {resendingLabel === order.id ? (
                             <Loader2 size={12} className="animate-spin" />
