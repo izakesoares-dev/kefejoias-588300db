@@ -521,13 +521,13 @@ const Checkout = () => {
 
               {step === "info" && (
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-1.5">
-                  <div className="p-3 rounded-lg bg-card border border-border/50 space-y-2">
+                  <div className="p-3 rounded-lg bg-card border border-border/50 space-y-1.5">
                     {/* Dados pessoais */}
                     <div className="py-2 px-3 rounded-md bg-muted/60 text-center">
                       <h2 className="font-display text-base font-bold text-foreground">Dados pessoais</h2>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-2 gap-y-1">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-2 gap-y-0.5">
                       <div>
                         <Label className="text-sm font-semibold text-foreground block">Nome completo *</Label>
                         <Input placeholder="Seu nome" className={`h-9 text-sm ${formErrors.nome ? "border-destructive" : ""}`} value={dadosPessoais.nome} onChange={(e) => { setDadosPessoais(p => ({ ...p, nome: e.target.value })); setFormErrors(p => ({ ...p, nome: "" })); }} maxLength={100} />
@@ -554,7 +554,7 @@ const Checkout = () => {
                       <h2 className="font-display text-base font-bold text-foreground">Endereço de entrega</h2>
                     </div>
 
-                    <div className="grid grid-cols-5 gap-x-2 gap-y-1">
+                    <div className="grid grid-cols-5 gap-x-2 gap-y-0.5">
                       <div className="col-span-2">
                         <Label className="text-sm font-semibold text-foreground block">CEP *</Label>
                         <div className="flex gap-1 items-center">
@@ -570,7 +570,7 @@ const Checkout = () => {
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-6 gap-x-2 gap-y-1">
+                    <div className="grid grid-cols-6 gap-x-2 gap-y-0.5">
                       <div className="col-span-2">
                         <Label className="text-sm font-semibold text-foreground block">Número *</Label>
                         <Input placeholder="123" className={`h-9 text-sm ${formErrors.numero ? "border-destructive" : ""}`} value={dadosPessoais.numero} onChange={(e) => { setDadosPessoais(p => ({ ...p, numero: e.target.value })); setFormErrors(p => ({ ...p, numero: "" })); }} maxLength={10} />
@@ -587,7 +587,7 @@ const Checkout = () => {
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-5 gap-x-2 gap-y-1">
+                    <div className="grid grid-cols-5 gap-x-2 gap-y-0.5">
                       <div className="col-span-4">
                         <Label className="text-sm font-semibold text-foreground block">Cidade *</Label>
                         <Input placeholder="São Paulo" className={`h-9 text-sm ${formErrors.cidade ? "border-destructive" : ""}`} value={endereco.cidade} onChange={(e) => { setEndereco((prev) => ({ ...prev, cidade: e.target.value })); setFormErrors(p => ({ ...p, cidade: "" })); }} />
@@ -739,7 +739,7 @@ const Checkout = () => {
 
                   {/* Credit Card Content */}
                   {paymentMethod === "credit_card" && !pixData && (
-                    <div className="p-3 rounded-lg bg-card border border-border/50 space-y-2">
+                    <div className="p-3 rounded-lg bg-card border border-border/50 space-y-1.5">
                       <div className="py-2 px-3 rounded-md bg-muted/60 text-center">
                         <h2 className="font-display text-base font-bold text-foreground">Dados do cartão</h2>
                       </div>
@@ -747,7 +747,7 @@ const Checkout = () => {
                         <p className="font-body text-sm text-muted-foreground">Total</p>
                         <p className="font-body font-bold text-foreground text-sm">{formatPrice(total)}</p>
                       </div>
-                      <div className="space-y-1">
+                      <div className="space-y-0.5">
                         <div>
                           <Label className="text-sm font-semibold text-foreground block">Nome no cartão *</Label>
                           <Input
