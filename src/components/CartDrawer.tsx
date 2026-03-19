@@ -10,7 +10,7 @@ const CartDrawer = () => {
 
   return (
     <Sheet open={isCartOpen} onOpenChange={setIsCartOpen}>
-      <SheetContent className="bg-background border-border flex flex-col">
+      <SheetContent className="bg-background border-border flex flex-col w-full sm:max-w-lg">
         <SheetHeader>
           <SheetTitle className="font-display text-foreground flex items-center gap-2">
             <ShoppingCart size={20} className="text-green-price" />
