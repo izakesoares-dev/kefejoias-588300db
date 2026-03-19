@@ -13,7 +13,6 @@ import SEOHead from "@/components/SEOHead";
 import { fetchAddress, calcularFreteMelhorEnvio, calcularFrete, estimarPrazo, type ShippingOption } from "@/utils/shipping";
 import { supabase } from "@/integrations/supabase/client";
 
-type PaymentMethod = "pix" | "card";
 type CheckoutStep = "cart" | "info" | "payment" | "done";
 
 const maskCpf = (v: string) => {
