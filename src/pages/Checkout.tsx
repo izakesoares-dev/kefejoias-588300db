@@ -206,6 +206,13 @@ const Checkout = () => {
           postal_code: cep,
           amount: frete ? Math.round(frete * 100) : 0,
         },
+        shipping_option: selectedShipping !== null && shippingOptions[selectedShipping] ? {
+          id: shippingOptions[selectedShipping].id,
+          name: shippingOptions[selectedShipping].name,
+          company: shippingOptions[selectedShipping].company,
+          price: shippingOptions[selectedShipping].price,
+          delivery_time: shippingOptions[selectedShipping].delivery_time,
+        } : null,
       };
 
       if (paymentMethod === 'card') {
