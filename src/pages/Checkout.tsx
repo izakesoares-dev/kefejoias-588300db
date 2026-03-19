@@ -433,7 +433,7 @@ const Checkout = () => {
                       <div className="flex-1 min-w-0">
                         <h3 className="font-display text-xs text-foreground leading-none truncate">{item.product.name}</h3>
                         {item.size && <p className="text-[9px] text-muted-foreground mt-0.5">Tam. {item.size}</p>}
-                        <p className="text-[11px] text-primary font-display mt-0.5">{formatPrice(item.product.price)}</p>
+                        <p className="text-[11px] font-display font-extrabold text-green-price mt-0.5">{formatPrice(item.product.price)}</p>
                         <div className="flex items-center gap-1.5 mt-0.5">
                           <select
                             value={item.quantity}
