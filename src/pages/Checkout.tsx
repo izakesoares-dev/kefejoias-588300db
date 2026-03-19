@@ -523,11 +523,8 @@ const Checkout = () => {
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-1.5">
                   <div className="p-3 rounded-lg bg-card border border-border/50 space-y-2">
                     {/* Dados pessoais */}
-                    <div className="flex items-center gap-2 pb-1 border-b border-border/40">
-                      <div className="w-5 h-5 rounded-full bg-primary/15 flex items-center justify-center">
-                        <PenLine size={11} className="text-primary-foreground" />
-                      </div>
-                      <h2 className="font-display text-sm font-bold text-foreground">Dados pessoais</h2>
+                    <div className="py-2 px-3 rounded-md bg-muted/60 text-center">
+                      <h2 className="font-display text-base font-bold text-foreground">Dados pessoais</h2>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-2 gap-y-1">
