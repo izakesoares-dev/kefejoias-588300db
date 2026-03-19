@@ -72,7 +72,7 @@ const ProductDetail = () => {
       />
       <Navbar />
 
-      <section className="section-padding pt-24">
+      <section className="section-padding pt-28">
         <div className="max-w-7xl mx-auto">
           {/* Breadcrumb */}
           <Breadcrumbs items={[

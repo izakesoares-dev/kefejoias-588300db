@@ -13,7 +13,7 @@ const Flores = () => {
       <Navbar />
       
       {/* Hero */}
-      <section className="pt-24 pb-4 px-6">
+      <section className="pt-28 pb-4 px-6">
         <div className="max-w-7xl mx-auto text-center">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
