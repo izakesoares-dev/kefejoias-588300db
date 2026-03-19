@@ -92,6 +92,9 @@ serve(async (req) => {
 
     console.log('Creating PagBank checkout:', { reference: referenceId, totalAmount });
 
+    console.log('PagBank token (first 8 chars):', token.substring(0, 8));
+    console.log('PagBank URL:', `${PAGBANK_API}/checkouts`);
+
     const response = await fetch(`${PAGBANK_API}/checkouts`, {
       method: 'POST',
       headers: {
@@ -101,20 +104,30 @@ serve(async (req) => {
       body: JSON.stringify(checkoutPayload),
     });
 
-    const responseData = await response.json();
     console.log('PagBank response status:', response.status);
-    console.log('PagBank response:', JSON.stringify(responseData).substring(0, 800));
+    console.log('PagBank content-type:', response.headers.get('content-type'));
 
-    if (!response.ok) {
-      const errorMsg = responseData.error_messages
-        ? responseData.error_messages.map((e: any) => `${e.description || e.message}`).join('; ')
-        : responseData.message || 'Erro na API PagBank';
-      console.error('PagBank error:', JSON.stringify(responseData));
-      return new Response(JSON.stringify({ error: errorMsg, details: responseData }), {
-        status: response.status,
+    const responseText = await response.text();
+    console.log('PagBank response (first 500):', responseText.substring(0, 500));
+
+    if (!response.ok || !response.headers.get('content-type')?.includes('application/json')) {
+      let errorMsg = 'Erro na API PagBank';
+      try {
+        const errorData = JSON.parse(responseText);
+        errorMsg = errorData.error_messages
+          ? errorData.error_messages.map((e: any) => `${e.description || e.message}`).join('; ')
+          : errorData.message || errorMsg;
+      } catch {
+        errorMsg = `PagBank retornou status ${response.status}. Verifique se o token está correto.`;
+      }
+      console.error('PagBank error:', responseText.substring(0, 300));
+      return new Response(JSON.stringify({ error: errorMsg }), {
+        status: response.status || 500,
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       });
     }
+
+    const responseData = JSON.parse(responseText);
 
     // Save order to database
     const orderRecord = {
