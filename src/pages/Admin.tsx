@@ -147,7 +147,7 @@ const Admin = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <SEOHead title="Admin - Pedidos" noindex />
+      <SEOHead title="Admin - Pedidos" description="Painel administrativo Kefe Joias" noindex />
 
       {/* Header */}
       <header className="border-b border-border bg-card sticky top-0 z-50">
