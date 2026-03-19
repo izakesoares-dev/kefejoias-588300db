@@ -527,7 +527,7 @@ const Checkout = () => {
                       <h2 className="font-display text-base font-bold text-foreground">Dados pessoais</h2>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-2 gap-y-1">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-2 gap-y-0.5">
                       <div>
                         <Label className="text-sm font-semibold text-foreground block">Nome completo *</Label>
                         <Input placeholder="Seu nome" className={`h-9 text-sm ${formErrors.nome ? "border-destructive" : ""}`} value={dadosPessoais.nome} onChange={(e) => { setDadosPessoais(p => ({ ...p, nome: e.target.value })); setFormErrors(p => ({ ...p, nome: "" })); }} maxLength={100} />
