@@ -14,3 +14,9 @@ verify_jwt = false
 
 [functions.admin-orders]
 verify_jwt = false
+
+[functions.pagbank-order]
+verify_jwt = false
+
+[functions.pagbank-order-status]
+verify_jwt = false
