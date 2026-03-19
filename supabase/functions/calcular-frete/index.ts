@@ -70,6 +70,11 @@ serve(async (req) => {
       throw new Error(`Melhor Envio API error [${response.status}]: ${JSON.stringify(data)}`);
     }
 
+    // Log all services for debugging (including errors)
+    console.log('Melhor Envio raw response:', JSON.stringify(data.map((s: any) => ({
+      id: s.id, name: s.name, company: s.company?.name, price: s.price, error: s.error
+    }))));
+
     // Filter only services without errors and sort by price
     const opcoes = (Array.isArray(data) ? data : [])
       .filter((s: any) => !s.error && s.price)
