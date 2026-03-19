@@ -69,7 +69,6 @@ const Checkout = () => {
   const [pixData, setPixData] = useState<{ qr_code_text: string; qr_code_image: string } | null>(null);
   const [pixCopied, setPixCopied] = useState(false);
   const pollingRef = useRef<ReturnType<typeof setInterval> | null>(null);
-  const pollingRef = useRef<NodeJS.Timeout | null>(null);
   const [cardData, setCardData] = useState({ holder: "", number: "", expMonth: "", expYear: "", cvv: "" });
   const [cardInstallments, setCardInstallments] = useState(1);
 
