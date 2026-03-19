@@ -2,7 +2,7 @@ import { useCart } from "@/contexts/CartContext";
 import { formatPrice } from "@/data/products";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import { Minus, Plus, Trash2, ShoppingBag } from "lucide-react";
+import { Minus, Plus, Trash2, ShoppingCart } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const CartDrawer = () => {

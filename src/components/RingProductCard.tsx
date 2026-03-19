@@ -2,7 +2,7 @@ import { useState } from "react";
 import ringMeasurementImg from "@/assets/ring-measurement.jpg";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ShoppingBag, CreditCard, QrCode, Play, Ruler } from "lucide-react";
+import { ShoppingCart, CreditCard, QrCode, Play, Ruler } from "lucide-react";
 import ArtisanBadge from "@/components/ArtisanBadge";
 import { Product, formatPrice } from "@/data/products";
 import { useCart } from "@/contexts/CartContext";
