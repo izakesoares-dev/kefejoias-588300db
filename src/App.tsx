@@ -97,7 +97,7 @@ const App = () => (
             <Route path="/personalizar" element={<Contato />} />
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route path="/admin" element={<Admin />} />
-            <Route path="/admin/setup" element={<AdminSetup />} />
+            
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
