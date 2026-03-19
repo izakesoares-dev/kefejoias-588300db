@@ -895,8 +895,8 @@ const Checkout = () => {
                     <Lock size={14} className="text-whatsapp-green" />
                     Compra 100% segura
                   </div>
-                  <div className="border-t border-border pt-2 mt-1">
-                    <p className="text-[10px] text-muted-foreground text-center mb-1.5 font-body">Explore mais</p>
+                  <div className="border-t border-border pt-1 mt-0.5">
+                    <p className="text-[9px] text-muted-foreground text-center mb-1 font-body">Explore mais</p>
                     <CategoryShortcuts />
                   </div>
                 </div>
